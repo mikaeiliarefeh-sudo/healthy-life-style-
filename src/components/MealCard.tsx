@@ -5,9 +5,9 @@ interface Props {
 }
 
 const FIT_CONFIG = {
-  good:      { dot: 'bg-green-500',  badge: 'bg-green-100 text-green-700',  label: 'عالی' },
-  okay:      { dot: 'bg-yellow-400', badge: 'bg-yellow-100 text-yellow-700', label: 'قابل‌قبول' },
-  watch_out: { dot: 'bg-orange-400', badge: 'bg-orange-100 text-orange-700', label: 'توجه' },
+  good:      { label: 'عالی',       bg: 'bg-green-100',  text: 'text-green-700',  dot: 'bg-green-500' },
+  okay:      { label: 'قابل‌قبول', bg: 'bg-yellow-100', text: 'text-yellow-700', dot: 'bg-yellow-400' },
+  watch_out: { label: 'توجه کن',   bg: 'bg-orange-100', text: 'text-orange-700', dot: 'bg-orange-400' },
 }
 
 function formatTime(ts: number) {
@@ -19,31 +19,35 @@ export default function MealCard({ meal }: Props) {
   const fit = FIT_CONFIG[analysis.fit_with_goal]
 
   return (
-    <div className="py-4 border-b border-gray-100 last:border-0">
-      {/* Row 1: time + description + badge */}
-      <div className="flex items-start gap-2 mb-2">
-        <span className={`mt-1.5 w-2 h-2 rounded-full flex-shrink-0 ${fit.dot}`} />
-        <p dir="auto" className="flex-1 text-sm font-medium text-gray-800 leading-snug">
+    <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-4 mb-3">
+      {/* Header: description + time */}
+      <div className="flex items-start justify-between gap-2 mb-3">
+        <p dir="auto" className="text-gray-800 font-medium flex-1 leading-relaxed text-sm">
           {meal.description}
         </p>
-        <div className="flex flex-col items-end gap-1 flex-shrink-0">
-          <span className={`text-[10px] px-2 py-0.5 rounded-full font-medium ${fit.badge}`}>{fit.label}</span>
-          <span className="text-[10px] text-gray-400">{formatTime(meal.timestamp)}</span>
+        <span className="text-xs text-gray-400 whitespace-nowrap mt-0.5">{formatTime(meal.timestamp)}</span>
+      </div>
+
+      {/* Three metric boxes */}
+      <div className="flex gap-2 mb-3">
+        <div className="bg-green-50 rounded-xl px-3 py-2 text-center flex-1">
+          <div className="text-lg font-bold text-green-700">~{analysis.calories_estimate}</div>
+          <div className="text-[11px] text-gray-500">کالری (تقریبی)</div>
+        </div>
+        <div className="bg-blue-50 rounded-xl px-3 py-2 text-center flex-1">
+          <div className="text-lg font-bold text-blue-600">~{analysis.protein_estimate}g</div>
+          <div className="text-[11px] text-gray-500">پروتئین</div>
+        </div>
+        <div className={`${fit.bg} rounded-xl px-3 py-2 text-center flex-1`}>
+          <div className="flex items-center justify-center mb-0.5">
+            <span className={`w-2 h-2 rounded-full ${fit.dot}`} />
+          </div>
+          <div className={`text-[11px] font-semibold ${fit.text}`}>{fit.label}</div>
         </div>
       </div>
 
-      {/* Row 2: cal + protein chips */}
-      <div className="flex gap-2 mr-4 mb-2">
-        <span className="text-xs bg-gray-100 text-gray-600 px-2.5 py-1 rounded-full">
-          ~{analysis.calories_estimate} کال
-        </span>
-        <span className="text-xs bg-gray-100 text-gray-600 px-2.5 py-1 rounded-full">
-          ~{analysis.protein_estimate}g پروتئین
-        </span>
-      </div>
-
-      {/* Row 3: coaching */}
-      <div className="mr-4 bg-gray-50 rounded-xl px-3 py-2.5 text-xs text-gray-600 leading-relaxed" dir="rtl">
+      {/* Coaching */}
+      <div className="bg-gray-50 rounded-xl px-3 py-2.5 text-xs text-gray-600 leading-relaxed" dir="rtl">
         {analysis.coaching || analysis.suggestion}
       </div>
 
