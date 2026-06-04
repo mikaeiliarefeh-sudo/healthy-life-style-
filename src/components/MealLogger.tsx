@@ -12,6 +12,18 @@ interface Props {
   onChangeGoal: () => void
 }
 
+const GOAL_TARGETS: Record<Goal, { cal: number; protein: number }> = {
+  lose_weight: { cal: 1600, protein: 80 },
+  maintain: { cal: 2000, protein: 70 },
+  eat_healthier: { cal: 2000, protein: 75 },
+}
+
+const GOAL_LABEL: Record<Goal, string> = {
+  lose_weight: 'کاهش وزن',
+  maintain: 'حفظ وزن',
+  eat_healthier: 'غذای سالم‌تر',
+}
+
 const hasSpeechRecognition =
   typeof window !== 'undefined' &&
   ('SpeechRecognition' in window || 'webkitSpeechRecognition' in window)
@@ -34,6 +46,18 @@ function createRecognition(): RecognitionInstance | null {
   return new SR()
 }
 
+function ProgressBar({ value, max, color }: { value: number; max: number; color: string }) {
+  const pct = Math.min(100, Math.round((value / max) * 100))
+  return (
+    <div className="w-full bg-gray-100 rounded-full h-1.5">
+      <div
+        className={`h-1.5 rounded-full transition-all duration-500 ${color}`}
+        style={{ width: `${pct}%` }}
+      />
+    </div>
+  )
+}
+
 export default function MealLogger({ goal, meals, onMealAdded, onChangeGoal }: Props) {
   const [input, setInput] = useState('')
   const [loading, setLoading] = useState(false)
@@ -42,10 +66,16 @@ export default function MealLogger({ goal, meals, onMealAdded, onChangeGoal }: P
   const [error, setError] = useState<string | null>(null)
   const recognitionRef = useRef<RecognitionInstance | null>(null)
   const listEndRef = useRef<HTMLDivElement>(null)
+  const textareaRef = useRef<HTMLTextAreaElement>(null)
 
   useEffect(() => {
     listEndRef.current?.scrollIntoView({ behavior: 'smooth' })
   }, [meals])
+
+  const targets = GOAL_TARGETS[goal]
+  const totalCal = meals.reduce((s, m) => s + m.analysis.calories_estimate, 0)
+  const totalProtein = meals.reduce((s, m) => s + m.analysis.protein_estimate, 0)
+  const calRemaining = Math.max(0, targets.cal - totalCal)
 
   const startListening = () => {
     const recognition = createRecognition()
@@ -54,24 +84,16 @@ export default function MealLogger({ goal, meals, onMealAdded, onChangeGoal }: P
     recognition.lang = 'fa-IR'
     recognition.continuous = false
     recognition.interimResults = false
-
     recognition.onresult = (e: SpeechRecognitionEvent) => {
       const transcript = e.results[0][0].transcript
       setInput((prev) => (prev ? prev + ' ' + transcript : transcript))
     }
     recognition.onerror = () => {
-      // fallback to en-US
       recognition.lang = 'en-US'
       try { recognition.start() } catch { setListening(false) }
     }
     recognition.onend = () => setListening(false)
-
-    try {
-      recognition.start()
-      setListening(true)
-    } catch {
-      setListening(false)
-    }
+    try { recognition.start(); setListening(true) } catch { setListening(false) }
   }
 
   const stopListening = () => {
@@ -81,7 +103,7 @@ export default function MealLogger({ goal, meals, onMealAdded, onChangeGoal }: P
 
   const handleSubmit = async () => {
     const text = input.trim()
-    if (!text) return
+    if (!text || loading) return
     setLoading(true)
     setError(null)
     try {
@@ -95,6 +117,7 @@ export default function MealLogger({ goal, meals, onMealAdded, onChangeGoal }: P
       addMealToToday(meal)
       onMealAdded(meal)
       setInput('')
+      textareaRef.current?.focus()
     } catch {
       setError('مشکلی پیش آمد. دوباره امتحان کن.')
     } finally {
@@ -102,61 +125,97 @@ export default function MealLogger({ goal, meals, onMealAdded, onChangeGoal }: P
     }
   }
 
-  const GOAL_LABEL: Record<Goal, string> = {
-    lose_weight: 'کاهش وزن',
-    maintain: 'حفظ وزن',
-    eat_healthier: 'غذای سالم‌تر',
-  }
+  const today = new Date().toLocaleDateString('fa-IR', { weekday: 'long', month: 'long', day: 'numeric' })
 
   return (
-    <div className="min-h-screen bg-green-50 flex flex-col max-w-sm mx-auto relative">
+    <div className="min-h-screen bg-gray-50 flex flex-col max-w-sm mx-auto">
       {/* Header */}
-      <header className="bg-white border-b border-gray-100 px-4 py-3 flex items-center justify-between sticky top-0 z-10">
-        <h1 className="text-lg font-bold text-green-700">خوراک‌یار</h1>
-        <div className="flex items-center gap-2">
-          <button
-            onClick={() => setShowSummary(true)}
-            className="text-xs bg-green-100 text-green-700 px-3 py-1.5 rounded-full font-medium hover:bg-green-200 transition-colors"
-          >
-            خلاصه‌ی امروز
-          </button>
+      <header className="bg-white px-4 pt-4 pb-3 sticky top-0 z-10 border-b border-gray-100">
+        <div className="flex items-center justify-between mb-3">
+          <h1 className="text-base font-bold text-gray-900">خوراک‌یار</h1>
           <button
             onClick={onChangeGoal}
-            title="تغییر هدف"
-            className="text-xs text-gray-400 hover:text-gray-600 px-2 py-1.5 rounded-full transition-colors"
+            className="text-xs text-green-600 bg-green-50 px-3 py-1 rounded-full font-medium"
           >
             {GOAL_LABEL[goal]}
           </button>
         </div>
+
+        {/* Daily progress */}
+        <div className="flex gap-4">
+          {/* Calories */}
+          <div className="flex-1">
+            <div className="flex justify-between text-xs mb-1">
+              <span className="text-gray-500">کالری</span>
+              <span className="text-gray-700 font-medium">
+                {totalCal > 0 ? `~${totalCal}` : '—'}
+                <span className="text-gray-400 font-normal"> / {targets.cal}</span>
+              </span>
+            </div>
+            <ProgressBar value={totalCal} max={targets.cal} color="bg-green-500" />
+            {totalCal > 0 && (
+              <p className="text-[10px] text-gray-400 mt-0.5">{calRemaining} کالری باقی‌مانده</p>
+            )}
+          </div>
+          {/* Protein */}
+          <div className="flex-1">
+            <div className="flex justify-between text-xs mb-1">
+              <span className="text-gray-500">پروتئین</span>
+              <span className="text-gray-700 font-medium">
+                {totalProtein > 0 ? `~${totalProtein}g` : '—'}
+                <span className="text-gray-400 font-normal"> / {targets.protein}g</span>
+              </span>
+            </div>
+            <ProgressBar value={totalProtein} max={targets.protein} color="bg-blue-400" />
+          </div>
+        </div>
       </header>
 
-      {/* Meals list */}
-      <div className="flex-1 overflow-y-auto px-4 py-4">
+      {/* Day label + summary button */}
+      <div className="flex items-center justify-between px-4 py-2">
+        <span className="text-xs text-gray-400">{today}</span>
+        {meals.length > 0 && (
+          <button
+            onClick={() => setShowSummary(true)}
+            className="text-xs text-green-600 hover:text-green-700 font-medium"
+          >
+            خلاصه‌ی کامل ←
+          </button>
+        )}
+      </div>
+
+      {/* Meal list */}
+      <div className="flex-1 overflow-y-auto px-4">
         {meals.length === 0 ? (
           <div className="flex flex-col items-center justify-center h-48 text-center">
-            <span className="text-5xl mb-3">🍽️</span>
-            <p className="text-gray-400 text-sm">هنوز وعده‌ای ثبت نشده</p>
-            <p className="text-gray-300 text-xs mt-1">چی خوردی؟ بنویس یا بگو</p>
+            <span className="text-4xl mb-3">🍽️</span>
+            <p className="text-gray-400 text-sm">هنوز چیزی ثبت نشده</p>
+            <p className="text-gray-300 text-xs mt-1">هر چیزی خوردی بنویس یا بگو</p>
           </div>
         ) : (
-          meals.map((meal) => <MealCard key={meal.id} meal={meal} />)
+          <div className="bg-white rounded-2xl px-4 shadow-sm border border-gray-100">
+            {meals.map((meal) => (
+              <MealCard key={meal.id} meal={meal} />
+            ))}
+          </div>
         )}
-        <div ref={listEndRef} />
+        <div ref={listEndRef} className="h-4" />
       </div>
 
       {/* Input area */}
       <div className="bg-white border-t border-gray-100 px-4 py-3 sticky bottom-0">
         {error && (
-          <p className="text-orange-600 text-xs mb-2 text-center">{error}</p>
+          <p className="text-orange-500 text-xs mb-2 text-center">{error}</p>
         )}
         <div className="flex items-end gap-2">
           <textarea
+            ref={textareaRef}
             dir="auto"
             value={input}
             onChange={(e) => setInput(e.target.value)}
-            placeholder="چی خوردی؟ مثلاً: یه بشقاب برنج با مرغ و سالاد"
+            placeholder="چی خوردی؟  مثلاً: نیمرو با نان، یه لیوان شیر"
             rows={2}
-            className="flex-1 resize-none rounded-2xl border border-gray-200 px-4 py-3 text-sm text-gray-800 placeholder-gray-400 focus:outline-none focus:border-green-400 leading-relaxed"
+            className="flex-1 resize-none rounded-2xl border border-gray-200 px-4 py-3 text-sm text-gray-800 placeholder-gray-400 focus:outline-none focus:border-green-400 leading-relaxed bg-gray-50"
             onKeyDown={(e) => {
               if (e.key === 'Enter' && !e.shiftKey) {
                 e.preventDefault()
@@ -168,11 +227,8 @@ export default function MealLogger({ goal, meals, onMealAdded, onChangeGoal }: P
             <button
               onClick={listening ? stopListening : startListening}
               className={`flex-shrink-0 w-11 h-11 rounded-full flex items-center justify-center transition-all ${
-                listening
-                  ? 'bg-orange-400 text-white animate-pulse'
-                  : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
+                listening ? 'bg-orange-400 text-white animate-pulse' : 'bg-gray-100 text-gray-500 hover:bg-gray-200'
               }`}
-              title={listening ? 'توقف ضبط' : 'ضبط صدا'}
             >
               🎙️
             </button>
@@ -180,8 +236,7 @@ export default function MealLogger({ goal, meals, onMealAdded, onChangeGoal }: P
           <button
             onClick={handleSubmit}
             disabled={loading || !input.trim()}
-            className="flex-shrink-0 w-11 h-11 rounded-full bg-green-500 text-white flex items-center justify-center hover:bg-green-600 disabled:opacity-50 disabled:cursor-not-allowed transition-all active:scale-95"
-            title="ثبت وعده"
+            className="flex-shrink-0 w-11 h-11 rounded-full bg-green-500 text-white flex items-center justify-center hover:bg-green-600 disabled:opacity-40 transition-all active:scale-95"
           >
             {loading ? (
               <span className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin inline-block" />
@@ -192,11 +247,6 @@ export default function MealLogger({ goal, meals, onMealAdded, onChangeGoal }: P
             )}
           </button>
         </div>
-        {!hasSpeechRecognition && (
-          <p className="text-xs text-gray-300 mt-1 text-center">
-            مرورگر شما از ورود صوتی پشتیبانی نمی‌کند
-          </p>
-        )}
       </div>
 
       {showSummary && (
