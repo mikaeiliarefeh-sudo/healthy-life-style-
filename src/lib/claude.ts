@@ -58,8 +58,9 @@ export async function analyzeMeal(
   goal: Goal
 ): Promise<MealAnalysis> {
   const apiKey = import.meta.env.VITE_ANTHROPIC_API_KEY as string | undefined
+  const useMock = import.meta.env.VITE_USE_MOCK === 'true'
 
-  if (!apiKey) {
+  if (!apiKey || useMock) {
     // Simulate a short network delay for realism
     await new Promise((r) => setTimeout(r, 800))
     return mockAnalysis(goal)
@@ -96,7 +97,7 @@ Rules:
       'content-type': 'application/json',
     },
     body: JSON.stringify({
-      model: 'claude-sonnet-4-6',
+      model: 'claude-haiku-4-5-20251001',
       max_tokens: 256,
       messages: [{ role: 'user', content: prompt }],
     }),
