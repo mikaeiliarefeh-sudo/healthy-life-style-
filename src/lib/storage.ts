@@ -33,6 +33,22 @@ export function getTodayData(): DayData {
   return days.find((d) => d.date === today) || { date: today, meals: [] }
 }
 
+export function getStreak(): number {
+  const days = getAllDays()
+  if (days.length === 0) return 0
+  const today = getTodayDate()
+  let streak = 0
+  const d = new Date(today)
+  while (true) {
+    const dateStr = d.toISOString().slice(0, 10)
+    const found = days.find((x) => x.date === dateStr && x.meals.length > 0)
+    if (!found) break
+    streak++
+    d.setDate(d.getDate() - 1)
+  }
+  return streak
+}
+
 export function addMealToToday(meal: MealLog): void {
   const today = getTodayDate()
   const days = getAllDays()

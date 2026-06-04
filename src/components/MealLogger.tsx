@@ -1,7 +1,8 @@
 import { useState, useRef, useEffect } from 'react'
 import type { Goal, MealLog } from '../lib/types'
 import { analyzeMeal } from '../lib/claude'
-import { addMealToToday } from '../lib/storage'
+import { addMealToToday, getStreak } from '../lib/storage'
+import { calcDayScore, scoreLabel, mealToast } from '../lib/score'
 import MealCard from './MealCard'
 import DailySummary from './DailySummary'
 
@@ -64,6 +65,8 @@ export default function MealLogger({ goal, meals, onMealAdded, onChangeGoal }: P
   const [listening, setListening] = useState(false)
   const [showSummary, setShowSummary] = useState(false)
   const [error, setError] = useState<string | null>(null)
+  const [toast, setToast] = useState<string | null>(null)
+  const streak = getStreak()
   const recognitionRef = useRef<RecognitionInstance | null>(null)
   const listEndRef = useRef<HTMLDivElement>(null)
   const textareaRef = useRef<HTMLTextAreaElement>(null)
@@ -76,6 +79,8 @@ export default function MealLogger({ goal, meals, onMealAdded, onChangeGoal }: P
   const totalCal = meals.reduce((s, m) => s + m.analysis.calories_estimate, 0)
   const totalProtein = meals.reduce((s, m) => s + m.analysis.protein_estimate, 0)
   const calRemaining = Math.max(0, targets.cal - totalCal)
+  const dayScore = calcDayScore(meals)
+  const sl = scoreLabel(dayScore)
 
   const startListening = () => {
     const recognition = createRecognition()
@@ -118,6 +123,9 @@ export default function MealLogger({ goal, meals, onMealAdded, onChangeGoal }: P
       onMealAdded(meal)
       setInput('')
       textareaRef.current?.focus()
+      const msg = mealToast(analysis.fit_with_goal)
+      setToast(msg)
+      setTimeout(() => setToast(null), 2200)
     } catch {
       setError('مشکلی پیش آمد. دوباره امتحان کن.')
     } finally {
@@ -132,13 +140,29 @@ export default function MealLogger({ goal, meals, onMealAdded, onChangeGoal }: P
       {/* Header */}
       <header className="bg-white px-4 pt-4 pb-3 sticky top-0 z-10 border-b border-gray-100">
         <div className="flex items-center justify-between mb-3">
-          <h1 className="text-base font-bold text-gray-900">خوراک‌یار</h1>
-          <button
-            onClick={onChangeGoal}
-            className="text-xs text-green-600 bg-green-50 px-3 py-1 rounded-full font-medium"
-          >
-            {GOAL_LABEL[goal]}
-          </button>
+          <div className="flex items-center gap-2">
+            <h1 className="text-base font-bold text-gray-900">خوراک‌یار</h1>
+            {streak > 1 && (
+              <span className="text-xs bg-orange-50 text-orange-500 px-2 py-0.5 rounded-full font-medium">
+                🔥 {streak} روز
+              </span>
+            )}
+          </div>
+          <div className="flex items-center gap-2">
+            {meals.length > 0 && (
+              <div className="flex items-center gap-1.5">
+                <div className={`w-2 h-2 rounded-full ${sl.ring}`} />
+                <span className={`text-xs font-bold ${sl.color}`}>{dayScore}</span>
+                <span className={`text-xs ${sl.color}`}>{sl.text}</span>
+              </div>
+            )}
+            <button
+              onClick={onChangeGoal}
+              className="text-xs text-green-600 bg-green-50 px-3 py-1 rounded-full font-medium"
+            >
+              {GOAL_LABEL[goal]}
+            </button>
+          </div>
         </div>
 
         {/* Daily progress */}
@@ -248,6 +272,12 @@ export default function MealLogger({ goal, meals, onMealAdded, onChangeGoal }: P
           </button>
         </div>
       </div>
+
+      {toast && (
+        <div className="fixed top-20 left-1/2 -translate-x-1/2 z-50 bg-gray-900 text-white text-sm px-5 py-2.5 rounded-full shadow-lg animate-bounce-in whitespace-nowrap">
+          {toast}
+        </div>
+      )}
 
       {showSummary && (
         <DailySummary meals={meals} goal={goal} onClose={() => setShowSummary(false)} />
