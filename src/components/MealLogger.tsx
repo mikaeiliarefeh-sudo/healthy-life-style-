@@ -275,17 +275,21 @@ export default function MealLogger({ goals, meals, profile, onMealAdded, onChang
       </div>
 
       {/* Input area */}
-      <div className="bg-white border-t border-gray-100 px-4 py-3 sticky bottom-0">
+      <div className="bg-white border-t border-gray-100 px-4 pt-2 pb-3 sticky bottom-0">
         {error && (
           <p className="text-orange-500 text-xs mb-2 text-center">{error}</p>
         )}
+        <p className="text-[11px] text-gray-400 mb-1.5 leading-relaxed" dir="rtl">
+          💡 می‌تونی چند وعده رو یکجا بگی:{' '}
+          <span className="text-gray-500">صبحانه: نیمرو، ناهار: برنج با مرغ</span>
+        </p>
         <div className="flex items-end gap-2">
           <textarea
             ref={textareaRef}
             dir="auto"
             value={input}
             onChange={(e) => setInput(e.target.value)}
-            placeholder="چی خوردی؟ مثلاً: نیمرو با نان، یه لیوان شیر"
+            placeholder="چی خوردی؟ مثلاً: صبحانه: نان و پنیر، ناهار: برنج با مرغ"
             rows={2}
             className="flex-1 resize-none rounded-2xl border border-gray-200 px-4 py-3 text-sm text-gray-800 placeholder-gray-400 focus:outline-none focus:border-green-400 leading-relaxed bg-gray-50"
             onKeyDown={(e) => {
