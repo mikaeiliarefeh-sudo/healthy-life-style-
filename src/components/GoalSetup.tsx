@@ -38,7 +38,7 @@ export default function GoalSetup({ onGoalsSelected }: Props) {
   return (
     <div className="min-h-screen bg-green-50 flex flex-col items-center justify-center px-4 py-10">
       <div className="w-full max-w-sm">
-        <h1 className="text-3xl font-bold text-green-700 text-center mb-1">قلیز هلثی لایف</h1>
+        <h1 className="text-3xl font-bold text-green-700 text-center mb-1">جینگیلی</h1>
         <p className="text-gray-500 text-center mb-2 text-sm">
           هدف‌هات رو انتخاب کن (می‌تونی بیشتر از یکی انتخاب کنی)
         </p>

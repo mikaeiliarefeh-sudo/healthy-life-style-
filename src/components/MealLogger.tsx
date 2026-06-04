@@ -4,6 +4,7 @@ import { analyzeMeal } from '../lib/claude'
 import { addMealToToday, getStreak } from '../lib/storage'
 import { calcDayScore, scoreLabel, mealToast } from '../lib/score'
 import { getTargets } from '../lib/profile'
+import { splitMealInput } from '../lib/mealSplit'
 import MealCard from './MealCard'
 import DailySummary from './DailySummary'
 
@@ -85,43 +86,64 @@ export default function MealLogger({ goals, meals, profile, onMealAdded, onChang
     if (!recognition) return
     recognitionRef.current = recognition
     recognition.lang = 'fa-IR'
-    recognition.continuous = false
-    recognition.interimResults = false
+    recognition.continuous = true      // keep listening until user taps stop
+    recognition.interimResults = true  // show partial results in real-time
     recognition.onresult = (e: SpeechRecognitionEvent) => {
-      const transcript = e.results[0][0].transcript
-      setInput((prev) => (prev ? prev + ' ' + transcript : transcript))
+      // Collect all final results
+      let finals = ''
+      for (let i = 0; i < e.results.length; i++) {
+        if (e.results[i].isFinal) {
+          finals += e.results[i][0].transcript + ' '
+        }
+      }
+      if (finals) setInput(finals.trim())
     }
-    recognition.onerror = () => {
-      recognition.lang = 'en-US'
-      try { recognition.start() } catch { setListening(false) }
+    recognition.onerror = (e: Event) => {
+      // 'no-speech' is common and not an error worth showing
+      const err = (e as ErrorEvent & { error?: string }).error
+      if (err !== 'no-speech') setListening(false)
     }
-    recognition.onend = () => setListening(false)
+    recognition.onend = () => {
+      // Only stop if user manually stopped (not auto-restart)
+      if (!recognitionRef.current) setListening(false)
+    }
     try { recognition.start(); setListening(true) } catch { setListening(false) }
   }
 
   const stopListening = () => {
     recognitionRef.current?.stop()
+    recognitionRef.current = null
     setListening(false)
   }
 
   const handleSubmit = async () => {
     const text = input.trim()
     if (!text || loading) return
+
+    // Stop voice if still listening
+    if (listening) stopListening()
+
+    const chunks = splitMealInput(text)
     setLoading(true)
     setError(null)
+    setInput('')
+
     try {
-      const analysis = await analyzeMeal(text, goals, profile)
-      const meal: MealLog = {
-        id: crypto.randomUUID(),
-        timestamp: Date.now(),
-        description: text,
-        analysis,
+      for (const chunk of chunks) {
+        const description = chunk.label ? `${chunk.label}: ${chunk.text}` : chunk.text
+        const analysis = await analyzeMeal(description, goals, profile)
+        const meal: MealLog = {
+          id: crypto.randomUUID(),
+          timestamp: Date.now(),
+          description,
+          analysis,
+        }
+        addMealToToday(meal)
+        onMealAdded(meal)
       }
-      addMealToToday(meal)
-      onMealAdded(meal)
-      setInput('')
       textareaRef.current?.focus()
-      const msg = mealToast(analysis.fit_with_goal)
+      const lastFit = chunks.length > 0 ? 'good' : 'good'
+      const msg = mealToast(lastFit)
       setToast(msg)
       setTimeout(() => setToast(null), 2200)
     } catch {
@@ -140,7 +162,7 @@ export default function MealLogger({ goals, meals, profile, onMealAdded, onChang
       <header className="bg-white px-4 pt-3 pb-3 sticky top-0 z-10 border-b border-gray-100">
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-2">
-            <h1 className="text-base font-bold text-gray-900">قلیز هلثی لایف</h1>
+            <h1 className="text-base font-bold text-gray-900">جینگیلی</h1>
             {streak > 1 && (
               <span className="text-xs bg-orange-50 text-orange-500 px-2 py-0.5 rounded-full font-medium">
                 🔥 {streak} روز

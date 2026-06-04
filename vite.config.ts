@@ -10,8 +10,8 @@ export default defineConfig({
     VitePWA({
       registerType: 'autoUpdate',
       manifest: {
-        name: 'خوراک‌یار',
-        short_name: 'خوراک',
+        name: 'جینگیلی',
+        short_name: 'جینگیلی',
         description: 'ثبت وعده‌های غذایی روزانه',
         theme_color: '#22c55e',
         background_color: '#f0fdf4',
