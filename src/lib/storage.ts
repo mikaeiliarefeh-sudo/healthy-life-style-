@@ -1,7 +1,8 @@
-import type { Goals, MealLog, DayData } from './types'
+import type { Goals, MealLog, DayData, UserProfile } from './types'
 
 const GOAL_KEY = 'khorak_goal'
 const DAYS_KEY = 'khorak_days'
+const PROFILE_KEY = 'qaliz_profile'
 
 export function getGoals(): Goals | null {
   try {
@@ -54,6 +55,20 @@ export function getStreak(): number {
     d.setDate(d.getDate() - 1)
   }
   return streak
+}
+
+export function getProfile(): UserProfile | null {
+  try {
+    const raw = localStorage.getItem(PROFILE_KEY)
+    if (!raw) return null
+    return JSON.parse(raw)
+  } catch {
+    return null
+  }
+}
+
+export function setProfile(p: UserProfile): void {
+  localStorage.setItem(PROFILE_KEY, JSON.stringify(p))
 }
 
 export function addMealToToday(meal: MealLog): void {

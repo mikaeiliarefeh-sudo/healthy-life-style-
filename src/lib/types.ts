@@ -22,3 +22,20 @@ export interface DayData {
   date: string // YYYY-MM-DD
   meals: MealLog[]
 }
+
+export interface InBodyData {
+  body_fat_percent: number
+  muscle_mass_kg: number
+  bmr: number
+  visceral_fat_level: number
+  raw_text?: string
+}
+
+export interface UserProfile {
+  weight_kg: number
+  height_cm: number
+  age: number
+  gender: 'male' | 'female'
+  inbody?: InBodyData
+  tdee?: number
+}

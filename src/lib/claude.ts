@@ -1,4 +1,4 @@
-import type { Goals, MealAnalysis } from './types'
+import type { Goals, MealAnalysis, InBodyData, UserProfile } from './types'
 
 const MOCK_COACHING = [
   'این وعده کربوهیدرات بالایی داره. سعی کن یه منبع پروتئین مثل تخم‌مرغ، مرغ یا حبوبات بهش اضافه کنی تا دیرتر گرسنه بشی.',
@@ -35,7 +35,71 @@ function mockAnalysis(): MealAnalysis {
   }
 }
 
-export async function analyzeMeal(description: string, goals: Goals): Promise<MealAnalysis> {
+export async function extractInBody(imageBase64: string, mimeType: string): Promise<InBodyData> {
+  const apiKey = import.meta.env.VITE_ANTHROPIC_API_KEY as string | undefined
+  const useMock = import.meta.env.VITE_USE_MOCK === 'true'
+
+  if (!apiKey || useMock) {
+    await new Promise((r) => setTimeout(r, 1000))
+    return {
+      body_fat_percent: 24.5,
+      muscle_mass_kg: 31.2,
+      bmr: 1420,
+      visceral_fat_level: 7,
+    }
+  }
+
+  const prompt =
+    'This is an InBody body composition test result. Extract these values as JSON: {body_fat_percent, muscle_mass_kg, bmr, visceral_fat_level}. If a value is not found, use 0.'
+
+  const response = await fetch('https://api.anthropic.com/v1/messages', {
+    method: 'POST',
+    headers: {
+      'x-api-key': apiKey,
+      'anthropic-version': '2023-06-01',
+      'content-type': 'application/json',
+    },
+    body: JSON.stringify({
+      model: 'claude-haiku-4-5-20251001',
+      max_tokens: 300,
+      messages: [
+        {
+          role: 'user',
+          content: [
+            {
+              type: 'image',
+              source: { type: 'base64', media_type: mimeType, data: imageBase64 },
+            },
+            { type: 'text', text: prompt },
+          ],
+        },
+      ],
+    }),
+  })
+
+  if (!response.ok) {
+    throw new Error('API error ' + response.status)
+  }
+
+  const data = await response.json()
+  try {
+    const text: string = data.content[0].text
+    // strip possible markdown code fences
+    const clean = text.replace(/```[a-z]*\n?/g, '').trim()
+    const parsed = JSON.parse(clean)
+    return {
+      body_fat_percent: parsed.body_fat_percent ?? 0,
+      muscle_mass_kg: parsed.muscle_mass_kg ?? 0,
+      bmr: parsed.bmr ?? 0,
+      visceral_fat_level: parsed.visceral_fat_level ?? 0,
+      raw_text: text,
+    }
+  } catch {
+    throw new Error('Parse error')
+  }
+}
+
+export async function analyzeMeal(description: string, goals: Goals, profile?: UserProfile | null): Promise<MealAnalysis> {
   const apiKey = import.meta.env.VITE_ANTHROPIC_API_KEY as string | undefined
   const useMock = import.meta.env.VITE_USE_MOCK === 'true'
 
@@ -51,9 +115,19 @@ export async function analyzeMeal(description: string, goals: Goals): Promise<Me
   }
   const goalsText = goals.map((g) => goalLabels[g]).join(' و ')
 
+  let profileContext = ''
+  if (profile) {
+    const { getTargets } = await import('./profile')
+    const targets = getTargets(profile, goals)
+    profileContext = `\nاطلاعات کاربر: وزن ${profile.weight_kg}kg، قد ${profile.height_cm}cm، سن ${profile.age}، هدف کالری روزانه: ${targets.cal} کال`
+    if (profile.inbody) {
+      profileContext += `\nدرصد چربی ${profile.inbody.body_fat_percent}%، توده عضلانی ${profile.inbody.muscle_mass_kg}kg`
+    }
+  }
+
   const prompt = `تو یه مربی تغذیه‌ی غیرقضاوتی و صادق هستی که فارسی صحبت می‌کنی.
 کاربر این رو خورده: "${description}"
-هدف‌های کاربر: ${goalsText}
+هدف‌های کاربر: ${goalsText}${profileContext}
 
 یه JSON برگردون با این شکل دقیق (بدون markdown، فقط JSON):
 {

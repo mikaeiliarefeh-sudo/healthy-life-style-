@@ -1,22 +1,19 @@
 import { useState, useRef, useEffect } from 'react'
-import type { Goal, Goals, MealLog } from '../lib/types'
+import type { Goal, Goals, MealLog, UserProfile } from '../lib/types'
 import { analyzeMeal } from '../lib/claude'
 import { addMealToToday, getStreak } from '../lib/storage'
 import { calcDayScore, scoreLabel, mealToast } from '../lib/score'
+import { getTargets } from '../lib/profile'
 import MealCard from './MealCard'
 import DailySummary from './DailySummary'
 
 interface Props {
   goals: Goals
   meals: MealLog[]
+  profile: UserProfile | null
   onMealAdded: (meal: MealLog) => void
   onChangeGoal: () => void
-}
-
-const GOAL_TARGETS: Record<Goal, { cal: number; protein: number }> = {
-  lose_weight: { cal: 1600, protein: 80 },
-  maintain: { cal: 2000, protein: 70 },
-  eat_healthier: { cal: 2000, protein: 75 },
+  onOpenProfile: () => void
 }
 
 const GOAL_LABEL: Record<Goal, string> = {
@@ -59,7 +56,7 @@ function ProgressBar({ value, max, color }: { value: number; max: number; color:
   )
 }
 
-export default function MealLogger({ goals, meals, onMealAdded, onChangeGoal }: Props) {
+export default function MealLogger({ goals, meals, profile, onMealAdded, onChangeGoal, onOpenProfile }: Props) {
   const [input, setInput] = useState('')
   const [loading, setLoading] = useState(false)
   const [listening, setListening] = useState(false)
@@ -76,8 +73,7 @@ export default function MealLogger({ goals, meals, onMealAdded, onChangeGoal }: 
   }, [meals])
 
   // Use targets from the first (primary) goal
-  const primaryGoal = goals[0]
-  const targets = GOAL_TARGETS[primaryGoal]
+  const targets = getTargets(profile, goals)
   const totalCal = meals.reduce((s, m) => s + m.analysis.calories_estimate, 0)
   const totalProtein = meals.reduce((s, m) => s + m.analysis.protein_estimate, 0)
   const calRemaining = Math.max(0, targets.cal - totalCal)
@@ -114,7 +110,7 @@ export default function MealLogger({ goals, meals, onMealAdded, onChangeGoal }: 
     setLoading(true)
     setError(null)
     try {
-      const analysis = await analyzeMeal(text, goals)
+      const analysis = await analyzeMeal(text, goals, profile)
       const meal: MealLog = {
         id: crypto.randomUUID(),
         timestamp: Date.now(),
@@ -151,12 +147,28 @@ export default function MealLogger({ goals, meals, onMealAdded, onChangeGoal }: 
               </span>
             )}
           </div>
-          <button
-            onClick={onChangeGoal}
-            className="text-xs text-green-600 bg-green-50 px-3 py-1 rounded-full font-medium"
-          >
-            {goalsLabel}
-          </button>
+          <div className="flex items-center gap-2">
+            {profile && (
+              <span className="text-xs bg-blue-50 text-blue-600 px-2 py-0.5 rounded-full font-medium">
+                {profile.weight_kg}kg
+              </span>
+            )}
+            <button
+              onClick={onOpenProfile}
+              className="text-gray-400 hover:text-green-600 transition-colors"
+              title="پروفایل"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5">
+                <path fillRule="evenodd" d="M7.5 6a4.5 4.5 0 119 0 4.5 4.5 0 01-9 0zM3.751 20.105a8.25 8.25 0 0116.498 0 .75.75 0 01-.437.695A18.683 18.683 0 0112 22.5c-2.786 0-5.433-.608-7.812-1.7a.75.75 0 01-.437-.695z" clipRule="evenodd" />
+              </svg>
+            </button>
+            <button
+              onClick={onChangeGoal}
+              className="text-xs text-green-600 bg-green-50 px-3 py-1 rounded-full font-medium"
+            >
+              {goalsLabel}
+            </button>
+          </div>
         </div>
       </header>
 
