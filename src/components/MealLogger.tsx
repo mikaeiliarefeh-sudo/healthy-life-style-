@@ -141,8 +141,8 @@ export default function MealLogger({ goals, meals, onMealAdded, onChangeGoal }: 
   return (
     <div className="min-h-screen bg-gray-50 flex flex-col max-w-sm mx-auto">
       {/* Header */}
-      <header className="bg-white px-4 pt-4 pb-3 sticky top-0 z-10 border-b border-gray-100">
-        <div className="flex items-center justify-between mb-3">
+      <header className="bg-white px-4 pt-3 pb-3 sticky top-0 z-10 border-b border-gray-100">
+        <div className="flex items-center justify-between">
           <div className="flex items-center gap-2">
             <h1 className="text-base font-bold text-gray-900">قلیز هلثی لایف</h1>
             {streak > 1 && (
@@ -151,7 +151,22 @@ export default function MealLogger({ goals, meals, onMealAdded, onChangeGoal }: 
               </span>
             )}
           </div>
-          <div className="flex items-center gap-2">
+          <button
+            onClick={onChangeGoal}
+            className="text-xs text-green-600 bg-green-50 px-3 py-1 rounded-full font-medium"
+          >
+            {goalsLabel}
+          </button>
+        </div>
+      </header>
+
+      {/* Scrollable body */}
+      <div className="flex-1 overflow-y-auto">
+
+        {/* Summary card — top, always visible */}
+        <div className="mx-4 mt-4 mb-3 bg-white rounded-2xl shadow-sm border border-gray-100 p-4">
+          <div className="flex items-center justify-between mb-3">
+            <span className="text-xs text-gray-400">{today}</span>
             {meals.length > 0 && (
               <div className="flex items-center gap-1.5">
                 <div className={`w-2 h-2 rounded-full ${sl.ring}`} />
@@ -159,72 +174,70 @@ export default function MealLogger({ goals, meals, onMealAdded, onChangeGoal }: 
                 <span className={`text-xs ${sl.color}`}>{sl.text}</span>
               </div>
             )}
-            <button
-              onClick={onChangeGoal}
-              className="text-xs text-green-600 bg-green-50 px-3 py-1 rounded-full font-medium"
-            >
-              {goalsLabel}
-            </button>
           </div>
-        </div>
 
-        {/* Daily progress */}
-        <div className="flex gap-4">
-          <div className="flex-1">
-            <div className="flex justify-between text-xs mb-1">
-              <span className="text-gray-500">کالری</span>
-              <span className="text-gray-700 font-medium">
+          {/* Big numbers */}
+          <div className="flex gap-3 mb-3">
+            <div className="flex-1 bg-green-50 rounded-xl p-3 text-center">
+              <div className="text-2xl font-bold text-green-700">
                 {totalCal > 0 ? `~${totalCal}` : '—'}
-                <span className="text-gray-400 font-normal"> / {targets.cal}</span>
-              </span>
+              </div>
+              <div className="text-xs text-gray-500 mt-0.5">کالری امروز</div>
             </div>
-            <ProgressBar value={totalCal} max={targets.cal} color="bg-green-500" />
-            {totalCal > 0 && (
-              <p className="text-[10px] text-gray-400 mt-0.5">{calRemaining} کالری باقی‌مانده</p>
-            )}
-          </div>
-          <div className="flex-1">
-            <div className="flex justify-between text-xs mb-1">
-              <span className="text-gray-500">پروتئین</span>
-              <span className="text-gray-700 font-medium">
+            <div className="flex-1 bg-blue-50 rounded-xl p-3 text-center">
+              <div className="text-2xl font-bold text-blue-600">
                 {totalProtein > 0 ? `~${totalProtein}g` : '—'}
-                <span className="text-gray-400 font-normal"> / {targets.protein}g</span>
-              </span>
+              </div>
+              <div className="text-xs text-gray-500 mt-0.5">پروتئین</div>
             </div>
-            <ProgressBar value={totalProtein} max={targets.protein} color="bg-blue-400" />
           </div>
+
+          {/* Progress bars */}
+          <div className="space-y-2">
+            <div>
+              <div className="flex justify-between text-xs mb-1">
+                <span className="text-gray-500">کالری</span>
+                <span className="text-gray-400">{calRemaining > 0 ? `${calRemaining} باقی‌مانده` : 'رسیدی!'} / {targets.cal}</span>
+              </div>
+              <ProgressBar value={totalCal} max={targets.cal} color="bg-green-500" />
+            </div>
+            <div>
+              <div className="flex justify-between text-xs mb-1">
+                <span className="text-gray-500">پروتئین</span>
+                <span className="text-gray-400">{targets.protein}g هدف</span>
+              </div>
+              <ProgressBar value={totalProtein} max={targets.protein} color="bg-blue-400" />
+            </div>
+          </div>
+
+          {meals.length > 0 && (
+            <button
+              onClick={() => setShowSummary(true)}
+              className="mt-3 w-full text-xs text-green-600 hover:text-green-700 font-medium border border-green-100 rounded-xl py-2 hover:bg-green-50 transition-colors"
+            >
+              خلاصه‌ی کامل روز ←
+            </button>
+          )}
         </div>
-      </header>
 
-      {/* Day label + summary button */}
-      <div className="flex items-center justify-between px-4 py-2">
-        <span className="text-xs text-gray-400">{today}</span>
-        {meals.length > 0 && (
-          <button
-            onClick={() => setShowSummary(true)}
-            className="text-xs text-green-600 hover:text-green-700 font-medium"
-          >
-            خلاصه‌ی کامل ←
-          </button>
-        )}
-      </div>
+        {/* Meal list — scroll to see detail */}
+        <div className="px-4 pb-4">
+          {meals.length === 0 ? (
+            <div className="flex flex-col items-center justify-center h-40 text-center">
+              <span className="text-4xl mb-3">🍽️</span>
+              <p className="text-gray-400 text-sm">هنوز چیزی ثبت نشده</p>
+              <p className="text-gray-300 text-xs mt-1">هر چیزی خوردی بنویس یا بگو</p>
+            </div>
+          ) : (
+            <div className="bg-white rounded-2xl px-4 shadow-sm border border-gray-100">
+              {meals.map((meal) => (
+                <MealCard key={meal.id} meal={meal} />
+              ))}
+            </div>
+          )}
+          <div ref={listEndRef} className="h-2" />
+        </div>
 
-      {/* Meal list */}
-      <div className="flex-1 overflow-y-auto px-4">
-        {meals.length === 0 ? (
-          <div className="flex flex-col items-center justify-center h-48 text-center">
-            <span className="text-4xl mb-3">🍽️</span>
-            <p className="text-gray-400 text-sm">هنوز چیزی ثبت نشده</p>
-            <p className="text-gray-300 text-xs mt-1">هر چیزی خوردی بنویس یا بگو</p>
-          </div>
-        ) : (
-          <div className="bg-white rounded-2xl px-4 shadow-sm border border-gray-100">
-            {meals.map((meal) => (
-              <MealCard key={meal.id} meal={meal} />
-            ))}
-          </div>
-        )}
-        <div ref={listEndRef} className="h-4" />
       </div>
 
       {/* Input area */}

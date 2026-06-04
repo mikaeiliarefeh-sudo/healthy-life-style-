@@ -4,10 +4,10 @@ interface Props {
   meal: MealLog
 }
 
-const FIT_DOT: Record<string, string> = {
-  good: 'bg-green-500',
-  okay: 'bg-yellow-400',
-  watch_out: 'bg-orange-400',
+const FIT_CONFIG = {
+  good:      { dot: 'bg-green-500',  badge: 'bg-green-100 text-green-700',  label: 'عالی' },
+  okay:      { dot: 'bg-yellow-400', badge: 'bg-yellow-100 text-yellow-700', label: 'قابل‌قبول' },
+  watch_out: { dot: 'bg-orange-400', badge: 'bg-orange-100 text-orange-700', label: 'توجه' },
 }
 
 function formatTime(ts: number) {
@@ -16,31 +16,35 @@ function formatTime(ts: number) {
 
 export default function MealCard({ meal }: Props) {
   const { analysis } = meal
+  const fit = FIT_CONFIG[analysis.fit_with_goal]
 
   return (
-    <div className="py-3 border-b border-gray-100 last:border-0">
-      <div className="flex items-start gap-3">
-        {/* dot + time */}
-        <div className="flex flex-col items-center gap-1 pt-1 min-w-[36px]">
-          <span className={`w-2.5 h-2.5 rounded-full flex-shrink-0 ${FIT_DOT[analysis.fit_with_goal]}`} />
-          <span className="text-[10px] text-gray-400 leading-none">{formatTime(meal.timestamp)}</span>
+    <div className="py-4 border-b border-gray-100 last:border-0">
+      {/* Row 1: time + description + badge */}
+      <div className="flex items-start gap-2 mb-2">
+        <span className={`mt-1.5 w-2 h-2 rounded-full flex-shrink-0 ${fit.dot}`} />
+        <p dir="auto" className="flex-1 text-sm font-medium text-gray-800 leading-snug">
+          {meal.description}
+        </p>
+        <div className="flex flex-col items-end gap-1 flex-shrink-0">
+          <span className={`text-[10px] px-2 py-0.5 rounded-full font-medium ${fit.badge}`}>{fit.label}</span>
+          <span className="text-[10px] text-gray-400">{formatTime(meal.timestamp)}</span>
         </div>
+      </div>
 
-        {/* content */}
-        <div className="flex-1 min-w-0">
-          <p dir="auto" className="text-sm font-medium text-gray-800 leading-snug mb-1">
-            {meal.description}
-          </p>
-          <div className="flex gap-3 text-xs text-gray-500 mb-2">
-            <span>~{analysis.calories_estimate} کال</span>
-            <span>~{analysis.protein_estimate}g پروتئین</span>
-          </div>
+      {/* Row 2: cal + protein chips */}
+      <div className="flex gap-2 mr-4 mb-2">
+        <span className="text-xs bg-gray-100 text-gray-600 px-2.5 py-1 rounded-full">
+          ~{analysis.calories_estimate} کال
+        </span>
+        <span className="text-xs bg-gray-100 text-gray-600 px-2.5 py-1 rounded-full">
+          ~{analysis.protein_estimate}g پروتئین
+        </span>
+      </div>
 
-          {/* coaching box */}
-          <div className="bg-gray-50 rounded-xl px-3 py-2.5 text-xs text-gray-600 leading-relaxed" dir="rtl">
-            {analysis.coaching || analysis.suggestion}
-          </div>
-        </div>
+      {/* Row 3: coaching */}
+      <div className="mr-4 bg-gray-50 rounded-xl px-3 py-2.5 text-xs text-gray-600 leading-relaxed" dir="rtl">
+        {analysis.coaching || analysis.suggestion}
       </div>
 
       {analysis.is_mock && (
