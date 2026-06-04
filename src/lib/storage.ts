@@ -1,14 +1,21 @@
-import type { Goal, MealLog, DayData } from './types'
+import type { Goals, MealLog, DayData } from './types'
 
 const GOAL_KEY = 'khorak_goal'
 const DAYS_KEY = 'khorak_days'
 
-export function getGoal(): Goal | null {
-  return (localStorage.getItem(GOAL_KEY) as Goal) || null
+export function getGoals(): Goals | null {
+  try {
+    const raw = localStorage.getItem(GOAL_KEY)
+    if (!raw) return null
+    const parsed = JSON.parse(raw)
+    return Array.isArray(parsed) ? parsed : [parsed]
+  } catch {
+    return null
+  }
 }
 
-export function setGoal(goal: Goal): void {
-  localStorage.setItem(GOAL_KEY, goal)
+export function setGoals(goals: Goals): void {
+  localStorage.setItem(GOAL_KEY, JSON.stringify(goals))
 }
 
 export function getTodayDate(): string {

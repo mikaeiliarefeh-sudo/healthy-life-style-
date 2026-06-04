@@ -1,93 +1,75 @@
-import type { Goal, MealAnalysis } from './types'
+import type { Goals, MealAnalysis } from './types'
 
-const MOCK_SUGGESTIONS: Record<Goal, string[]> = {
-  lose_weight: [
-    'سعی کن وعده‌ی بعدی را با سبزیجات بیشتری همراه کنی.',
-    'نوشیدن آب قبل از وعده می‌تواند کمک‌کننده باشد.',
-    'اگر دوباره گرسنه شدی، یک میان‌وعده‌ی سبک مثل سیب مناسب است.',
-  ],
-  maintain: [
-    'این وعده به خوبی با هدف تعادل‌ات هماهنگ است.',
-    'تنوع در رنگ‌های غذایی می‌تواند ریزمغذی‌های بیشتری برایت فراهم کند.',
-    'آفرین! ادامه بده.',
-  ],
-  eat_healthier: [
-    'اضافه کردن کمی سبزی تازه به این وعده ایده‌ی خوبی است.',
-    'پروتئین خوبی داشتی — بسیار عالی!',
-    'هر قدم کوچک به سمت غذای سالم‌تر ارزشمند است.',
-  ],
-}
+const MOCK_COACHING = [
+  'این وعده کربوهیدرات بالایی داره. سعی کن یه منبع پروتئین مثل تخم‌مرغ، مرغ یا حبوبات بهش اضافه کنی تا دیرتر گرسنه بشی.',
+  'جانک فود پر از چربی ترانس و قند پنهانه که سریع گرسنه‌ات می‌کنه. یه لیوان آب بخور الان، و وعده بعدی رو با پروتئین شروع کن.',
+  'غذای خوبی خوردی! برای اینکه پروتئین بیشتری داشته باشی، می‌تونی دفعه بعد یه کم ماست یا پنیر هم اضافه کنی.',
+  'این وعده چربی اشباع داره. آب بیشتر بخور — خیلی‌وقت‌ها بدن تشنگی رو با گرسنگی اشتباه می‌گیره.',
+  'میان‌وعده سبک بود. اگه زود گرسنه شدی، یه مشت آجیل یا یه تخم‌مرغ آب‌پز بخور — پروتئین سیری‌ات رو بالا می‌بره.',
+]
 
-const FIT_SENTENCES: Record<'good' | 'okay' | 'watch_out', string[]> = {
-  good: [
-    'این وعده با هدفت خیلی خوب هماهنگ است! 🌿',
-    'انتخاب مناسبی داشتی.',
-  ],
-  okay: [
-    'این وعده در محدوده‌ی قابل‌قبول است.',
-    'بد نیست، می‌توانی کمی بهترش کنی.',
-  ],
-  watch_out: [
-    'این وعده کمی سنگین‌تر بود — ایرادی ندارد، بقیه‌ی روز را متعادل‌تر ادامه بده.',
-    'گاهی چنین وعده‌هایی طبیعی است، فقط وعده‌ی بعدی را سبک‌تر کن.',
-  ],
-}
+const MOCK_FIT = [
+  'این وعده با هدف کاهش وزنت خوب هماهنگه — ادامه بده! 🌿',
+  'کالری خوبه ولی پروتئین کمه. سعی کن وعده بعدی پروتئین بیشتری داشته باشه.',
+  'کمی سنگین بود — مشکلی نیست، بقیه‌ی روز رو سبک‌تر پیش برو.',
+  'انتخاب متعادلی داشتی. همین روند رو حفظ کن.',
+]
 
-function pickRandom<T>(arr: T[]): T {
+function pick<T>(arr: T[]): T {
   return arr[Math.floor(Math.random() * arr.length)]
 }
 
-function mockAnalysis(goal: Goal): MealAnalysis {
+function mockAnalysis(): MealAnalysis {
   const calories = 350 + Math.floor(Math.random() * 400)
   const protein = 12 + Math.floor(Math.random() * 25)
-  const fits: Array<'good' | 'okay' | 'watch_out'> = ['good', 'okay', 'watch_out']
+  const fits = ['good', 'okay', 'watch_out'] as const
   const fit_with_goal = fits[Math.floor(Math.random() * fits.length)]
-
   return {
     calories_estimate: calories,
     protein_estimate: protein,
     fit_with_goal,
-    fit_sentence: pickRandom(FIT_SENTENCES[fit_with_goal]),
-    suggestion: pickRandom(MOCK_SUGGESTIONS[goal]),
+    fit_sentence: pick(MOCK_FIT),
+    suggestion: 'یه لیوان آب بخور بعد از هر وعده — هم هضم رو بهتر می‌کنه هم سیری رو.',
+    coaching: pick(MOCK_COACHING),
     is_mock: true,
   }
 }
 
-export async function analyzeMeal(
-  description: string,
-  goal: Goal
-): Promise<MealAnalysis> {
+export async function analyzeMeal(description: string, goals: Goals): Promise<MealAnalysis> {
   const apiKey = import.meta.env.VITE_ANTHROPIC_API_KEY as string | undefined
   const useMock = import.meta.env.VITE_USE_MOCK === 'true'
 
   if (!apiKey || useMock) {
-    // Simulate a short network delay for realism
     await new Promise((r) => setTimeout(r, 800))
-    return mockAnalysis(goal)
+    return mockAnalysis()
   }
 
-  const goalLabel: Record<Goal, string> = {
-    lose_weight: 'lose weight',
-    maintain: 'maintain current weight',
-    eat_healthier: 'eat healthier',
+  const goalLabels: Record<string, string> = {
+    lose_weight: 'کاهش وزن',
+    maintain: 'حفظ وزن',
+    eat_healthier: 'غذای سالم‌تر',
   }
+  const goalsText = goals.map((g) => goalLabels[g]).join(' و ')
 
-  const prompt = `You are a non-judgmental, supportive nutrition coach. The user ate: "${description}". Their goal: ${goalLabel[goal]}.
+  const prompt = `تو یه مربی تغذیه‌ی غیرقضاوتی و صادق هستی که فارسی صحبت می‌کنی.
+کاربر این رو خورده: "${description}"
+هدف‌های کاربر: ${goalsText}
 
-Return ONLY valid JSON (no markdown, no explanation) with this exact shape:
+یه JSON برگردون با این شکل دقیق (بدون markdown، فقط JSON):
 {
-  "calories_estimate": <integer>,
-  "protein_estimate": <integer>,
+  "calories_estimate": <عدد صحیح>,
+  "protein_estimate": <گرم پروتئین، عدد صحیح>,
   "fit_with_goal": "good" | "okay" | "watch_out",
-  "fit_sentence": "<one short Persian-friendly sentence about how this meal fits their goal>",
-  "suggestion": "<one gentle, actionable suggestion in Persian-friendly tone>"
+  "fit_sentence": "<یه جمله کوتاه فارسی درباره تناسب این وعده با هدف کاربر>",
+  "suggestion": "<یه توصیه کوتاه عملی فارسی — مثل: یه لیوان آب بخور، وعده بعدی پروتئین بیشتر>",
+  "coaching": "<۲ تا ۳ جمله فارسی — صادق باش: اگه جانک فود بود بگو، بگو چرا مضره، و یه راه‌حل مشخص بده. مثلاً: این غذا قند پنهان زیادی داره که سریع گرسنه‌ات می‌کنه. بعدش یه پروتئین مثل تخم‌مرغ یا مرغ بخور تا سیر بمونی. آب هم یادت نره.>"
 }
 
-Rules:
-- calories_estimate: approximate total calories as integer
-- protein_estimate: approximate grams of protein as integer
-- fit_with_goal: "good" if well aligned, "okay" if neutral, "watch_out" if heavy/misaligned — never shame the user
-- fit_sentence and suggestion: calm, non-judgmental, in English (will be shown as-is)`
+قوانین:
+- calories_estimate: تخمین کل کالری
+- fit_with_goal: good اگه با هدف هماهنگه، okay اگه خنثیه، watch_out اگه ناهماهنگه
+- coaching باید واقعی و آموزنده باشه — نه شرم‌آور، نه بیش از حد مثبت. صادق و رو‌به‌جلو.
+- همه متن‌ها فارسی`
 
   const response = await fetch('https://api.anthropic.com/v1/messages', {
     method: 'POST',
@@ -98,14 +80,14 @@ Rules:
     },
     body: JSON.stringify({
       model: 'claude-haiku-4-5-20251001',
-      max_tokens: 256,
+      max_tokens: 400,
       messages: [{ role: 'user', content: prompt }],
     }),
   })
 
   if (!response.ok) {
     console.warn('Claude API error, falling back to mock', response.status)
-    return mockAnalysis(goal)
+    return mockAnalysis()
   }
 
   const data = await response.json()
@@ -114,7 +96,6 @@ Rules:
     const parsed = JSON.parse(text)
     return { ...parsed, is_mock: false }
   } catch {
-    console.warn('Failed to parse Claude response, falling back to mock')
-    return mockAnalysis(goal)
+    return mockAnalysis()
   }
 }

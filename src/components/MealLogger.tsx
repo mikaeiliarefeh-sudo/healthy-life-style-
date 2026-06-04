@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect } from 'react'
-import type { Goal, MealLog } from '../lib/types'
+import type { Goal, Goals, MealLog } from '../lib/types'
 import { analyzeMeal } from '../lib/claude'
 import { addMealToToday, getStreak } from '../lib/storage'
 import { calcDayScore, scoreLabel, mealToast } from '../lib/score'
@@ -7,7 +7,7 @@ import MealCard from './MealCard'
 import DailySummary from './DailySummary'
 
 interface Props {
-  goal: Goal
+  goals: Goals
   meals: MealLog[]
   onMealAdded: (meal: MealLog) => void
   onChangeGoal: () => void
@@ -59,7 +59,7 @@ function ProgressBar({ value, max, color }: { value: number; max: number; color:
   )
 }
 
-export default function MealLogger({ goal, meals, onMealAdded, onChangeGoal }: Props) {
+export default function MealLogger({ goals, meals, onMealAdded, onChangeGoal }: Props) {
   const [input, setInput] = useState('')
   const [loading, setLoading] = useState(false)
   const [listening, setListening] = useState(false)
@@ -75,7 +75,9 @@ export default function MealLogger({ goal, meals, onMealAdded, onChangeGoal }: P
     listEndRef.current?.scrollIntoView({ behavior: 'smooth' })
   }, [meals])
 
-  const targets = GOAL_TARGETS[goal]
+  // Use targets from the first (primary) goal
+  const primaryGoal = goals[0]
+  const targets = GOAL_TARGETS[primaryGoal]
   const totalCal = meals.reduce((s, m) => s + m.analysis.calories_estimate, 0)
   const totalProtein = meals.reduce((s, m) => s + m.analysis.protein_estimate, 0)
   const calRemaining = Math.max(0, targets.cal - totalCal)
@@ -112,7 +114,7 @@ export default function MealLogger({ goal, meals, onMealAdded, onChangeGoal }: P
     setLoading(true)
     setError(null)
     try {
-      const analysis = await analyzeMeal(text, goal)
+      const analysis = await analyzeMeal(text, goals)
       const meal: MealLog = {
         id: crypto.randomUUID(),
         timestamp: Date.now(),
@@ -134,6 +136,7 @@ export default function MealLogger({ goal, meals, onMealAdded, onChangeGoal }: P
   }
 
   const today = new Date().toLocaleDateString('fa-IR', { weekday: 'long', month: 'long', day: 'numeric' })
+  const goalsLabel = goals.map((g) => GOAL_LABEL[g]).join(' + ')
 
   return (
     <div className="min-h-screen bg-gray-50 flex flex-col max-w-sm mx-auto">
@@ -141,7 +144,7 @@ export default function MealLogger({ goal, meals, onMealAdded, onChangeGoal }: P
       <header className="bg-white px-4 pt-4 pb-3 sticky top-0 z-10 border-b border-gray-100">
         <div className="flex items-center justify-between mb-3">
           <div className="flex items-center gap-2">
-            <h1 className="text-base font-bold text-gray-900">خوراک‌یار</h1>
+            <h1 className="text-base font-bold text-gray-900">قلیز هلثی لایف</h1>
             {streak > 1 && (
               <span className="text-xs bg-orange-50 text-orange-500 px-2 py-0.5 rounded-full font-medium">
                 🔥 {streak} روز
@@ -160,14 +163,13 @@ export default function MealLogger({ goal, meals, onMealAdded, onChangeGoal }: P
               onClick={onChangeGoal}
               className="text-xs text-green-600 bg-green-50 px-3 py-1 rounded-full font-medium"
             >
-              {GOAL_LABEL[goal]}
+              {goalsLabel}
             </button>
           </div>
         </div>
 
         {/* Daily progress */}
         <div className="flex gap-4">
-          {/* Calories */}
           <div className="flex-1">
             <div className="flex justify-between text-xs mb-1">
               <span className="text-gray-500">کالری</span>
@@ -181,7 +183,6 @@ export default function MealLogger({ goal, meals, onMealAdded, onChangeGoal }: P
               <p className="text-[10px] text-gray-400 mt-0.5">{calRemaining} کالری باقی‌مانده</p>
             )}
           </div>
-          {/* Protein */}
           <div className="flex-1">
             <div className="flex justify-between text-xs mb-1">
               <span className="text-gray-500">پروتئین</span>
@@ -237,7 +238,7 @@ export default function MealLogger({ goal, meals, onMealAdded, onChangeGoal }: P
             dir="auto"
             value={input}
             onChange={(e) => setInput(e.target.value)}
-            placeholder="چی خوردی؟  مثلاً: نیمرو با نان، یه لیوان شیر"
+            placeholder="چی خوردی؟ مثلاً: نیمرو با نان، یه لیوان شیر"
             rows={2}
             className="flex-1 resize-none rounded-2xl border border-gray-200 px-4 py-3 text-sm text-gray-800 placeholder-gray-400 focus:outline-none focus:border-green-400 leading-relaxed bg-gray-50"
             onKeyDown={(e) => {
@@ -274,13 +275,13 @@ export default function MealLogger({ goal, meals, onMealAdded, onChangeGoal }: P
       </div>
 
       {toast && (
-        <div className="fixed top-20 left-1/2 -translate-x-1/2 z-50 bg-gray-900 text-white text-sm px-5 py-2.5 rounded-full shadow-lg animate-bounce-in whitespace-nowrap">
+        <div className="fixed top-20 left-1/2 -translate-x-1/2 z-50 bg-gray-900 text-white text-sm px-5 py-2.5 rounded-full shadow-lg whitespace-nowrap">
           {toast}
         </div>
       )}
 
       {showSummary && (
-        <DailySummary meals={meals} goal={goal} onClose={() => setShowSummary(false)} />
+        <DailySummary meals={meals} goals={goals} onClose={() => setShowSummary(false)} />
       )}
     </div>
   )

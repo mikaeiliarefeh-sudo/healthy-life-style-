@@ -1,4 +1,5 @@
 export type Goal = 'lose_weight' | 'maintain' | 'eat_healthier'
+export type Goals = Goal[]
 
 export interface MealAnalysis {
   calories_estimate: number
@@ -6,6 +7,7 @@ export interface MealAnalysis {
   fit_with_goal: 'good' | 'okay' | 'watch_out'
   fit_sentence: string
   suggestion: string
+  coaching: string
   is_mock: boolean
 }
 

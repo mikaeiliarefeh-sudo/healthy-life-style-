@@ -1,10 +1,10 @@
-import type { MealLog, Goal } from '../lib/types'
+import type { MealLog, Goals } from '../lib/types'
 import { calcDayScore, scoreLabel } from '../lib/score'
 import { getStreak } from '../lib/storage'
 
 interface Props {
   meals: MealLog[]
-  goal: Goal
+  goals: Goals
   onClose: () => void
 }
 
@@ -15,7 +15,7 @@ const SCORE_ENCOURAGEMENT: Array<{ min: number; text: string }> = [
   { min: 0,  text: 'شروع کردی — این مهم‌ترین قدمه. فردا بهتر میشه 😊' },
 ]
 
-export default function DailySummary({ meals, goal, onClose }: Props) {
+export default function DailySummary({ meals, goals: _goals, onClose }: Props) {
   const totalCal = meals.reduce((s, m) => s + m.analysis.calories_estimate, 0)
   const totalProtein = meals.reduce((s, m) => s + m.analysis.protein_estimate, 0)
   const score = calcDayScore(meals)
@@ -26,8 +26,6 @@ export default function DailySummary({ meals, goal, onClose }: Props) {
   const goodCount = meals.filter((m) => m.analysis.fit_with_goal === 'good').length
   const okayCount = meals.filter((m) => m.analysis.fit_with_goal === 'okay').length
   const watchCount = meals.filter((m) => m.analysis.fit_with_goal === 'watch_out').length
-
-  void goal
 
   return (
     <div className="fixed inset-0 bg-black/40 flex items-end justify-center z-50 px-4 pb-6">
