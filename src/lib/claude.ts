@@ -99,6 +99,103 @@ export async function extractInBody(imageBase64: string, mimeType: string): Prom
   }
 }
 
+export async function analyzeMealImage(
+  imageBase64: string,
+  mimeType: string,
+  caption: string,
+  goals: Goals,
+  profile?: UserProfile | null
+): Promise<MealAnalysis & { description: string }> {
+  const apiKey = import.meta.env.VITE_ANTHROPIC_API_KEY as string | undefined
+  const useMock = import.meta.env.VITE_USE_MOCK === 'true'
+
+  if (!apiKey || useMock) {
+    await new Promise((r) => setTimeout(r, 1000))
+    return {
+      ...mockAnalysis(),
+      description: caption || 'وعده‌ی شناسایی‌شده از عکس (mock)',
+    }
+  }
+
+  const goalLabels: Record<string, string> = {
+    lose_weight: 'کاهش وزن',
+    maintain: 'حفظ وزن',
+    eat_healthier: 'غذای سالم‌تر',
+  }
+  const goalsText = goals.map((g) => goalLabels[g]).join(' و ')
+
+  let profileContext = ''
+  if (profile) {
+    const { getTargets } = await import('./profile')
+    const targets = getTargets(profile, goals)
+    profileContext = `\nاطلاعات کاربر: وزن ${profile.weight_kg}kg، قد ${profile.height_cm}cm، سن ${profile.age}، هدف کالری روزانه: ${targets.cal} کال`
+    if (profile.inbody) {
+      profileContext += `\nدرصد چربی ${profile.inbody.body_fat_percent}%، توده عضلانی ${profile.inbody.muscle_mass_kg}kg`
+    }
+  }
+
+  const captionText = caption ? `\nتوضیح اضافه‌ی کاربر: "${caption}"` : ''
+
+  const prompt = `تو یه مربی تغذیه‌ی غیرقضاوتی و صادق هستی که فارسی صحبت می‌کنی.
+این عکسِ غذایی است که کاربر خورده.${captionText}
+هدف‌های کاربر: ${goalsText}${profileContext}
+
+یه JSON برگردون با این شکل دقیق (بدون markdown، فقط JSON):
+{
+  "description": "<توصیف کوتاه فارسی از غذای داخل عکس>",
+  "calories_estimate": <عدد صحیح>,
+  "protein_estimate": <گرم پروتئین، عدد صحیح>,
+  "fit_with_goal": "good" | "okay" | "watch_out",
+  "fit_sentence": "<یه جمله کوتاه فارسی درباره تناسب این وعده با هدف کاربر>",
+  "suggestion": "<یه توصیه کوتاه عملی فارسی>",
+  "coaching": "<۲ تا ۳ جمله فارسی — صادق باش: اگه جانک فود بود بگو، بگو چرا مضره، و یه راه‌حل مشخص بده. آب هم یادت نره.>"
+}
+
+قوانین:
+- description: کوتاه و دقیق، مثل "یه بشقاب چلوکباب با گوجه"
+- calories_estimate: تخمین کل کالری بر اساس آنچه در عکس دیده میشه
+- fit_with_goal: good اگه با هدف هماهنگه، okay اگه خنثیه، watch_out اگه ناهماهنگه
+- coaching باید واقعی و آموزنده باشه — نه شرم‌آور. صادق و رو‌به‌جلو.
+- همه متن‌ها فارسی`
+
+  const response = await fetch('https://api.anthropic.com/v1/messages', {
+    method: 'POST',
+    headers: {
+      'x-api-key': apiKey,
+      'anthropic-version': '2023-06-01',
+      'content-type': 'application/json',
+    },
+    body: JSON.stringify({
+      model: 'claude-haiku-4-5-20251001',
+      max_tokens: 500,
+      messages: [
+        {
+          role: 'user',
+          content: [
+            { type: 'image', source: { type: 'base64', media_type: mimeType, data: imageBase64 } },
+            { type: 'text', text: prompt },
+          ],
+        },
+      ],
+    }),
+  })
+
+  if (!response.ok) {
+    console.warn('Claude API error, falling back to mock', response.status)
+    return { ...mockAnalysis(), description: caption || 'وعده‌ی شناسایی‌شده از عکس' }
+  }
+
+  const data = await response.json()
+  try {
+    const text: string = data.content[0].text
+    const clean = text.replace(/```[a-z]*\n?/g, '').trim()
+    const parsed = JSON.parse(clean)
+    return { ...parsed, is_mock: false }
+  } catch {
+    return { ...mockAnalysis(), description: caption || 'وعده‌ی شناسایی‌شده از عکس' }
+  }
+}
+
 export async function analyzeMeal(description: string, goals: Goals, profile?: UserProfile | null): Promise<MealAnalysis> {
   const apiKey = import.meta.env.VITE_ANTHROPIC_API_KEY as string | undefined
   const useMock = import.meta.env.VITE_USE_MOCK === 'true'

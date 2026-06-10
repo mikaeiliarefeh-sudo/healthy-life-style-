@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect } from 'react'
 import type { Goal, Goals, MealLog, UserProfile } from '../lib/types'
-import { analyzeMeal } from '../lib/claude'
+import { analyzeMeal, analyzeMealImage } from '../lib/claude'
 import { addMealToToday, getStreak } from '../lib/storage'
 import { calcDayScore, scoreLabel, mealToast } from '../lib/score'
 import { getTargets } from '../lib/profile'
@@ -64,10 +64,14 @@ export default function MealLogger({ goals, meals, profile, onMealAdded, onChang
   const [showSummary, setShowSummary] = useState(false)
   const [error, setError] = useState<string | null>(null)
   const [toast, setToast] = useState<string | null>(null)
+  const [imagePreview, setImagePreview] = useState<string | null>(null)
+  const [imageBase64, setImageBase64] = useState<string | null>(null)
+  const [imageMimeType, setImageMimeType] = useState<string | null>(null)
   const streak = getStreak()
   const recognitionRef = useRef<RecognitionInstance | null>(null)
   const listEndRef = useRef<HTMLDivElement>(null)
   const textareaRef = useRef<HTMLTextAreaElement>(null)
+  const fileRef = useRef<HTMLInputElement>(null)
 
   useEffect(() => {
     listEndRef.current?.scrollIntoView({ behavior: 'smooth' })
@@ -116,22 +120,41 @@ export default function MealLogger({ goals, meals, profile, onMealAdded, onChang
     setListening(false)
   }
 
+  const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0]
+    if (!file) return
+
+    const reader = new FileReader()
+    reader.onload = (ev) => {
+      const dataUrl = ev.target?.result as string
+      setImagePreview(dataUrl)
+      setImageBase64(dataUrl.split(',')[1])
+      setImageMimeType(file.type || 'image/jpeg')
+    }
+    reader.readAsDataURL(file)
+  }
+
+  const removeImage = () => {
+    setImagePreview(null)
+    setImageBase64(null)
+    setImageMimeType(null)
+    if (fileRef.current) fileRef.current.value = ''
+  }
+
   const handleSubmit = async () => {
     const text = input.trim()
-    if (!text || loading) return
+    if ((!text && !imageBase64) || loading) return
 
     // Stop voice if still listening
     if (listening) stopListening()
 
-    const chunks = splitMealInput(text)
     setLoading(true)
     setError(null)
-    setInput('')
 
     try {
-      for (const chunk of chunks) {
-        const description = chunk.label ? `${chunk.label}: ${chunk.text}` : chunk.text
-        const analysis = await analyzeMeal(description, goals, profile)
+      if (imageBase64 && imageMimeType) {
+        const result = await analyzeMealImage(imageBase64, imageMimeType, text, goals, profile)
+        const { description, ...analysis } = result
         const meal: MealLog = {
           id: crypto.randomUUID(),
           timestamp: Date.now(),
@@ -140,12 +163,32 @@ export default function MealLogger({ goals, meals, profile, onMealAdded, onChang
         }
         addMealToToday(meal)
         onMealAdded(meal)
+        removeImage()
+        setInput('')
+        const msg = mealToast(analysis.fit_with_goal)
+        setToast(msg)
+        setTimeout(() => setToast(null), 2200)
+      } else {
+        const chunks = splitMealInput(text)
+        setInput('')
+        for (const chunk of chunks) {
+          const description = chunk.label ? `${chunk.label}: ${chunk.text}` : chunk.text
+          const analysis = await analyzeMeal(description, goals, profile)
+          const meal: MealLog = {
+            id: crypto.randomUUID(),
+            timestamp: Date.now(),
+            description,
+            analysis,
+          }
+          addMealToToday(meal)
+          onMealAdded(meal)
+        }
+        const lastFit = chunks.length > 0 ? 'good' : 'good'
+        const msg = mealToast(lastFit)
+        setToast(msg)
+        setTimeout(() => setToast(null), 2200)
       }
       textareaRef.current?.focus()
-      const lastFit = chunks.length > 0 ? 'good' : 'good'
-      const msg = mealToast(lastFit)
-      setToast(msg)
-      setTimeout(() => setToast(null), 2200)
     } catch {
       setError('مشکلی پیش آمد. دوباره امتحان کن.')
     } finally {
@@ -283,13 +326,32 @@ export default function MealLogger({ goals, meals, profile, onMealAdded, onChang
           💡 می‌تونی چند وعده رو یکجا بگی:{' '}
           <span className="text-gray-500">صبحانه: نیمرو، ناهار: برنج با مرغ</span>
         </p>
+        {imagePreview && (
+          <div className="relative inline-block mb-2">
+            <img src={imagePreview} alt="پیش‌نمایش غذا" className="h-20 w-20 object-cover rounded-xl border border-gray-200" />
+            <button
+              onClick={removeImage}
+              className="absolute -top-1.5 -left-1.5 w-5 h-5 bg-gray-900/70 text-white rounded-full flex items-center justify-center text-xs"
+            >
+              ✕
+            </button>
+          </div>
+        )}
         <div className="flex items-end gap-2">
+          <input
+            ref={fileRef}
+            type="file"
+            accept="image/*"
+            capture="environment"
+            className="hidden"
+            onChange={handleImageChange}
+          />
           <textarea
             ref={textareaRef}
             dir="auto"
             value={input}
             onChange={(e) => setInput(e.target.value)}
-            placeholder="چی خوردی؟ مثلاً: صبحانه: نان و پنیر، ناهار: برنج با مرغ"
+            placeholder={imagePreview ? 'توضیح اضافه (اختیاری)...' : 'چی خوردی؟ مثلاً: صبحانه: نان و پنیر، ناهار: برنج با مرغ'}
             rows={2}
             className="flex-1 resize-none rounded-2xl border border-gray-200 px-4 py-3 text-sm text-gray-800 placeholder-gray-400 focus:outline-none focus:border-green-400 leading-relaxed bg-gray-50"
             onKeyDown={(e) => {
@@ -299,6 +361,13 @@ export default function MealLogger({ goals, meals, profile, onMealAdded, onChang
               }
             }}
           />
+          <button
+            onClick={() => fileRef.current?.click()}
+            className="flex-shrink-0 w-11 h-11 rounded-full bg-gray-100 text-gray-500 hover:bg-gray-200 flex items-center justify-center transition-all"
+            title="آپلود عکس غذا"
+          >
+            📷
+          </button>
           {hasSpeechRecognition && (
             <button
               onClick={listening ? stopListening : startListening}
@@ -311,7 +380,7 @@ export default function MealLogger({ goals, meals, profile, onMealAdded, onChang
           )}
           <button
             onClick={handleSubmit}
-            disabled={loading || !input.trim()}
+            disabled={loading || (!input.trim() && !imageBase64)}
             className="flex-shrink-0 w-11 h-11 rounded-full bg-green-500 text-white flex items-center justify-center hover:bg-green-600 disabled:opacity-40 transition-all active:scale-95"
           >
             {loading ? (
