@@ -36,10 +36,9 @@ function mockAnalysis(): MealAnalysis {
 }
 
 export async function extractInBody(imageBase64: string, mimeType: string): Promise<InBodyData> {
-  const apiKey = import.meta.env.VITE_ANTHROPIC_API_KEY as string | undefined
   const useMock = import.meta.env.VITE_USE_MOCK === 'true'
 
-  if (!apiKey || useMock) {
+  if (useMock) {
     await new Promise((r) => setTimeout(r, 1000))
     return {
       body_fat_percent: 24.5,
@@ -52,11 +51,9 @@ export async function extractInBody(imageBase64: string, mimeType: string): Prom
   const prompt =
     'This is an InBody body composition test result. Extract these values as JSON: {body_fat_percent, muscle_mass_kg, bmr, visceral_fat_level}. If a value is not found, use 0.'
 
-  const response = await fetch('https://api.anthropic.com/v1/messages', {
+  const response = await fetch('/api/claude', {
     method: 'POST',
     headers: {
-      'x-api-key': apiKey,
-      'anthropic-version': '2023-06-01',
       'content-type': 'application/json',
     },
     body: JSON.stringify({
@@ -106,10 +103,9 @@ export async function analyzeMealImage(
   goals: Goals,
   profile?: UserProfile | null
 ): Promise<MealAnalysis & { description: string }> {
-  const apiKey = import.meta.env.VITE_ANTHROPIC_API_KEY as string | undefined
   const useMock = import.meta.env.VITE_USE_MOCK === 'true'
 
-  if (!apiKey || useMock) {
+  if (useMock) {
     await new Promise((r) => setTimeout(r, 1000))
     return {
       ...mockAnalysis(),
@@ -158,11 +154,9 @@ export async function analyzeMealImage(
 - coaching باید واقعی و آموزنده باشه — نه شرم‌آور. صادق و رو‌به‌جلو.
 - همه متن‌ها فارسی`
 
-  const response = await fetch('https://api.anthropic.com/v1/messages', {
+  const response = await fetch('/api/claude', {
     method: 'POST',
     headers: {
-      'x-api-key': apiKey,
-      'anthropic-version': '2023-06-01',
       'content-type': 'application/json',
     },
     body: JSON.stringify({
@@ -197,10 +191,9 @@ export async function analyzeMealImage(
 }
 
 export async function analyzeMeal(description: string, goals: Goals, profile?: UserProfile | null): Promise<MealAnalysis> {
-  const apiKey = import.meta.env.VITE_ANTHROPIC_API_KEY as string | undefined
   const useMock = import.meta.env.VITE_USE_MOCK === 'true'
 
-  if (!apiKey || useMock) {
+  if (useMock) {
     await new Promise((r) => setTimeout(r, 800))
     return mockAnalysis()
   }
@@ -242,11 +235,9 @@ export async function analyzeMeal(description: string, goals: Goals, profile?: U
 - coaching باید واقعی و آموزنده باشه — نه شرم‌آور، نه بیش از حد مثبت. صادق و رو‌به‌جلو.
 - همه متن‌ها فارسی`
 
-  const response = await fetch('https://api.anthropic.com/v1/messages', {
+  const response = await fetch('/api/claude', {
     method: 'POST',
     headers: {
-      'x-api-key': apiKey,
-      'anthropic-version': '2023-06-01',
       'content-type': 'application/json',
     },
     body: JSON.stringify({

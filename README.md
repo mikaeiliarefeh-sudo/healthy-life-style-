@@ -2,6 +2,15 @@
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
+## Environment & Deployment
+
+- `VITE_USE_MOCK=true` — use canned AI responses, no API calls/cost. Good for local dev.
+- For real Claude calls, requests go through `api/claude.ts`, a serverless proxy that forwards
+  to the Anthropic API using `ANTHROPIC_API_KEY`. Set this env var in your hosting provider's
+  dashboard (e.g. Vercel project settings) — never in `VITE_`-prefixed vars, since those are
+  bundled into the client and exposed to anyone using the app.
+- Copy `.env.example` to `.env` to get started locally.
+
 Currently, two official plugins are available:
 
 - [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
