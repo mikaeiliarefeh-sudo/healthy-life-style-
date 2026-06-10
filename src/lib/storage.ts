@@ -3,6 +3,7 @@ import type { Goals, MealLog, DayData, UserProfile } from './types'
 const GOAL_KEY = 'khorak_goal'
 const DAYS_KEY = 'khorak_days'
 const PROFILE_KEY = 'qaliz_profile'
+const MOTIVATION_KEY = 'khorak_motivation'
 
 export function getGoals(): Goals | null {
   try {
@@ -17,6 +18,14 @@ export function getGoals(): Goals | null {
 
 export function setGoals(goals: Goals): void {
   localStorage.setItem(GOAL_KEY, JSON.stringify(goals))
+}
+
+export function getMotivation(): string {
+  return localStorage.getItem(MOTIVATION_KEY) || ''
+}
+
+export function setMotivation(text: string): void {
+  localStorage.setItem(MOTIVATION_KEY, text)
 }
 
 export function getTodayDate(): string {

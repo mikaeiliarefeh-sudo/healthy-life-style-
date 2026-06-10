@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import type { Goal, Goals } from '../lib/types'
+import { setMotivation } from '../lib/storage'
 
 interface Props {
   onGoalsSelected: (goals: Goals) => void
@@ -28,11 +29,18 @@ const GOALS: { value: Goal; emoji: string; title: string; subtitle: string }[] =
 
 export default function GoalSetup({ onGoalsSelected }: Props) {
   const [selected, setSelected] = useState<Goals>([])
+  const [reason, setReason] = useState('')
 
   const toggle = (g: Goal) => {
     setSelected((prev) =>
       prev.includes(g) ? prev.filter((x) => x !== g) : [...prev, g]
     )
+  }
+
+  const handleSubmit = () => {
+    if (selected.length === 0) return
+    setMotivation(reason.trim())
+    onGoalsSelected(selected)
   }
 
   return (
@@ -77,12 +85,26 @@ export default function GoalSetup({ onGoalsSelected }: Props) {
           })}
         </div>
 
+        <div className="mb-6">
+          <label className="block text-xs text-gray-500 mb-1.5">
+            چرا می‌خوای غذاهات رو مانیتور کنی؟ (اختیاری)
+          </label>
+          <textarea
+            dir="auto"
+            value={reason}
+            onChange={(e) => setReason(e.target.value)}
+            placeholder="مثلاً: می‌خوام عادت‌های غذایی‌ام رو بهتر بشناسم..."
+            rows={2}
+            className="w-full resize-none rounded-2xl border border-green-100 px-4 py-3 text-sm text-gray-800 placeholder-gray-400 focus:outline-none focus:border-green-400 leading-relaxed bg-white"
+          />
+        </div>
+
         <button
-          onClick={() => selected.length > 0 && onGoalsSelected(selected)}
+          onClick={handleSubmit}
           disabled={selected.length === 0}
           className="w-full bg-green-500 hover:bg-green-600 disabled:opacity-30 disabled:cursor-not-allowed text-white font-bold py-4 rounded-2xl transition-all active:scale-95 text-base"
         >
-          {selected.length === 0 ? 'یه هدف انتخاب کن' : `شروع کن (${selected.length} هدف)`}
+          هدفت رو انتخاب کن یا توضیح بده
         </button>
 
         <p className="text-xs text-gray-400 text-center mt-4">
