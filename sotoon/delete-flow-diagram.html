@@ -1,0 +1,63 @@
+<!doctype html><html><head><meta charset="utf-8"><style>
+  html,body{margin:0;padding:0;background:#fff;}
+  svg{display:block;font-family:Arial,Helvetica,sans-serif;}
+  .t{font-size:15px;fill:#0f172a;}
+  .tb{font-size:15.5px;font-weight:700;fill:#0f172a;}
+  .sm{font-size:13px;fill:#334155;}
+  .title{font-size:24px;font-weight:700;fill:#0f172a;}
+  .edge{font-size:13px;font-weight:700;fill:#475569;}
+</style></head><body>
+<svg width="960" height="830" viewBox="0 0 960 830" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <marker id="a" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0,0 L9,5 L0,10 z" fill="#334155"/></marker>
+  </defs>
+
+  <text x="30" y="38" class="title">Delete-time connectivity check  (بررسیِ زنده‌ی اتصال هنگامِ حذف)</text>
+
+  <!-- start -->
+  <rect x="250" y="60" width="460" height="52" rx="26" fill="#dbeafe" stroke="#2563eb" stroke-width="2"/>
+  <text x="480" y="92" text-anchor="middle" class="tb">User deletes a resource (VM / VPC / cluster)</text>
+  <line x1="480" y1="112" x2="480" y2="150" stroke="#334155" stroke-width="1.8" marker-end="url(#a)"/>
+
+  <!-- list -->
+  <rect x="150" y="152" width="660" height="66" rx="8" fill="#f1f5f9" stroke="#64748b" stroke-width="1.8"/>
+  <text x="480" y="180" text-anchor="middle" class="tb">System lists what is attached</text>
+  <text x="480" y="202" text-anchor="middle" class="sm">direct public IP(s)  +  dependent resources (subnet / VPC / LB)</text>
+  <line x1="480" y1="218" x2="480" y2="256" stroke="#334155" stroke-width="1.8" marker-end="url(#a)"/>
+
+  <!-- decision diamond -->
+  <polygon points="480,256 730,350 480,444 230,350" fill="#fef3c7" stroke="#d97706" stroke-width="2"/>
+  <text x="480" y="344" text-anchor="middle" class="tb">After this delete, is the item</text>
+  <text x="480" y="366" text-anchor="middle" class="tb">still attached to anything else?</text>
+
+  <!-- No branch -->
+  <path d="M230,350 C140,350 110,400 105,462" stroke="#334155" stroke-width="1.8" fill="none" marker-end="url(#a)"/>
+  <text x="150" y="405" class="edge" fill="#b91c1c">No — orphaned</text>
+  <rect x="40" y="464" width="360" height="74" rx="8" fill="#fee2e2" stroke="#dc2626" stroke-width="1.8"/>
+  <text x="220" y="494" text-anchor="middle" class="tb">Propose  KEEP / DELETE</text>
+  <text x="220" y="516" text-anchor="middle" class="sm">+ show the resource's monthly cost</text>
+
+  <!-- Yes branch -->
+  <path d="M730,350 C820,350 850,400 855,462" stroke="#334155" stroke-width="1.8" fill="none" marker-end="url(#a)"/>
+  <text x="742" y="405" class="edge" fill="#15803d">Yes — shared</text>
+  <rect x="560" y="464" width="360" height="74" rx="8" fill="#dcfce7" stroke="#16a34a" stroke-width="1.8"/>
+  <text x="740" y="494" text-anchor="middle" class="tb">Leave untouched</text>
+  <text x="740" y="516" text-anchor="middle" class="sm">just inform the user</text>
+
+  <!-- merge to IP step -->
+  <path d="M220,538 C220,566 340,572 430,574" stroke="#334155" stroke-width="1.8" fill="none" marker-end="url(#a)"/>
+  <path d="M740,538 C740,566 620,572 530,574" stroke="#334155" stroke-width="1.8" fill="none" marker-end="url(#a)"/>
+
+  <!-- direct IP step -->
+  <rect x="150" y="574" width="660" height="72" rx="8" fill="#f1f5f9" stroke="#64748b" stroke-width="1.8"/>
+  <text x="480" y="602" text-anchor="middle" class="tb">For each directly-attached public IP →  Keep or Release?</text>
+  <text x="480" y="626" text-anchor="middle" class="sm">default = Release  ·  keeping an idle reserved IP costs more</text>
+  <line x1="480" y1="646" x2="480" y2="684" stroke="#334155" stroke-width="1.8" marker-end="url(#a)"/>
+
+  <!-- end -->
+  <rect x="250" y="686" width="460" height="52" rx="26" fill="#dbeafe" stroke="#2563eb" stroke-width="2"/>
+  <text x="480" y="718" text-anchor="middle" class="tb">User confirms → delete ONLY the confirmed items</text>
+
+  <text x="30" y="792" class="sm">اصل: هیچ منبعی کورکورانه آبشاری حذف نمی‌شود؛ فقط منابع/آی‌پی‌هایی که «بعد از حذف به چیزی وصل نمی‌مانند» پیشنهادِ حذف می‌شوند.</text>
+</svg>
+</body></html>
