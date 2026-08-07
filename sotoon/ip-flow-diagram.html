@@ -1,0 +1,133 @@
+<!doctype html><html><head><meta charset="utf-8"><style>
+  html,body{margin:0;padding:0;background:#ffffff;}
+  svg{display:block;font-family:Arial,Helvetica,sans-serif;}
+  .t{font-size:15px;fill:#0f172a;}
+  .tb{font-size:15px;font-weight:700;fill:#0f172a;}
+  .sm{font-size:12.5px;fill:#334155;}
+  .title{font-size:26px;font-weight:700;fill:#0f172a;}
+  .badge{font-size:12px;font-weight:700;}
+  .lbl{font-size:12px;fill:#475569;font-style:italic;}
+</style></head><body>
+<svg width="1240" height="1000" viewBox="0 0 1240 1000" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <marker id="arw" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0,0 L9,5 L0,10 z" fill="#334155"/></marker>
+    <marker id="arwd" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0,0 L9,5 L0,10 z" fill="#64748b"/></marker>
+  </defs>
+
+  <text x="30" y="40" class="title">Sotoon — Public IP flow &amp; default reservation state</text>
+
+  <!-- Internet -->
+  <ellipse cx="620" cy="105" rx="120" ry="42" fill="#dbeafe" stroke="#2563eb" stroke-width="2"/>
+  <text x="620" y="111" text-anchor="middle" class="tb">Internet</text>
+
+  <!-- connectors internet -> IP badges -->
+  <g stroke="#334155" stroke-width="1.6" fill="none" marker-end="url(#arw)">
+    <line x1="590" y1="140" x2="200" y2="205"/>
+    <line x1="605" y1="146" x2="470" y2="205"/>
+    <line x1="635" y1="146" x2="760" y2="205"/>
+    <line x1="650" y1="140" x2="1075" y2="205"/>
+  </g>
+
+  <!-- IP badges (y=206..286) -->
+  <!-- 1: VPC gateway - Temporary -->
+  <g>
+    <rect x="105" y="206" width="200" height="82" rx="10" fill="#ffffff" stroke="#22a35b" stroke-width="2.5"/>
+    <text x="205" y="230" text-anchor="middle" class="tb">Public IP</text>
+    <text x="205" y="250" text-anchor="middle" class="sm">VPC gateway (default-gw)</text>
+    <text x="205" y="272" text-anchor="middle" class="badge" fill="#22a35b">Default: TEMPORARY</text>
+  </g>
+  <!-- 2: VM direct - user choice -->
+  <g>
+    <rect x="370" y="206" width="200" height="82" rx="10" fill="#ffffff" stroke="#e08e0b" stroke-width="2.5"/>
+    <text x="470" y="230" text-anchor="middle" class="tb">Public IP</text>
+    <text x="470" y="250" text-anchor="middle" class="sm">on a VM (Link)</text>
+    <text x="470" y="272" text-anchor="middle" class="badge" fill="#e08e0b">Default: USER CHOICE *</text>
+  </g>
+  <!-- 3: LB manual - reserved -->
+  <g>
+    <rect x="660" y="206" width="200" height="82" rx="10" fill="#ffffff" stroke="#d64545" stroke-width="2.5"/>
+    <text x="760" y="230" text-anchor="middle" class="tb">Public IP</text>
+    <text x="760" y="250" text-anchor="middle" class="sm">on a LoadBalancer</text>
+    <text x="760" y="272" text-anchor="middle" class="badge" fill="#d64545">Default: RESERVED</text>
+  </g>
+  <!-- 4: cluster LB - reserved -->
+  <g>
+    <rect x="975" y="206" width="200" height="82" rx="10" fill="#ffffff" stroke="#d64545" stroke-width="2.5"/>
+    <text x="1075" y="230" text-anchor="middle" class="tb">Public IP</text>
+    <text x="1075" y="250" text-anchor="middle" class="sm">on a k8s cluster LB (ske-)</text>
+    <text x="1075" y="272" text-anchor="middle" class="badge" fill="#d64545">Default: RESERVED</text>
+  </g>
+
+  <!-- connectors IP badge -> resource -->
+  <g stroke="#334155" stroke-width="1.6" fill="none" marker-end="url(#arw)">
+    <line x1="205" y1="288" x2="205" y2="470"/>       <!-- IP1 -> gateway -->
+    <line x1="470" y1="288" x2="560" y2="560"/>       <!-- IP2 -> VM2 -->
+    <line x1="760" y1="288" x2="760" y2="470"/>       <!-- IP3 -> LB -->
+    <line x1="1075" y1="288" x2="1075" y2="720"/>     <!-- IP4 -> cluster LB -->
+  </g>
+
+  <!-- VPC container -->
+  <rect x="70" y="430" width="1110" height="460" rx="14" fill="#f8fafc" stroke="#94a3b8" stroke-width="2" stroke-dasharray="8 5"/>
+  <text x="92" y="458" class="tb" font-size="18">VPC  (private IP range)</text>
+
+  <!-- VPC gateway node -->
+  <rect x="115" y="470" width="180" height="66" rx="8" fill="#e2e8f0" stroke="#475569" stroke-width="2"/>
+  <text x="205" y="500" text-anchor="middle" class="tb">VPC Gateway</text>
+  <text x="205" y="520" text-anchor="middle" class="sm">shared egress (NAT)</text>
+
+  <!-- Subnet box -->
+  <rect x="330" y="470" width="300" height="320" rx="10" fill="#eef2ff" stroke="#6366f1" stroke-width="1.8"/>
+  <text x="350" y="494" class="tb" fill="#4338ca">Subnet</text>
+  <rect x="355" y="560" width="120" height="64" rx="8" fill="#ffffff" stroke="#334155" stroke-width="1.6"/>
+  <text x="415" y="588" text-anchor="middle" class="t">VM</text>
+  <text x="415" y="608" text-anchor="middle" class="sm">(private)</text>
+  <rect x="495" y="560" width="120" height="64" rx="8" fill="#ffffff" stroke="#e08e0b" stroke-width="2"/>
+  <text x="555" y="588" text-anchor="middle" class="t">VM</text>
+  <text x="555" y="608" text-anchor="middle" class="sm">+ Public IP</text>
+  <!-- egress dashed from private VM to gateway -->
+  <path d="M355,592 C320,592 300,540 297,510" stroke="#64748b" stroke-width="1.5" fill="none" stroke-dasharray="5 4" marker-end="url(#arwd)"/>
+  <text x="300" y="560" class="lbl">egress</text>
+
+  <!-- LoadBalancer node -->
+  <rect x="680" y="470" width="170" height="66" rx="8" fill="#ccfbf1" stroke="#0d9488" stroke-width="2"/>
+  <text x="765" y="500" text-anchor="middle" class="tb">LoadBalancer</text>
+  <text x="765" y="520" text-anchor="middle" class="sm">balances backends</text>
+  <!-- LB -> backend dashed -->
+  <path d="M680,512 C650,520 630,560 618,584" stroke="#64748b" stroke-width="1.5" fill="none" stroke-dasharray="5 4" marker-end="url(#arwd)"/>
+  <text x="628" y="548" class="lbl">backend</text>
+
+  <!-- Kubernetes cluster box -->
+  <rect x="680" y="590" width="470" height="270" rx="10" fill="#f5f3ff" stroke="#8b5cf6" stroke-width="1.8"/>
+  <text x="700" y="614" class="tb" fill="#6d28d9">Kubernetes cluster</text>
+  <text x="700" y="633" class="sm" fill="#6d28d9">creates its own VPC + LB automatically</text>
+  <rect x="700" y="648" width="110" height="52" rx="7" fill="#ffffff" stroke="#334155" stroke-width="1.5"/>
+  <text x="755" y="679" text-anchor="middle" class="sm">worker</text>
+  <rect x="820" y="648" width="110" height="52" rx="7" fill="#ffffff" stroke="#334155" stroke-width="1.5"/>
+  <text x="875" y="679" text-anchor="middle" class="sm">worker</text>
+  <rect x="940" y="648" width="130" height="52" rx="7" fill="#ffffff" stroke="#334155" stroke-width="1.5"/>
+  <text x="1005" y="679" text-anchor="middle" class="sm">control-plane</text>
+  <rect x="990" y="720" width="150" height="56" rx="8" fill="#ccfbf1" stroke="#0d9488" stroke-width="2"/>
+  <text x="1065" y="744" text-anchor="middle" class="tb" font-size="13">cluster LB</text>
+  <text x="1065" y="762" text-anchor="middle" class="sm">(auto / ske-)</text>
+
+  <!-- footnote for user choice -->
+  <text x="370" y="312" class="lbl">* build flow nudges the user toward RESERVED</text>
+
+  <!-- ===== bottom panel ===== -->
+  <line x1="30" y1="912" x2="1210" y2="912" stroke="#cbd5e1" stroke-width="1.5"/>
+
+  <!-- legend -->
+  <text x="30" y="940" class="tb">Default reservation state:</text>
+  <rect x="250" y="929" width="16" height="16" rx="3" fill="#ffffff" stroke="#22a35b" stroke-width="2.5"/>
+  <text x="274" y="942" class="sm">Temporary (freed with the resource)</text>
+  <rect x="560" y="929" width="16" height="16" rx="3" fill="#ffffff" stroke="#d64545" stroke-width="2.5"/>
+  <text x="584" y="942" class="sm">Reserved (survives deletion → risk of orphan)</text>
+  <rect x="900" y="929" width="16" height="16" rx="3" fill="#ffffff" stroke="#e08e0b" stroke-width="2.5"/>
+  <text x="924" y="942" class="sm">User choice</text>
+
+  <!-- waste outcomes -->
+  <text x="30" y="974" class="tb" fill="#b91c1c">Where waste comes from:</text>
+  <text x="250" y="974" class="sm">① Delete VM / LB whose IP is RESERVED → IP is not freed → <tspan font-weight="700">Unattached (orphan)</tspan>.</text>
+  <text x="250" y="994" class="sm">② VPC / cluster not fully deleted (nested, multi-click) → its gateway IP stays on a VPC with no VM → <tspan font-weight="700">Attached but no traffic (idle)</tspan>.</text>
+</svg>
+</body></html>
