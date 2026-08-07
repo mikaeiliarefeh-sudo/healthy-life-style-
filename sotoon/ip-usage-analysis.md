@@ -323,6 +323,60 @@ VPC ساخته می‌شود / نام آی‌پی پابلیکش به‌صورت
 
 > 🔑 **کاربرد در سیاستِ بازپس‌گیری:** این مرز تعیین می‌کند که آی‌پیِ per-VM را کِی «مشروع» بدانیم و کِی «قابل مهاجرت به LB/NAT». هنگام هدف‌گذاریِ کاهش مصرف، آی‌پی‌های دسته‌ی anti-pattern اولویت دارند، نه موارد مشروع.
 
+### توپولوژیِ مرجع و نگاشتِ وضعیت آی‌پی پابلیک
+
+سلسله‌مراتب: **VPC** (یک رنج IP خصوصی) ← **Subnet** (تکه‌ای از آن رنج) ← **VM** (داخل Subnet). کلاستر کوبر هم داخل یک Subnetِ VPC می‌نشیند. سه راهِ اتصال به اینترنت (گیت‌ویِ مشترک، آی‌پیِ مستقیمِ VM، و LB) در این نمودار دیده می‌شوند:
+
+```mermaid
+flowchart TB
+    NET(("Internet"))
+    subgraph VPC["VPC — private IP range"]
+        GW["VPC Gateway<br/>(default-gw)"]
+        LB["LoadBalancer"]
+        subgraph S1["Subnet 1"]
+            VM1["VM1 (no public IP)"]
+            VM2["VM2 (no public IP)"]
+            VM3["VM3 + ip-pub1"]
+        end
+        subgraph S2["Subnet 2"]
+            VM4["VM4 + ip-pub2"]
+            VM5["VM5 (no public IP)"]
+        end
+        subgraph S3["Subnet 3 — k8s cluster"]
+            W1["worker1"]
+            W2["worker2"]
+            W3["worker3"]
+        end
+    end
+    GW -- "ip-pub4 — shared egress (outbound only)" --> NET
+    VM3 -- "ip-pub1 — bidirectional" --> NET
+    VM4 -- "ip-pub2 — bidirectional" --> NET
+    LB -- "ip-pub(LB) — inbound" --> NET
+    LB --> VM5
+    LB --> W1
+    VM1 -. egress .-> GW
+    VM2 -. egress .-> GW
+    VM5 -. egress .-> GW
+    W1 -. egress .-> GW
+    W2 -. egress .-> GW
+    W3 -. egress .-> GW
+```
+
+**نکته‌های صحت‌سنجی (نسبت به یک نمودارِ دستیِ رایج):**
+- آی‌پیِ مستقیمِ VM، *منطقاً* دوطرفه است اما *فیزیکی* NATش روی همان لبه/گیت‌ویِ VPC انجام می‌شود (از مرز VPC عبور می‌کند، نه از کنارش).
+- VMی که آی‌پیِ مستقیم دارد، خروجی‌اش هم از همان می‌رود؛ پس `default-gw` فقط برای VMهای **بدون‌IP** کار می‌کند (افزونگی برای بقیه).
+- نودهای کوبر معمولاً آی‌پیِ مستقیم ندارند: خروجی از گیت‌وی + ورودی از LBهای کوبر (`ske-ccm-ext-ip-*`, apiserver).
+- LB بدونِ backendِ فعال = یتیم؛ در نمودار باید به backendهایش فلش بخورد.
+
+| آی‌پی | متعلق به | kind در داده | جهت | پوشش | مصرفِ بهینه؟ |
+|---|---|---|---|---|---|
+| ip-pub4 | گیت‌وی VPC | `VPC (default-gw)` | فقط خروجی | همه‌ی VMهای بدون‌IP | ✅ کفِ لازم |
+| ip-pub1/2/3 | تک‌تکِ VMها | `Link` | دوطرفه | فقط همان VM | ⚠️ فقط اگر هویتِ مستقل لازم باشد |
+| ip-pub(LB) | LoadBalancer | `LoadBalancer` | ورودی | چند backend | ✅ اگر backend فعال دارد |
+| LBهای کوبر | apiserver/CCM | `LoadBalancer` | ورودی | سرویس‌های کلاستر | ✅ |
+
+**نتیجه:** آی‌پی‌های *مشترک* (گیت‌وی، LB) کارآمدند؛ آی‌پی‌های *اختصاصیِ per-VM* (Link) مشکوک به اسراف‌اند و در صورت نیازنداشتن به هویت مستقل، باید در گیت‌وی جمع یا پشتِ LB منتقل شوند.
+
 ---
 
 ## پیوست — داده‌های خام گفت‌وگوها
