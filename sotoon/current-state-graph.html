@@ -1,0 +1,171 @@
+<!doctype html><html><head><meta charset="utf-8"><style>
+html,body{margin:0;padding:0;background:#fff;}
+svg{display:block;font-family:Arial,Helvetica,sans-serif;}
+.title{font-size:25px;font-weight:700;fill:#0f172a;}
+.sub{font-size:13.5px;fill:#64748b;}
+.big{font-size:26px;font-weight:700;}
+.num{font-size:22px;font-weight:700;}
+.tb{font-size:14px;font-weight:700;fill:#0f172a;}
+.t{font-size:12.5px;fill:#1e293b;}
+.sm{font-size:11.5px;fill:#475569;}
+.lbl{font-size:11px;font-weight:700;fill:#64748b;}
+.cap{font-size:12px;font-weight:700;fill:#475569;}
+</style></head><body>
+<svg width="1460" height="880" viewBox="0 0 1460 880" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<marker id="ar" markerWidth="9" markerHeight="9" refX="7.5" refY="4.5" orient="auto"><path d="M0,0 L8,4.5 L0,9 z" fill="#94a3b8"/></marker>
+</defs>
+
+<text x="30" y="38" class="title">Public IP — current state, and where the waste comes from</text>
+<text x="30" y="60" class="sub">Snapshot 1 Aug 2026  ·  1679 public IPs  ·  216 customers  ·  read each column top → bottom</text>
+
+<!-- TOTAL -->
+<rect x="560" y="76" width="340" height="52" rx="9" fill="#0f172a"/>
+<text x="730" y="110" text-anchor="middle" class="big" fill="#ffffff">1679 public IPs</text>
+
+<!-- connectors -->
+<g stroke="#94a3b8" stroke-width="1.6" fill="none" marker-end="url(#ar)">
+  <path d="M640,128 C640,150 240,150 202,168"/>
+  <path d="M690,128 C690,152 560,152 547,168"/>
+  <path d="M770,128 C770,152 900,152 912,168"/>
+  <path d="M820,128 C820,150 1220,150 1257,168"/>
+</g>
+
+<!-- ============ COL 1 : VM ============ -->
+<rect x="40" y="170" width="325" height="74" rx="9" fill="#f1f5f9" stroke="#64748b" stroke-width="2"/>
+<text x="58" y="198" class="tb">On a VM  (Link)</text>
+<text x="58" y="228" class="num" fill="#0f172a">833</text>
+<text x="120" y="228" class="t">49.6% of all IPs</text>
+
+<line x1="202" y1="244" x2="202" y2="276" stroke="#94a3b8" stroke-width="1.6" marker-end="url(#ar)"/>
+<rect x="40" y="278" width="325" height="76" rx="8" fill="#fffbeb" stroke="#d97706" stroke-width="2"/>
+<text x="58" y="303" class="tb" fill="#92400e">⚠ NOT VERIFIED</text>
+<text x="58" y="324" class="sm">Assumed to have traffic — never checked.</text>
+<text x="58" y="343" class="sm">“attached” ≠ “in use”.</text>
+
+<line x1="202" y1="354" x2="202" y2="386" stroke="#94a3b8" stroke-width="1.6" marker-end="url(#ar)"/>
+<rect x="40" y="388" width="325" height="96" rx="8" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.6"/>
+<text x="58" y="412" class="lbl">GAP — not a flow problem yet</text>
+<text x="58" y="434" class="sm">No per-IP traffic data exists.</text>
+<text x="58" y="453" class="sm">Half of the whole inventory is</text>
+<text x="58" y="472" class="sm">excluded from the analysis by assumption.</text>
+
+<!-- ============ COL 2 : VPC GW ============ -->
+<rect x="385" y="170" width="325" height="74" rx="9" fill="#f1f5f9" stroke="#64748b" stroke-width="2"/>
+<text x="403" y="198" class="tb">VPC gateway  (default-gw)</text>
+<text x="403" y="228" class="num" fill="#0f172a">357</text>
+<text x="465" y="228" class="t">21.3%  ·  shared egress</text>
+
+<line x1="490" y1="244" x2="490" y2="272" stroke="#94a3b8" stroke-width="1.6" marker-end="url(#ar)"/>
+<line x1="605" y1="244" x2="605" y2="272" stroke="#94a3b8" stroke-width="1.6" marker-end="url(#ar)"/>
+
+<rect x="385" y="274" width="155" height="66" rx="8" fill="#f0fdf4" stroke="#16a34a" stroke-width="2"/>
+<text x="403" y="298" class="num" fill="#15803d">260</text>
+<text x="403" y="318" class="sm" fill="#15803d">VPC has a server</text>
+<text x="403" y="334" class="sm" fill="#15803d">✓ healthy (72%)</text>
+
+<rect x="555" y="274" width="155" height="66" rx="8" fill="#fef2f2" stroke="#dc2626" stroke-width="2"/>
+<text x="573" y="298" class="num" fill="#b91c1c">97</text>
+<text x="573" y="318" class="sm" fill="#b91c1c">VPC has NO server</text>
+<text x="573" y="334" class="sm" fill="#b91c1c">✗ waste (27%)</text>
+
+<line x1="632" y1="340" x2="632" y2="372" stroke="#94a3b8" stroke-width="1.6" marker-end="url(#ar)"/>
+<rect x="385" y="374" width="325" height="80" rx="8" fill="#ffffff" stroke="#dc2626" stroke-width="1.5"/>
+<text x="403" y="397" class="lbl" fill="#b91c1c">CAUSE — flow problem</text>
+<text x="403" y="418" class="sm">Incomplete VPC delete: user must clear</text>
+<text x="403" y="436" class="sm">VM → subnet → VPC across 3 separate tabs</text>
+<text x="403" y="450" class="sm">(nested, many clicks, no direct link).</text>
+
+<rect x="385" y="464" width="325" height="66" rx="8" fill="#ffffff" stroke="#dc2626" stroke-width="1.5"/>
+<text x="403" y="487" class="lbl" fill="#b91c1c">CAUSE — flow problem</text>
+<text x="403" y="508" class="sm">Cluster delete removes the nodes, but leaves</text>
+<text x="403" y="524" class="sm">subnet + VPC + its IP behind. No reminder.</text>
+
+<!-- ============ COL 3 : LB ============ -->
+<rect x="730" y="170" width="325" height="74" rx="9" fill="#f1f5f9" stroke="#64748b" stroke-width="2"/>
+<text x="748" y="198" class="tb">On a LoadBalancer</text>
+<text x="748" y="228" class="num" fill="#0f172a">284</text>
+<text x="810" y="228" class="t">16.9% of all IPs</text>
+
+<line x1="892" y1="244" x2="892" y2="276" stroke="#94a3b8" stroke-width="1.6" marker-end="url(#ar)"/>
+<rect x="730" y="278" width="325" height="76" rx="8" fill="#fffbeb" stroke="#d97706" stroke-width="2"/>
+<text x="748" y="303" class="tb" fill="#92400e">⚠ NOT ANALYSED</text>
+<text x="748" y="324" class="sm">An LB with no active backend is an</text>
+<text x="748" y="343" class="sm">idle IP — just like a VPC with no server.</text>
+
+<line x1="892" y1="354" x2="892" y2="386" stroke="#94a3b8" stroke-width="1.6" marker-end="url(#ar)"/>
+<rect x="730" y="388" width="325" height="96" rx="8" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.6"/>
+<text x="748" y="412" class="lbl">OPEN QUESTION</text>
+<text x="748" y="434" class="sm">How many of these 284 LBs actually have</text>
+<text x="748" y="453" class="sm">a live backend? Unknown — needs a</text>
+<text x="748" y="472" class="sm">backend-pool / traffic check.</text>
+
+<!-- ============ COL 4 : UNATTACHED ============ -->
+<rect x="1075" y="170" width="345" height="74" rx="9" fill="#fef2f2" stroke="#dc2626" stroke-width="2.5"/>
+<text x="1093" y="198" class="tb" fill="#b91c1c">Attached to NOTHING</text>
+<text x="1093" y="228" class="num" fill="#b91c1c">205</text>
+<text x="1155" y="228" class="t" fill="#b91c1c">12.2%  ·  100% waste</text>
+
+<line x1="1247" y1="244" x2="1247" y2="272" stroke="#94a3b8" stroke-width="1.6" marker-end="url(#ar)"/>
+
+<rect x="1075" y="274" width="345" height="72" rx="8" fill="#ffffff" stroke="#dc2626" stroke-width="1.5"/>
+<text x="1093" y="296" class="num" fill="#b91c1c">82</text>
+<text x="1132" y="296" class="tb" fill="#b91c1c">(40%)  VM was deleted</text>
+<text x="1093" y="317" class="sm">IP was RESERVED → survived the delete.</text>
+<text x="1093" y="335" class="sm">User is never reminded they still pay for it.</text>
+
+<rect x="1075" y="356" width="345" height="72" rx="8" fill="#ffffff" stroke="#dc2626" stroke-width="1.5"/>
+<text x="1093" y="378" class="num" fill="#b91c1c">65</text>
+<text x="1132" y="378" class="tb" fill="#b91c1c">(31%)  cluster LB — “ske-”</text>
+<text x="1093" y="399" class="sm">Cluster deleted → LB auto-removed, but its</text>
+<text x="1093" y="417" class="sm">reserved IP stays. Systemic, not user error.</text>
+
+<rect x="1075" y="438" width="345" height="72" rx="8" fill="#ffffff" stroke="#dc2626" stroke-width="1.5"/>
+<text x="1093" y="460" class="num" fill="#b91c1c">58</text>
+<text x="1132" y="460" class="tb" fill="#b91c1c">(29%)  other</text>
+<text x="1093" y="481" class="sm">Incl. the half-created-LB bug: user cancels,</text>
+<text x="1093" y="499" class="sm">the IP is already created and orphaned.</text>
+
+<!-- ===== SUMMARY STRIP ===== -->
+<line x1="30" y1="562" x2="1430" y2="562" stroke="#cbd5e1" stroke-width="1.5"/>
+<text x="30" y="590" class="cap">THE HEADLINE: two-thirds of the inventory has never actually been verified</text>
+
+<!-- stacked bar -->
+<rect x="30" y="604" width="252" height="42" fill="#16a34a"/>
+<rect x="282" y="604" width="292" height="42" fill="#dc2626"/>
+<rect x="574" y="604" width="856" height="42" fill="#d97706"/>
+<text x="156" y="631" text-anchor="middle" class="tb" fill="#ffffff">260  ·  15%</text>
+<text x="428" y="631" text-anchor="middle" class="tb" fill="#ffffff">302  ·  18%</text>
+<text x="1002" y="631" text-anchor="middle" class="tb" fill="#ffffff">1117  ·  67%</text>
+
+<text x="30" y="670" class="sm" fill="#15803d"><tspan font-weight="700">✓ verified healthy</tspan> — VPC gateway with a server</text>
+<text x="330" y="670" class="sm" fill="#b91c1c"><tspan font-weight="700">✗ confirmed waste</tspan> — 205 unattached + 97 VPC w/o server</text>
+<text x="740" y="670" class="sm" fill="#92400e"><tspan font-weight="700">⚠ unverified</tspan> — 833 on VMs (assumed) + 284 on LoadBalancers</text>
+
+<!-- ===== ROOT CAUSES ===== -->
+<line x1="30" y1="694" x2="1430" y2="694" stroke="#cbd5e1" stroke-width="1.5"/>
+<text x="30" y="722" class="cap">THE FLOW PROBLEMS BEHIND IT</text>
+
+<rect x="30" y="734" width="450" height="118" rx="9" fill="#f8fafc" stroke="#94a3b8" stroke-width="1.6"/>
+<text x="48" y="758" class="tb">A. Creation side — too many IPs come in</text>
+<text x="48" y="781" class="sm">• A VM can get its own IP <tspan font-weight="700">and</tspan> sit in an internet-facing VPC</text>
+<text x="48" y="800" class="sm">• Default = create a NEW IP, not pick an existing one</text>
+<text x="48" y="819" class="sm">• Default = VPC connected to the internet</text>
+<text x="48" y="838" class="sm">• Reserve/temporary asked at build time → users play safe</text>
+
+<rect x="496" y="734" width="450" height="118" rx="9" fill="#f8fafc" stroke="#94a3b8" stroke-width="1.6"/>
+<text x="514" y="758" class="tb">B. Deletion side — IPs never leave</text>
+<text x="514" y="781" class="sm">• Reserved IP survives the resource, with <tspan font-weight="700">no reminder</tspan></text>
+<text x="514" y="800" class="sm">• Cluster delete leaves subnet + VPC + IP behind</text>
+<text x="514" y="819" class="sm">• VPC delete is nested across 3 tabs, many clicks</text>
+<text x="514" y="838" class="sm">• Cluster LB IP is reserved by default</text>
+
+<rect x="962" y="734" width="468" height="118" rx="9" fill="#fffbeb" stroke="#d97706" stroke-width="1.8"/>
+<text x="980" y="758" class="tb" fill="#92400e">C. Still missing from the picture</text>
+<text x="980" y="781" class="sm">• Per-IP traffic data (would resize everything above)</text>
+<text x="980" y="800" class="sm">• How full is our range? When do we hit the ceiling?</text>
+<text x="980" y="819" class="sm">• 284 LB IPs · bare-metal IPs · ~500 internal company IPs</text>
+<text x="980" y="838" class="sm">• No quota: nothing caps how many IPs one workspace takes</text>
+
+</svg>
+</body></html>
