@@ -1,0 +1,1504 @@
+{
+  "title": "External IP Re-use & Workspace Connections",
+  "description": "Over time, how many resources of a workspace has each external IP been attached to, and has the same IP moved between workspaces.",
+  "tags": [
+    "engine",
+    "externalip",
+    "capacity"
+  ],
+  "timezone": "browser",
+  "editable": true,
+  "graphTooltip": 0,
+  "schemaVersion": 39,
+  "refresh": "",
+  "time": {
+    "from": "now-30d",
+    "to": "now"
+  },
+  "timepicker": {},
+  "panels": [
+    {
+      "id": 100,
+      "type": "row",
+      "title": "① Summary — is IP reservation actually being re-used?",
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 0
+      },
+      "collapsed": false,
+      "panels": []
+    },
+    {
+      "id": 1,
+      "type": "stat",
+      "title": "IPs with ≥1 attachment",
+      "description": "Denominator: distinct (cluster, namespace, ip) that were bound to at least one resource at some point during $window.",
+      "datasource": {
+        "type": "prometheus",
+        "uid": "${datasource}"
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 6,
+        "x": 0,
+        "y": 1
+      },
+      "targets": [
+        {
+          "refId": "A",
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${datasource}"
+          },
+          "editorMode": "code",
+          "expr": "count(\ncount by (cluster, namespace, ip) (\n  count_over_time(\n    ( max by (cluster, namespace, ip, target_kind, target_name) (kube_customresource_external_ip_info{cluster=~\"$cluster\", namespace!=\"compute-reserve\", namespace=~\"$ns_filter\", target_kind!=\"\"}) )[$window:$step]\n  )\n)\n)",
+          "format": "table",
+          "instant": true,
+          "range": false,
+          "legendFormat": "__auto",
+          "exemplar": false
+        }
+      ],
+      "options": {
+        "colorMode": "text",
+        "graphMode": "none",
+        "justifyMode": "center",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "textMode": "auto",
+        "wideLayout": true
+      },
+      "fieldConfig": {
+        "defaults": {
+          "unit": "none",
+          "color": {
+            "mode": "fixed",
+            "fixedColor": "text"
+          },
+          "mappings": [
+            {
+              "options": {
+                "match": "null",
+                "result": {
+                  "text": "0"
+                }
+              },
+              "type": "special"
+            }
+          ]
+        },
+        "overrides": []
+      }
+    },
+    {
+      "id": 2,
+      "type": "stat",
+      "title": "IPs bound to >1 resource",
+      "description": "IPs that saw more than one distinct target inside the SAME workspace during $window. Includes IPs fanned out to several targets simultaneously — see the next stat for the stricter count.",
+      "datasource": {
+        "type": "prometheus",
+        "uid": "${datasource}"
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 6,
+        "x": 6,
+        "y": 1
+      },
+      "targets": [
+        {
+          "refId": "A",
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${datasource}"
+          },
+          "editorMode": "code",
+          "expr": "count(\ncount by (cluster, namespace, ip) (\n  count_over_time(\n    ( max by (cluster, namespace, ip, target_kind, target_name) (kube_customresource_external_ip_info{cluster=~\"$cluster\", namespace!=\"compute-reserve\", namespace=~\"$ns_filter\", target_kind!=\"\"}) )[$window:$step]\n  )\n) > 1\n)",
+          "format": "table",
+          "instant": true,
+          "range": false,
+          "legendFormat": "__auto",
+          "exemplar": false
+        }
+      ],
+      "options": {
+        "colorMode": "text",
+        "graphMode": "none",
+        "justifyMode": "center",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "textMode": "auto",
+        "wideLayout": true
+      },
+      "fieldConfig": {
+        "defaults": {
+          "unit": "none",
+          "color": {
+            "mode": "fixed",
+            "fixedColor": "text"
+          },
+          "mappings": [
+            {
+              "options": {
+                "match": "null",
+                "result": {
+                  "text": "0"
+                }
+              },
+              "type": "special"
+            }
+          ]
+        },
+        "overrides": []
+      }
+    },
+    {
+      "id": 3,
+      "type": "stat",
+      "title": "IPs re-used sequentially (strict)",
+      "description": "THE headline number. >1 distinct target over time AND never more than one target at the same instant => the IP was held (reserved) and handed from one resource to the next.",
+      "datasource": {
+        "type": "prometheus",
+        "uid": "${datasource}"
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 6,
+        "x": 12,
+        "y": 1
+      },
+      "targets": [
+        {
+          "refId": "A",
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${datasource}"
+          },
+          "editorMode": "code",
+          "expr": "count(\n(\n  count by (cluster, namespace, ip) (\n  count_over_time(\n    ( max by (cluster, namespace, ip, target_kind, target_name) (kube_customresource_external_ip_info{cluster=~\"$cluster\", namespace!=\"compute-reserve\", namespace=~\"$ns_filter\", target_kind!=\"\"}) )[$window:$step]\n  )\n) > 1\n)\nand on (cluster, namespace, ip)\n(\n  max_over_time(\n  (\n    count by (cluster, namespace, ip) (\n      max by (cluster, namespace, ip, target_kind, target_name) (kube_customresource_external_ip_info{cluster=~\"$cluster\", namespace!=\"compute-reserve\", namespace=~\"$ns_filter\", target_kind!=\"\"})\n    )\n  )[$window:$step]\n) == 1\n)\n)",
+          "format": "table",
+          "instant": true,
+          "range": false,
+          "legendFormat": "__auto",
+          "exemplar": false
+        }
+      ],
+      "options": {
+        "colorMode": "text",
+        "graphMode": "none",
+        "justifyMode": "center",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "textMode": "auto",
+        "wideLayout": true
+      },
+      "fieldConfig": {
+        "defaults": {
+          "unit": "none",
+          "color": {
+            "mode": "fixed",
+            "fixedColor": "text"
+          },
+          "mappings": [
+            {
+              "options": {
+                "match": "null",
+                "result": {
+                  "text": "0"
+                }
+              },
+              "type": "special"
+            }
+          ]
+        },
+        "overrides": []
+      }
+    },
+    {
+      "id": 4,
+      "type": "stat",
+      "title": "IPs seen in >1 workspace",
+      "description": "Same IP address observed under more than one namespace during $window — e.g. customer A released it and customer B later bought it. Aggregated across clusters on purpose.",
+      "datasource": {
+        "type": "prometheus",
+        "uid": "${datasource}"
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 6,
+        "x": 18,
+        "y": 1
+      },
+      "targets": [
+        {
+          "refId": "A",
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${datasource}"
+          },
+          "editorMode": "code",
+          "expr": "count(\ncount by (ip) (\n  count_over_time(\n    ( max by (ip, namespace) (kube_customresource_external_ip_info{cluster=~\"$cluster\", namespace!=\"compute-reserve\", namespace=~\"$ns_filter\"}) )[$window:$step]\n  )\n) > 1\n)",
+          "format": "table",
+          "instant": true,
+          "range": false,
+          "legendFormat": "__auto",
+          "exemplar": false
+        }
+      ],
+      "options": {
+        "colorMode": "text",
+        "graphMode": "none",
+        "justifyMode": "center",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "textMode": "auto",
+        "wideLayout": true
+      },
+      "fieldConfig": {
+        "defaults": {
+          "unit": "none",
+          "color": {
+            "mode": "fixed",
+            "fixedColor": "text"
+          },
+          "mappings": [
+            {
+              "options": {
+                "match": "null",
+                "result": {
+                  "text": "0"
+                }
+              },
+              "type": "special"
+            }
+          ]
+        },
+        "overrides": []
+      }
+    },
+    {
+      "id": 200,
+      "type": "row",
+      "title": "② Re-use inside the SAME workspace",
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 5
+      },
+      "collapsed": false,
+      "panels": []
+    },
+    {
+      "id": 5,
+      "type": "table",
+      "title": "IPs bound to more than one resource (same workspace)",
+      "description": "One row per (cluster, namespace, ip). 'Distinct Resources' = how many different target_kind/target_name pairs the IP was attached to across $window. Sort descending to find the most-recycled IPs.",
+      "datasource": {
+        "type": "prometheus",
+        "uid": "${datasource}"
+      },
+      "gridPos": {
+        "h": 11,
+        "w": 14,
+        "x": 0,
+        "y": 6
+      },
+      "targets": [
+        {
+          "refId": "A",
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${datasource}"
+          },
+          "editorMode": "code",
+          "expr": "count by (cluster, namespace, ip) (\n  count_over_time(\n    ( max by (cluster, namespace, ip, target_kind, target_name) (kube_customresource_external_ip_info{cluster=~\"$cluster\", namespace!=\"compute-reserve\", namespace=~\"$ns_filter\", target_kind!=\"\"}) )[$window:$step]\n  )\n) > 1",
+          "format": "table",
+          "instant": true,
+          "range": false,
+          "legendFormat": "__auto",
+          "exemplar": false
+        }
+      ],
+      "transformations": [
+        {
+          "id": "organize",
+          "options": {
+            "excludeByName": {
+              "Time": true,
+              "__name__": true
+            },
+            "includeByName": {},
+            "indexByName": {
+              "cluster": 0,
+              "namespace": 1,
+              "ip": 2,
+              "Value": 3
+            },
+            "renameByName": {
+              "cluster": "Cluster",
+              "namespace": "Namespace (Workspace)",
+              "ip": "IP",
+              "Value": "Distinct Resources"
+            }
+          }
+        }
+      ],
+      "options": {
+        "cellHeight": "sm",
+        "showHeader": true,
+        "footer": {
+          "show": false,
+          "reducer": [
+            "sum"
+          ],
+          "countRows": false,
+          "fields": ""
+        },
+        "sortBy": [
+          {
+            "displayName": "Distinct Resources",
+            "desc": true
+          }
+        ]
+      },
+      "fieldConfig": {
+        "defaults": {
+          "custom": {
+            "align": "left",
+            "cellOptions": {
+              "type": "auto"
+            },
+            "filterable": true,
+            "inspect": false
+          },
+          "color": {
+            "mode": "thresholds"
+          },
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "text",
+                "value": null
+              }
+            ]
+          }
+        },
+        "overrides": []
+      }
+    },
+    {
+      "id": 6,
+      "type": "bargauge",
+      "title": "Top 25 most re-used IPs",
+      "description": "Same data as the table on the left, ranked.",
+      "datasource": {
+        "type": "prometheus",
+        "uid": "${datasource}"
+      },
+      "gridPos": {
+        "h": 11,
+        "w": 10,
+        "x": 14,
+        "y": 6
+      },
+      "targets": [
+        {
+          "refId": "A",
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${datasource}"
+          },
+          "editorMode": "code",
+          "expr": "topk(25,\ncount by (cluster, namespace, ip) (\n  count_over_time(\n    ( max by (cluster, namespace, ip, target_kind, target_name) (kube_customresource_external_ip_info{cluster=~\"$cluster\", namespace!=\"compute-reserve\", namespace=~\"$ns_filter\", target_kind!=\"\"}) )[$window:$step]\n  )\n) > 1\n)",
+          "format": "time_series",
+          "instant": false,
+          "range": true,
+          "legendFormat": "{{namespace}} — {{ip}}",
+          "exemplar": false
+        }
+      ],
+      "options": {
+        "displayMode": "gradient",
+        "orientation": "horizontal",
+        "showUnfilled": true,
+        "valueMode": "color",
+        "minVizHeight": 16,
+        "minVizWidth": 8,
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        }
+      },
+      "fieldConfig": {
+        "defaults": {
+          "unit": "none",
+          "color": {
+            "mode": "continuous-BlYlRd"
+          },
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "text",
+                "value": null
+              }
+            ]
+          }
+        },
+        "overrides": []
+      }
+    },
+    {
+      "id": 7,
+      "type": "table",
+      "title": "Strict sequential re-use (reserved, then handed to a new resource)",
+      "description": "Subset of the table above, keeping only IPs that were never attached to two resources at the same instant. This is the list that proves 'the customer reserved the IP and used it more than once'.",
+      "datasource": {
+        "type": "prometheus",
+        "uid": "${datasource}"
+      },
+      "gridPos": {
+        "h": 10,
+        "w": 14,
+        "x": 0,
+        "y": 17
+      },
+      "targets": [
+        {
+          "refId": "A",
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${datasource}"
+          },
+          "editorMode": "code",
+          "expr": "(\n  count by (cluster, namespace, ip) (\n  count_over_time(\n    ( max by (cluster, namespace, ip, target_kind, target_name) (kube_customresource_external_ip_info{cluster=~\"$cluster\", namespace!=\"compute-reserve\", namespace=~\"$ns_filter\", target_kind!=\"\"}) )[$window:$step]\n  )\n) > 1\n)\nand on (cluster, namespace, ip)\n(\n  max_over_time(\n  (\n    count by (cluster, namespace, ip) (\n      max by (cluster, namespace, ip, target_kind, target_name) (kube_customresource_external_ip_info{cluster=~\"$cluster\", namespace!=\"compute-reserve\", namespace=~\"$ns_filter\", target_kind!=\"\"})\n    )\n  )[$window:$step]\n) == 1\n)",
+          "format": "table",
+          "instant": true,
+          "range": false,
+          "legendFormat": "__auto",
+          "exemplar": false
+        }
+      ],
+      "transformations": [
+        {
+          "id": "organize",
+          "options": {
+            "excludeByName": {
+              "Time": true,
+              "__name__": true
+            },
+            "includeByName": {},
+            "indexByName": {
+              "cluster": 0,
+              "namespace": 1,
+              "ip": 2,
+              "Value": 3
+            },
+            "renameByName": {
+              "cluster": "Cluster",
+              "namespace": "Namespace (Workspace)",
+              "ip": "IP",
+              "Value": "Distinct Resources (sequential)"
+            }
+          }
+        }
+      ],
+      "options": {
+        "cellHeight": "sm",
+        "showHeader": true,
+        "footer": {
+          "show": false,
+          "reducer": [
+            "sum"
+          ],
+          "countRows": false,
+          "fields": ""
+        },
+        "sortBy": [
+          {
+            "displayName": "Distinct Resources (sequential)",
+            "desc": true
+          }
+        ]
+      },
+      "fieldConfig": {
+        "defaults": {
+          "custom": {
+            "align": "left",
+            "cellOptions": {
+              "type": "auto"
+            },
+            "filterable": true,
+            "inspect": false
+          },
+          "color": {
+            "mode": "thresholds"
+          },
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "text",
+                "value": null
+              }
+            ]
+          }
+        },
+        "overrides": []
+      }
+    },
+    {
+      "id": 8,
+      "type": "table",
+      "title": "⚠ Attached to >1 resource AT THE SAME TIME (review, not re-use)",
+      "description": "These IPs had several live targets simultaneously, so their 'distinct resources' count is fan-out rather than sequential re-use. Expect this to be empty or tiny; if it is not, the metric may expose one series per exposure path and the model needs a second look.",
+      "datasource": {
+        "type": "prometheus",
+        "uid": "${datasource}"
+      },
+      "gridPos": {
+        "h": 10,
+        "w": 10,
+        "x": 14,
+        "y": 17
+      },
+      "targets": [
+        {
+          "refId": "A",
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${datasource}"
+          },
+          "editorMode": "code",
+          "expr": "max_over_time(\n  (\n    count by (cluster, namespace, ip) (\n      max by (cluster, namespace, ip, target_kind, target_name) (kube_customresource_external_ip_info{cluster=~\"$cluster\", namespace!=\"compute-reserve\", namespace=~\"$ns_filter\", target_kind!=\"\"})\n    )\n  )[$window:$step]\n) > 1",
+          "format": "table",
+          "instant": true,
+          "range": false,
+          "legendFormat": "__auto",
+          "exemplar": false
+        }
+      ],
+      "transformations": [
+        {
+          "id": "organize",
+          "options": {
+            "excludeByName": {
+              "Time": true,
+              "__name__": true
+            },
+            "includeByName": {},
+            "indexByName": {
+              "cluster": 0,
+              "namespace": 1,
+              "ip": 2,
+              "Value": 3
+            },
+            "renameByName": {
+              "cluster": "Cluster",
+              "namespace": "Namespace (Workspace)",
+              "ip": "IP",
+              "Value": "Max Concurrent Targets"
+            }
+          }
+        }
+      ],
+      "options": {
+        "cellHeight": "sm",
+        "showHeader": true,
+        "footer": {
+          "show": false,
+          "reducer": [
+            "sum"
+          ],
+          "countRows": false,
+          "fields": ""
+        },
+        "sortBy": [
+          {
+            "displayName": "Max Concurrent Targets",
+            "desc": true
+          }
+        ]
+      },
+      "fieldConfig": {
+        "defaults": {
+          "custom": {
+            "align": "left",
+            "cellOptions": {
+              "type": "auto"
+            },
+            "filterable": true,
+            "inspect": false
+          },
+          "color": {
+            "mode": "thresholds"
+          },
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "text",
+                "value": null
+              }
+            ]
+          }
+        },
+        "overrides": []
+      }
+    },
+    {
+      "id": 300,
+      "type": "row",
+      "title": "③ The same IP across DIFFERENT workspaces",
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 27
+      },
+      "collapsed": false,
+      "panels": []
+    },
+    {
+      "id": 9,
+      "type": "table",
+      "title": "IPs that lived in more than one workspace",
+      "description": "Counted over every record of the IP (attached or not), so a release-then-resell cycle is captured. compute-reserve is excluded, so parking in the free pool between owners does not count as a workspace.",
+      "datasource": {
+        "type": "prometheus",
+        "uid": "${datasource}"
+      },
+      "gridPos": {
+        "h": 10,
+        "w": 10,
+        "x": 0,
+        "y": 28
+      },
+      "targets": [
+        {
+          "refId": "A",
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${datasource}"
+          },
+          "editorMode": "code",
+          "expr": "count by (ip) (\n  count_over_time(\n    ( max by (ip, namespace) (kube_customresource_external_ip_info{cluster=~\"$cluster\", namespace!=\"compute-reserve\", namespace=~\"$ns_filter\"}) )[$window:$step]\n  )\n) > 1",
+          "format": "table",
+          "instant": true,
+          "range": false,
+          "legendFormat": "__auto",
+          "exemplar": false
+        }
+      ],
+      "transformations": [
+        {
+          "id": "organize",
+          "options": {
+            "excludeByName": {
+              "Time": true,
+              "__name__": true
+            },
+            "includeByName": {},
+            "indexByName": {
+              "ip": 0,
+              "Value": 1
+            },
+            "renameByName": {
+              "ip": "IP",
+              "Value": "Distinct Workspaces"
+            }
+          }
+        }
+      ],
+      "options": {
+        "cellHeight": "sm",
+        "showHeader": true,
+        "footer": {
+          "show": false,
+          "reducer": [
+            "sum"
+          ],
+          "countRows": false,
+          "fields": ""
+        },
+        "sortBy": [
+          {
+            "displayName": "Distinct Workspaces",
+            "desc": true
+          }
+        ]
+      },
+      "fieldConfig": {
+        "defaults": {
+          "custom": {
+            "align": "left",
+            "cellOptions": {
+              "type": "auto"
+            },
+            "filterable": true,
+            "inspect": false
+          },
+          "color": {
+            "mode": "thresholds"
+          },
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "text",
+                "value": null
+              }
+            ]
+          }
+        },
+        "overrides": []
+      }
+    },
+    {
+      "id": 10,
+      "type": "table",
+      "title": "Workspace history of those IPs",
+      "description": "Expands the previous panel: one row per (ip, namespace). 'Buckets Present' is how many $step samples the IP belonged to that namespace — multiply by $step for an approximate dwell time (e.g. 72 buckets at 1h ≈ 3 days).",
+      "datasource": {
+        "type": "prometheus",
+        "uid": "${datasource}"
+      },
+      "gridPos": {
+        "h": 10,
+        "w": 14,
+        "x": 10,
+        "y": 28
+      },
+      "targets": [
+        {
+          "refId": "A",
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${datasource}"
+          },
+          "editorMode": "code",
+          "expr": "sum by (ip, namespace) (\n  count_over_time(\n    ( max by (ip, namespace) (kube_customresource_external_ip_info{cluster=~\"$cluster\", namespace!=\"compute-reserve\", namespace=~\"$ns_filter\"}) )[$window:$step]\n  )\n)\nand on (ip)\n(\ncount by (ip) (\n  count_over_time(\n    ( max by (ip, namespace) (kube_customresource_external_ip_info{cluster=~\"$cluster\", namespace!=\"compute-reserve\", namespace=~\"$ns_filter\"}) )[$window:$step]\n  )\n) > 1\n)",
+          "format": "table",
+          "instant": true,
+          "range": false,
+          "legendFormat": "__auto",
+          "exemplar": false
+        }
+      ],
+      "transformations": [
+        {
+          "id": "organize",
+          "options": {
+            "excludeByName": {
+              "Time": true,
+              "__name__": true
+            },
+            "includeByName": {},
+            "indexByName": {
+              "ip": 0,
+              "namespace": 1,
+              "Value": 2
+            },
+            "renameByName": {
+              "ip": "IP",
+              "namespace": "Namespace (Workspace)",
+              "Value": "Buckets Present"
+            }
+          }
+        }
+      ],
+      "options": {
+        "cellHeight": "sm",
+        "showHeader": true,
+        "footer": {
+          "show": false,
+          "reducer": [
+            "sum"
+          ],
+          "countRows": false,
+          "fields": ""
+        },
+        "sortBy": [
+          {
+            "displayName": "IP",
+            "desc": true
+          }
+        ]
+      },
+      "fieldConfig": {
+        "defaults": {
+          "custom": {
+            "align": "left",
+            "cellOptions": {
+              "type": "auto"
+            },
+            "filterable": true,
+            "inspect": false
+          },
+          "color": {
+            "mode": "thresholds"
+          },
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "text",
+                "value": null
+              }
+            ]
+          }
+        },
+        "overrides": []
+      }
+    },
+    {
+      "id": 400,
+      "type": "row",
+      "title": "④ Drill-down for a single IP — $ip",
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 38
+      },
+      "collapsed": false,
+      "panels": []
+    },
+    {
+      "id": 11,
+      "type": "state-timeline",
+      "title": "Binding timeline for $ip",
+      "description": "One lane per (namespace, target_kind, target_name) the IP was bound to. Gaps = the IP was unattached. This is the visual proof of 'reserved, released, re-attached'. Uses the time picker range, not $window.",
+      "datasource": {
+        "type": "prometheus",
+        "uid": "${datasource}"
+      },
+      "gridPos": {
+        "h": 10,
+        "w": 24,
+        "x": 0,
+        "y": 39
+      },
+      "targets": [
+        {
+          "refId": "A",
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${datasource}"
+          },
+          "editorMode": "code",
+          "expr": "max by (namespace, target_kind, target_name) (\n  kube_customresource_external_ip_info{cluster=~\"$cluster\", ip=\"$ip\"}\n)",
+          "format": "time_series",
+          "instant": false,
+          "range": true,
+          "legendFormat": "{{namespace}} | {{target_kind}}/{{target_name}}",
+          "exemplar": false
+        }
+      ],
+      "options": {
+        "alignValue": "left",
+        "legend": {
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "mergeValues": false,
+        "rowHeight": 0.9,
+        "showValue": "never",
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "fieldConfig": {
+        "defaults": {
+          "custom": {
+            "fillOpacity": 80,
+            "lineWidth": 0,
+            "insertNulls": false,
+            "spanNulls": false
+          },
+          "color": {
+            "mode": "continuous-GrYlRd"
+          },
+          "mappings": [
+            {
+              "options": {
+                "1": {
+                  "text": "attached",
+                  "index": 0
+                }
+              },
+              "type": "value"
+            }
+          ],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          }
+        },
+        "overrides": []
+      }
+    },
+    {
+      "id": 12,
+      "type": "table",
+      "title": "Every binding ever seen for $ip",
+      "description": "Rows where 'Connected To (Kind)' is empty are the periods the IP sat unused. 'Buckets Present' × $step ≈ how long that binding lasted.",
+      "datasource": {
+        "type": "prometheus",
+        "uid": "${datasource}"
+      },
+      "gridPos": {
+        "h": 9,
+        "w": 24,
+        "x": 0,
+        "y": 49
+      },
+      "targets": [
+        {
+          "refId": "A",
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${datasource}"
+          },
+          "editorMode": "code",
+          "expr": "sum by (cluster, namespace, ip, target_kind, target_name) (\n  count_over_time(\n    ( max by (cluster, namespace, ip, target_kind, target_name) (\n        kube_customresource_external_ip_info{cluster=~\"$cluster\", ip=\"$ip\"}\n    ) )[$window:$step]\n  )\n)",
+          "format": "table",
+          "instant": true,
+          "range": false,
+          "legendFormat": "__auto",
+          "exemplar": false
+        }
+      ],
+      "transformations": [
+        {
+          "id": "organize",
+          "options": {
+            "excludeByName": {
+              "Time": true,
+              "__name__": true
+            },
+            "includeByName": {},
+            "indexByName": {
+              "cluster": 0,
+              "namespace": 1,
+              "ip": 2,
+              "target_kind": 3,
+              "target_name": 4,
+              "Value": 5
+            },
+            "renameByName": {
+              "cluster": "Cluster",
+              "namespace": "Namespace (Workspace)",
+              "ip": "IP",
+              "target_kind": "Connected To (Kind)",
+              "target_name": "Connected To (Name)",
+              "Value": "Buckets Present"
+            }
+          }
+        }
+      ],
+      "options": {
+        "cellHeight": "sm",
+        "showHeader": true,
+        "footer": {
+          "show": false,
+          "reducer": [
+            "sum"
+          ],
+          "countRows": false,
+          "fields": ""
+        },
+        "sortBy": [
+          {
+            "displayName": "Buckets Present",
+            "desc": true
+          }
+        ]
+      },
+      "fieldConfig": {
+        "defaults": {
+          "custom": {
+            "align": "left",
+            "cellOptions": {
+              "type": "auto"
+            },
+            "filterable": true,
+            "inspect": false
+          },
+          "color": {
+            "mode": "thresholds"
+          },
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "text",
+                "value": null
+              }
+            ]
+          }
+        },
+        "overrides": []
+      }
+    },
+    {
+      "id": 500,
+      "type": "row",
+      "title": "⑤ Reference & sanity checks",
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 58
+      },
+      "collapsed": false,
+      "panels": []
+    },
+    {
+      "id": 13,
+      "type": "timeseries",
+      "title": "Data availability — how far back can this analysis go?",
+      "description": "Set the time picker to 1y. Where this line starts is the real retention limit of the datasource; $window can never be longer than that. Check this BEFORE trusting a 90d/365d number.",
+      "datasource": {
+        "type": "prometheus",
+        "uid": "${datasource}"
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 0,
+        "y": 59
+      },
+      "targets": [
+        {
+          "refId": "A",
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${datasource}"
+          },
+          "editorMode": "code",
+          "expr": "count(kube_customresource_external_ip_info{cluster=~\"$cluster\"})",
+          "format": "time_series",
+          "instant": false,
+          "range": true,
+          "legendFormat": "series present",
+          "exemplar": false
+        }
+      ],
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "fieldConfig": {
+        "defaults": {
+          "unit": "none",
+          "custom": {
+            "drawStyle": "line",
+            "lineWidth": 1,
+            "fillOpacity": 10,
+            "showPoints": "never",
+            "spanNulls": false
+          },
+          "color": {
+            "mode": "palette-classic"
+          },
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          }
+        },
+        "overrides": []
+      }
+    },
+    {
+      "id": 14,
+      "type": "table",
+      "title": "Workspace lookup (namespace → workspace UUID → internal flag)",
+      "description": "Kept as a separate lookup instead of joining onto the tables above on purpose: this join only resolves namespaces that still EXIST right now, so joining it in would silently drop every IP whose old workspace has since been deleted — exactly the rows this analysis is about.",
+      "datasource": {
+        "type": "prometheus",
+        "uid": "${datasource}"
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 12,
+        "y": 59
+      },
+      "targets": [
+        {
+          "refId": "A",
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${datasource}"
+          },
+          "editorMode": "code",
+          "expr": "max by (cluster, namespace, label_bepa_cafebazaar_cloud_cloud_workspace_uuid,\n        label_bepa_cafebazaar_cloud_internal,\n        label_bepa_cafebazaar_cloud_workspace_suspended) (\n  kube_namespace_labels{cluster=~\"$cluster\", namespace=~\"$ns_filter\"}\n)",
+          "format": "table",
+          "instant": true,
+          "range": false,
+          "legendFormat": "__auto",
+          "exemplar": false
+        }
+      ],
+      "transformations": [
+        {
+          "id": "organize",
+          "options": {
+            "excludeByName": {
+              "Time": true,
+              "__name__": true,
+              "Value": true
+            },
+            "includeByName": {},
+            "indexByName": {
+              "cluster": 0,
+              "namespace": 1
+            },
+            "renameByName": {
+              "cluster": "Cluster",
+              "namespace": "Namespace",
+              "label_bepa_cafebazaar_cloud_cloud_workspace_uuid": "Workspace UUID",
+              "label_bepa_cafebazaar_cloud_internal": "Is Internal",
+              "label_bepa_cafebazaar_cloud_workspace_suspended": "Suspended"
+            }
+          }
+        }
+      ],
+      "options": {
+        "cellHeight": "sm",
+        "showHeader": true,
+        "footer": {
+          "show": false,
+          "reducer": [
+            "sum"
+          ],
+          "countRows": false,
+          "fields": ""
+        },
+        "sortBy": [
+          {
+            "displayName": "Namespace",
+            "desc": true
+          }
+        ]
+      },
+      "fieldConfig": {
+        "defaults": {
+          "custom": {
+            "align": "left",
+            "cellOptions": {
+              "type": "auto"
+            },
+            "filterable": true,
+            "inspect": false
+          },
+          "color": {
+            "mode": "thresholds"
+          },
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "text",
+                "value": null
+              }
+            ]
+          }
+        },
+        "overrides": []
+      }
+    },
+    {
+      "id": 15,
+      "type": "text",
+      "title": "How to read this dashboard / method & caveats",
+      "gridPos": {
+        "h": 15,
+        "w": 24,
+        "x": 0,
+        "y": 67
+      },
+      "options": {
+        "mode": "markdown",
+        "content": "### The question\n*Over time, how many resources of a workspace has one IP been attached to?* If an IP was attached to **more than one** resource, it was **reserved and re-used**. Separately, one IP may appear in **two workspaces** (customer A releases it, customer B buys it).\n\n### How it is computed\n`kube_customresource_external_ip_info` is an info-metric: one series per `(cluster, namespace, ip, name, gateway, target_kind, target_name)`, value `1`, and `target_kind=\"\"` means *unattached*.\n\n1. **Collapse first.** `max by (cluster, namespace, ip, target_kind, target_name)(...)` strips kube-state-metrics plumbing labels (`instance`, `pod`, `job`, …) plus `name`/`gateway`. **Skipping this step is the #1 way to get wrong numbers** — a KSM pod restart mints new series and inflates every count.\n2. **Count distinct over time.** `count by (...)(count_over_time( (<collapsed>)[$window:$step] ))` — `count_over_time` emits one series per distinct binding, so counting those series *is* a COUNT DISTINCT.\n3. **Reject fan-out.** `max_over_time(count by (cluster,namespace,ip)(<collapsed>)[$window:$step]) == 1` keeps only IPs that never had two live targets at once, so `distinct > 1` really means *sequential* re-use.\n\n### Caveats — read before quoting a number\n- **`$step` is the sampling resolution.** Any attachment shorter than `$step` can be missed entirely, so results are a **lower bound**. Cross-check a suspicious IP at `$step=5m` in panel ④.\n- **'Buckets Present' over-counts by up to one bucket per transition.** Prometheus still considers a sample current for `lookbackDelta` (5m by default), so at a hand-over the old and the new binding are both visible in the same bucket. Read that column as an estimate, ±1 bucket per transition. The distinct counts everything else rests on are **not** affected.\n- **`$window` cannot exceed datasource retention.** Verify with the *Data availability* panel first.\n- **Cost.** These are subqueries: `[$window:$step]` runs the inner query `$window/$step` times. `30d:1h` = 720 evaluations; `365d:5m` will time out. Start at `7d:1h`, widen once it returns. For anything routine, use the recording rule in `recording-rules.yaml` — it removes the subquery entirely and makes a 1y lookback cheap.\n- **Delete + recreate under the same name undercounts.** A Service deleted and recreated with the identical `target_name` is one distinct value, not two, so real re-use is slightly under-reported.\n- **`compute-reserve` is excluded everywhere** as the free/unallocated pool. If that is not what it means, change the `namespace!=\"compute-reserve\"` matcher.\n- **Namespace is treated as the workspace.** The workspace UUID is embedded in the namespace name; panel ⑤ maps it explicitly.\n"
+      },
+      "datasource": {
+        "type": "prometheus",
+        "uid": "${datasource}"
+      },
+      "transparent": false
+    }
+  ],
+  "templating": {
+    "list": [
+      {
+        "name": "datasource",
+        "type": "datasource",
+        "label": "Datasource",
+        "query": "prometheus",
+        "current": {
+          "text": "engine-vm-thr1",
+          "value": "b6273083-9ae2-405c-a518-bb13a2d1a92e"
+        },
+        "refresh": 1,
+        "hide": 0,
+        "multi": false,
+        "includeAll": false,
+        "options": []
+      },
+      {
+        "name": "cluster",
+        "type": "query",
+        "label": "Cluster",
+        "datasource": {
+          "type": "prometheus",
+          "uid": "${datasource}"
+        },
+        "definition": "label_values(kube_node_info,cluster)",
+        "query": {
+          "qryType": 1,
+          "query": "label_values(kube_node_info,cluster)",
+          "refId": "PrometheusVariableQueryEditor-VariableQuery"
+        },
+        "current": {
+          "text": "engine-thr1",
+          "value": "engine-thr1"
+        },
+        "refresh": 1,
+        "sort": 1,
+        "hide": 0,
+        "multi": true,
+        "includeAll": true,
+        "allValue": ".*",
+        "options": [],
+        "allowCustomValue": true
+      },
+      {
+        "name": "window",
+        "type": "custom",
+        "label": "Lookback window",
+        "description": "How far back to look for re-use. Cannot exceed datasource retention.",
+        "query": "1h,6h,24h,2d,7d,14d,30d,60d,90d,180d,365d",
+        "current": {
+          "text": "30d",
+          "value": "30d"
+        },
+        "options": [
+          {
+            "text": "1h",
+            "value": "1h",
+            "selected": false
+          },
+          {
+            "text": "6h",
+            "value": "6h",
+            "selected": false
+          },
+          {
+            "text": "24h",
+            "value": "24h",
+            "selected": false
+          },
+          {
+            "text": "2d",
+            "value": "2d",
+            "selected": false
+          },
+          {
+            "text": "7d",
+            "value": "7d",
+            "selected": false
+          },
+          {
+            "text": "14d",
+            "value": "14d",
+            "selected": false
+          },
+          {
+            "text": "30d",
+            "value": "30d",
+            "selected": true
+          },
+          {
+            "text": "60d",
+            "value": "60d",
+            "selected": false
+          },
+          {
+            "text": "90d",
+            "value": "90d",
+            "selected": false
+          },
+          {
+            "text": "180d",
+            "value": "180d",
+            "selected": false
+          },
+          {
+            "text": "365d",
+            "value": "365d",
+            "selected": false
+          }
+        ],
+        "hide": 0,
+        "multi": false,
+        "includeAll": false,
+        "allowCustomValue": true
+      },
+      {
+        "name": "step",
+        "type": "custom",
+        "label": "Resolution",
+        "description": "Subquery step. Smaller = catches shorter attachments but much more expensive. window/step evaluations are performed.",
+        "query": "5m,10m,30m,1h,3h,6h,12h,24h",
+        "current": {
+          "text": "1h",
+          "value": "1h"
+        },
+        "options": [
+          {
+            "text": "5m",
+            "value": "5m",
+            "selected": false
+          },
+          {
+            "text": "10m",
+            "value": "10m",
+            "selected": false
+          },
+          {
+            "text": "30m",
+            "value": "30m",
+            "selected": false
+          },
+          {
+            "text": "1h",
+            "value": "1h",
+            "selected": true
+          },
+          {
+            "text": "3h",
+            "value": "3h",
+            "selected": false
+          },
+          {
+            "text": "6h",
+            "value": "6h",
+            "selected": false
+          },
+          {
+            "text": "12h",
+            "value": "12h",
+            "selected": false
+          },
+          {
+            "text": "24h",
+            "value": "24h",
+            "selected": false
+          }
+        ],
+        "hide": 0,
+        "multi": false,
+        "includeAll": false,
+        "allowCustomValue": true
+      },
+      {
+        "name": "ns_filter",
+        "type": "textbox",
+        "label": "Namespace regex",
+        "description": "Narrow the analysis to a subset of workspaces. Default .* = all.",
+        "query": ".*",
+        "current": {
+          "text": ".*",
+          "value": ".*"
+        },
+        "options": [],
+        "hide": 0
+      },
+      {
+        "name": "ip",
+        "type": "query",
+        "label": "IP (drill-down)",
+        "datasource": {
+          "type": "prometheus",
+          "uid": "${datasource}"
+        },
+        "definition": "label_values(kube_customresource_external_ip_info{cluster=~\"$cluster\"},ip)",
+        "query": {
+          "qryType": 1,
+          "query": "label_values(kube_customresource_external_ip_info{cluster=~\"$cluster\"},ip)",
+          "refId": "PrometheusVariableQueryEditor-VariableQuery"
+        },
+        "current": {
+          "text": "87.247.175.99",
+          "value": "87.247.175.99"
+        },
+        "refresh": 1,
+        "sort": 1,
+        "hide": 0,
+        "multi": false,
+        "includeAll": false,
+        "options": [],
+        "allowCustomValue": true
+      }
+    ]
+  },
+  "annotations": {
+    "list": []
+  },
+  "links": [],
+  "preload": false,
+  "weekStart": ""
+}

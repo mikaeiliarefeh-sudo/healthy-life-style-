@@ -1,0 +1,51 @@
+{
+  "IPs with ≥1 attachment": [
+    "{} 5"
+  ],
+  "IPs bound to >1 resource": [
+    "{} 2"
+  ],
+  "IPs re-used sequentially (strict)": [
+    "{} 1"
+  ],
+  "IPs seen in >1 workspace": [
+    "{} 1"
+  ],
+  "IPs bound to more than one resource (same workspace)": [
+    "{cluster=\"c1\", ip=\"10.0.0.1\", namespace=\"ws-a\"} 2",
+    "{cluster=\"c1\", ip=\"10.0.0.3\", namespace=\"ws-b\"} 2"
+  ],
+  "Top 25 most re-used IPs": [
+    "{cluster=\"c1\", ip=\"10.0.0.1\", namespace=\"ws-a\"} 2",
+    "{cluster=\"c1\", ip=\"10.0.0.3\", namespace=\"ws-b\"} 2"
+  ],
+  "Strict sequential re-use (reserved, then handed to a new resource)": [
+    "{cluster=\"c1\", ip=\"10.0.0.1\", namespace=\"ws-a\"} 2"
+  ],
+  "⚠ Attached to >1 resource AT THE SAME TIME (review, not re-use)": [
+    "{cluster=\"c1\", ip=\"10.0.0.3\", namespace=\"ws-b\"} 2"
+  ],
+  "IPs that lived in more than one workspace": [
+    "{ip=\"10.0.0.4\"} 2"
+  ],
+  "Workspace history of those IPs": [
+    "{ip=\"10.0.0.4\", namespace=\"ws-a\"} 5",
+    "{ip=\"10.0.0.4\", namespace=\"ws-c\"} 6"
+  ],
+  "Binding timeline for $ip": [
+    "{namespace=\"ws-a\", target_kind=\"Service\", target_name=\"svc-2\"} 1"
+  ],
+  "Every binding ever seen for $ip": [
+    "{cluster=\"c1\", ip=\"10.0.0.1\", namespace=\"ws-a\", target_kind=\"Service\", target_name=\"svc-1\"} 5",
+    "{cluster=\"c1\", ip=\"10.0.0.1\", namespace=\"ws-a\", target_kind=\"Service\", target_name=\"svc-2\"} 6",
+    "{cluster=\"c1\", ip=\"10.0.0.1\", namespace=\"ws-a\"} 3"
+  ],
+  "Data availability — how far back can this analysis go?": [
+    "{} 7"
+  ],
+  "Workspace lookup (namespace → workspace UUID → internal flag)": [
+    "{cluster=\"c1\", label_bepa_cafebazaar_cloud_cloud_workspace_uuid=\"uuid-a\", label_bepa_cafebazaar_cloud_internal=\"false\", label_bepa_cafebazaar_cloud_workspace_suspended=\"false\", namespace=\"ws-a\"} 1",
+    "{cluster=\"c1\", label_bepa_cafebazaar_cloud_cloud_workspace_uuid=\"uuid-b\", label_bepa_cafebazaar_cloud_internal=\"false\", label_bepa_cafebazaar_cloud_workspace_suspended=\"false\", namespace=\"ws-b\"} 1",
+    "{cluster=\"c1\", label_bepa_cafebazaar_cloud_cloud_workspace_uuid=\"uuid-c\", label_bepa_cafebazaar_cloud_internal=\"true\", label_bepa_cafebazaar_cloud_workspace_suspended=\"false\", namespace=\"ws-c\"} 1"
+  ]
+}

@@ -1,0 +1,34 @@
+# 10.0.0.1 : reserved, then handed from svc-1 to svc-2 (TRUE sequential re-use)
+load 5m
+  kube_customresource_external_ip_info{cluster="c1",namespace="ws-a",ip="10.0.0.1",name="eip1",gateway="gw1",target_kind="Service",target_name="svc-1",instance="ksm-1",job="ksm"}  1 1 1 1 _ _ _ _ _ _ _ _
+  kube_customresource_external_ip_info{cluster="c1",namespace="ws-a",ip="10.0.0.1",name="eip1",gateway="gw1",instance="ksm-1",job="ksm"}                                            _ _ _ _ 1 1 _ _ _ _ _ _
+  kube_customresource_external_ip_info{cluster="c1",namespace="ws-a",ip="10.0.0.1",name="eip1",gateway="gw1",target_kind="Service",target_name="svc-2",instance="ksm-1",job="ksm"}  _ _ _ _ _ _ 1 1 1 1 1 1
+
+# 10.0.0.2 : SAME target the whole time, but kube-state-metrics restarted (new instance/pod).
+# A naive count-distinct that forgets the inner `max by (...)` reports 2 here. Correct answer is 1.
+load 5m
+  kube_customresource_external_ip_info{cluster="c1",namespace="ws-a",ip="10.0.0.2",name="eip2",gateway="gw1",target_kind="Service",target_name="svc-x",instance="ksm-1",job="ksm",pod="ksm-abc"}  1 1 1 1 1 1 _ _ _ _ _ _
+  kube_customresource_external_ip_info{cluster="c1",namespace="ws-a",ip="10.0.0.2",name="eip2",gateway="gw1",target_kind="Service",target_name="svc-x",instance="ksm-2",job="ksm",pod="ksm-def"}  _ _ _ _ _ _ 1 1 1 1 1 1
+
+# 10.0.0.3 : two targets AT THE SAME TIME (fan-out, not re-use)
+load 5m
+  kube_customresource_external_ip_info{cluster="c1",namespace="ws-b",ip="10.0.0.3",name="eip3",gateway="gw1",target_kind="Service",target_name="svc-p",instance="ksm-1",job="ksm"}  1 1 1 1 1 1 1 1 1 1 1 1
+  kube_customresource_external_ip_info{cluster="c1",namespace="ws-b",ip="10.0.0.3",name="eip3",gateway="gw1",target_kind="Gateway",target_name="gw-q",instance="ksm-1",job="ksm"}  1 1 1 1 1 1 1 1 1 1 1 1
+
+# 10.0.0.4 : released by ws-a, parked in compute-reserve, resold to ws-c
+load 5m
+  kube_customresource_external_ip_info{cluster="c1",namespace="ws-a",ip="10.0.0.4",name="eip4",gateway="gw1",instance="ksm-1",job="ksm"}                                            1 1 1 1 _ _ _ _ _ _ _ _
+  kube_customresource_external_ip_info{cluster="c1",namespace="compute-reserve",ip="10.0.0.4",name="eip4",gateway="gw1",instance="ksm-1",job="ksm"}                                 _ _ _ _ 1 1 _ _ _ _ _ _
+  kube_customresource_external_ip_info{cluster="c1",namespace="ws-c",ip="10.0.0.4",name="eip9",gateway="gw1",target_kind="Service",target_name="svc-z",instance="ksm-1",job="ksm"}  _ _ _ _ _ _ 1 1 1 1 1 1
+
+# 10.0.0.5 : boring, one target forever. Must NOT show up as re-use.
+# 10.0.0.6 : sits in the free pool the whole window. Must be excluded everywhere.
+load 5m
+  kube_customresource_external_ip_info{cluster="c1",namespace="ws-a",ip="10.0.0.5",name="eip5",gateway="gw1",target_kind="Service",target_name="svc-only",instance="ksm-1",job="ksm"} 1 1 1 1 1 1 1 1 1 1 1 1
+  kube_customresource_external_ip_info{cluster="c1",namespace="compute-reserve",ip="10.0.0.6",name="eip6",gateway="gw1",instance="ksm-1",job="ksm"}                                   1 1 1 1 1 1 1 1 1 1 1 1
+
+# namespace metadata
+load 5m
+  kube_namespace_labels{cluster="c1",namespace="ws-a",label_bepa_cafebazaar_cloud_cloud_workspace_uuid="uuid-a",label_bepa_cafebazaar_cloud_internal="false",label_bepa_cafebazaar_cloud_workspace_suspended="false"} 1 1 1 1 1 1 1 1 1 1 1 1
+  kube_namespace_labels{cluster="c1",namespace="ws-b",label_bepa_cafebazaar_cloud_cloud_workspace_uuid="uuid-b",label_bepa_cafebazaar_cloud_internal="false",label_bepa_cafebazaar_cloud_workspace_suspended="false"} 1 1 1 1 1 1 1 1 1 1 1 1
+  kube_namespace_labels{cluster="c1",namespace="ws-c",label_bepa_cafebazaar_cloud_cloud_workspace_uuid="uuid-c",label_bepa_cafebazaar_cloud_internal="true",label_bepa_cafebazaar_cloud_workspace_suspended="false"}  1 1 1 1 1 1 1 1 1 1 1 1

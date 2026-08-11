@@ -1,0 +1,56 @@
+# Recording rules for external-IP re-use analysis.
+#
+# WHY: the dashboard queries wrap the raw metric in a subquery,
+# `( max by (...) (kube_customresource_external_ip_info{...}) )[$window:$step]`.
+# A subquery re-evaluates its inner expression once per step, so a 30d window at
+# a 1h step is 720 evaluations of an aggregation over every external-IP series
+# in the fleet. That is fine for an ad-hoc investigation and far too slow for a
+# 180d/365d question or for a dashboard several people keep open.
+#
+# The fix is to pre-collapse the metric once per scrape. The recorded series
+# carries ONLY the labels the analysis needs, so the historical query becomes a
+# plain range vector with no subquery at all:
+#
+#   count by (cluster, namespace, ip) (
+#     count_over_time(workspace:external_ip_binding:info{target_kind!=""}[365d])
+#   )
+#
+# Same numbers, no inner re-evaluation, and a 1y lookback becomes cheap.
+#
+# Retention note: these rules only start producing data from the moment they are
+# deployed. They cannot reconstruct history — for anything before deployment the
+# subquery form in the dashboard remains the only option.
+
+groups:
+  - name: external-ip-reuse
+    interval: 1m
+    rules:
+      # Collapses away the kube-state-metrics plumbing labels (instance, pod,
+      # job, endpoint, ...) plus `name` and `gateway`, keeping exactly the
+      # identity of a binding. Dropping these labels is what makes the series
+      # stable across a kube-state-metrics restart — without it, a KSM rollout
+      # mints a brand new series and every distinct-count inflates.
+      - record: workspace:external_ip_binding:info
+        expr: |
+          max by (cluster, namespace, ip, target_kind, target_name) (
+            kube_customresource_external_ip_info
+          )
+
+      # How many resources an IP is bound to right now. max_over_time() of this
+      # answers "was it ever attached to two things at once", which is what
+      # separates genuine sequential re-use from simple fan-out.
+      - record: workspace:external_ip_targets:count
+        expr: |
+          count by (cluster, namespace, ip) (
+            workspace:external_ip_binding:info{target_kind!=""}
+          )
+
+      # Namespace/workspace ownership of an IP over time, independent of whether
+      # it is currently attached. This is the series that shows an IP moving
+      # from one customer to another. Aggregated without `cluster` on purpose:
+      # an IP re-issued in a different cluster is still the same IP.
+      - record: workspace:external_ip_ownership:info
+        expr: |
+          max by (ip, namespace) (
+            kube_customresource_external_ip_info
+          )
