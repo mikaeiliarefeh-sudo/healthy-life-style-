@@ -1,0 +1,1226 @@
+instance,family,vcpu,memory,cpu,arch,gpu,gpu_mem,net,storage,gen,usd_hr
+t4g.nano,General purpose,2,0.5 GiB,AWS Graviton2 Processor,64-bit,,NA,Up to 5 Gigabit,EBS only,Yes,0.0042
+t3a.nano,General purpose,2,0.5 GiB,AMD EPYC 7571,64-bit,,NA,Up to 5 Gigabit,EBS only,Yes,0.0047
+t3.nano,General purpose,2,0.5 GiB,Intel Skylake E5 2686 v5,64-bit,,NA,Up to 5 Gigabit,EBS only,Yes,0.0052
+t2.nano,General purpose,1,0.5 GiB,Intel Xeon Family,32-bit or 64-bit,,NA,Low,EBS only,Yes,0.0058
+t4g.micro,General purpose,2,1 GiB,AWS Graviton2 Processor,64-bit,,NA,Up to 5 Gigabit,EBS only,Yes,0.0084
+t3a.micro,General purpose,2,1 GiB,AMD EPYC 7571,64-bit,,NA,Up to 5 Gigabit,EBS only,Yes,0.0094
+t3.micro,General purpose,2,1 GiB,Intel Skylake E5 2686 v5,64-bit,,NA,Up to 5 Gigabit,EBS only,Yes,0.0104
+t2.micro,General purpose,1,1 GiB,Intel Xeon Family,32-bit or 64-bit,,NA,Low to Moderate,EBS only,Yes,0.0116
+t4g.small,General purpose,2,2 GiB,AWS Graviton2 Processor,64-bit,,NA,Up to 5 Gigabit,EBS only,Yes,0.0168
+t3a.small,General purpose,2,2 GiB,AMD EPYC 7571,64-bit,,NA,Up to 5 Gigabit,EBS only,Yes,0.0188
+t1.micro,Micro instances,1,0.613 GiB,Variable,32-bit or 64-bit,,NA,Very Low,EBS only,No,0.02
+t3.small,General purpose,2,2 GiB,Intel Skylake E5 2686 v5,64-bit,,NA,Up to 5 Gigabit,EBS only,Yes,0.0208
+t2.small,General purpose,1,2 GiB,Intel Xeon Family,32-bit or 64-bit,,NA,Low to Moderate,EBS only,Yes,0.023
+a1.medium,General purpose,1,2 GiB,AWS Graviton Processor,64-bit,,NA,Up to 10 Gigabit,EBS only,No,0.0255
+t4g.medium,General purpose,2,4 GiB,AWS Graviton2 Processor,64-bit,,NA,Up to 5 Gigabit,EBS only,Yes,0.0336
+c6g.medium,Compute optimized,1,2 GiB,AWS Graviton2 Processor,64-bit,,NA,Up to 10 Gigabit,EBS only,Yes,0.034
+c7g.medium,Compute optimized,1,2 GiB,AWS Graviton3 Processor,64-bit,,NA,Up to 12500 Megabit,EBS only,Yes,0.0363
+t3a.medium,General purpose,2,4 GiB,AMD EPYC 7571,64-bit,,NA,Up to 5 Gigabit,EBS only,Yes,0.0376
+c6gd.medium,Compute optimized,1,2 GiB,AWS Graviton2 Processor,64-bit,,NA,Up to 10 Gigabit,1 x 59 NVMe SSD,Yes,0.0384
+m6g.medium,General purpose,1,4 GiB,AWS Graviton2 Processor,64-bit,,NA,Up to 10 Gigabit,EBS only,Yes,0.0385
+c8g.medium,Compute optimized,1,2 GiB,AWS Graviton4 Processor,64-bit,,NA,Up to 12.5 Gigabit,EBS only,Yes,0.03988
+m7g.medium,General purpose,1,4 GiB,AWS Graviton3 Processor,64-bit,,NA,Up to 12500 Megabit,EBS only,Yes,0.0408
+t3.medium,General purpose,2,4 GiB,Intel Skylake E5 2686 v5,64-bit,,NA,Up to 5 Gigabit,EBS only,Yes,0.0416
+c6gn.medium,Compute optimized,1,2 GiB,AWS Graviton2 Processor,64-bit,,NA,Up to 25 Gigabit,EBS only,Yes,0.0432
+c9g.medium,Compute optimized,1,2.0 GiB,AWS Graviton5 Processor,64-bit,,NA,Up to 15 Gigabit,EBS only,Yes,0.04347
+m1.small,General purpose,1,1.7 GiB,Intel Xeon Family,32-bit or 64-bit,,NA,Low,1 x 160 SSD,No,0.044
+m8g.medium,General purpose,1,4 GiB,AWS Graviton4 Processor,64-bit,,NA,Up to 12.5 Gigabit,EBS only,Yes,0.04488
+m6gd.medium,General purpose,1,4 GiB,AWS Graviton2 Processor,64-bit,,NA,Up to 10 Gigabit,1 x 59 NVMe SSD,Yes,0.0452
+c7gd.medium,Compute optimized,1,2 GiB,AWS Graviton3 Processor,64-bit,,NA,Up to 12500 Megabit,1 x 59 NVMe SSD,Yes,0.0454
+t2.medium,General purpose,2,4 GiB,Intel Xeon Family,32-bit or 64-bit,,NA,Low to Moderate,EBS only,Yes,0.0464
+m9g.medium,General purpose,1,4 GiB,AWS Graviton5 Processor,64-bit,,NA,Up to 15000 Megabit,EBS only,Yes,0.04892
+c8gd.medium,Compute optimized,1,2 GiB,AWS Graviton4 Processor,64-bit,,NA,Up to 12500 Megabit,1 x 59 NVMe SSD,Yes,0.04899
+r6g.medium,Memory optimized,1,8 GiB,AWS Graviton2 Processor,64-bit,,NA,Up to 10 Gigabit,EBS only,Yes,0.0504
+a1.large,General purpose,2,4 GiB,AWS Graviton Processor,64-bit,,NA,Up to 10 Gigabit,EBS only,No,0.051
+c7a.medium,Compute optimized,1,2 GiB,AMD EPYC 9R14 Processor,64-bit,,NA,Up to 12500 Megabit,EBS only,Yes,0.05132
+c9gd.medium,Compute optimized,1,2.0 GiB,AWS Graviton5 Processor,64-bit,,NA,Up to 15 Gigabit,1 x 59 NVMe SSD,Yes,0.0534
+m7gd.medium,General purpose,1,4 GiB,AWS Graviton3 Processor,64-bit,,NA,Up to 12500 Megabit,1 x 59 NVMe SSD,Yes,0.0534
+r7g.medium,Memory optimized,1,8 GiB,AWS Graviton3 Processor,64-bit,,NA,Up to 12500 Megabit,EBS only,Yes,0.0536
+c8a.medium,Compute optimized,1,2 GiB,AMD EPYC 9R45 Processor,64-bit,,NA,Up to 15000 Megabit,EBS only,Yes,0.05389
+r6gd.medium,Memory optimized,1,8 GiB,AWS Graviton2 Processor,64-bit,,NA,Up to 10 Gigabit,1 x 59 NVMe SSD,Yes,0.0576
+m8gd.medium,General purpose,1,4 GiB,AWS Graviton4 Processor,64-bit,,NA,Up to 12500 Megabit,1 x 59 NVMe SSD,Yes,0.05766
+m7a.medium,General purpose,1,4 GiB,AMD EPYC 9R14 Processor,64-bit,,NA,Up to 12500 Megabit,EBS only,Yes,0.05796
+r8g.medium,Memory optimized,1,8 GiB,AWS Graviton4 Processor,64-bit,,NA,Up to 12.5 Gigabit,EBS only,Yes,0.05891
+c8gb.medium,Compute optimized,1,2 GiB,AWS Graviton4 Processor,64-bit,,NA,Up to 16.667 Gigabit,EBS only,Yes,0.05925
+c8gn.medium,Compute optimized,1,2 GiB,AWS Graviton4 Processor,64-bit,,NA,Up to 25 Gigabit,EBS only,Yes,0.0593
+m8a.medium,General purpose,1,4 GiB,AMD EPYC 9R45 Processor,64-bit,,NA,Up to 15000 Megabit,EBS only,Yes,0.06086
+c7gn.medium,Compute optimized,1,2 GiB,AWS Graviton3 Processor,64-bit,,NA,Up to 25 Gigabit,EBS only,Yes,0.0624
+m9gd.medium,General purpose,1,4.0 GiB,AWS Graviton5 Processor,64-bit,,NA,Up to 15 Gigabit,1 x 59 NVMe SSD,Yes,0.06285
+m3.medium,General purpose,1,3.75 GiB,Intel Xeon E5-2670 v2 (Ivy Bridge/Sandy Bridge),64-bit,,NA,Moderate,1 x 4 SSD,No,0.067
+t4g.large,General purpose,2,8 GiB,AWS Graviton2 Processor,64-bit,,NA,Up to 5 Gigabit,EBS only,Yes,0.0672
+r7gd.medium,Memory optimized,1,8 GiB,AWS Graviton3 Processor,64-bit,,NA,Up to 12500 Megabit,1 x 59 NVMe SSD,Yes,0.068
+c6g.large,Compute optimized,2,4 GiB,AWS Graviton2 Processor,64-bit,,NA,Up to 10 Gigabit,EBS only,Yes,0.068
+c7g.large,Compute optimized,2,4 GiB,AWS Graviton3 Processor,64-bit,,NA,Up to 12500 Megabit,EBS only,Yes,0.0725
+m8gb.medium,General purpose,1,4 GiB,AWS Graviton4 Processor,64-bit,,NA,Up to 16.667 Gigabit,EBS only,Yes,0.07275
+m8gn.medium,General purpose,1,4 GiB,AWS Graviton4 Processor,64-bit,,NA,Up to 25 Gigabit,EBS only,Yes,0.0728
+r8gd.medium,Memory optimized,1,8 GiB,AWS Graviton4 Processor,64-bit,,NA,Up to 12500 Megabit,1 x 59 NVMe SSD,Yes,0.07348
+t3a.large,General purpose,2,8 GiB,AMD EPYC 7571,64-bit,,NA,Up to 5 Gigabit,EBS only,Yes,0.0752
+r7a.medium,Memory optimized,1,8 GiB,AMD EPYC 9R14 Processor,64-bit,,NA,Up to 12500 Megabit,EBS only,Yes,0.07608
+c6a.large,Compute optimized,2,4 GiB,AMD EPYC 7R13 Processor,64-bit,,NA,Up to 12500 Megabit,EBS only,Yes,0.0765
+c6gd.large,Compute optimized,2,4 GiB,AWS Graviton2 Processor,64-bit,,NA,Up to 10 Gigabit,1 x 118 NVMe SSD,Yes,0.0768
+c5a.large,Compute optimized,2,4 GiB,AMD EPYC 7R32,32-bit or 64-bit,,NA,Up to 10 Gigabit,EBS only,Yes,0.077
+m6g.large,General purpose,2,8 GiB,AWS Graviton2 Processor,64-bit,,NA,Up to 10 Gigabit,EBS only,Yes,0.077
+c8g.large,Compute optimized,2,4 GiB,AWS Graviton4 Processor,64-bit,,NA,Up to 12.5 Gigabit,EBS only,Yes,0.07976
+r8a.medium,Memory optimized,1,8 GiB,AMD EPYC 9R45 Processor,64-bit,,NA,Up to 15000 Megabit,EBS only,Yes,0.07988
+m7g.large,General purpose,2,8 GiB,AWS Graviton3 Processor,64-bit,,NA,Up to 12500 Megabit,EBS only,Yes,0.0816
+t3.large,General purpose,2,8 GiB,Intel Skylake E5 2686 v5,64-bit,,NA,Up to 5 Gigabit,EBS only,Yes,0.0832
+x2gd.medium,Memory optimized,1,16 GiB,AWS Graviton2 Processor,64-bit,,NA,Up to 10 Gigabit,1 x 59 SSD,Yes,0.0835
+c7i-flex.large,Compute optimized,2,4 GiB,Intel Xeon Scalable (Sapphire Rapids),64-bit,,NA,Up to 12500 Megabit,EBS only,Yes,0.08479
+c5.large,Compute optimized,2,4 GiB,Intel Xeon Platinum 8124M,64-bit,,NA,Up to 10 Gigabit,EBS only,Yes,0.085
+c6i.large,Compute optimized,2,4 GiB,Intel Xeon 8375C (Ice Lake),64-bit,,NA,Up to 12500 Megabit,EBS only,Yes,0.085
+m5a.large,General purpose,2,8 GiB,AMD EPYC 7571,64-bit,,NA,Up to 10 Gigabit,EBS only,Yes,0.086
+c5ad.large,Compute optimized,2,4 GiB,AMD EPYC 7R32,64-bit,,NA,Up to 10 Gigabit,1 x 75 NVMe SSD,Yes,0.086
+m6a.large,General purpose,2,8 GiB,AMD EPYC 7R13 Processor,64-bit,,NA,Up to 12500 Megabit,EBS only,Yes,0.0864
+c6gn.large,Compute optimized,2,4 GiB,AWS Graviton2 Processor,64-bit,,NA,Up to 25 Gigabit,EBS only,Yes,0.0864
+c9g.large,Compute optimized,2,4.0 GiB,AWS Graviton5 Processor,64-bit,,NA,Up to 15 Gigabit,EBS only,Yes,0.08694
+m1.medium,General purpose,1,3.75 GiB,Intel Xeon Family,32-bit or 64-bit,,NA,Moderate,1 x 410 SSD,No,0.087
+c8i-flex.large,Compute optimized,2,4 GiB,Intel Xeon Scalable (Granite Rapids),64-bit,,NA,Up to 12500 Megabit,EBS only,Yes,0.08902
+c7i.large,Compute optimized,2,4 GiB,Intel Xeon Scalable (Sapphire Rapids),64-bit,,NA,Up to 12500 Megabit,EBS only,Yes,0.08925
+m8g.large,General purpose,2,8 GiB,AWS Graviton4 Processor,64-bit,,NA,Up to 12.5 Gigabit,EBS only,Yes,0.08976
+m6gd.large,General purpose,2,8 GiB,AWS Graviton2 Processor,64-bit,,NA,Up to 10 Gigabit,1 x 118 NVMe SSD,Yes,0.0904
+c7gd.large,Compute optimized,2,4 GiB,AWS Graviton3 Processor,64-bit,,NA,Up to 12500 Megabit,1 x 118 NVMe SSD,Yes,0.0907
+r8gb.medium,Memory optimized,1,8 GiB,AWS Graviton4 Processor,64-bit,,NA,Up to 16.667 Gigabit,EBS only,Yes,0.09109
+r8gn.medium,Memory optimized,1,8 GiB,AWS Graviton4 Processor,64-bit,,NA,Up to 25 Gigabit,EBS only,Yes,0.0911
+t2.large,General purpose,2,8 GiB,Intel Xeon Family,64-bit,,NA,Low to Moderate,EBS only,Yes,0.0928
+c8i.large,Compute optimized,2,4 GiB,Intel Xeon Scalable (Granite Rapids),64-bit,,NA,Up to 12500 Megabit,EBS only,Yes,0.09371
+m7i-flex.large,General purpose,2,8 GiB,Intel Xeon Scalable (Sapphire Rapids),64-bit,,NA,Up to 12500 Megabit,EBS only,Yes,0.09576
+m5.large,General purpose,2,8 GiB,Intel Xeon Platinum 8175,64-bit,,NA,Up to 10 Gigabit,EBS only,Yes,0.096
+m6i.large,General purpose,2,8 GiB,Intel Xeon 8375C (Ice Lake),64-bit,,NA,Up to 12500 Megabit,EBS only,Yes,0.096
+c5d.large,Compute optimized,2,4 GiB,Intel Xeon Platinum 8124M,64-bit,,NA,Up to 10 Gigabit,1 x 50 NVMe SSD,Yes,0.096
+x8g.medium,Memory optimized,1,16 GiB,AWS Graviton4 Processor,64-bit,,NA,Up to 12.5 Gigabit,EBS only,Yes,0.0977
+m9g.large,General purpose,2,8 GiB,AWS Graviton5 Processor,64-bit,,NA,Up to 15000 Megabit,EBS only,Yes,0.09784
+c8gd.large,Compute optimized,2,4 GiB,AWS Graviton4 Processor,64-bit,,NA,Up to 12500 Megabit,1 x 118 NVMe SSD,Yes,0.09798
+c4.large,Compute optimized,2,3.75 GiB,Intel Xeon E5-2666 v3 (Haswell),64-bit,,NA,Moderate,EBS only,Yes,0.1
+m4.large,General purpose,2,8 GiB,Intel Xeon E5-2676 v3 (Haswell),64-bit,,NA,Moderate,EBS only,Yes,0.1
+m8i-flex.large,General purpose,2,8 GiB,Intel Xeon Scalable (Granite Rapids),64-bit,,NA,Up to 12500 Megabit,EBS only,Yes,0.10055
+c6id.large,Compute optimized,2,4 GiB,Intel Xeon 8375C (Ice Lake),64-bit,,NA,Up to 12500 Megabit,1 x 118 NVMe SSD,Yes,0.1008
+m7i.large,General purpose,2,8 GiB,Intel Xeon Scalable (Sapphire Rapids),64-bit,,NA,Up to 12500 Megabit,EBS only,Yes,0.1008
+r6g.large,Memory optimized,2,16 GiB,AWS Graviton2 Processor,64-bit,,NA,Up to 10 Gigabit,EBS only,Yes,0.1008
+a1.xlarge,General purpose,4,8 GiB,AWS Graviton Processor,64-bit,,NA,Up to 10 Gigabit,EBS only,No,0.102
+c7a.large,Compute optimized,2,4 GiB,AMD EPYC 9R14 Processor,64-bit,,NA,Up to 12500 Megabit,EBS only,Yes,0.10264
+m5ad.large,General purpose,2,8 GiB,AMD EPYC 7571,64-bit,,NA,Up to 10 Gigabit,1 x 75 NVMe SSD,Yes,0.103
+m8azn.medium,General purpose,1,4 GiB,AMD EPYC 9575F,64-bit,,NA,Up to 25 Gigabit,EBS only,Yes,0.10323
+c3.large,Compute optimized,2,3.75 GiB,Intel Xeon E5-2680 v2 (Ivy Bridge),32-bit or 64-bit,,NA,Moderate,2 x 16 SSD,No,0.105
+m8i.large,General purpose,2,8 GiB,Intel Xeon Scalable (Granite Rapids),64-bit,,NA,Up to 12500 Megabit,EBS only,Yes,0.10584
+c9gd.large,Compute optimized,2,4.0 GiB,AWS Graviton5 Processor,64-bit,,NA,Up to 15 Gigabit,1 x 118 NVMe SSD,Yes,0.1068
+m7gd.large,General purpose,2,8 GiB,AWS Graviton3 Processor,64-bit,,NA,Up to 12500 Megabit,1 x 118 NVMe SSD,Yes,0.1068
+r7g.large,Memory optimized,2,16 GiB,AWS Graviton3 Processor,64-bit,,NA,Up to 12500 Megabit,EBS only,Yes,0.1071
+c8a.large,Compute optimized,2,4 GiB,AMD EPYC 9R45 Processor,64-bit,,NA,Up to 15000 Megabit,EBS only,Yes,0.10777
+c5n.large,Compute optimized,2,5.25 GiB,Intel Xeon Platinum 8124M,64-bit,,NA,Up to 25 Gigabit,EBS only,Yes,0.108
+c8id.large,Compute optimized,2,4 GiB,Intel Xeon Scalable (Granite Rapids),64-bit,,NA,Up to 12500 Megabit,1 x 118 NVMe SSD,Yes,0.11088
+m5d.large,General purpose,2,8 GiB,Intel Xeon Platinum 8175,64-bit,,NA,Up to 10 Gigabit,1 x 75 NVMe SSD,Yes,0.113
+r5a.large,Memory optimized,2,16 GiB,AMD EPYC 7571,64-bit,,NA,Up to 10 Gigabit,EBS only,Yes,0.113
+c6in.large,Compute optimized,2,4 GiB,Intel Xeon 8375C (Ice Lake),64-bit,,NA,Up to 25000 Megabit,EBS only,Yes,0.1134
+r6a.large,Memory optimized,2,16 GiB,AMD EPYC 7R13 Processor,64-bit,,NA,Up to 12500 Megabit,EBS only,Yes,0.1134
+r6gd.large,Memory optimized,2,16 GiB,AWS Graviton2 Processor,64-bit,,NA,Up to 10 Gigabit,1 x 118 NVMe SSD,Yes,0.1152
+m8gd.large,General purpose,2,8 GiB,AWS Graviton4 Processor,64-bit,,NA,Up to 12500 Megabit,1 x 118 NVMe SSD,Yes,0.11532
+m7a.large,General purpose,2,8 GiB,AMD EPYC 9R14 Processor,64-bit,,NA,Up to 12500 Megabit,EBS only,Yes,0.11592
+r8g.large,Memory optimized,2,16 GiB,AWS Graviton4 Processor,64-bit,,NA,Up to 12.5 Gigabit,EBS only,Yes,0.11782
+c8gb.large,Compute optimized,2,4 GiB,AWS Graviton4 Processor,64-bit,,NA,Up to 20 Gigabit,EBS only,Yes,0.1185
+c8gn.large,Compute optimized,2,4 GiB,AWS Graviton4 Processor,64-bit,,NA,Up to 30 Gigabit,EBS only,Yes,0.1185
+m6id.large,General purpose,2,8 GiB,Intel Xeon 8375C (Ice Lake),64-bit,,NA,Up to 12500 Megabit,1 x 118 NVMe SSD,Yes,0.11865
+m5n.large,General purpose,2,8 GiB,Intel Xeon Platinum 8259 (Cascade Lake),64-bit,,NA,Up to 25 Gigabit,EBS only,Yes,0.119
+m8a.large,General purpose,2,8 GiB,AMD EPYC 9R45 Processor,64-bit,,NA,Up to 15000 Megabit,EBS only,Yes,0.12172
+c7gn.large,Compute optimized,2,4 GiB,AWS Graviton3 Processor,64-bit,,NA,Up to 30 Gigabit,EBS only,Yes,0.1248
+m9gd.large,General purpose,2,8.0 GiB,AWS Graviton5 Processor,64-bit,,NA,Up to 15 Gigabit,1 x 118 NVMe SSD,Yes,0.1257
+r6i.large,Memory optimized,2,16 GiB,Intel Xeon 8375C (Ice Lake),64-bit,,NA,Up to 12500 Megabit,EBS only,Yes,0.126
+r5.large,Memory optimized,2,16 GiB,Intel Xeon Platinum 8175,64-bit,,NA,Up to 10 Gigabit,EBS only,Yes,0.126
+c1.medium,Compute optimized,2,1.7 GiB,Intel Xeon Family,32-bit or 64-bit,,NA,Moderate,1 x 350 SSD,No,0.13
+m8id.large,General purpose,2,8 GiB,Intel Xeon Scalable (Granite Rapids),64-bit,,NA,Up to 12500 Megabit,1 x 118 NVMe SSD,Yes,0.13052
+r5ad.large,Memory optimized,2,16 GiB,AMD EPYC 7571,64-bit,,NA,Up to 10 Gigabit,1 x 75 NVMe SSD,Yes,0.131
+r8i-flex.large,Memory optimized,2,16 GiB,Intel Xeon Scalable (Granite Rapids),64-bit,,NA,Up to 12500 Megabit,EBS only,Yes,0.13197
+r7i.large,Memory optimized,2,16 GiB,Intel Xeon Scalable (Sapphire Rapids),64-bit,,NA,Up to 12500 Megabit,EBS only,Yes,0.1323
+r4.large,Memory optimized,2,15.25 GiB,Intel Xeon E5-2686 v4 (Broadwell),64-bit,,NA,Up to 10 Gigabit,EBS only,Yes,0.133
+m3.large,General purpose,2,7.5 GiB,Intel Xeon E5-2670 v2 (Ivy Bridge/Sandy Bridge),64-bit,,NA,Moderate,1 x 32 SSD,No,0.133
+t4g.xlarge,General purpose,4,16 GiB,AWS Graviton2 Processor,64-bit,,NA,Up to 5 Gigabit,EBS only,Yes,0.1344
+m5dn.large,General purpose,2,8 GiB,Intel Xeon Platinum 8259 (Cascade Lake),64-bit,,NA,Up to 25 Gigabit,1 x 75 NVMe SSD,Yes,0.136
+c6g.xlarge,Compute optimized,4,8 GiB,AWS Graviton2 Processor,64-bit,,NA,Up to 10 Gigabit,EBS only,Yes,0.136
+c8in.large,Compute optimized,2,4 GiB,Intel Xeon Scalable (Granite Rapids),64-bit,,NA,Up to 25 Gigabit,EBS only,Yes,0.13608
+c8ib.large,Compute optimized,2,4 GiB,Intel Xeon Scalable (Granite Rapids),64-bit,,NA,Up to 16.667 Gigabit,EBS only,Yes,0.13608
+r7gd.large,Memory optimized,2,16 GiB,AWS Graviton3 Processor,64-bit,,NA,Up to 12500 Megabit,1 x 118 NVMe SSD,Yes,0.1361
+r8i.large,Memory optimized,2,16 GiB,Intel Xeon Scalable (Granite Rapids),64-bit,,NA,Up to 12500 Megabit,EBS only,Yes,0.13892
+m6in.large,General purpose,2,8 GiB,Intel Xeon 8375C (Ice Lake),64-bit,,NA,Up to 25000 Megabit,EBS only,Yes,0.13923
+r5d.large,Memory optimized,2,16 GiB,Intel Xeon Platinum 8175,64-bit,,NA,Up to 10 Gigabit,1 x 75 NVMe SSD,Yes,0.144
+is4gen.medium,Storage optimized,1,6 GiB,AWS Graviton2 Processor,64-bit,,NA,Up to 25 Gigabit,1 x 937 SSD,Yes,0.14408
+c7g.xlarge,Compute optimized,4,8 GiB,AWS Graviton3 Processor,64-bit,,NA,Up to 12500 Megabit,EBS only,Yes,0.145
+m8gn.large,General purpose,2,8 GiB,AWS Graviton4 Processor,64-bit,,NA,Up to 30 Gigabit,EBS only,Yes,0.1455
+m8gb.large,General purpose,2,8 GiB,AWS Graviton4 Processor,64-bit,,NA,Up to 20 Gigabit,EBS only,Yes,0.1455
+r8gd.large,Memory optimized,2,16 GiB,AWS Graviton4 Processor,64-bit,,NA,Up to 12500 Megabit,1 x 118 NVMe SSD,Yes,0.14696
+r5b.large,Memory optimized,2,16 GiB,Intel Xeon Platinum 8259 (Cascade Lake),64-bit,,NA,Up to 10 Gigabit,EBS only,Yes,0.149
+r5n.large,Memory optimized,2,16 GiB,Intel Xeon Platinum 8259 (Cascade Lake),64-bit,,NA,Up to 25 Gigabit,EBS only,Yes,0.149
+t3a.xlarge,General purpose,4,16 GiB,AMD EPYC 7571,64-bit,,NA,Up to 5 Gigabit,EBS only,Yes,0.1504
+r6id.large,Memory optimized,2,16 GiB,Intel Xeon 8375C (Ice Lake),64-bit,,NA,Up to 12500 Megabit,1 x 118 NVMe SSD,Yes,0.1512
+r7a.large,Memory optimized,2,16 GiB,AMD EPYC 9R14 Processor,64-bit,,NA,Up to 12500 Megabit,EBS only,Yes,0.15215
+c6a.xlarge,Compute optimized,4,8 GiB,AMD EPYC 7R13 Processor,64-bit,,NA,Up to 12500 Megabit,EBS only,Yes,0.153
+c6gd.xlarge,Compute optimized,4,8 GiB,AWS Graviton2 Processor,64-bit,,NA,Up to 10 Gigabit,1 x 237 NVMe SSD,Yes,0.1536
+c5a.xlarge,Compute optimized,4,8 GiB,AMD EPYC 7R32,32-bit or 64-bit,,NA,Up to 10 Gigabit,EBS only,Yes,0.154
+m6g.xlarge,General purpose,4,16 GiB,AWS Graviton2 Processor,64-bit,,NA,Up to 10 Gigabit,EBS only,Yes,0.154
+i4g.large,Storage optimized,2,16 GiB,AWS Graviton2 Processor,64-bit,,NA,Up to 10 Gigabit,1 x 468 SSD,Yes,0.15444
+i3.large,Storage optimized,2,15.25 GiB,Intel Xeon E5-2686 v4 (Broadwell),64-bit,,NA,Up to 10 Gigabit,1 x 475 NVMe SSD,Yes,0.156
+m6idn.large,General purpose,2,8 GiB,Intel Xeon 8375C (Ice Lake),64-bit,,NA,Up to 25000 Megabit,1 x 118 NVMe SSD,Yes,0.15912
+c8g.xlarge,Compute optimized,4,8 GiB,AWS Graviton4 Processor,64-bit,,NA,Up to 12.5 Gigabit,EBS only,Yes,0.15952
+r8a.large,Memory optimized,2,16 GiB,AMD EPYC 9R45 Processor,64-bit,,NA,Up to 15000 Megabit,EBS only,Yes,0.15976
+m7g.xlarge,General purpose,4,16 GiB,AWS Graviton3 Processor,64-bit,,NA,Up to 12500 Megabit,EBS only,Yes,0.1632
+m5zn.large,General purpose,2,8 GiB,Intel Xeon Platinum 8252,64-bit,,NA,Up to 25 Gigabit,EBS only,Yes,0.1652
+r3.large,Memory optimized,2,15.25 GiB,Intel Xeon E5-2670 v2 (Ivy Bridge),64-bit,,NA,Moderate,1 x 32 SSD,No,0.166
+r8id.large,Memory optimized,2,16 GiB,Intel Xeon Scalable (Granite Rapids),64-bit,,NA,Up to 12500 Megabit,1 x 118 NVMe SSD,Yes,0.16632
+t3.xlarge,General purpose,4,16 GiB,Intel Skylake E5 2686 v5,64-bit,,NA,Up to 5 Gigabit,EBS only,Yes,0.1664
+r5dn.large,Memory optimized,2,16 GiB,Intel Xeon Platinum 8259 (Cascade Lake),64-bit,,NA,Up to 25 Gigabit,1 x 75 NVMe SSD,Yes,0.167
+x2gd.large,Memory optimized,2,32 GiB,AWS Graviton2 Processor,64-bit,,NA,Up to 10 Gigabit,1 x 118 SSD,Yes,0.167
+m8in.large,General purpose,2,8.0 GiB,Intel Xeon Scalable (Granite Rapids),64-bit,,NA,Up to 25 Gigabit,EBS only,Yes,0.16708
+m8ib.large,General purpose,2,8.0 GiB,Intel Xeon Scalable (Granite Rapids),64-bit,,NA,Up to 16.66 Gigabit,EBS only,Yes,0.16708
+c7i-flex.xlarge,Compute optimized,4,8 GiB,Intel Xeon Scalable (Sapphire Rapids),64-bit,,NA,Up to 12500 Megabit,EBS only,Yes,0.16958
+c5.xlarge,Compute optimized,4,8 GiB,Intel Xeon Platinum 8124M,64-bit,,NA,Up to 10 Gigabit,EBS only,Yes,0.17
+c6i.xlarge,Compute optimized,4,8 GiB,Intel Xeon 8375C (Ice Lake),64-bit,,NA,Up to 12500 Megabit,EBS only,Yes,0.17
+c8ine.large,Compute optimized,2,4 GiB,Intel Xeon Scalable (Granite Rapids),64-bit,,NA,3.125 Gigabit,EBS only,Yes,0.1701
+i8g.large,Storage optimized,2,16 GiB,AWS Graviton4 Processor,64-bit,,NA,Up to 10 Gigabit,1 x 468GB,Yes,0.1716
+m5a.xlarge,General purpose,4,16 GiB,AMD EPYC 7571,64-bit,,NA,Up to 10 Gigabit,EBS only,Yes,0.172
+i4i.large,Storage optimized,2,16 GiB,Intel Xeon 8375C (Ice Lake),64-bit,,NA,Up to 10 Gigabit,1 x 468 NVMe SSD,Yes,0.172
+c5ad.xlarge,Compute optimized,4,8 GiB,AMD EPYC 7R32,64-bit,,NA,Up to 10 Gigabit,1 x 150 NVMe SSD,Yes,0.172
+c6gn.xlarge,Compute optimized,4,8 GiB,AWS Graviton2 Processor,64-bit,,NA,Up to 25 Gigabit,EBS only,Yes,0.1728
+m6a.xlarge,General purpose,4,16 GiB,AMD EPYC 7R13 Processor,64-bit,,NA,Up to 12500 Megabit,EBS only,Yes,0.1728
+c9g.xlarge,Compute optimized,4,8.0 GiB,AWS Graviton5 Processor,64-bit,,NA,Up to 15 Gigabit,EBS only,Yes,0.17388
+r6in.large,Memory optimized,2,16 GiB,Intel Xeon 8375C (Ice Lake),64-bit,,NA,Up to 25000 Megabit,EBS only,Yes,0.17433
+m1.large,General purpose,2,7.5 GiB,Intel Xeon Family,64-bit,,NA,Moderate,2 x 420 SSD,No,0.175
+c8i-flex.xlarge,Compute optimized,4,8 GiB,Intel Xeon Scalable (Granite Rapids),64-bit,,NA,Up to 12500 Megabit,EBS only,Yes,0.17804
+c7i.xlarge,Compute optimized,4,8 GiB,Intel Xeon Scalable (Sapphire Rapids),64-bit,,NA,Up to 12500 Megabit,EBS only,Yes,0.1785
+m8g.xlarge,General purpose,4,16 GiB,AWS Graviton4 Processor,64-bit,,NA,Up to 12.5 Gigabit,EBS only,Yes,0.17952
+m6gd.xlarge,General purpose,4,16 GiB,AWS Graviton2 Processor,64-bit,,NA,Up to 10 Gigabit,1 x 237 NVMe SSD,Yes,0.1808
+c7gd.xlarge,Compute optimized,4,8 GiB,AWS Graviton3 Processor,64-bit,,NA,Up to 12500 Megabit,1 x 237 NVMe SSD,Yes,0.1814
+im4gn.large,Storage optimized,2,8 GiB,AWS Graviton2 Processor,64-bit,,NA,Up to 25 Gigabit,1 x 937 SSD,Yes,0.1819
+r8gb.large,Memory optimized,2,16 GiB,AWS Graviton4 Processor,64-bit,,NA,Up to 20 Gigabit,EBS only,Yes,0.18218
+r8gn.large,Memory optimized,2,16 GiB,AWS Graviton4 Processor,64-bit,,NA,Up to 30 Gigabit,EBS only,Yes,0.1822
+t2.xlarge,General purpose,4,16 GiB,Intel Xeon Family,64-bit,,NA,Moderate,EBS only,Yes,0.1856
+z1d.large,Memory optimized,2,16 GiB,Intel Xeon Platinum 8151,64-bit,,NA,Up to 10 Gigabit,1 x 75 NVMe SSD,Yes,0.186
+r7iz.large,Memory optimized,2,16 GiB,Intel Xeon Scalable (Sapphire Rapids),64-bit,,NA,Up to 12500 Megabit,EBS only,Yes,0.186
+c8i.xlarge,Compute optimized,4,8 GiB,Intel Xeon Scalable (Granite Rapids),64-bit,,NA,Up to 12500 Megabit,EBS only,Yes,0.18742
+i7i.large,Storage optimized,2,16 GiB,Intel Xeon Scalable (Emerald Rapids),64-bit,,NA,Up to 10 Gigabit,1 x 468 NVMe SSD,Yes,0.1888
+m8idn.large,General purpose,2,8.0 GiB,Intel Xeon Scalable (Granite Rapids),64-bit,,NA,Up to 25 Gigabit,1 x 118 NVMe SSD,Yes,0.19094
+m8idb.large,General purpose,2,8.0 GiB,Intel Xeon Scalable (Granite Rapids),64-bit,,NA,Up to 16.66 Gigabit,1 x 118 NVMe SSD,Yes,0.19094
+m7i-flex.xlarge,General purpose,4,16 GiB,Intel Xeon Scalable (Sapphire Rapids),64-bit,,NA,Up to 12500 Megabit,EBS only,Yes,0.19152
+m6i.xlarge,General purpose,4,16 GiB,Intel Xeon 8375C (Ice Lake),64-bit,,NA,Up to 12500 Megabit,EBS only,Yes,0.192
+m5.xlarge,General purpose,4,16 GiB,Intel Xeon Platinum 8175,64-bit,,NA,Up to 10 Gigabit,EBS only,Yes,0.192
+c5d.xlarge,Compute optimized,4,8 GiB,Intel Xeon Platinum 8124M,64-bit,,NA,Up to 10 Gigabit,1 x 100 NVMe SSD,Yes,0.192
+r6idn.large,Memory optimized,2,16 GiB,Intel Xeon 8375C (Ice Lake),64-bit,,NA,Up to 25000 Megabit,1 x 118 NVMe SSD,Yes,0.19539
+x8g.large,Memory optimized,2,32 GiB,AWS Graviton4 Processor,64-bit,,NA,Up to 12.5 Gigabit,EBS only,Yes,0.1954
+m9g.xlarge,General purpose,4,16 GiB,AWS Graviton5 Processor,64-bit,,NA,Up to 15000 Megabit,EBS only,Yes,0.19568
+c8gd.xlarge,Compute optimized,4,8 GiB,AWS Graviton4 Processor,64-bit,,NA,Up to 12500 Megabit,1 x 237 NVMe SSD,Yes,0.19596
+c4.xlarge,Compute optimized,4,7.5 GiB,Intel Xeon E5-2666 v3 (Haswell),64-bit,,NA,High,EBS only,Yes,0.199
+m4.xlarge,General purpose,4,16 GiB,Intel Xeon E5-2676 v3 (Haswell),64-bit,,NA,High,EBS only,Yes,0.2
+m8i-flex.xlarge,General purpose,4,16 GiB,Intel Xeon Scalable (Granite Rapids),64-bit,,NA,Up to 12500 Megabit,EBS only,Yes,0.2011
+c6id.xlarge,Compute optimized,4,8 GiB,Intel Xeon 8375C (Ice Lake),64-bit,,NA,Up to 12500 Megabit,1 x 237 NVMe SSD,Yes,0.2016
+r6g.xlarge,Memory optimized,4,32 GiB,AWS Graviton2 Processor,64-bit,,NA,Up to 10 Gigabit,EBS only,Yes,0.2016
+m7i.xlarge,General purpose,4,16 GiB,Intel Xeon Scalable (Sapphire Rapids),64-bit,,NA,Up to 12500 Megabit,EBS only,Yes,0.2016
+g6f.large,GPU instance,2,8 GiB,AMD EPYC 7R13 Processor,64-bit,0.125,3 GB,Up to 10 Gigabit,1 x 100 NVMe SSD,Yes,0.202
+a1.2xlarge,General purpose,8,16 GiB,AWS Graviton Processor,64-bit,,NA,Up to 10 Gigabit,EBS only,No,0.204
+c7a.xlarge,Compute optimized,4,8 GiB,AMD EPYC 9R14 Processor,64-bit,,NA,Up to 12500 Megabit,EBS only,Yes,0.20528
+m5ad.xlarge,General purpose,4,16 GiB,AMD EPYC 7571,64-bit,,NA,Up to 10 Gigabit,1 x 150 NVMe SSD,Yes,0.206
+m8azn.large,General purpose,2,8 GiB,AMD EPYC 9575F,64-bit,,NA,Up to 30 Gigabit,EBS only,Yes,0.20646
+m8ine.large,General purpose,2,8.0 GiB,Intel Xeon Scalable (Granite Rapids),64-bit,,NA,3.125 Gigabit,EBS only,Yes,0.20885
+r8in.large,Memory optimized,2,16.0 GiB,Intel Xeon Scalable (Granite Rapids),64-bit,,NA,Up to 25 Gigabit,EBS only,Yes,0.2092
+r8ib.large,Memory optimized,2,16.0 GiB,Intel Xeon Scalable (Granite Rapids),64-bit,,NA,Up to 16.66 Gigabit,EBS only,Yes,0.2092
+c3.xlarge,Compute optimized,4,7.5 GiB,Intel Xeon E5-2680 v2 (Ivy Bridge),64-bit,,NA,Moderate,2 x 40 SSD,No,0.21
+m8i.xlarge,General purpose,4,16 GiB,Intel Xeon Scalable (Granite Rapids),64-bit,,NA,Up to 12500 Megabit,EBS only,Yes,0.21168
+m7gd.xlarge,General purpose,4,16 GiB,AWS Graviton3 Processor,64-bit,,NA,Up to 12500 Megabit,1 x 237 NVMe SSD,Yes,0.2136
+c9gd.xlarge,Compute optimized,4,8.0 GiB,AWS Graviton5 Processor,64-bit,,NA,Up to 15 Gigabit,1 x 237 NVMe SSD,Yes,0.2136
+r7g.xlarge,Memory optimized,4,32 GiB,AWS Graviton3 Processor,64-bit,,NA,Up to 12500 Megabit,EBS only,Yes,0.2142
+c8a.xlarge,Compute optimized,4,8 GiB,AMD EPYC 9R45 Processor,64-bit,,NA,Up to 15000 Megabit,EBS only,Yes,0.21554
+c5n.xlarge,Compute optimized,4,10.5 GiB,Intel Xeon Platinum 8124M,64-bit,,NA,Up to 25 Gigabit,EBS only,Yes,0.216
+x8i.large,Memory optimized,2,32 GiB,Intel Xeon Scalable (Granite Rapids),64-bit,,NA,Up to 12500 Megabit,EBS only,Yes,0.21883
+c8id.xlarge,Compute optimized,4,8 GiB,Intel Xeon Scalable (Granite Rapids),64-bit,,NA,Up to 12500 Megabit,1 x 237 NVMe SSD,Yes,0.22176
+r5a.xlarge,Memory optimized,4,32 GiB,AMD EPYC 7571,64-bit,,NA,Up to 10 Gigabit,EBS only,Yes,0.226
+m5d.xlarge,General purpose,4,16 GiB,Intel Xeon Platinum 8175,64-bit,,NA,Up to 10 Gigabit,1 x 150 NVMe SSD,Yes,0.226
+i3en.large,Storage optimized,2,16 GiB,Intel Xeon Platinum 8175,64-bit,,NA,Up to 25 Gigabit,1 x 1250 NVMe SSD,Yes,0.226
+c6in.xlarge,Compute optimized,4,8 GiB,Intel Xeon 8375C (Ice Lake),64-bit,,NA,Up to 30000 Megabit,EBS only,Yes,0.2268
+r6a.xlarge,Memory optimized,4,32 GiB,AMD EPYC 7R13 Processor,64-bit,,NA,Up to 12500 Megabit,EBS only,Yes,0.2268
+inf1.xlarge,Machine Learning ASIC Instances,4,8 GiB,Intel Xeon Platinum 8275CL (Cascade Lake),64-bit,1,NA,Up to 25 Gigabit,EBS only,Yes,0.228
+r6gd.xlarge,Memory optimized,4,32 GiB,AWS Graviton2 Processor,64-bit,,NA,Up to 10 Gigabit,1 x 237 NVMe SSD,Yes,0.2304
+m8gd.xlarge,General purpose,4,16 GiB,AWS Graviton4 Processor,64-bit,,NA,Up to 12500 Megabit,1 x 237 NVMe SSD,Yes,0.23064
+m7a.xlarge,General purpose,4,16 GiB,AMD EPYC 9R14 Processor,64-bit,,NA,Up to 12500 Megabit,EBS only,Yes,0.23184
+r8idb.large,Memory optimized,2,16.0 GiB,Intel Xeon Scalable (Granite Rapids),64-bit,,NA,Up to 16.66 Gigabit,1 x 118 NVMe SSD,Yes,0.23447
+r8idn.large,Memory optimized,2,16.0 GiB,Intel Xeon Scalable (Granite Rapids),64-bit,,NA,Up to 25 Gigabit,1 x 118 NVMe SSD,Yes,0.23447
+r8g.xlarge,Memory optimized,4,32 GiB,AWS Graviton4 Processor,64-bit,,NA,Up to 12.5 Gigabit,EBS only,Yes,0.23564
+c8gb.xlarge,Compute optimized,4,8 GiB,AWS Graviton4 Processor,64-bit,,NA,Up to 26.667 Gigabit,EBS only,Yes,0.237
+c8gn.xlarge,Compute optimized,4,8 GiB,AWS Graviton4 Processor,64-bit,,NA,Up to 40 Gigabit,EBS only,Yes,0.237
+i8ge.large,Storage optimized,2,16 GiB,AWS Graviton4 Processor,64-bit,,NA,Up to 25 Gigabit,1 x 1250 NVMe SSD,Yes,0.2373
+m6id.xlarge,General purpose,4,16 GiB,Intel Xeon 8375C (Ice Lake),64-bit,,NA,Up to 12500 Megabit,1 x 237 NVMe SSD,Yes,0.2373
+g6f.xlarge,GPU instance,4,16 GiB,AMD EPYC 7R13 Processor,64-bit,0.125,3 GB,Up to 10 Gigabit,1 x 100 NVMe SSD,Yes,0.2375
+m5n.xlarge,General purpose,4,16 GiB,Intel Xeon Platinum 8259 (Cascade Lake),64-bit,,NA,Up to 25 Gigabit,EBS only,Yes,0.238
+m8a.xlarge,General purpose,4,16 GiB,AMD EPYC 9R45 Processor,64-bit,,NA,Up to 15000 Megabit,EBS only,Yes,0.24344
+m2.xlarge,Memory optimized,2,17.1 GiB,Intel Xeon Family,64-bit,,NA,Moderate,1 x 420 SSD,No,0.245
+c7gn.xlarge,Compute optimized,4,8 GiB,AWS Graviton3 Processor,64-bit,,NA,Up to 40 Gigabit,EBS only,Yes,0.2496
+m9gd.xlarge,General purpose,4,16.0 GiB,AWS Graviton5 Processor,64-bit,,NA,Up to 15 Gigabit,1 x 237 NVMe SSD,Yes,0.2514
+r6i.xlarge,Memory optimized,4,32 GiB,Intel Xeon 8375C (Ice Lake),64-bit,,NA,Up to 12500 Megabit,EBS only,Yes,0.252
+r5.xlarge,Memory optimized,4,32 GiB,Intel Xeon Platinum 8175,64-bit,,NA,Up to 10 Gigabit,EBS only,Yes,0.252
+i7ie.large,Storage optimized,2,16 GiB,Intel Xeon Scalable (Emerald Rapids),64-bit,,NA,Up to 25 Gigabit,1 x 1250 NVMe SSD,Yes,0.2599
+m8id.xlarge,General purpose,4,16 GiB,Intel Xeon Scalable (Granite Rapids),64-bit,,NA,Up to 12500 Megabit,1 x 237 NVMe SSD,Yes,0.26104
+r5ad.xlarge,Memory optimized,4,32 GiB,AMD EPYC 7571,64-bit,,NA,Up to 10 Gigabit,1 x 150 NVMe SSD,Yes,0.262
+r8i-flex.xlarge,Memory optimized,4,32 GiB,Intel Xeon Scalable (Granite Rapids),64-bit,,NA,Up to 12500 Megabit,EBS only,Yes,0.26394
+r7i.xlarge,Memory optimized,4,32 GiB,Intel Xeon Scalable (Sapphire Rapids),64-bit,,NA,Up to 12500 Megabit,EBS only,Yes,0.2646
+m3.xlarge,General purpose,4,15 GiB,Intel Xeon E5-2670 v2 (Ivy Bridge/Sandy Bridge),64-bit,,NA,High,2 x 40 SSD,No,0.266
+r4.xlarge,Memory optimized,4,30.5 GiB,Intel Xeon E5-2686 v4 (Broadwell),64-bit,,NA,Up to 10 Gigabit,EBS only,Yes,0.266
+t4g.2xlarge,General purpose,8,32 GiB,AWS Graviton2 Processor,64-bit,,NA,Up to 5 Gigabit,EBS only,Yes,0.2688
+c6g.2xlarge,Compute optimized,8,16 GiB,AWS Graviton2 Processor,64-bit,,NA,Up to 10 Gigabit,EBS only,Yes,0.272
+m5dn.xlarge,General purpose,4,16 GiB,Intel Xeon Platinum 8259 (Cascade Lake),64-bit,,NA,Up to 25 Gigabit,1 x 150 NVMe SSD,Yes,0.272
+c8ib.xlarge,Compute optimized,4,8 GiB,Intel Xeon Scalable (Granite Rapids),64-bit,,NA,Up to 20 Gigabit,EBS only,Yes,0.27216
+c8in.xlarge,Compute optimized,4,8 GiB,Intel Xeon Scalable (Granite Rapids),64-bit,,NA,Up to 30 Gigabit,EBS only,Yes,0.27216
+r7gd.xlarge,Memory optimized,4,32 GiB,AWS Graviton3 Processor,64-bit,,NA,Up to 12500 Megabit,1 x 237 NVMe SSD,Yes,0.2722
+r8i.xlarge,Memory optimized,4,32 GiB,Intel Xeon Scalable (Granite Rapids),64-bit,,NA,Up to 12500 Megabit,EBS only,Yes,0.27784
+m6in.xlarge,General purpose,4,16 GiB,Intel Xeon 8375C (Ice Lake),64-bit,,NA,Up to 30000 Megabit,EBS only,Yes,0.27846
+r5d.xlarge,Memory optimized,4,32 GiB,Intel Xeon Platinum 8175,64-bit,,NA,Up to 10 Gigabit,1 x 150 NVMe SSD,Yes,0.288
+is4gen.large,Storage optimized,2,12 GiB,AWS Graviton2 Processor,64-bit,,NA,Up to 25 Gigabit,1 x 1875 SSD,Yes,0.28815
+c7g.2xlarge,Compute optimized,8,16 GiB,AWS Graviton3 Processor,64-bit,,NA,Up to 15 Gigabit,EBS only,Yes,0.29
+m8gb.xlarge,General purpose,4,16 GiB,AWS Graviton4 Processor,64-bit,,NA,Up to 26.667 Gigabit,EBS only,Yes,0.291
+m8gn.xlarge,General purpose,4,16 GiB,AWS Graviton4 Processor,64-bit,,NA,Up to 40 Gigabit,EBS only,Yes,0.291
+r8gd.xlarge,Memory optimized,4,32 GiB,AWS Graviton4 Processor,64-bit,,NA,Up to 12500 Megabit,1 x 237 NVMe SSD,Yes,0.29392
+r5n.xlarge,Memory optimized,4,32 GiB,Intel Xeon Platinum 8259 (Cascade Lake),64-bit,,NA,Up to 25 Gigabit,EBS only,Yes,0.298
+r5b.xlarge,Memory optimized,4,32 GiB,Intel Xeon Platinum 8259 (Cascade Lake),64-bit,,NA,Up to 10 Gigabit,EBS only,Yes,0.298
+t3a.2xlarge,General purpose,8,32 GiB,AMD EPYC 7571,64-bit,,NA,Up to 5 Gigabit,EBS only,Yes,0.3008
+r6id.xlarge,Memory optimized,4,32 GiB,Intel Xeon 8375C (Ice Lake),64-bit,,NA,Up to 12500 Megabit,1 x 237 NVMe SSD,Yes,0.3024
+r7a.xlarge,Memory optimized,4,32 GiB,AMD EPYC 9R14 Processor,64-bit,,NA,Up to 12500 Megabit,EBS only,Yes,0.3043
+c6a.2xlarge,Compute optimized,8,16 GiB,AMD EPYC 7R13 Processor,64-bit,,NA,Up to 12500 Megabit,EBS only,Yes,0.306
+c6gd.2xlarge,Compute optimized,8,16 GiB,AWS Graviton2 Processor,64-bit,,NA,Up to 10 Gigabit,1 x 475 NVMe SSD,Yes,0.3072
+m6g.2xlarge,General purpose,8,32 GiB,AWS Graviton2 Processor,64-bit,,NA,Up to 10 Gigabit,EBS only,Yes,0.308
+c5a.2xlarge,Compute optimized,8,16 GiB,AMD EPYC 7R32,32-bit or 64-bit,,NA,Up to 10 Gigabit,EBS only,Yes,0.308
+i4g.xlarge,Storage optimized,4,32 GiB,AWS Graviton2 Processor,64-bit,,NA,Up to 10 Gigabit,1 x 937 SSD,Yes,0.30888
+i3.xlarge,Storage optimized,4,30.5 GiB,Intel Xeon E5-2686 v4 (Broadwell),64-bit,,NA,Up to 10 Gigabit,1 x 950 NVMe SSD,Yes,0.312
+m6idn.xlarge,General purpose,4,16 GiB,Intel Xeon 8375C (Ice Lake),64-bit,,NA,Up to 30000 Megabit,1 x 237 NVMe SSD,Yes,0.31824
+c8g.2xlarge,Compute optimized,8,16 GiB,AWS Graviton4 Processor,64-bit,,NA,Up to 15 Gigabit,EBS only,Yes,0.31904
+r8a.xlarge,Memory optimized,4,32 GiB,AMD EPYC 9R45 Processor,64-bit,,NA,Up to 15000 Megabit,EBS only,Yes,0.31952
+m7g.2xlarge,General purpose,8,32 GiB,AWS Graviton3 Processor,64-bit,,NA,Up to 15 Gigabit,EBS only,Yes,0.3264
+m5zn.xlarge,General purpose,4,16 GiB,Intel Xeon Platinum 8252,64-bit,,NA,Up to 25 Gigabit,EBS only,Yes,0.3303
+r8id.xlarge,Memory optimized,4,32 GiB,Intel Xeon Scalable (Granite Rapids),64-bit,,NA,Up to 12500 Megabit,1 x 237 NVMe SSD,Yes,0.33264
+t3.2xlarge,General purpose,8,32 GiB,Intel Skylake E5 2686 v5,64-bit,,NA,Up to 5 Gigabit,EBS only,Yes,0.3328
+r3.xlarge,Memory optimized,4,30.5 GiB,Intel Xeon E5-2670 v2 (Ivy Bridge),64-bit,,NA,Moderate,1 x 80 SSD,No,0.333
+r5dn.xlarge,Memory optimized,4,32 GiB,Intel Xeon Platinum 8259 (Cascade Lake),64-bit,,NA,Up to 25 Gigabit,1 x 150 NVMe SSD,Yes,0.334
+x2gd.xlarge,Memory optimized,4,64 GiB,AWS Graviton2 Processor,64-bit,,NA,Up to 10 Gigabit,1 x 237 SSD,Yes,0.334
+m8in.xlarge,General purpose,4,16.0 GiB,Intel Xeon Scalable (Granite Rapids),64-bit,,NA,Up to 30 Gigabit,EBS only,Yes,0.33416
+m8ib.xlarge,General purpose,4,16.0 GiB,Intel Xeon Scalable (Granite Rapids),64-bit,,NA,Up to 20 Gigabit,EBS only,Yes,0.33416
+c7i-flex.2xlarge,Compute optimized,8,16 GiB,Intel Xeon Scalable (Sapphire Rapids),64-bit,,NA,Up to 12500 Megabit,EBS only,Yes,0.33915
+c5.2xlarge,Compute optimized,8,16 GiB,Intel Xeon Platinum 8124M,64-bit,,NA,Up to 10 Gigabit,EBS only,Yes,0.34
+c6i.2xlarge,Compute optimized,8,16 GiB,Intel Xeon 8375C (Ice Lake),64-bit,,NA,Up to 12500 Megabit,EBS only,Yes,0.34
+c8ine.xlarge,Compute optimized,4,8 GiB,Intel Xeon Scalable (Granite Rapids),64-bit,,NA,6.25 Gigabit,EBS only,Yes,0.3402
+i4i.xlarge,Storage optimized,4,32 GiB,Intel Xeon 8375C (Ice Lake),64-bit,,NA,Up to 10 Gigabit,1 x 937 NVMe SSD,Yes,0.343
+i8g.xlarge,Storage optimized,4,32 GiB,AWS Graviton4 Processor,64-bit,,NA,Up to 10 Gigabit,1 x 937GB,Yes,0.3432
+c5ad.2xlarge,Compute optimized,8,16 GiB,AMD EPYC 7R32,64-bit,,NA,Up to 10 Gigabit,1 x 300 NVMe SSD,Yes,0.344
+m5a.2xlarge,General purpose,8,32 GiB,AMD EPYC 7571,64-bit,,NA,Up to 10 Gigabit,EBS only,Yes,0.344
+m6a.2xlarge,General purpose,8,32 GiB,AMD EPYC 7R13 Processor,64-bit,,NA,Up to 12500 Megabit,EBS only,Yes,0.3456
+c6gn.2xlarge,Compute optimized,8,16 GiB,AWS Graviton2 Processor,64-bit,,NA,Up to 25 Gigabit,EBS only,Yes,0.3456
+c9g.2xlarge,Compute optimized,8,16.0 GiB,AWS Graviton5 Processor,64-bit,,NA,Up to 17 Gigabit,EBS only,Yes,0.34776
+r6in.xlarge,Memory optimized,4,32 GiB,Intel Xeon 8375C (Ice Lake),64-bit,,NA,Up to 30000 Megabit,EBS only,Yes,0.34866
+m1.xlarge,General purpose,4,15 GiB,Intel Xeon Family,64-bit,,NA,High,4 x 420 SSD,No,0.35
+c8i-flex.2xlarge,Compute optimized,8,16 GiB,Intel Xeon Scalable (Granite Rapids),64-bit,,NA,Up to 15000 Megabit,EBS only,Yes,0.35608
+c7i.2xlarge,Compute optimized,8,16 GiB,Intel Xeon Scalable (Sapphire Rapids),64-bit,,NA,Up to 12500 Megabit,EBS only,Yes,0.357
+m8g.2xlarge,General purpose,8,32 GiB,AWS Graviton4 Processor,64-bit,,NA,Up to 15 Gigabit,EBS only,Yes,0.35904
+m6gd.2xlarge,General purpose,8,32 GiB,AWS Graviton2 Processor,64-bit,,NA,Up to 10 Gigabit,1 x 475 NVMe SSD,Yes,0.3616
+inf1.2xlarge,Machine Learning ASIC Instances,8,16 GiB,Intel Xeon Platinum 8275CL (Cascade Lake),64-bit,1,NA,Up to 25 Gigabit,EBS only,Yes,0.362
+c7gd.2xlarge,Compute optimized,8,16 GiB,AWS Graviton3 Processor,64-bit,,NA,Up to 15 Gigabit,1 x 475 NVMe SSD,Yes,0.3629
+im4gn.xlarge,Storage optimized,4,16 GiB,AWS Graviton2 Processor,64-bit,,NA,Up to 25 Gigabit,1 x 1875 SSD,Yes,0.36379
+r8gb.xlarge,Memory optimized,4,32 GiB,AWS Graviton4 Processor,64-bit,,NA,Up to 26.667 Gigabit,EBS only,Yes,0.36436
+r8gn.xlarge,Memory optimized,4,32 GiB,AWS Graviton4 Processor,64-bit,,NA,Up to 40 Gigabit,EBS only,Yes,0.3644
+t2.2xlarge,General purpose,8,32 GiB,Intel Xeon Family,64-bit,,NA,Moderate,EBS only,Yes,0.3712
+r7iz.xlarge,Memory optimized,4,32 GiB,Intel Xeon Scalable (Sapphire Rapids),64-bit,,NA,Up to 12500 Megabit,EBS only,Yes,0.372
+z1d.xlarge,Memory optimized,4,32 GiB,Intel Xeon Platinum 8151,64-bit,,NA,Up to 10 Gigabit,1 x 150 NVMe SSD,Yes,0.372
+c8i.2xlarge,Compute optimized,8,16 GiB,Intel Xeon Scalable (Granite Rapids),64-bit,,NA,Up to 15000 Megabit,EBS only,Yes,0.37484
+i7i.xlarge,Storage optimized,4,32 GiB,Intel Xeon Scalable (Emerald Rapids),64-bit,,NA,Up to 10 Gigabit,1 x 937 NVMe SSD,Yes,0.3775
+g4ad.xlarge,GPU instance,4,16 GiB,AMD EPYC 7R32,64-bit,1,8 GB,Up to 10 Gigabit,150 GB NVMe SSD,Yes,0.37853
+m8idb.xlarge,General purpose,4,16.0 GiB,Intel Xeon Scalable (Granite Rapids),64-bit,,NA,Up to 20 Gigabit,1 x 237 NVMe SSD,Yes,0.38188
+m8idn.xlarge,General purpose,4,16.0 GiB,Intel Xeon Scalable (Granite Rapids),64-bit,,NA,Up to 30 Gigabit,1 x 237 NVMe SSD,Yes,0.38188
+m7i-flex.2xlarge,General purpose,8,32 GiB,Intel Xeon Scalable (Sapphire Rapids),64-bit,,NA,Up to 12500 Megabit,EBS only,Yes,0.38304
+m6i.2xlarge,General purpose,8,32 GiB,Intel Xeon 8375C (Ice Lake),64-bit,,NA,Up to 12500 Megabit,EBS only,Yes,0.384
+c5d.2xlarge,Compute optimized,8,16 GiB,Intel Xeon Platinum 8124M,64-bit,,NA,Up to 10 Gigabit,1 x 200 NVMe SSD,Yes,0.384
+m5.2xlarge,General purpose,8,32 GiB,Intel Xeon Platinum 8175,64-bit,,NA,Up to 10 Gigabit,EBS only,Yes,0.384
+r6idn.xlarge,Memory optimized,4,32 GiB,Intel Xeon 8375C (Ice Lake),64-bit,,NA,Up to 30000 Megabit,1 x 237 NVMe SSD,Yes,0.39078
+x8g.xlarge,Memory optimized,4,64 GiB,AWS Graviton4 Processor,64-bit,,NA,Up to 12.5 Gigabit,EBS only,Yes,0.3908
+m9g.2xlarge,General purpose,8,32 GiB,AWS Graviton5 Processor,64-bit,,NA,Up to 17000 Megabit,EBS only,Yes,0.39136
+c8gd.2xlarge,Compute optimized,8,16 GiB,AWS Graviton4 Processor,64-bit,,NA,Up to 15 Gigabit,1 x 475 NVMe SSD,Yes,0.39192
+c4.2xlarge,Compute optimized,8,15 GiB,Intel Xeon E5-2666 v3 (Haswell),64-bit,,NA,High,EBS only,Yes,0.398
+m4.2xlarge,General purpose,8,32 GiB,Intel Xeon E5-2676 v3 (Haswell),64-bit,,NA,High,EBS only,Yes,0.4
+m8i-flex.2xlarge,General purpose,8,32 GiB,Intel Xeon Scalable (Granite Rapids),64-bit,,NA,Up to 15000 Megabit,EBS only,Yes,0.4022
+m7i.2xlarge,General purpose,8,32 GiB,Intel Xeon Scalable (Sapphire Rapids),64-bit,,NA,Up to 12500 Megabit,EBS only,Yes,0.4032
+r6g.2xlarge,Memory optimized,8,64 GiB,AWS Graviton2 Processor,64-bit,,NA,Up to 10 Gigabit,EBS only,Yes,0.4032
+c6id.2xlarge,Compute optimized,8,16 GiB,Intel Xeon 8375C (Ice Lake),64-bit,,NA,Up to 12500 Megabit,1 x 474 NVMe SSD,Yes,0.4032
+a1.4xlarge,General purpose,16,32 GiB,AWS Graviton Processor,64-bit,,NA,Up to 10 Gigabit,EBS only,No,0.408
+c7a.2xlarge,Compute optimized,8,16 GiB,AMD EPYC 9R14 Processor,64-bit,,NA,Up to 12500 Megabit,EBS only,Yes,0.41056
+m5ad.2xlarge,General purpose,8,32 GiB,AMD EPYC 7571,64-bit,,NA,Up to 10 Gigabit,1 x 300 NVMe SSD,Yes,0.412
+m8azn.xlarge,General purpose,4,16 GiB,AMD EPYC 9575F,64-bit,,NA,Up to 40 Gigabit,EBS only,Yes,0.41292
+m8ine.xlarge,General purpose,4,16.0 GiB,Intel Xeon Scalable (Granite Rapids),64-bit,,NA,6.25 Gigabit,EBS only,Yes,0.4177
+r8in.xlarge,Memory optimized,4,32.0 GiB,Intel Xeon Scalable (Granite Rapids),64-bit,,NA,Up to 30 Gigabit,EBS only,Yes,0.4184
+r8ib.xlarge,Memory optimized,4,32.0 GiB,Intel Xeon Scalable (Granite Rapids),64-bit,,NA,Up to 20 Gigabit,EBS only,Yes,0.4184
+g5g.xlarge,GPU instance,4,8 GiB,AWS Graviton2 Processor,64-bit,1,16 GB,Up to 10 Gigabit,EBS only,Yes,0.42
+c3.2xlarge,Compute optimized,8,15 GiB,Intel Xeon E5-2680 v2 (Ivy Bridge),64-bit,,NA,High,2 x 80 SSD,No,0.42
+m8i.2xlarge,General purpose,8,32 GiB,Intel Xeon Scalable (Granite Rapids),64-bit,,NA,Up to 15000 Megabit,EBS only,Yes,0.42336
+m7gd.2xlarge,General purpose,8,32 GiB,AWS Graviton3 Processor,64-bit,,NA,Up to 15 Gigabit,1 x 475 NVMe SSD,Yes,0.4271
+c9gd.2xlarge,Compute optimized,8,16.0 GiB,AWS Graviton5 Processor,64-bit,,NA,Up to 17 Gigabit,1 x 474 NVMe SSD,Yes,0.4272
+r7g.2xlarge,Memory optimized,8,64 GiB,AWS Graviton3 Processor,64-bit,,NA,Up to 15 Gigabit,EBS only,Yes,0.4284
+c8a.2xlarge,Compute optimized,8,16 GiB,AMD EPYC 9R45 Processor,64-bit,,NA,Up to 15000 Megabit,EBS only,Yes,0.43108
+c5n.2xlarge,Compute optimized,8,21 GiB,Intel Xeon Platinum 8124M,64-bit,,NA,Up to 25 Gigabit,EBS only,Yes,0.432
+x8i.xlarge,Memory optimized,4,64 GiB,Intel Xeon Scalable (Granite Rapids),64-bit,,NA,Up to 12500 Megabit,EBS only,Yes,0.43766
+c8id.2xlarge,Compute optimized,8,16 GiB,Intel Xeon Scalable (Granite Rapids),64-bit,,NA,Up to 15000 Megabit,1 x 474 NVMe SSD,Yes,0.44352
+r5a.2xlarge,Memory optimized,8,64 GiB,AMD EPYC 7571,64-bit,,NA,Up to 10 Gigabit,EBS only,Yes,0.452
+i3en.xlarge,Storage optimized,4,32 GiB,Intel Xeon Platinum 8175,64-bit,,NA,Up to 25 Gigabit,1 x 2500 NVMe SSD,Yes,0.452
+m5d.2xlarge,General purpose,8,32 GiB,Intel Xeon Platinum 8175,64-bit,,NA,Up to 10 Gigabit,1 x 300 NVMe SSD,Yes,0.452
+c6in.2xlarge,Compute optimized,8,16 GiB,Intel Xeon 8375C (Ice Lake),64-bit,,NA,Up to 40000 Megabit,EBS only,Yes,0.4536
+r6a.2xlarge,Memory optimized,8,64 GiB,AMD EPYC 7R13 Processor,64-bit,,NA,Up to 12500 Megabit,EBS only,Yes,0.4536
+r6gd.2xlarge,Memory optimized,8,64 GiB,AWS Graviton2 Processor,64-bit,,NA,Up to 10 Gigabit,1 x 475 NVMe SSD,Yes,0.4608
+m8gd.2xlarge,General purpose,8,32 GiB,AWS Graviton4 Processor,64-bit,,NA,Up to 15 Gigabit,1 x 475 NVMe SSD,Yes,0.46128
+m7a.2xlarge,General purpose,8,32 GiB,AMD EPYC 9R14 Processor,64-bit,,NA,Up to 12500 Megabit,EBS only,Yes,0.46368
+h1.2xlarge,Storage optimized,8,32 GiB,Intel Xeon E5-2686 v4 (Broadwell),64-bit,,NA,Up to 10 Gigabit,1 x 2000 HDD,Yes,0.468
+r8idn.xlarge,Memory optimized,4,32.0 GiB,Intel Xeon Scalable (Granite Rapids),64-bit,,NA,Up to 30 Gigabit,1 x 237 NVMe SSD,Yes,0.46894
+r8idb.xlarge,Memory optimized,4,32.0 GiB,Intel Xeon Scalable (Granite Rapids),64-bit,,NA,Up to 20 Gigabit,1 x 237 NVMe SSD,Yes,0.46894
+r8g.2xlarge,Memory optimized,8,64 GiB,AWS Graviton4 Processor,64-bit,,NA,Up to 15 Gigabit,EBS only,Yes,0.47128
+c8gn.2xlarge,Compute optimized,8,16 GiB,AWS Graviton4 Processor,64-bit,,NA,Up to 50 Gigabit,EBS only,Yes,0.474
+c8gb.2xlarge,Compute optimized,8,16 GiB,AWS Graviton4 Processor,64-bit,,NA,Up to 33.333 Gigabit,EBS only,Yes,0.474
+m6id.2xlarge,General purpose,8,32 GiB,Intel Xeon 8375C (Ice Lake),64-bit,,NA,Up to 12500 Megabit,1 x 474 NVMe SSD,Yes,0.4746
+i8ge.xlarge,Storage optimized,4,32 GiB,AWS Graviton4 Processor,64-bit,,NA,Up to 25 Gigabit,1 x 2500 NVMe SSD,Yes,0.4746
+g6f.2xlarge,GPU instance,8,32 GiB,AMD EPYC 7R13 Processor,64-bit,0.25,6 GB,Up to 10 Gigabit,1 x 200 NVMe SSD,Yes,0.475
+m5n.2xlarge,General purpose,8,32 GiB,Intel Xeon Platinum 8259 (Cascade Lake),64-bit,,NA,Up to 25 Gigabit,EBS only,Yes,0.476
+m8a.2xlarge,General purpose,8,32 GiB,AMD EPYC 9R45 Processor,64-bit,,NA,Up to 15000 Megabit,EBS only,Yes,0.48688
+m2.2xlarge,Memory optimized,4,34.2 GiB,Intel Xeon Family,64-bit,,NA,Moderate,1 x 850 SSD,No,0.49
+d3.xlarge,Storage optimized,4,32 GiB,Intel Xeon Platinum 8259 (Cascade Lake),64-bit,,NA,Up to 15 Gigabit,3 x 2000 HDD,Yes,0.499
+c7gn.2xlarge,Compute optimized,8,16 GiB,AWS Graviton3 Processor,64-bit,,NA,Up to 50 Gigabit,EBS only,Yes,0.4992
+m9gd.2xlarge,General purpose,8,32.0 GiB,AWS Graviton5 Processor,64-bit,,NA,Up to 17 Gigabit,1 x 474 NVMe SSD,Yes,0.5028
+r5.2xlarge,Memory optimized,8,64 GiB,Intel Xeon Platinum 8175,64-bit,,NA,Up to 10 Gigabit,EBS only,Yes,0.504
+r6i.2xlarge,Memory optimized,8,64 GiB,Intel Xeon 8375C (Ice Lake),64-bit,,NA,Up to 12500 Megabit,EBS only,Yes,0.504
+i7ie.xlarge,Storage optimized,4,32 GiB,Intel Xeon Scalable (Emerald Rapids),64-bit,,NA,Up to 25 Gigabit,1 x 2500 NVMe SSD,Yes,0.5198
+c1.xlarge,Compute optimized,8,7 GiB,Intel Xeon Family,64-bit,,NA,High,4 x 420 SSD,No,0.52
+m8id.2xlarge,General purpose,8,32 GiB,Intel Xeon Scalable (Granite Rapids),64-bit,,NA,Up to 15000 Megabit,1 x 474 NVMe SSD,Yes,0.52208
+r5ad.2xlarge,Memory optimized,8,64 GiB,AMD EPYC 7571,64-bit,,NA,Up to 10 Gigabit,1 x 300 NVMe SSD,Yes,0.524
+g4dn.xlarge,GPU instance,4,16 GiB,Intel Xeon Family,64-bit,1,16 GB,Up to 25 Gigabit,125 GB NVMe SSD,Yes,0.526
+d3en.xlarge,Storage optimized,4,16 GiB,Intel Xeon Platinum 8259 (Cascade Lake),64-bit,,NA,Up to 25 Gigabit,2 x 14000 HDD,Yes,0.526
+r8i-flex.2xlarge,Memory optimized,8,64 GiB,Intel Xeon Scalable (Granite Rapids),64-bit,,NA,Up to 15000 Megabit,EBS only,Yes,0.52788
+r7i.2xlarge,Memory optimized,8,64 GiB,Intel Xeon Scalable (Sapphire Rapids),64-bit,,NA,Up to 12500 Megabit,EBS only,Yes,0.5292
+r4.2xlarge,Memory optimized,8,61 GiB,Intel Xeon E5-2686 v4 (Broadwell),64-bit,,NA,Up to 10 Gigabit,EBS only,Yes,0.532
+m3.2xlarge,General purpose,8,30 GiB,Intel Xeon E5-2670 v2 (Ivy Bridge/Sandy Bridge),64-bit,,NA,High,2 x 80 SSD,No,0.532
+g4ad.2xlarge,GPU instance,8,32 GiB,AMD EPYC 7R32,64-bit,1,8 GB,Up to 10 Gigabit,300 GB NVMe SSD,Yes,0.54117
+c6g.4xlarge,Compute optimized,16,32 GiB,AWS Graviton2 Processor,64-bit,,NA,Up to 10 Gigabit,EBS only,Yes,0.544
+m5dn.2xlarge,General purpose,8,32 GiB,Intel Xeon Platinum 8259 (Cascade Lake),64-bit,,NA,Up to 25 Gigabit,1 x 300 NVMe SSD,Yes,0.544
+r7gd.2xlarge,Memory optimized,8,64 GiB,AWS Graviton3 Processor,64-bit,,NA,Up to 15 Gigabit,1 x 475 NVMe SSD,Yes,0.5443
+c8in.2xlarge,Compute optimized,8,16 GiB,Intel Xeon Scalable (Granite Rapids),64-bit,,NA,Up to 40 Gigabit,EBS only,Yes,0.54432
+c8ib.2xlarge,Compute optimized,8,16 GiB,Intel Xeon Scalable (Granite Rapids),64-bit,,NA,Up to 26.667 Gigabit,EBS only,Yes,0.54432
+r8i.2xlarge,Memory optimized,8,64 GiB,Intel Xeon Scalable (Granite Rapids),64-bit,,NA,Up to 15000 Megabit,EBS only,Yes,0.55568
+g5g.2xlarge,GPU instance,8,16 GiB,AWS Graviton2 Processor,64-bit,1,16 GB,Up to 10 Gigabit,EBS only,Yes,0.556
+m6in.2xlarge,General purpose,8,32 GiB,Intel Xeon 8375C (Ice Lake),64-bit,,NA,Up to 40000 Megabit,EBS only,Yes,0.55692
+r5d.2xlarge,Memory optimized,8,64 GiB,Intel Xeon Platinum 8175,64-bit,,NA,Up to 10 Gigabit,1 x 300 NVMe SSD,Yes,0.576
+is4gen.xlarge,Storage optimized,4,24 GiB,AWS Graviton2 Processor,64-bit,,NA,Up to 25 Gigabit,1 x 3750 SSD,Yes,0.5763
+c7g.4xlarge,Compute optimized,16,32 GiB,AWS Graviton3 Processor,64-bit,,NA,Up to 15 Gigabit,EBS only,Yes,0.58
+m8gn.2xlarge,General purpose,8,32 GiB,AWS Graviton4 Processor,64-bit,,NA,Up to 50 Gigabit,EBS only,Yes,0.582
+m8gb.2xlarge,General purpose,8,32 GiB,AWS Graviton4 Processor,64-bit,,NA,Up to 33.333 Gigabit,EBS only,Yes,0.582
+r8gd.2xlarge,Memory optimized,8,64 GiB,AWS Graviton4 Processor,64-bit,,NA,Up to 15 Gigabit,1 x 475 NVMe SSD,Yes,0.58784
+r5n.2xlarge,Memory optimized,8,64 GiB,Intel Xeon Platinum 8259 (Cascade Lake),64-bit,,NA,Up to 25 Gigabit,EBS only,Yes,0.596
+r5b.2xlarge,Memory optimized,8,64 GiB,Intel Xeon Platinum 8259 (Cascade Lake),64-bit,,NA,Up to 10 Gigabit,EBS only,Yes,0.596
+r6id.2xlarge,Memory optimized,8,64 GiB,Intel Xeon 8375C (Ice Lake),64-bit,,NA,Up to 12500 Megabit,1 x 474 NVMe SSD,Yes,0.6048
+r7a.2xlarge,Memory optimized,8,64 GiB,AMD EPYC 9R14 Processor,64-bit,,NA,Up to 12500 Megabit,EBS only,Yes,0.6086
+c6a.4xlarge,Compute optimized,16,32 GiB,AMD EPYC 7R13 Processor,64-bit,,NA,Up to 12500 Megabit,EBS only,Yes,0.612
+c6gd.4xlarge,Compute optimized,16,32 GiB,AWS Graviton2 Processor,64-bit,,NA,Up to 10 Gigabit,1 x 950 NVMe SSD,Yes,0.6144
+c5a.4xlarge,Compute optimized,16,32 GiB,AMD EPYC 7R32,32-bit or 64-bit,,NA,Up to 10 Gigabit,EBS only,Yes,0.616
+m6g.4xlarge,General purpose,16,64 GiB,AWS Graviton2 Processor,64-bit,,NA,Up to 10 Gigabit,EBS only,Yes,0.616
+i4g.2xlarge,Storage optimized,8,64 GiB,AWS Graviton2 Processor,64-bit,,NA,Up to 12 Gigabit,1 x 1875 SSD,Yes,0.61776
+i3.2xlarge,Storage optimized,8,61 GiB,Intel Xeon E5-2686 v4 (Broadwell),64-bit,,NA,Up to 10 Gigabit,1 x 1900 NVMe SSD,Yes,0.624
+m6idn.2xlarge,General purpose,8,32 GiB,Intel Xeon 8375C (Ice Lake),64-bit,,NA,Up to 40000 Megabit,1 x 474 NVMe SSD,Yes,0.63648
+c8g.4xlarge,Compute optimized,16,32 GiB,AWS Graviton4 Processor,64-bit,,NA,Up to 15 Gigabit,EBS only,Yes,0.63808
+r8a.2xlarge,Memory optimized,8,64 GiB,AMD EPYC 9R45 Processor,64-bit,,NA,Up to 15000 Megabit,EBS only,Yes,0.63904
+g2.2xlarge,GPU instance,8,15 GiB,Intel Xeon E5-2670 (Sandy Bridge),64-bit,1,NA,Moderate,1 x 60 SSD,No,0.65
+vt1.3xlarge,Media Accelerator Instances,12,24 GiB,Intel Xeon Platinum 8259CL,64-bit,,NA,3125 Megabit,EBS only,Yes,0.65
+m7g.4xlarge,General purpose,16,64 GiB,AWS Graviton3 Processor,64-bit,,NA,Up to 15 Gigabit,EBS only,Yes,0.6528
+m5zn.2xlarge,General purpose,8,32 GiB,Intel Xeon Platinum 8252,64-bit,,NA,Up to 25 Gigabit,EBS only,Yes,0.6607
+r3.2xlarge,Memory optimized,8,61 GiB,Intel Xeon E5-2670 v2 (Ivy Bridge),64-bit,,NA,High,1 x 160 SSD,No,0.665
+r8id.2xlarge,Memory optimized,8,64 GiB,Intel Xeon Scalable (Granite Rapids),64-bit,,NA,Up to 15000 Megabit,1 x 474 NVMe SSD,Yes,0.66528
+x2gd.2xlarge,Memory optimized,8,128 GiB,AWS Graviton2 Processor,64-bit,,NA,Up to 10 Gigabit,1 x 474 SSD,Yes,0.668
+r5dn.2xlarge,Memory optimized,8,64 GiB,Intel Xeon Platinum 8259 (Cascade Lake),64-bit,,NA,Up to 25 Gigabit,1 x 300 NVMe SSD,Yes,0.668
+m8in.2xlarge,General purpose,8,32.0 GiB,Intel Xeon Scalable (Granite Rapids),64-bit,,NA,Up to 40 Gigabit,EBS only,Yes,0.66832
+m8ib.2xlarge,General purpose,8,32.0 GiB,Intel Xeon Scalable (Granite Rapids),64-bit,,NA,Up to 26.66 Gigabit,EBS only,Yes,0.66832
+c7i-flex.4xlarge,Compute optimized,16,32 GiB,Intel Xeon Scalable (Sapphire Rapids),64-bit,,NA,Up to 12500 Megabit,EBS only,Yes,0.6783
+c6i.4xlarge,Compute optimized,16,32 GiB,Intel Xeon 8375C (Ice Lake),64-bit,,NA,Up to 12500 Megabit,EBS only,Yes,0.68
+c5.4xlarge,Compute optimized,16,32 GiB,Intel Xeon Platinum 8124M,64-bit,,NA,Up to 10 Gigabit,EBS only,Yes,0.68
+c8ine.2xlarge,Compute optimized,8,16 GiB,Intel Xeon Scalable (Granite Rapids),64-bit,,NA,12.5 Gigabit,EBS only,Yes,0.6804
+i4i.2xlarge,Storage optimized,8,64 GiB,Intel Xeon 8375C (Ice Lake),64-bit,,NA,Up to 12 Gigabit,1 x 1875 NVMe SSD,Yes,0.686
+i8g.2xlarge,Storage optimized,8,64 GiB,AWS Graviton4 Processor,64-bit,,NA,Up to 12 Gigabit,1 x 1875GB,Yes,0.6864
+m5a.4xlarge,General purpose,16,64 GiB,AMD EPYC 7571,64-bit,,NA,Up to 10 Gigabit,EBS only,Yes,0.688
+c5ad.4xlarge,Compute optimized,16,32 GiB,AMD EPYC 7R32,64-bit,,NA,Up to 10 Gigabit,2 x 300 NVMe SSD,Yes,0.688
+d2.xlarge,Storage optimized,4,30.5 GiB,Intel Xeon E5-2676 v3 (Haswell),64-bit,,NA,Moderate,3 x 2000 HDD,No,0.69
+c6gn.4xlarge,Compute optimized,16,32 GiB,AWS Graviton2 Processor,64-bit,,NA,25 Gigabit,EBS only,Yes,0.6912
+m6a.4xlarge,General purpose,16,64 GiB,AMD EPYC 7R13 Processor,64-bit,,NA,Up to 12500 Megabit,EBS only,Yes,0.6912
+c9g.4xlarge,Compute optimized,16,32.0 GiB,AWS Graviton5 Processor,64-bit,,NA,Up to 17 Gigabit,EBS only,Yes,0.69552
+r6in.2xlarge,Memory optimized,8,64 GiB,Intel Xeon 8375C (Ice Lake),64-bit,,NA,Up to 40000 Megabit,EBS only,Yes,0.69732
+c8i-flex.4xlarge,Compute optimized,16,32 GiB,Intel Xeon Scalable (Granite Rapids),64-bit,,NA,Up to 15000 Megabit,EBS only,Yes,0.71216
+c7i.4xlarge,Compute optimized,16,32 GiB,Intel Xeon Scalable (Sapphire Rapids),64-bit,,NA,Up to 12500 Megabit,EBS only,Yes,0.714
+m8g.4xlarge,General purpose,16,64 GiB,AWS Graviton4 Processor,64-bit,,NA,Up to 15 Gigabit,EBS only,Yes,0.71808
+m6gd.4xlarge,General purpose,16,64 GiB,AWS Graviton2 Processor,64-bit,,NA,Up to 10 Gigabit,1 x 950 NVMe SSD,Yes,0.7232
+c7gd.4xlarge,Compute optimized,16,32 GiB,AWS Graviton3 Processor,64-bit,,NA,Up to 15 Gigabit,1 x 950 NVMe SSD,Yes,0.7258
+im4gn.2xlarge,Storage optimized,8,32 GiB,AWS Graviton2 Processor,64-bit,,NA,Up to 25 Gigabit,1 x 3750 SSD,Yes,0.72758
+r8gn.2xlarge,Memory optimized,8,64 GiB,AWS Graviton4 Processor,64-bit,,NA,Up to 50 Gigabit,EBS only,Yes,0.7287
+r8gb.2xlarge,Memory optimized,8,64 GiB,AWS Graviton4 Processor,64-bit,,NA,Up to 33.333 Gigabit,EBS only,Yes,0.72872
+r7iz.2xlarge,Memory optimized,8,64 GiB,Intel Xeon Scalable (Sapphire Rapids),64-bit,,NA,Up to 12500 Megabit,EBS only,Yes,0.744
+z1d.2xlarge,Memory optimized,8,64 GiB,Intel Xeon Platinum 8151,64-bit,,NA,Up to 10 Gigabit,1 x 300 NVMe SSD,Yes,0.744
+c8i.4xlarge,Compute optimized,16,32 GiB,Intel Xeon Scalable (Granite Rapids),64-bit,,NA,Up to 15000 Megabit,EBS only,Yes,0.74968
+g3s.xlarge,GPU instance,4,30.5 GiB,Intel Xeon E5-2686 v4 (Broadwell),64-bit,1,8 GB,10 Gigabit,EBS only,Yes,0.75
+g4dn.2xlarge,GPU instance,8,32 GiB,Intel Xeon Family,64-bit,1,16 GB,Up to 25 Gigabit,225 GB NVMe SSD,Yes,0.752
+i7i.2xlarge,Storage optimized,8,64 GiB,Intel Xeon Scalable (Emerald Rapids),64-bit,,NA,Up to 12 Gigabit,1 x 1875 NVMe SSD,Yes,0.755
+inf2.xlarge,Machine Learning ASIC Instances,4,16 GiB,AMD EPYC 7R13 Processor,64-bit,1,32 GB,Up to 15 Gigabit,EBS only,Yes,0.7582
+m8idn.2xlarge,General purpose,8,32.0 GiB,Intel Xeon Scalable (Granite Rapids),64-bit,,NA,Up to 40 Gigabit,1 x 474 NVMe SSD,Yes,0.76376
+m8idb.2xlarge,General purpose,8,32.0 GiB,Intel Xeon Scalable (Granite Rapids),64-bit,,NA,Up to 26.66 Gigabit,1 x 474 NVMe SSD,Yes,0.76376
+m7i-flex.4xlarge,General purpose,16,64 GiB,Intel Xeon Scalable (Sapphire Rapids),64-bit,,NA,Up to 12500 Megabit,EBS only,Yes,0.76608
+m5.4xlarge,General purpose,16,64 GiB,Intel Xeon Platinum 8175,64-bit,,NA,Up to 10 Gigabit,EBS only,Yes,0.768
+c5d.4xlarge,Compute optimized,16,32 GiB,Intel Xeon Platinum 8124M,64-bit,,NA,Up to 10 Gigabit,1 x 400 NVMe SSD,Yes,0.768
+m6i.4xlarge,General purpose,16,64 GiB,Intel Xeon 8375C (Ice Lake),64-bit,,NA,Up to 12500 Megabit,EBS only,Yes,0.768
+r6idn.2xlarge,Memory optimized,8,64 GiB,Intel Xeon 8375C (Ice Lake),64-bit,,NA,Up to 40000 Megabit,1 x 474 NVMe SSD,Yes,0.78156
+x8g.2xlarge,Memory optimized,8,128 GiB,AWS Graviton4 Processor,64-bit,,NA,Up to 15 Gigabit,EBS only,Yes,0.7816
+m9g.4xlarge,General purpose,16,64 GiB,AWS Graviton5 Processor,64-bit,,NA,Up to 17000 Megabit,EBS only,Yes,0.78272
+c8gd.4xlarge,Compute optimized,16,32 GiB,AWS Graviton4 Processor,64-bit,,NA,Up to 15 Gigabit,1 x 950 NVMe SSD,Yes,0.78384
+c4.4xlarge,Compute optimized,16,30 GiB,Intel Xeon E5-2666 v3 (Haswell),64-bit,,NA,High,EBS only,Yes,0.796
+m4.4xlarge,General purpose,16,64 GiB,Intel Xeon E5-2676 v3 (Haswell),64-bit,,NA,High,EBS only,Yes,0.8
+m8i-flex.4xlarge,General purpose,16,64 GiB,Intel Xeon Scalable (Granite Rapids),64-bit,,NA,Up to 15000 Megabit,EBS only,Yes,0.8044
+g6.xlarge,GPU instance,4,16 GiB,AMD EPYC 7R13 Processor,64-bit,1,24 GB,Up to 10 Gigabit,1 x 250 GB NVMe SSD,Yes,0.8048
+c6id.4xlarge,Compute optimized,16,32 GiB,Intel Xeon 8375C (Ice Lake),64-bit,,NA,Up to 12500 Megabit,1 x 950 NVMe SSD,Yes,0.8064
+m7i.4xlarge,General purpose,16,64 GiB,Intel Xeon Scalable (Sapphire Rapids),64-bit,,NA,Up to 12500 Megabit,EBS only,Yes,0.8064
+r6g.4xlarge,Memory optimized,16,128 GiB,AWS Graviton2 Processor,64-bit,,NA,Up to 10 Gigabit,EBS only,Yes,0.8064
+c7a.4xlarge,Compute optimized,16,32 GiB,AMD EPYC 9R14 Processor,64-bit,,NA,Up to 12500 Megabit,EBS only,Yes,0.82112
+m5ad.4xlarge,General purpose,16,64 GiB,AMD EPYC 7571,64-bit,,NA,Up to 10 Gigabit,2 x 300 NVMe SSD,Yes,0.824
+g5g.4xlarge,GPU instance,16,32 GiB,AWS Graviton2 Processor,64-bit,1,16 GB,Up to 10 Gigabit,EBS only,Yes,0.828
+x2iedn.xlarge,Memory optimized,4,128 GiB,Intel Xeon Scalable (Icelake),64-bit,,NA,Up to 25 Gigabit,1 x 118 NVMe SSD,Yes,0.83363
+x1e.xlarge,Memory optimized,4,122 GiB,High Frequency Intel Xeon E7-8880 v3 (Haswell),64-bit,,NA,Up to 10 Gigabit,1 x 120 SSD,Yes,0.834
+m8ine.2xlarge,General purpose,8,32.0 GiB,Intel Xeon Scalable (Granite Rapids),64-bit,,NA,12.5 Gigabit,EBS only,Yes,0.8354
+r8in.2xlarge,Memory optimized,8,64.0 GiB,Intel Xeon Scalable (Granite Rapids),64-bit,,NA,Up to 40 Gigabit,EBS only,Yes,0.8368
+r8ib.2xlarge,Memory optimized,8,64.0 GiB,Intel Xeon Scalable (Granite Rapids),64-bit,,NA,Up to 26.66 Gigabit,EBS only,Yes,0.8368
+c3.4xlarge,Compute optimized,16,30 GiB,Intel Xeon E5-2680 v2 (Ivy Bridge),64-bit,,NA,High,2 x 160 SSD,No,0.84
+m8i.4xlarge,General purpose,16,64 GiB,Intel Xeon Scalable (Granite Rapids),64-bit,,NA,Up to 15000 Megabit,EBS only,Yes,0.84672
+i2.xlarge,Storage optimized,4,30.5 GiB,Intel Xeon E5-2670 v2 (Ivy Bridge),64-bit,,NA,Moderate,1 x 800 SSD,No,0.853
+m7gd.4xlarge,General purpose,16,64 GiB,AWS Graviton3 Processor,64-bit,,NA,Up to 15 Gigabit,1 x 950 NVMe SSD,Yes,0.8543
+c9gd.4xlarge,Compute optimized,16,32.0 GiB,AWS Graviton5 Processor,64-bit,,NA,Up to 17 Gigabit,1 x 950 NVMe SSD,Yes,0.8544
+r7g.4xlarge,Memory optimized,16,128 GiB,AWS Graviton3 Processor,64-bit,,NA,Up to 15 Gigabit,EBS only,Yes,0.8568
+c8a.4xlarge,Compute optimized,16,32 GiB,AMD EPYC 9R45 Processor,64-bit,,NA,Up to 15000 Megabit,EBS only,Yes,0.86216
+c5n.4xlarge,Compute optimized,16,42 GiB,Intel Xeon Platinum 8124M,64-bit,,NA,Up to 25 Gigabit,EBS only,Yes,0.864
+g4ad.4xlarge,GPU instance,16,64 GiB,AMD EPYC 7R32,64-bit,1,8 GB,Up to 10 Gigabit,600 GB NVMe SSD,Yes,0.867
+x8i.2xlarge,Memory optimized,8,128 GiB,Intel Xeon Scalable (Granite Rapids),64-bit,,NA,Up to 15000 Megabit,EBS only,Yes,0.87532
+c8id.4xlarge,Compute optimized,16,32 GiB,Intel Xeon Scalable (Granite Rapids),64-bit,,NA,Up to 15000 Megabit,1 x 950 NVMe SSD,Yes,0.88704
+p2.xlarge,GPU instance,4,61 GiB,Intel Xeon E5-2686 v4 (Broadwell),64-bit,1,NA,High,EBS only,Yes,0.9
+r5a.4xlarge,Memory optimized,16,128 GiB,AMD EPYC 7571,64-bit,,NA,Up to 10 Gigabit,EBS only,Yes,0.904
+i3en.2xlarge,Storage optimized,8,64 GiB,Intel Xeon Platinum 8175,64-bit,,NA,Up to 25 Gigabit,2 x 2500 NVMe SSD,Yes,0.904
+m5d.4xlarge,General purpose,16,64 GiB,Intel Xeon Platinum 8175,64-bit,,NA,Up to 10 Gigabit,2 x 300 NVMe SSD,Yes,0.904
+r6a.4xlarge,Memory optimized,16,128 GiB,AMD EPYC 7R13 Processor,64-bit,,NA,Up to 12500 Megabit,EBS only,Yes,0.9072
+c6in.4xlarge,Compute optimized,16,32 GiB,Intel Xeon 8375C (Ice Lake),64-bit,,NA,Up to 50000 Megabit,EBS only,Yes,0.9072
+r6gd.4xlarge,Memory optimized,16,128 GiB,AWS Graviton2 Processor,64-bit,,NA,Up to 10 Gigabit,1 x 950 NVMe SSD,Yes,0.9216
+m8gd.4xlarge,General purpose,16,64 GiB,AWS Graviton4 Processor,64-bit,,NA,Up to 15 Gigabit,1 x 950 NVMe SSD,Yes,0.92256
+m7a.4xlarge,General purpose,16,64 GiB,AMD EPYC 9R14 Processor,64-bit,,NA,Up to 12500 Megabit,EBS only,Yes,0.92736
+h1.4xlarge,Storage optimized,16,64 GiB,Intel Xeon E5-2686 v4 (Broadwell),64-bit,,NA,Up to 10 Gigabit,2 x 2000 HDD,Yes,0.936
+r8idn.2xlarge,Memory optimized,8,64.0 GiB,Intel Xeon Scalable (Granite Rapids),64-bit,,NA,Up to 40 Gigabit,1 x 474 NVMe SSD,Yes,0.93788
+r8idb.2xlarge,Memory optimized,8,64.0 GiB,Intel Xeon Scalable (Granite Rapids),64-bit,,NA,Up to 26.66 Gigabit,1 x 474 NVMe SSD,Yes,0.93788
+r8g.4xlarge,Memory optimized,16,128 GiB,AWS Graviton4 Processor,64-bit,,NA,Up to 15 Gigabit,EBS only,Yes,0.94256
+c8gn.4xlarge,Compute optimized,16,32 GiB,AWS Graviton4 Processor,64-bit,,NA,50 Gigabit,EBS only,Yes,0.948
+c8gb.4xlarge,Compute optimized,16,32 GiB,AWS Graviton4 Processor,64-bit,,NA,33.333 Gigabit,EBS only,Yes,0.948
+m6id.4xlarge,General purpose,16,64 GiB,Intel Xeon 8375C (Ice Lake),64-bit,,NA,Up to 12500 Megabit,1 x 950 NVMe SSD,Yes,0.9492
+i8ge.2xlarge,Storage optimized,8,64 GiB,AWS Graviton4 Processor,64-bit,,NA,Up to 25 Gigabit,2 x 2500 NVMe SSD,Yes,0.9492
+g6f.4xlarge,GPU instance,16,64 GiB,AMD EPYC 7R13 Processor,64-bit,0.5,12 GB,Up to 25 Gigabit,1 x 450 NVMe SSD,Yes,0.95
+m5n.4xlarge,General purpose,16,64 GiB,Intel Xeon Platinum 8259 (Cascade Lake),64-bit,,NA,Up to 25 Gigabit,EBS only,Yes,0.952
+m8a.4xlarge,General purpose,16,64 GiB,AMD EPYC 9R45 Processor,64-bit,,NA,Up to 15000 Megabit,EBS only,Yes,0.97376
+g6.2xlarge,GPU instance,8,32 GiB,AMD EPYC 7R13 Processor,64-bit,1,24 GB,Up to 10 Gigabit,1 x 450 GB NVMe SSD,Yes,0.9776
+m2.4xlarge,Memory optimized,8,68.4 GiB,Intel Xeon Family,64-bit,,NA,High,2 x 840 SSD,No,0.98
+m5zn.3xlarge,General purpose,12,48 GiB,Intel Xeon Platinum 8252,64-bit,,NA,Up to 25 Gigabit,EBS only,Yes,0.991
+c7gn.4xlarge,Compute optimized,16,32 GiB,AWS Graviton3 Processor,64-bit,,NA,50 Gigabit,EBS only,Yes,0.9984
+d3.2xlarge,Storage optimized,8,64 GiB,Intel Xeon Platinum 8259 (Cascade Lake),64-bit,,NA,Up to 15 Gigabit,6 x 2000 HDD,Yes,0.999
+m9gd.4xlarge,General purpose,16,64.0 GiB,AWS Graviton5 Processor,64-bit,,NA,Up to 17 Gigabit,1 x 950 NVMe SSD,Yes,1.0056
+g5.xlarge,GPU instance,4,16 GiB,AMD EPYC 7R32,64-bit,1,24 GB,Up to 10 Gigabit,1 x 250 GB NVMe SSD,Yes,1.006
+r6i.4xlarge,Memory optimized,16,128 GiB,Intel Xeon 8375C (Ice Lake),64-bit,,NA,Up to 12500 Megabit,EBS only,Yes,1.008
+r5.4xlarge,Memory optimized,16,128 GiB,Intel Xeon Platinum 8175,64-bit,,NA,Up to 10 Gigabit,EBS only,Yes,1.008
+i7ie.2xlarge,Storage optimized,8,64 GiB,Intel Xeon Scalable (Emerald Rapids),64-bit,,NA,Up to 25 Gigabit,2 x 2500 NVMe SSD,Yes,1.0396
+m8id.4xlarge,General purpose,16,64 GiB,Intel Xeon Scalable (Granite Rapids),64-bit,,NA,Up to 15000 Megabit,1 x 950 NVMe SSD,Yes,1.04416
+r5ad.4xlarge,Memory optimized,16,128 GiB,AMD EPYC 7571,64-bit,,NA,Up to 10 Gigabit,2 x 300 NVMe SSD,Yes,1.048
+d3en.2xlarge,Storage optimized,8,32 GiB,Intel Xeon Platinum 8259 (Cascade Lake),64-bit,,NA,Up to 25 Gigabit,4 x 14000 HDD,Yes,1.051
+r8i-flex.4xlarge,Memory optimized,16,128 GiB,Intel Xeon Scalable (Granite Rapids),64-bit,,NA,Up to 15000 Megabit,EBS only,Yes,1.05576
+r7i.4xlarge,Memory optimized,16,128 GiB,Intel Xeon Scalable (Sapphire Rapids),64-bit,,NA,Up to 12500 Megabit,EBS only,Yes,1.0584
+r4.4xlarge,Memory optimized,16,122 GiB,Intel Xeon E5-2686 v4 (Broadwell),64-bit,,NA,Up to 10 Gigabit,EBS only,Yes,1.064
+gr6f.4xlarge,GPU instance,16,128 GiB,AMD EPYC 7R13 Processor,64-bit,0.5,12 GB,Up to 25 Gigabit,1 x 450 NVMe SSD,Yes,1.066
+m5dn.4xlarge,General purpose,16,64 GiB,Intel Xeon Platinum 8259 (Cascade Lake),64-bit,,NA,Up to 25 Gigabit,2 x 300 NVMe SSD,Yes,1.088
+c6g.8xlarge,Compute optimized,32,64 GiB,AWS Graviton2 Processor,64-bit,,NA,12 Gigabit,EBS only,Yes,1.088
+r7gd.4xlarge,Memory optimized,16,128 GiB,AWS Graviton3 Processor,64-bit,,NA,Up to 15 Gigabit,1 x 950 NVMe SSD,Yes,1.0886
+c8in.4xlarge,Compute optimized,16,32 GiB,Intel Xeon Scalable (Granite Rapids),64-bit,,NA,Up to 50 Gigabit,EBS only,Yes,1.08864
+c8ib.4xlarge,Compute optimized,16,32 GiB,Intel Xeon Scalable (Granite Rapids),64-bit,,NA,Up to 33.333 Gigabit,EBS only,Yes,1.08864
+r8i.4xlarge,Memory optimized,16,128 GiB,Intel Xeon Scalable (Granite Rapids),64-bit,,NA,Up to 15000 Megabit,EBS only,Yes,1.11136
+m6in.4xlarge,General purpose,16,64 GiB,Intel Xeon 8375C (Ice Lake),64-bit,,NA,Up to 50000 Megabit,EBS only,Yes,1.11384
+z1d.3xlarge,Memory optimized,12,96 GiB,Intel Xeon Platinum 8151,64-bit,,NA,Up to 10 Gigabit,1 x 450 NVMe SSD,Yes,1.116
+g3.4xlarge,GPU instance,16,122 GiB,Intel Xeon E5-2686 v4 (Broadwell),64-bit,1,8 GB,Up to 10 Gigabit,EBS only,Yes,1.14
+r5d.4xlarge,Memory optimized,16,128 GiB,Intel Xeon Platinum 8175,64-bit,,NA,Up to 10 Gigabit,2 x 300 NVMe SSD,Yes,1.152
+is4gen.2xlarge,Storage optimized,8,48 GiB,AWS Graviton2 Processor,64-bit,,NA,Up to 25 Gigabit,1 x 7500 SSD,Yes,1.1526
+c7g.8xlarge,Compute optimized,32,64 GiB,AWS Graviton3 Processor,64-bit,,NA,15 Gigabit,EBS only,Yes,1.16
+m8gb.4xlarge,General purpose,16,64 GiB,AWS Graviton4 Processor,64-bit,,NA,33.333 Gigabit,EBS only,Yes,1.164
+m8gn.4xlarge,General purpose,16,64 GiB,AWS Graviton4 Processor,64-bit,,NA,50 Gigabit,EBS only,Yes,1.164
+r8gd.4xlarge,Memory optimized,16,128 GiB,AWS Graviton4 Processor,64-bit,,NA,Up to 15 Gigabit,1 x 950 NVMe SSD,Yes,1.17568
+inf1.6xlarge,Machine Learning ASIC Instances,24,48 GiB,Intel Xeon Platinum 8275CL (Cascade Lake),64-bit,4,NA,25 Gigabit,EBS only,Yes,1.18
+r5b.4xlarge,Memory optimized,16,128 GiB,Intel Xeon Platinum 8259 (Cascade Lake),64-bit,,NA,Up to 10 Gigabit,EBS only,Yes,1.192
+r5n.4xlarge,Memory optimized,16,128 GiB,Intel Xeon Platinum 8259 (Cascade Lake),64-bit,,NA,Up to 25 Gigabit,EBS only,Yes,1.192
+g4dn.4xlarge,GPU instance,16,64 GiB,Intel Xeon Family,64-bit,1,16 GB,Up to 25 Gigabit,225 GB NVMe SSD,Yes,1.204
+r6id.4xlarge,Memory optimized,16,128 GiB,Intel Xeon 8375C (Ice Lake),64-bit,,NA,Up to 12500 Megabit,1 x 950 NVMe SSD,Yes,1.2096
+g5.2xlarge,GPU instance,8,32 GiB,AMD EPYC 7R32,64-bit,1,24 GB,Up to 10 Gigabit,1 x 450 GB NVMe SSD,Yes,1.212
+r7a.4xlarge,Memory optimized,16,128 GiB,AMD EPYC 9R14 Processor,64-bit,,NA,Up to 12500 Megabit,EBS only,Yes,1.2172
+c6a.8xlarge,Compute optimized,32,64 GiB,AMD EPYC 7R13 Processor,64-bit,,NA,12500 Megabit,EBS only,Yes,1.224
+c6gd.8xlarge,Compute optimized,32,64 GiB,AWS Graviton2 Processor,64-bit,,NA,12 Gigabit,1 x 1900 NVMe SSD,Yes,1.2288
+c5a.8xlarge,Compute optimized,32,64 GiB,AMD EPYC 7R32,32-bit or 64-bit,,NA,10 Gigabit,EBS only,Yes,1.232
+m6g.8xlarge,General purpose,32,128 GiB,AWS Graviton2 Processor,64-bit,,NA,12 Gigabit,EBS only,Yes,1.232
+i4g.4xlarge,Storage optimized,16,128 GiB,AWS Graviton2 Processor,64-bit,,NA,Up to 25 Gigabit,1 x 3750 SSD,Yes,1.23552
+m8azn.3xlarge,General purpose,12,48 GiB,AMD EPYC 9575F,64-bit,,NA,Up to 50 Gigabit,EBS only,Yes,1.23876
+i3.4xlarge,Storage optimized,16,122 GiB,Intel Xeon E5-2686 v4 (Broadwell),64-bit,,NA,Up to 10 Gigabit,2 x 1900 NVMe SSD,Yes,1.248
+m6idn.4xlarge,General purpose,16,64 GiB,Intel Xeon 8375C (Ice Lake),64-bit,,NA,Up to 50000 Megabit,1 x 950 NVMe SSD,Yes,1.27296
+c8g.8xlarge,Compute optimized,32,64 GiB,AWS Graviton4 Processor,64-bit,,NA,15 Gigabit,EBS only,Yes,1.27616
+r8a.4xlarge,Memory optimized,16,128 GiB,AMD EPYC 9R45 Processor,64-bit,,NA,Up to 15000 Megabit,EBS only,Yes,1.27808
+vt1.6xlarge,Media Accelerator Instances,24,48 GiB,Intel Xeon Platinum 8259CL,64-bit,,NA,6250 Megabit,EBS only,Yes,1.3
+m7g.8xlarge,General purpose,32,128 GiB,AWS Graviton3 Processor,64-bit,,NA,15 Gigabit,EBS only,Yes,1.3056
+g6.4xlarge,GPU instance,16,64 GiB,AMD EPYC 7R13 Processor,64-bit,1,24 GB,Up to 25 Gigabit,1 x 600 GB NVMe SSD,Yes,1.3232
+r3.4xlarge,Memory optimized,16,122 GiB,Intel Xeon E5-2670 v2 (Ivy Bridge),64-bit,,NA,High,1 x 320 SSD,No,1.33
+r8id.4xlarge,Memory optimized,16,128 GiB,Intel Xeon Scalable (Granite Rapids),64-bit,,NA,Up to 15000 Megabit,1 x 950 NVMe SSD,Yes,1.33056
+x2gd.4xlarge,Memory optimized,16,256 GiB,AWS Graviton2 Processor,64-bit,,NA,Up to 10 Gigabit,1 x 950 SSD,Yes,1.336
+r5dn.4xlarge,Memory optimized,16,128 GiB,Intel Xeon Platinum 8259 (Cascade Lake),64-bit,,NA,Up to 25 Gigabit,2 x 300 NVMe SSD,Yes,1.336
+m8ib.4xlarge,General purpose,16,64.0 GiB,Intel Xeon Scalable (Granite Rapids),64-bit,,NA,Up to 33.33 Gigabit,EBS only,Yes,1.33664
+m8in.4xlarge,General purpose,16,64.0 GiB,Intel Xeon Scalable (Granite Rapids),64-bit,,NA,Up to 50 Gigabit,EBS only,Yes,1.33664
+trn1.2xlarge,Machine Learning ASIC Instances,8,32 GiB,Intel Xeon Scalable (Icelake),64-bit,1,32 GB,12500 Megabit,1 x 475 NVMe SSD,Yes,1.34375
+i3en.3xlarge,Storage optimized,12,96 GiB,Intel Xeon Platinum 8175,64-bit,,NA,Up to 25 Gigabit,1 x 7500 NVMe SSD,Yes,1.356
+c7i-flex.8xlarge,Compute optimized,32,64 GiB,Intel Xeon Scalable (Sapphire Rapids),64-bit,,NA,Up to 12500 Megabit,EBS only,Yes,1.3566
+c6i.8xlarge,Compute optimized,32,64 GiB,Intel Xeon 8375C (Ice Lake),64-bit,,NA,12500 Megabit,EBS only,Yes,1.36
+c8ine.4xlarge,Compute optimized,16,32 GiB,Intel Xeon Scalable (Granite Rapids),64-bit,,NA,25 Gigabit,EBS only,Yes,1.3608
+g5g.8xlarge,GPU instance,32,64 GiB,AWS Graviton2 Processor,64-bit,1,16 GB,Up to 12 Gigabit,EBS only,Yes,1.372
+i8g.4xlarge,Storage optimized,16,128 GiB,AWS Graviton4 Processor,64-bit,,NA,Up to 25 Gigabit,1 x 3750GB,Yes,1.3728
+i4i.4xlarge,Storage optimized,16,128 GiB,Intel Xeon 8375C (Ice Lake),64-bit,,NA,Up to 25 Gigabit,1 x 3750 NVMe SSD,Yes,1.373
+m5a.8xlarge,General purpose,32,128 GiB,AMD EPYC 7571,64-bit,,NA,Up to 10 Gigabit,EBS only,Yes,1.376
+c5ad.8xlarge,Compute optimized,32,64 GiB,AMD EPYC 7R32,64-bit,,NA,10 Gigabit,2 x 600 NVMe SSD,Yes,1.376
+d2.2xlarge,Storage optimized,8,61 GiB,Intel Xeon E5-2676 v3 (Haswell),64-bit,,NA,High,6 x 2000 HDD,No,1.38
+m6a.8xlarge,General purpose,32,128 GiB,AMD EPYC 7R13 Processor,64-bit,,NA,12500 Megabit,EBS only,Yes,1.3824
+c6gn.8xlarge,Compute optimized,32,64 GiB,AWS Graviton2 Processor,64-bit,,NA,50 Gigabit,EBS only,Yes,1.3824
+c9g.8xlarge,Compute optimized,32,64.0 GiB,AWS Graviton5 Processor,64-bit,,NA,17 Gigabit,EBS only,Yes,1.39104
+r6in.4xlarge,Memory optimized,16,128 GiB,Intel Xeon 8375C (Ice Lake),64-bit,,NA,Up to 50000 Megabit,EBS only,Yes,1.39464
+i8ge.3xlarge,Storage optimized,12,96 GiB,AWS Graviton4 Processor,64-bit,,NA,Up to 25 Gigabit,1 x 7500 NVMe SSD,Yes,1.4238
+c8i-flex.8xlarge,Compute optimized,32,64 GiB,Intel Xeon Scalable (Granite Rapids),64-bit,,NA,Up to 15000 Megabit,EBS only,Yes,1.42432
+c7i.8xlarge,Compute optimized,32,64 GiB,Intel Xeon Scalable (Sapphire Rapids),64-bit,,NA,12500 Megabit,EBS only,Yes,1.428
+m8g.8xlarge,General purpose,32,128 GiB,AWS Graviton4 Processor,64-bit,,NA,15 Gigabit,EBS only,Yes,1.43616
+m6gd.8xlarge,General purpose,32,128 GiB,AWS Graviton2 Processor,64-bit,,NA,12 Gigabit,1 x 1900 NVMe SSD,Yes,1.4464
+c7gd.8xlarge,Compute optimized,32,64 GiB,AWS Graviton3 Processor,64-bit,,NA,15 Gigabit,1 x 1900 NVMe SSD,Yes,1.4515
+im4gn.4xlarge,Storage optimized,16,64 GiB,AWS Graviton2 Processor,64-bit,,NA,25 Gigabit,1 x 7500 SSD,Yes,1.45517
+r8gn.4xlarge,Memory optimized,16,128 GiB,AWS Graviton4 Processor,64-bit,,NA,50 Gigabit,EBS only,Yes,1.4574
+r8gb.4xlarge,Memory optimized,16,128 GiB,AWS Graviton4 Processor,64-bit,,NA,33.333 Gigabit,EBS only,Yes,1.45744
+r7iz.4xlarge,Memory optimized,16,128 GiB,Intel Xeon Scalable (Sapphire Rapids),64-bit,,NA,Up to 12500 Megabit,EBS only,Yes,1.488
+c8i.8xlarge,Compute optimized,32,64 GiB,Intel Xeon Scalable (Granite Rapids),64-bit,,NA,15000 Megabit,EBS only,Yes,1.49936
+i7i.4xlarge,Storage optimized,16,128 GiB,Intel Xeon Scalable (Emerald Rapids),64-bit,,NA,Up to 25 Gigabit,1 x 3750 NVMe SSD,Yes,1.5101
+m8idn.4xlarge,General purpose,16,64.0 GiB,Intel Xeon Scalable (Granite Rapids),64-bit,,NA,Up to 50 Gigabit,1 x 950 NVMe SSD,Yes,1.52752
+m8idb.4xlarge,General purpose,16,64.0 GiB,Intel Xeon Scalable (Granite Rapids),64-bit,,NA,Up to 33.33 Gigabit,1 x 950 NVMe SSD,Yes,1.52752
+c5.9xlarge,Compute optimized,36,72 GiB,Intel Xeon Platinum 8124M,64-bit,,NA,10 Gigabit,EBS only,Yes,1.53
+m7i-flex.8xlarge,General purpose,32,128 GiB,Intel Xeon Scalable (Sapphire Rapids),64-bit,,NA,Up to 12500 Megabit,EBS only,Yes,1.53216
+m6i.8xlarge,General purpose,32,128 GiB,Intel Xeon 8375C (Ice Lake),64-bit,,NA,12500 Megabit,EBS only,Yes,1.536
+m5.8xlarge,General purpose,32,128 GiB,Intel Xeon Platinum 8175,64-bit,,NA,10 Gigabit,EBS only,Yes,1.536
+gr6.4xlarge,GPU instance,16,128 GiB,AMD EPYC 7R13 Processor,64-bit,1,24 GB,Up to 25 Gigabit,1 x 600 GB NVMe SSD,Yes,1.5392
+i7ie.3xlarge,Storage optimized,12,96 GiB,Intel Xeon Scalable (Emerald Rapids),64-bit,,NA,Up to 25 Gigabit,1 x 7500 NVMe SSD,Yes,1.5594
+r6idn.4xlarge,Memory optimized,16,128 GiB,Intel Xeon 8375C (Ice Lake),64-bit,,NA,Up to 50000 Megabit,1 x 950 NVMe SSD,Yes,1.56312
+x8g.4xlarge,Memory optimized,16,256 GiB,AWS Graviton4 Processor,64-bit,,NA,Up to 15 Gigabit,EBS only,Yes,1.5632
+m9g.8xlarge,General purpose,32,128 GiB,AWS Graviton5 Processor,64-bit,,NA,17000 Megabit,EBS only,Yes,1.56544
+c8gd.8xlarge,Compute optimized,32,64 GiB,AWS Graviton4 Processor,64-bit,,NA,15 Gigabit,1 x 1900 NVMe SSD,Yes,1.56768
+c4.8xlarge,Compute optimized,36,60 GiB,Intel Xeon E5-2666 v3 (Haswell),64-bit,,NA,10 Gigabit,EBS only,Yes,1.591
+m8i-flex.8xlarge,General purpose,32,128 GiB,Intel Xeon Scalable (Granite Rapids),64-bit,,NA,Up to 15000 Megabit,EBS only,Yes,1.6088
+m7i.8xlarge,General purpose,32,128 GiB,Intel Xeon Scalable (Sapphire Rapids),64-bit,,NA,12500 Megabit,EBS only,Yes,1.6128
+r6g.8xlarge,Memory optimized,32,256 GiB,AWS Graviton2 Processor,64-bit,,NA,12 Gigabit,EBS only,Yes,1.6128
+c6id.8xlarge,Compute optimized,32,64 GiB,Intel Xeon 8375C (Ice Lake),64-bit,,NA,12500 Megabit,1 x 1900 NVMe SSD,Yes,1.6128
+g5.4xlarge,GPU instance,16,64 GiB,AMD EPYC 7R32,64-bit,1,24 GB,Up to 25 Gigabit,1 x 600 GB NVMe SSD,Yes,1.624
+c6g.12xlarge,Compute optimized,48,96 GiB,AWS Graviton2 Processor,64-bit,,NA,20 Gigabit,EBS only,Yes,1.632
+c7a.8xlarge,Compute optimized,32,64 GiB,AMD EPYC 9R14 Processor,64-bit,,NA,12500 Megabit,EBS only,Yes,1.64224
+m5ad.8xlarge,General purpose,32,128 GiB,AMD EPYC 7571,64-bit,,NA,Up to 10 Gigabit,2 x 600 NVMe SSD,Yes,1.648
+f1.2xlarge,FPGA Instances,8,122 GiB,Intel Xeon E5-2686 v4 (Broadwell),64-bit,,NA,Up to 10 Gigabit,1 x 470 NVMe SSD,Yes,1.65
+x2iedn.2xlarge,Memory optimized,8,256 GiB,Intel Xeon Scalable (Icelake),64-bit,,NA,Up to 25 Gigabit,1 x 237 NVMe SSD,Yes,1.66725
+x1e.2xlarge,Memory optimized,8,244 GiB,High Frequency Intel Xeon E7-8880 v3 (Haswell),64-bit,,NA,Up to 10 Gigabit,1 x 240 SSD,Yes,1.668
+x2iezn.2xlarge,Memory optimized,8,256 GiB,Intel Xeon Platinum 8252,64-bit,,NA,Up to 25 Gigabit,EBS only,Yes,1.668
+m8ine.4xlarge,General purpose,16,64.0 GiB,Intel Xeon Scalable (Granite Rapids),64-bit,,NA,25 Gigabit,EBS only,Yes,1.6708
+r8in.4xlarge,Memory optimized,16,128.0 GiB,Intel Xeon Scalable (Granite Rapids),64-bit,,NA,Up to 50 Gigabit,EBS only,Yes,1.6736
+r8ib.4xlarge,Memory optimized,16,128.0 GiB,Intel Xeon Scalable (Granite Rapids),64-bit,,NA,Up to 33.33 Gigabit,EBS only,Yes,1.6736
+c3.8xlarge,Compute optimized,32,60 GiB,Intel Xeon E5-2680 v2 (Ivy Bridge),64-bit,,NA,10 Gigabit,2 x 320 SSD,No,1.68
+hpc7g.4xlarge,Compute optimized,16,128 GiB,AWS Graviton3 Processor,64-bit,,NA,200 Gigabit,EBS only,Yes,1.6832
+hpc7g.8xlarge,Compute optimized,32,128 GiB,AWS Graviton3 Processor,64-bit,,NA,200 Gigabit,EBS only,Yes,1.6832
+hpc7g.16xlarge,Compute optimized,64,128 GiB,AWS Graviton3 Processor,64-bit,,NA,200 Gigabit,EBS only,Yes,1.6832
+m8i.8xlarge,General purpose,32,128 GiB,Intel Xeon Scalable (Granite Rapids),64-bit,,NA,15000 Megabit,EBS only,Yes,1.69344
+i2.2xlarge,Storage optimized,8,61 GiB,Intel Xeon E5-2670 v2 (Ivy Bridge),64-bit,,NA,High,2 x 800 SSD,No,1.705
+m7gd.8xlarge,General purpose,32,128 GiB,AWS Graviton3 Processor,64-bit,,NA,15 Gigabit,1 x 1900 NVMe SSD,Yes,1.7086
+c9gd.8xlarge,Compute optimized,32,64.0 GiB,AWS Graviton5 Processor,64-bit,,NA,17 Gigabit,1 x 1900 NVMe SSD,Yes,1.7088
+r7g.8xlarge,Memory optimized,32,256 GiB,AWS Graviton3 Processor,64-bit,,NA,15 Gigabit,EBS only,Yes,1.7136
+c8a.8xlarge,Compute optimized,32,64 GiB,AMD EPYC 9R45 Processor,64-bit,,NA,15000 Megabit,EBS only,Yes,1.72432
+c5d.9xlarge,Compute optimized,36,72 GiB,Intel Xeon Platinum 8124M,64-bit,,NA,10 Gigabit,1 x 900 NVMe SSD,Yes,1.728
+g4ad.8xlarge,GPU instance,32,128 GiB,AMD EPYC 7R32,64-bit,2,16 GB,15 Gigabit,1200 GB NVMe SSD,Yes,1.734
+c7g.12xlarge,Compute optimized,48,96 GiB,AWS Graviton3 Processor,64-bit,,NA,22500 Megabit,EBS only,Yes,1.74
+x8i.4xlarge,Memory optimized,16,256 GiB,Intel Xeon Scalable (Granite Rapids),64-bit,,NA,Up to 15000 Megabit,EBS only,Yes,1.75064
+c8id.8xlarge,Compute optimized,32,64 GiB,Intel Xeon Scalable (Granite Rapids),64-bit,,NA,15000 Megabit,1 x 1900 NVMe SSD,Yes,1.77408
+m5d.8xlarge,General purpose,32,128 GiB,Intel Xeon Platinum 8175,64-bit,,NA,10 Gigabit,2 x 600 NVMe SSD,Yes,1.808
+r5a.8xlarge,Memory optimized,32,256 GiB,AMD EPYC 7571,64-bit,,NA,Up to 10 Gigabit,EBS only,Yes,1.808
+r6a.8xlarge,Memory optimized,32,256 GiB,AMD EPYC 7R13 Processor,64-bit,,NA,12500 Megabit,EBS only,Yes,1.8144
+c6in.8xlarge,Compute optimized,32,64 GiB,Intel Xeon 8375C (Ice Lake),64-bit,,NA,50000 Megabit,EBS only,Yes,1.8144
+c6a.12xlarge,Compute optimized,48,96 GiB,AMD EPYC 7R13 Processor,64-bit,,NA,18750 Megabit,EBS only,Yes,1.836
+c6gd.12xlarge,Compute optimized,48,96 GiB,AWS Graviton2 Processor,64-bit,,NA,20 Gigabit,2 x 1425 NVMe SSD,Yes,1.8432
+r6gd.8xlarge,Memory optimized,32,256 GiB,AWS Graviton2 Processor,64-bit,,NA,12 Gigabit,1 x 1900 NVMe SSD,Yes,1.8432
+m8gd.8xlarge,General purpose,32,128 GiB,AWS Graviton4 Processor,64-bit,,NA,15 Gigabit,1 x 1900 NVMe SSD,Yes,1.84512
+c5a.12xlarge,Compute optimized,48,96 GiB,AMD EPYC 7R32,32-bit or 64-bit,,NA,12 Gigabit,EBS only,Yes,1.848
+m6g.12xlarge,General purpose,48,192 GiB,AWS Graviton2 Processor,64-bit,,NA,20 Gigabit,EBS only,Yes,1.848
+m7a.8xlarge,General purpose,32,128 GiB,AMD EPYC 9R14 Processor,64-bit,,NA,12500 Megabit,EBS only,Yes,1.85472
+g6e.xlarge,GPU instance,4,32 GiB,AMD EPYC 7R13 Processor,64-bit,1,48 GB,Up to 20 Gigabit,1 x 250 GB NVMe SSD,Yes,1.861
+h1.8xlarge,Storage optimized,32,128 GiB,Intel Xeon E5-2686 v4 (Broadwell),64-bit,,NA,10 Gigabit,4 x 2000 HDD,Yes,1.872
+r8idb.4xlarge,Memory optimized,16,128.0 GiB,Intel Xeon Scalable (Granite Rapids),64-bit,,NA,Up to 33.33 Gigabit,1 x 950 NVMe SSD,Yes,1.87576
+r8idn.4xlarge,Memory optimized,16,128.0 GiB,Intel Xeon Scalable (Granite Rapids),64-bit,,NA,Up to 50 Gigabit,1 x 950 NVMe SSD,Yes,1.87576
+r8g.8xlarge,Memory optimized,32,256 GiB,AWS Graviton4 Processor,64-bit,,NA,15 Gigabit,EBS only,Yes,1.88512
+c8gb.8xlarge,Compute optimized,32,64 GiB,AWS Graviton4 Processor,64-bit,,NA,66.667 Gigabit,EBS only,Yes,1.896
+c8gn.8xlarge,Compute optimized,32,64 GiB,AWS Graviton4 Processor,64-bit,,NA,100 Gigabit,EBS only,Yes,1.896
+m6id.8xlarge,General purpose,32,128 GiB,Intel Xeon 8375C (Ice Lake),64-bit,,NA,12500 Megabit,1 x 1900 NVMe SSD,Yes,1.8984
+m5n.8xlarge,General purpose,32,128 GiB,Intel Xeon Platinum 8259 (Cascade Lake),64-bit,,NA,25 Gigabit,EBS only,Yes,1.904
+c8g.12xlarge,Compute optimized,48,96 GiB,AWS Graviton4 Processor,64-bit,,NA,22.5 Gigabit,EBS only,Yes,1.91424
+c5n.9xlarge,Compute optimized,36,96 GiB,Intel Xeon Platinum 8124M,64-bit,,NA,50 Gigabit,EBS only,Yes,1.944
+m8a.8xlarge,General purpose,32,128 GiB,AMD EPYC 9R45 Processor,64-bit,,NA,15000 Megabit,EBS only,Yes,1.94752
+m7g.12xlarge,General purpose,48,192 GiB,AWS Graviton3 Processor,64-bit,,NA,22500 Megabit,EBS only,Yes,1.9584
+inf2.8xlarge,Machine Learning ASIC Instances,32,128 GiB,AMD EPYC 7R13 Processor,64-bit,1,32 GB,Up to 25 Gigabit,EBS only,Yes,1.96786
+f2.6xlarge,FPGA Instances,24,256 GiB,AMD EPYC 7R13 Processor,64-bit,,NA,12.5 Gigabit,1 x 950 NVMe SSD,Yes,1.98
+m5zn.6xlarge,General purpose,24,96 GiB,Intel Xeon Platinum 8252,64-bit,,NA,50 Gigabit,EBS only,Yes,1.982
+c7gn.8xlarge,Compute optimized,32,64 GiB,AWS Graviton3 Processor,64-bit,,NA,100 Gigabit,EBS only,Yes,1.9968
+d3.4xlarge,Storage optimized,16,128 GiB,Intel Xeon Platinum 8259 (Cascade Lake),64-bit,,NA,Up to 15 Gigabit,12 x 2000 HDD,Yes,1.998
+m4.10xlarge,General purpose,40,160 GiB,Intel Xeon E5-2676 v3 (Haswell),64-bit,,NA,10 Gigabit,EBS only,Yes,2.0
+m9gd.8xlarge,General purpose,32,128.0 GiB,AWS Graviton5 Processor,64-bit,,NA,17 Gigabit,1 x 1900 NVMe SSD,Yes,2.0112
+g6.8xlarge,GPU instance,32,128 GiB,AMD EPYC 7R13 Processor,64-bit,1,24 GB,25 Gigabit,2 x 450 GB NVMe SSD,Yes,2.0144
+r5.8xlarge,Memory optimized,32,256 GiB,Intel Xeon Platinum 8175,64-bit,,NA,10 Gigabit,EBS only,Yes,2.016
+r6i.8xlarge,Memory optimized,32,256 GiB,Intel Xeon 8375C (Ice Lake),64-bit,,NA,12500 Megabit,EBS only,Yes,2.016
+c7i-flex.12xlarge,Compute optimized,48,96 GiB,Intel Xeon Scalable (Sapphire Rapids),64-bit,,NA,Up to 18750 Megabit,EBS only,Yes,2.0349
+c6i.12xlarge,Compute optimized,48,96 GiB,Intel Xeon 8375C (Ice Lake),64-bit,,NA,18750 Megabit,EBS only,Yes,2.04
+c5.12xlarge,Compute optimized,48,96 GiB,Intel Xeon Platinum 8275L,64-bit,,NA,12 Gigabit,EBS only,Yes,2.04
+m5a.12xlarge,General purpose,48,192 GiB,AMD EPYC 7571,64-bit,,NA,10 Gigabit,EBS only,Yes,2.064
+c5ad.12xlarge,Compute optimized,48,96 GiB,AMD EPYC 7R32,64-bit,,NA,12 Gigabit,2 x 900 NVMe SSD,Yes,2.064
+c6gn.12xlarge,Compute optimized,48,96 GiB,AWS Graviton2 Processor,64-bit,,NA,75 Gigabit,EBS only,Yes,2.0736
+m6a.12xlarge,General purpose,48,192 GiB,AMD EPYC 7R13 Processor,64-bit,,NA,18750 Megabit,EBS only,Yes,2.0736
+c9g.12xlarge,Compute optimized,48,96.0 GiB,AWS Graviton5 Processor,64-bit,,NA,25 Gigabit,EBS only,Yes,2.08656
+m8id.8xlarge,General purpose,32,128 GiB,Intel Xeon Scalable (Granite Rapids),64-bit,,NA,15000 Megabit,1 x 1900 NVMe SSD,Yes,2.08832
+r5ad.8xlarge,Memory optimized,32,256 GiB,AMD EPYC 7571,64-bit,,NA,Up to 10 Gigabit,2 x 600 NVMe SSD,Yes,2.096
+d3en.4xlarge,Storage optimized,16,64 GiB,Intel Xeon Platinum 8259 (Cascade Lake),64-bit,,NA,25 Gigabit,8 x 14000 HDD,Yes,2.103
+r8i-flex.8xlarge,Memory optimized,32,256 GiB,Intel Xeon Scalable (Granite Rapids),64-bit,,NA,Up to 15000 Megabit,EBS only,Yes,2.11152
+r7i.8xlarge,Memory optimized,32,256 GiB,Intel Xeon Scalable (Sapphire Rapids),64-bit,,NA,12500 Megabit,EBS only,Yes,2.1168
+r4.8xlarge,Memory optimized,32,244 GiB,Intel Xeon E5-2686 v4 (Broadwell),64-bit,,NA,10 Gigabit,EBS only,Yes,2.128
+c8i-flex.12xlarge,Compute optimized,48,96 GiB,Intel Xeon Scalable (Granite Rapids),64-bit,,NA,Up to 22500 Megabit,EBS only,Yes,2.13648
+c7i.12xlarge,Compute optimized,48,96 GiB,Intel Xeon Scalable (Sapphire Rapids),64-bit,,NA,18750 Megabit,EBS only,Yes,2.142
+m8g.12xlarge,General purpose,48,192 GiB,AWS Graviton4 Processor,64-bit,,NA,22.5 Gigabit,EBS only,Yes,2.15424
+m6gd.12xlarge,General purpose,48,192 GiB,AWS Graviton2 Processor,64-bit,,NA,20 Gigabit,2 x 1425 NVMe SSD,Yes,2.1696
+g4dn.8xlarge,GPU instance,32,128 GiB,Intel Xeon Family,64-bit,1,16 GB,50 Gigabit,900 GB NVMe SSD,Yes,2.176
+m5dn.8xlarge,General purpose,32,128 GiB,Intel Xeon Platinum 8259 (Cascade Lake),64-bit,,NA,25 Gigabit,2 x 600 NVMe SSD,Yes,2.176
+c6g.16xlarge,Compute optimized,64,128 GiB,AWS Graviton2 Processor,64-bit,,NA,25 Gigabit,EBS only,Yes,2.176
+c8ib.8xlarge,Compute optimized,32,64 GiB,Intel Xeon Scalable (Granite Rapids),64-bit,,NA,33.333 Gigabit,EBS only,Yes,2.17728
+c8in.8xlarge,Compute optimized,32,64 GiB,Intel Xeon Scalable (Granite Rapids),64-bit,,NA,50 Gigabit,EBS only,Yes,2.17728
+r7gd.8xlarge,Memory optimized,32,256 GiB,AWS Graviton3 Processor,64-bit,,NA,15 Gigabit,1 x 1900 NVMe SSD,Yes,2.1773
+c7gd.12xlarge,Compute optimized,48,96 GiB,AWS Graviton3 Processor,64-bit,,NA,22500 Megabit,2 x 1425 NVMe SSD,Yes,2.1773
+r8i.8xlarge,Memory optimized,32,256 GiB,Intel Xeon Scalable (Granite Rapids),64-bit,,NA,15000 Megabit,EBS only,Yes,2.22272
+m6in.8xlarge,General purpose,32,128 GiB,Intel Xeon 8375C (Ice Lake),64-bit,,NA,50000 Megabit,EBS only,Yes,2.22768
+z1d.6xlarge,Memory optimized,24,192 GiB,Intel Xeon Platinum 8151,64-bit,,NA,10 Gigabit,1 x 900 NVMe SSD,Yes,2.232
+g6e.2xlarge,GPU instance,8,64 GiB,AMD EPYC 7R13 Processor,64-bit,1,48 GB,Up to 20 Gigabit,1 x 450 GB NVMe SSD,Yes,2.24208
+c8i.12xlarge,Compute optimized,48,96 GiB,Intel Xeon Scalable (Granite Rapids),64-bit,,NA,22500 Megabit,EBS only,Yes,2.24904
+g3.8xlarge,GPU instance,32,244 GiB,Intel Xeon E5-2686 v4 (Broadwell),64-bit,2,16 GB,10 Gigabit,EBS only,Yes,2.28
+m7i-flex.12xlarge,General purpose,48,192 GiB,Intel Xeon Scalable (Sapphire Rapids),64-bit,,NA,Up to 18750 Megabit,EBS only,Yes,2.29824
+c5d.12xlarge,Compute optimized,48,96 GiB,Intel Xeon Platinum 8275L,64-bit,,NA,12 Gigabit,2 x 900 NVMe SSD,Yes,2.304
+m5.12xlarge,General purpose,48,192 GiB,Intel Xeon Platinum 8175,64-bit,,NA,10 Gigabit,EBS only,Yes,2.304
+m6i.12xlarge,General purpose,48,192 GiB,Intel Xeon 8375C (Ice Lake),64-bit,,NA,18750 Megabit,EBS only,Yes,2.304
+r5d.8xlarge,Memory optimized,32,256 GiB,Intel Xeon Platinum 8175,64-bit,,NA,10 Gigabit,2 x 600 NVMe SSD,Yes,2.304
+is4gen.4xlarge,Storage optimized,16,96 GiB,AWS Graviton2 Processor,64-bit,,NA,25 Gigabit,2 x 7500 SSD,Yes,2.3052
+c7g.16xlarge,Compute optimized,64,128 GiB,AWS Graviton3 Processor,64-bit,,NA,30 Gigabit,EBS only,Yes,2.32
+m8gb.8xlarge,General purpose,32,128 GiB,AWS Graviton4 Processor,64-bit,,NA,66.667 Gigabit,EBS only,Yes,2.328
+m8gn.8xlarge,General purpose,32,128 GiB,AWS Graviton4 Processor,64-bit,,NA,100 Gigabit,EBS only,Yes,2.328
+m9g.12xlarge,General purpose,48,192 GiB,AWS Graviton5 Processor,64-bit,,NA,25000 Megabit,EBS only,Yes,2.34816
+r8gd.8xlarge,Memory optimized,32,256 GiB,AWS Graviton4 Processor,64-bit,,NA,15 Gigabit,1 x 1900 NVMe SSD,Yes,2.35136
+c8gd.12xlarge,Compute optimized,48,96 GiB,AWS Graviton4 Processor,64-bit,,NA,22500 Megabit,3 x 950 NVMe SSD,Yes,2.35152
+r5n.8xlarge,Memory optimized,32,256 GiB,Intel Xeon Platinum 8259 (Cascade Lake),64-bit,,NA,25 Gigabit,EBS only,Yes,2.384
+r5b.8xlarge,Memory optimized,32,256 GiB,Intel Xeon Platinum 8259 (Cascade Lake),64-bit,,NA,10 Gigabit,EBS only,Yes,2.384
+m8i-flex.12xlarge,General purpose,48,192 GiB,Intel Xeon Scalable (Granite Rapids),64-bit,,NA,Up to 22500 Megabit,EBS only,Yes,2.4132
+r6id.8xlarge,Memory optimized,32,256 GiB,Intel Xeon 8375C (Ice Lake),64-bit,,NA,12500 Megabit,1 x 1900 NVMe SSD,Yes,2.4192
+c6id.12xlarge,Compute optimized,48,96 GiB,Intel Xeon 8375C (Ice Lake),64-bit,,NA,18750 Megabit,2 x 1425 NVMe SSD,Yes,2.4192
+m7i.12xlarge,General purpose,48,192 GiB,Intel Xeon Scalable (Sapphire Rapids),64-bit,,NA,18750 Megabit,EBS only,Yes,2.4192
+r6g.12xlarge,Memory optimized,48,384 GiB,AWS Graviton2 Processor,64-bit,,NA,20 Gigabit,EBS only,Yes,2.4192
+r7a.8xlarge,Memory optimized,32,256 GiB,AMD EPYC 9R14 Processor,64-bit,,NA,12500 Megabit,EBS only,Yes,2.4344
+gr6.8xlarge,GPU instance,32,256 GiB,AMD EPYC 7R13 Processor,64-bit,1,24 GB,25 Gigabit,2 x 450 GB NVMe SSD,Yes,2.4464
+g5.8xlarge,GPU instance,32,128 GiB,AMD EPYC 7R32,64-bit,1,24 GB,25 Gigabit,1 x 900 GB NVMe SSD,Yes,2.448
+c6a.16xlarge,Compute optimized,64,128 GiB,AMD EPYC 7R13 Processor,64-bit,,NA,25000 Megabit,EBS only,Yes,2.448
+c6gd.16xlarge,Compute optimized,64,128 GiB,AWS Graviton2 Processor,64-bit,,NA,25 Gigabit,2 x 1900 NVMe SSD,Yes,2.4576
+c7a.12xlarge,Compute optimized,48,96 GiB,AMD EPYC 9R14 Processor,64-bit,,NA,18750 Megabit,EBS only,Yes,2.46336
+c5a.16xlarge,Compute optimized,64,128 GiB,AMD EPYC 7R32,32-bit or 64-bit,,NA,20 Gigabit,EBS only,Yes,2.464
+m6g.16xlarge,General purpose,64,256 GiB,AWS Graviton2 Processor,64-bit,,NA,25 Gigabit,EBS only,Yes,2.464
+i4g.8xlarge,Storage optimized,32,256 GiB,AWS Graviton2 Processor,64-bit,,NA,18750 Megabit,2 x 3750 SSD,Yes,2.47104
+m5ad.12xlarge,General purpose,48,192 GiB,AMD EPYC 7571,64-bit,,NA,10 Gigabit,2 x 900 NVMe SSD,Yes,2.472
+m8azn.6xlarge,General purpose,24,96 GiB,AMD EPYC 9575F,64-bit,,NA,50 Gigabit,EBS only,Yes,2.47752
+i3.8xlarge,Storage optimized,32,244 GiB,Intel Xeon E5-2686 v4 (Broadwell),64-bit,,NA,10 Gigabit,4 x 1900 NVMe SSD,Yes,2.496
+g7.2xlarge,GPU instance,8,32.0 GiB,Intel Xeon Scalable (Granite Rapids),64-bit,1,32 GB,Up to 60 Gigabit,1x440 GB NVMe SSD,Yes,2.52
+m8i.12xlarge,General purpose,48,192 GiB,Intel Xeon Scalable (Granite Rapids),64-bit,,NA,22500 Megabit,EBS only,Yes,2.54016
+m6idn.8xlarge,General purpose,32,128 GiB,Intel Xeon 8375C (Ice Lake),64-bit,,NA,50000 Megabit,1 x 1900 NVMe SSD,Yes,2.54592
+c8g.16xlarge,Compute optimized,64,128 GiB,AWS Graviton4 Processor,64-bit,,NA,30 Gigabit,EBS only,Yes,2.55232
+r8a.8xlarge,Memory optimized,32,256 GiB,AMD EPYC 9R45 Processor,64-bit,,NA,15000 Megabit,EBS only,Yes,2.55616
+m7gd.12xlarge,General purpose,48,192 GiB,AWS Graviton3 Processor,64-bit,,NA,22500 Megabit,2 x 1425 NVMe SSD,Yes,2.5628
+c9gd.12xlarge,Compute optimized,48,96.0 GiB,AWS Graviton5 Processor,64-bit,,NA,25 Gigabit,3 x 950 NVMe SSD,Yes,2.5632
+r7g.12xlarge,Memory optimized,48,384 GiB,AWS Graviton3 Processor,64-bit,,NA,22500 Megabit,EBS only,Yes,2.5704
+c8a.12xlarge,Compute optimized,48,96 GiB,AMD EPYC 9R45 Processor,64-bit,,NA,22500 Megabit,EBS only,Yes,2.58648
+g2.8xlarge,GPU instance,32,60 GiB,Intel Xeon E5-2670 (Sandy Bridge),64-bit,4,NA,High,2 x 120 SSD,No,2.6
+m7g.16xlarge,General purpose,64,256 GiB,AWS Graviton3 Processor,64-bit,,NA,30 Gigabit,EBS only,Yes,2.6112
+r3.8xlarge,Memory optimized,32,244 GiB,Intel Xeon E5-2670 v2 (Ivy Bridge),64-bit,,NA,10 Gigabit,2 x 320 SSD,No,2.66
+r8id.8xlarge,Memory optimized,32,256 GiB,Intel Xeon Scalable (Granite Rapids),64-bit,,NA,15000 Megabit,1 x 1900 NVMe SSD,Yes,2.66112
+c8id.12xlarge,Compute optimized,48,96 GiB,Intel Xeon Scalable (Granite Rapids),64-bit,,NA,22500 Megabit,1 x 2850 NVMe SSD,Yes,2.66112
+r5dn.8xlarge,Memory optimized,32,256 GiB,Intel Xeon Platinum 8259 (Cascade Lake),64-bit,,NA,25 Gigabit,2 x 600 NVMe SSD,Yes,2.672
+x2gd.8xlarge,Memory optimized,32,512 GiB,AWS Graviton2 Processor,64-bit,,NA,12 Gigabit,1 x 1900 SSD,Yes,2.672
+m8in.8xlarge,General purpose,32,128.0 GiB,Intel Xeon Scalable (Granite Rapids),64-bit,,NA,50 Gigabit,EBS only,Yes,2.67328
+m8ib.8xlarge,General purpose,32,128.0 GiB,Intel Xeon Scalable (Granite Rapids),64-bit,,NA,33.33 Gigabit,EBS only,Yes,2.67328
+m5d.12xlarge,General purpose,48,192 GiB,Intel Xeon Platinum 8175,64-bit,,NA,10 Gigabit,2 x 900 NVMe SSD,Yes,2.712
+r5a.12xlarge,Memory optimized,48,384 GiB,AMD EPYC 7571,64-bit,,NA,10 Gigabit,EBS only,Yes,2.712
+i3en.6xlarge,Storage optimized,24,192 GiB,Intel Xeon Platinum 8175,64-bit,,NA,25 Gigabit,2 x 7500 NVMe SSD,Yes,2.712
+c7i-flex.16xlarge,Compute optimized,64,128 GiB,Intel Xeon Scalable (Sapphire Rapids),64-bit,,NA,Up to 25000 Megabit,EBS only,Yes,2.7132
+c6i.16xlarge,Compute optimized,64,128 GiB,Intel Xeon 8375C (Ice Lake),64-bit,,NA,25000 Megabit,EBS only,Yes,2.72
+c6in.12xlarge,Compute optimized,48,96 GiB,Intel Xeon 8375C (Ice Lake),64-bit,,NA,75000 Megabit,EBS only,Yes,2.7216
+r6a.12xlarge,Memory optimized,48,384 GiB,AMD EPYC 7R13 Processor,64-bit,,NA,18750 Megabit,EBS only,Yes,2.7216
+c8ine.8xlarge,Compute optimized,32,64 GiB,Intel Xeon Scalable (Granite Rapids),64-bit,,NA,50 Gigabit,EBS only,Yes,2.7216
+g5g.16xlarge,GPU instance,64,128 GiB,AWS Graviton2 Processor,64-bit,2,32 GB,25 Gigabit,EBS only,Yes,2.744
+i8g.8xlarge,Storage optimized,32,256 GiB,AWS Graviton4 Processor,64-bit,,NA,Up to 25 Gigabit,2 x 3750GB,Yes,2.7456
+i4i.8xlarge,Storage optimized,32,256 GiB,Intel Xeon 8375C (Ice Lake),64-bit,,NA,18750 Megabit,2 x 3750 NVMe SSD,Yes,2.746
+m5a.16xlarge,General purpose,64,256 GiB,AMD EPYC 7571,64-bit,,NA,12 Gigabit,EBS only,Yes,2.752
+c5ad.16xlarge,Compute optimized,64,128 GiB,AMD EPYC 7R32,64-bit,,NA,20 Gigabit,2 x 1200 NVMe SSD,Yes,2.752
+d2.4xlarge,Storage optimized,16,122 GiB,Intel Xeon E5-2676 v3 (Haswell),64-bit,,NA,High,12 x 2000 HDD,No,2.76
+c6gn.16xlarge,Compute optimized,64,128 GiB,AWS Graviton2 Processor,64-bit,,NA,100 Gigabit,EBS only,Yes,2.7648
+r6gd.12xlarge,Memory optimized,48,384 GiB,AWS Graviton2 Processor,64-bit,,NA,20 Gigabit,2 x 1425 NVMe SSD,Yes,2.7648
+m6a.16xlarge,General purpose,64,256 GiB,AMD EPYC 7R13 Processor,64-bit,,NA,25000 Megabit,EBS only,Yes,2.7648
+m8gd.12xlarge,General purpose,48,192 GiB,AWS Graviton4 Processor,64-bit,,NA,22500 Megabit,3 x 950 NVMe SSD,Yes,2.76768
+m7a.12xlarge,General purpose,48,192 GiB,AMD EPYC 9R14 Processor,64-bit,,NA,18750 Megabit,EBS only,Yes,2.78208
+c9g.16xlarge,Compute optimized,64,128.0 GiB,AWS Graviton5 Processor,64-bit,,NA,34 Gigabit,EBS only,Yes,2.78208
+r6in.8xlarge,Memory optimized,32,256 GiB,Intel Xeon 8375C (Ice Lake),64-bit,,NA,50000 Megabit,EBS only,Yes,2.78928
+r8g.12xlarge,Memory optimized,48,384 GiB,AWS Graviton4 Processor,64-bit,,NA,22.5 Gigabit,EBS only,Yes,2.82768
+c8gb.12xlarge,Compute optimized,48,96 GiB,AWS Graviton4 Processor,64-bit,,NA,100 Gigabit,EBS only,Yes,2.844
+c8gn.12xlarge,Compute optimized,48,96 GiB,AWS Graviton4 Processor,64-bit,,NA,150 Gigabit,EBS only,Yes,2.844
+i8ge.6xlarge,Storage optimized,24,192 GiB,AWS Graviton4 Processor,64-bit,,NA,37.5 Gigabit,2 x 7500 NVMe SSD,Yes,2.8476
+m6id.12xlarge,General purpose,48,192 GiB,Intel Xeon 8375C (Ice Lake),64-bit,,NA,18750 Megabit,2 x 1425 NVMe SSD,Yes,2.8476
+c8i-flex.16xlarge,Compute optimized,64,128 GiB,Intel Xeon Scalable (Granite Rapids),64-bit,,NA,Up to 30000 Megabit,EBS only,Yes,2.84864
+c7i.16xlarge,Compute optimized,64,128 GiB,Intel Xeon Scalable (Sapphire Rapids),64-bit,,NA,25000 Megabit,EBS only,Yes,2.856
+m5n.12xlarge,General purpose,48,192 GiB,Intel Xeon Platinum 8259 (Cascade Lake),64-bit,,NA,50 Gigabit,EBS only,Yes,2.856
+m8g.16xlarge,General purpose,64,256 GiB,AWS Graviton4 Processor,64-bit,,NA,30 Gigabit,EBS only,Yes,2.87232
+m6gd.16xlarge,General purpose,64,256 GiB,AWS Graviton2 Processor,64-bit,,NA,25 Gigabit,2 x 1900 NVMe SSD,Yes,2.8928
+c7gd.16xlarge,Compute optimized,64,128 GiB,AWS Graviton3 Processor,64-bit,,NA,30 Gigabit,2 x 1900 NVMe SSD,Yes,2.903
+im4gn.8xlarge,Storage optimized,32,128 GiB,AWS Graviton2 Processor,64-bit,,NA,50 Gigabit,2 x 7500 SSD,Yes,2.91034
+r8gb.8xlarge,Memory optimized,32,256 GiB,AWS Graviton4 Processor,64-bit,,NA,66.667 Gigabit,EBS only,Yes,2.91488
+r8gn.8xlarge,Memory optimized,32,256 GiB,AWS Graviton4 Processor,64-bit,,NA,100 Gigabit,EBS only,Yes,2.9149
+m8a.12xlarge,General purpose,48,192 GiB,AMD EPYC 9R45 Processor,64-bit,,NA,22500 Megabit,EBS only,Yes,2.92128
+r7iz.8xlarge,Memory optimized,32,256 GiB,Intel Xeon Scalable (Sapphire Rapids),64-bit,,NA,12500 Megabit,EBS only,Yes,2.976
+c7gn.12xlarge,Compute optimized,48,96 GiB,AWS Graviton3 Processor,64-bit,,NA,150 Gigabit,EBS only,Yes,2.9952
+c8i.16xlarge,Compute optimized,64,128 GiB,Intel Xeon Scalable (Granite Rapids),64-bit,,NA,30000 Megabit,EBS only,Yes,2.99872
+g6e.4xlarge,GPU instance,16,128 GiB,AMD EPYC 7R13 Processor,64-bit,1,48 GB,20 Gigabit,1 x 600 GB NVMe SSD,Yes,3.00424
+m9gd.12xlarge,General purpose,48,192.0 GiB,AWS Graviton5 Processor,64-bit,,NA,25 Gigabit,3 x 950 NVMe SSD,Yes,3.0168
+i7i.8xlarge,Storage optimized,32,256 GiB,Intel Xeon Scalable (Emerald Rapids),64-bit,,NA,Up to 25 Gigabit,2 x 3750 NVMe SSD,Yes,3.0202
+r5.12xlarge,Memory optimized,48,384 GiB,Intel Xeon Platinum 8175,64-bit,,NA,10 Gigabit,EBS only,Yes,3.024
+r6i.12xlarge,Memory optimized,48,384 GiB,Intel Xeon 8375C (Ice Lake),64-bit,,NA,18750 Megabit,EBS only,Yes,3.024
+g7.4xlarge,GPU instance,16,64.0 GiB,Intel Xeon Scalable (Granite Rapids),64-bit,1,32 GB,Up to 100 Gigabit,1x875 GB NVMe SSD,Yes,3.04208
+m8idn.8xlarge,General purpose,32,128.0 GiB,Intel Xeon Scalable (Granite Rapids),64-bit,,NA,50 Gigabit,1 x 1900 NVMe SSD,Yes,3.05504
+m8idb.8xlarge,General purpose,32,128.0 GiB,Intel Xeon Scalable (Granite Rapids),64-bit,,NA,33.33 Gigabit,1 x 1900 NVMe SSD,Yes,3.05504
+p3.2xlarge,GPU instance,8,61 GiB,Intel Xeon E5-2686 v4 (Broadwell),64-bit,1,16 GiB,Up to 10 Gigabit,EBS only,Yes,3.06
+c5.18xlarge,Compute optimized,72,144 GiB,Intel Xeon Platinum 8124M,64-bit,,NA,25 Gigabit,EBS only,Yes,3.06
+m7i-flex.16xlarge,General purpose,64,256 GiB,Intel Xeon Scalable (Sapphire Rapids),64-bit,,NA,Up to 25000 Megabit,EBS only,Yes,3.06432
+m5.16xlarge,General purpose,64,256 GiB,Intel Xeon Platinum 8175,64-bit,,NA,20 Gigabit,EBS only,Yes,3.072
+m6i.16xlarge,General purpose,64,256 GiB,Intel Xeon 8375C (Ice Lake),64-bit,,NA,25000 Megabit,EBS only,Yes,3.072
+i7ie.6xlarge,Storage optimized,24,192 GiB,Intel Xeon Scalable (Emerald Rapids),64-bit,,NA,Up to 25 Gigabit,2 x 7500 NVMe SSD,Yes,3.1188
+r6idn.8xlarge,Memory optimized,32,256 GiB,Intel Xeon 8375C (Ice Lake),64-bit,,NA,50000 Megabit,1 x 1900 NVMe SSD,Yes,3.12624
+x8g.8xlarge,Memory optimized,32,512 GiB,AWS Graviton4 Processor,64-bit,,NA,15 Gigabit,EBS only,Yes,3.1264
+m9g.16xlarge,General purpose,64,256 GiB,AWS Graviton5 Processor,64-bit,,NA,34000 Megabit,EBS only,Yes,3.13088
+m8id.12xlarge,General purpose,48,192 GiB,Intel Xeon Scalable (Granite Rapids),64-bit,,NA,22500 Megabit,1 x 2850 NVMe SSD,Yes,3.13248
+c8gd.16xlarge,Compute optimized,64,128 GiB,AWS Graviton4 Processor,64-bit,,NA,30 Gigabit,2 x 1900 NVMe SSD,Yes,3.13536
+r5ad.12xlarge,Memory optimized,48,384 GiB,AMD EPYC 7571,64-bit,,NA,10 Gigabit,2 x 900 NVMe SSD,Yes,3.144
+d3en.6xlarge,Storage optimized,24,96 GiB,Intel Xeon Platinum 8259 (Cascade Lake),64-bit,,NA,40 Gigabit,12 x 14000 HDD,Yes,3.154
+r8i-flex.12xlarge,Memory optimized,48,384 GiB,Intel Xeon Scalable (Granite Rapids),64-bit,,NA,Up to 22500 Megabit,EBS only,Yes,3.16728
+r7i.12xlarge,Memory optimized,48,384 GiB,Intel Xeon Scalable (Sapphire Rapids),64-bit,,NA,18750 Megabit,EBS only,Yes,3.1752
+m4.16xlarge,General purpose,64,256 GiB,Intel Xeon E5-2686 v4 (Broadwell),64-bit,,NA,20 Gigabit,EBS only,Yes,3.2
+m8i-flex.16xlarge,General purpose,64,256 GiB,Intel Xeon Scalable (Granite Rapids),64-bit,,NA,Up to 30000 Megabit,EBS only,Yes,3.2176
+c6id.16xlarge,Compute optimized,64,128 GiB,Intel Xeon 8375C (Ice Lake),64-bit,,NA,25000 Megabit,2 x 1900 NVMe SSD,Yes,3.2256
+m7i.16xlarge,General purpose,64,256 GiB,Intel Xeon Scalable (Sapphire Rapids),64-bit,,NA,25000 Megabit,EBS only,Yes,3.2256
+r6g.16xlarge,Memory optimized,64,512 GiB,AWS Graviton2 Processor,64-bit,,NA,25 Gigabit,EBS only,Yes,3.2256
+m5dn.12xlarge,General purpose,48,192 GiB,Intel Xeon Platinum 8259 (Cascade Lake),64-bit,,NA,50 Gigabit,2 x 900 GB NVMe SSD,Yes,3.264
+r7gd.12xlarge,Memory optimized,48,384 GiB,AWS Graviton3 Processor,64-bit,,NA,22500 Megabit,2 x 1425 NVMe SSD,Yes,3.2659
+c8ib.12xlarge,Compute optimized,48,96 GiB,Intel Xeon Scalable (Granite Rapids),64-bit,,NA,50 Gigabit,EBS only,Yes,3.26592
+c8in.12xlarge,Compute optimized,48,96 GiB,Intel Xeon Scalable (Granite Rapids),64-bit,,NA,75 Gigabit,EBS only,Yes,3.26592
+c7a.16xlarge,Compute optimized,64,128 GiB,AMD EPYC 9R14 Processor,64-bit,,NA,25000 Megabit,EBS only,Yes,3.28448
+m5ad.16xlarge,General purpose,64,256 GiB,AMD EPYC 7571,64-bit,,NA,12 Gigabit,4 x 600 NVMe SSD,Yes,3.296
+f1.4xlarge,FPGA Instances,16,244 GiB,Intel Xeon E5-2686 v4 (Broadwell),64-bit,,NA,10 Gigabit,1 x 940 NVMe SSD,Yes,3.3
+r8i.12xlarge,Memory optimized,48,384 GiB,Intel Xeon Scalable (Granite Rapids),64-bit,,NA,22500 Megabit,EBS only,Yes,3.33408
+x2iedn.4xlarge,Memory optimized,16,512 GiB,Intel Xeon Scalable (Icelake),64-bit,,NA,Up to 25 Gigabit,1 x 475 NVMe SSD,Yes,3.3345
+x2iezn.4xlarge,Memory optimized,16,512 GiB,Intel Xeon Platinum 8252,64-bit,,NA,Up to 25 Gigabit,EBS only,Yes,3.336
+x1e.4xlarge,Memory optimized,16,488 GiB,High Frequency Intel Xeon E7-8880 v3 (Haswell),64-bit,,NA,Up to 10 Gigabit,1 x 480 SSD,Yes,3.336
+m6in.12xlarge,General purpose,48,192 GiB,Intel Xeon 8375C (Ice Lake),64-bit,,NA,75000 Megabit,EBS only,Yes,3.34152
+m8ine.8xlarge,General purpose,32,128.0 GiB,Intel Xeon Scalable (Granite Rapids),64-bit,,NA,50 Gigabit,EBS only,Yes,3.3416
+r8ib.8xlarge,Memory optimized,32,256.0 GiB,Intel Xeon Scalable (Granite Rapids),64-bit,,NA,33.33 Gigabit,EBS only,Yes,3.3472
+r8in.8xlarge,Memory optimized,32,256.0 GiB,Intel Xeon Scalable (Granite Rapids),64-bit,,NA,50 Gigabit,EBS only,Yes,3.3472
+g7e.2xlarge,GPU instance,8,64 GiB,Intel Xeon Scalable (Emerald Rapids),64-bit,1,96 GB,50 Gigabit,1 x 1900 NVMe SSD,Yes,3.36312
+m8i.16xlarge,General purpose,64,256 GiB,Intel Xeon Scalable (Granite Rapids),64-bit,,NA,30000 Megabit,EBS only,Yes,3.38688
+g6.16xlarge,GPU instance,64,256 GiB,AMD EPYC 7R13 Processor,64-bit,1,24 GB,25 Gigabit,2 x 940 GB NVMe SSD,Yes,3.3968
+i2.4xlarge,Storage optimized,16,122 GiB,Intel Xeon E5-2670 v2 (Ivy Bridge),64-bit,,NA,High,4 x 800 SSD,No,3.41
+m7gd.16xlarge,General purpose,64,256 GiB,AWS Graviton3 Processor,64-bit,,NA,30 Gigabit,2 x 1900 NVMe SSD,Yes,3.4171
+c9gd.16xlarge,Compute optimized,64,128.0 GiB,AWS Graviton5 Processor,64-bit,,NA,34 Gigabit,1 x 3800 NVMe SSD,Yes,3.4176
+r7g.16xlarge,Memory optimized,64,512 GiB,AWS Graviton3 Processor,64-bit,,NA,30 Gigabit,EBS only,Yes,3.4272
+c8a.16xlarge,Compute optimized,64,128 GiB,AMD EPYC 9R45 Processor,64-bit,,NA,30000 Megabit,EBS only,Yes,3.44864
+c5d.18xlarge,Compute optimized,72,144 GiB,Intel Xeon Platinum 8124M,64-bit,,NA,25 Gigabit,2 x 900 NVMe SSD,Yes,3.456
+r5d.12xlarge,Memory optimized,48,384 GiB,Intel Xeon Platinum 8175,64-bit,,NA,10 Gigabit,2 x 900 NVMe SSD,Yes,3.456
+g4ad.16xlarge,GPU instance,64,256 GiB,AMD EPYC 7R32,64-bit,4,32 GB,25 Gigabit,2400 GB NVMe SSD,Yes,3.468
+m8gb.12xlarge,General purpose,48,192 GiB,AWS Graviton4 Processor,64-bit,,NA,100 Gigabit,EBS only,Yes,3.492
+m8gn.12xlarge,General purpose,48,192 GiB,AWS Graviton4 Processor,64-bit,,NA,150 Gigabit,EBS only,Yes,3.492
+cr1.8xlarge,Memory optimized,32,244 GiB,Intel Xeon E5-2670,64-bit,,NA,10 Gigabit,2 x 120 SSD,No,3.5
+x8i.8xlarge,Memory optimized,32,512 GiB,Intel Xeon Scalable (Granite Rapids),64-bit,,NA,15000 Megabit,EBS only,Yes,3.50128
+r8gd.12xlarge,Memory optimized,48,384 GiB,AWS Graviton4 Processor,64-bit,,NA,22500 Megabit,3 x 950 NVMe SSD,Yes,3.52704
+c8id.16xlarge,Compute optimized,64,128 GiB,Intel Xeon Scalable (Granite Rapids),64-bit,,NA,30000 Megabit,1 x 3800 NVMe SSD,Yes,3.54816
+r5b.12xlarge,Memory optimized,48,384 GiB,Intel Xeon Platinum 8259 (Cascade Lake),64-bit,,NA,10 Gigabit,EBS only,Yes,3.576
+r5n.12xlarge,Memory optimized,48,384 GiB,Intel Xeon Platinum 8259 (Cascade Lake),64-bit,,NA,50 Gigabit,EBS only,Yes,3.576
+r5a.16xlarge,Memory optimized,64,512 GiB,AMD EPYC 7571,64-bit,,NA,12 Gigabit,EBS only,Yes,3.616
+m5d.16xlarge,General purpose,64,256 GiB,Intel Xeon Platinum 8175,64-bit,,NA,20 Gigabit,4 x 600 NVMe SSD,Yes,3.616
+r6id.12xlarge,Memory optimized,48,384 GiB,Intel Xeon 8375C (Ice Lake),64-bit,,NA,18750 Megabit,2 x 1425 NVMe SSD,Yes,3.6288
+r6a.16xlarge,Memory optimized,64,512 GiB,AMD EPYC 7R13 Processor,64-bit,,NA,25000 Megabit,EBS only,Yes,3.6288
+c6in.16xlarge,Compute optimized,64,128 GiB,Intel Xeon 8375C (Ice Lake),64-bit,,NA,100000 Megabit,EBS only,Yes,3.6288
+r7a.12xlarge,Memory optimized,48,384 GiB,AMD EPYC 9R14 Processor,64-bit,,NA,18750 Megabit,EBS only,Yes,3.6516
+c6a.24xlarge,Compute optimized,96,192 GiB,AMD EPYC 7R13 Processor,64-bit,,NA,37500 Megabit,EBS only,Yes,3.672
+r6gd.16xlarge,Memory optimized,64,512 GiB,AWS Graviton2 Processor,64-bit,,NA,25 Gigabit,2 x 1900 NVMe SSD,Yes,3.6864
+m8gd.16xlarge,General purpose,64,256 GiB,AWS Graviton4 Processor,64-bit,,NA,30 Gigabit,2 x 1900 NVMe SSD,Yes,3.69024
+c5a.24xlarge,Compute optimized,96,192 GiB,AMD EPYC 7R32,32-bit or 64-bit,,NA,20 Gigabit,EBS only,Yes,3.696
+m7a.16xlarge,General purpose,64,256 GiB,AMD EPYC 9R14 Processor,64-bit,,NA,25000 Megabit,EBS only,Yes,3.70944
+h1.16xlarge,Storage optimized,64,256 GiB,Intel Xeon E5-2686 v4 (Broadwell),64-bit,,NA,25 Gigabit,8 x 2000 HDD,Yes,3.744
+r8idb.8xlarge,Memory optimized,32,256.0 GiB,Intel Xeon Scalable (Granite Rapids),64-bit,,NA,33.33 Gigabit,1 x 1900 NVMe SSD,Yes,3.75152
+r8idn.8xlarge,Memory optimized,32,256.0 GiB,Intel Xeon Scalable (Granite Rapids),64-bit,,NA,50 Gigabit,1 x 1900 NVMe SSD,Yes,3.75152
+r8g.16xlarge,Memory optimized,64,512 GiB,AWS Graviton4 Processor,64-bit,,NA,30 Gigabit,EBS only,Yes,3.77024
+c8gn.16xlarge,Compute optimized,64,128 GiB,AWS Graviton4 Processor,64-bit,,NA,200 Gigabit,EBS only,Yes,3.792
+c8gb.16xlarge,Compute optimized,64,128 GiB,AWS Graviton4 Processor,64-bit,,NA,133.333 Gigabit,EBS only,Yes,3.792
+m6id.16xlarge,General purpose,64,256 GiB,Intel Xeon 8375C (Ice Lake),64-bit,,NA,25000 Megabit,2 x 1900 NVMe SSD,Yes,3.7968
+m5n.16xlarge,General purpose,64,256 GiB,Intel Xeon Platinum 8259 (Cascade Lake),64-bit,,NA,75 Gigabit,EBS only,Yes,3.808
+m6idn.12xlarge,General purpose,48,192 GiB,Intel Xeon 8375C (Ice Lake),64-bit,,NA,75000 Megabit,2 x 1425 NVMe SSD,Yes,3.81888
+c8g.24xlarge,Compute optimized,96,192 GiB,AWS Graviton4 Processor,64-bit,,NA,40 Gigabit,EBS only,Yes,3.82848
+r8a.12xlarge,Memory optimized,48,384 GiB,AMD EPYC 9R45 Processor,64-bit,,NA,22500 Megabit,EBS only,Yes,3.83424
+c5n.18xlarge,Compute optimized,72,192 GiB,Intel Xeon Platinum 8124M,64-bit,,NA,100 Gigabit,EBS only,Yes,3.888
+m8a.16xlarge,General purpose,64,256 GiB,AMD EPYC 9R45 Processor,64-bit,,NA,30000 Megabit,EBS only,Yes,3.89504
+g4dn.12xlarge,GPU instance,48,192 GiB,Intel Xeon Family,64-bit,4,64 GB,50 Gigabit,900 GB NVMe SSD,Yes,3.912
+f2.12xlarge,FPGA Instances,48,512 GiB,AMD EPYC 7R13 Processor,64-bit,,NA,25 Gigabit,2 x 950 NVMe SSD,Yes,3.96
+m5zn.12xlarge,General purpose,48,192 GiB,Intel Xeon Platinum 8252,64-bit,,NA,100 Gigabit,EBS only,Yes,3.9641
+r8id.12xlarge,Memory optimized,48,384 GiB,Intel Xeon Scalable (Granite Rapids),64-bit,,NA,22500 Megabit,1 x 2850 NVMe SSD,Yes,3.99168
+c7gn.16xlarge,Compute optimized,64,128 GiB,AWS Graviton3 Processor,64-bit,,NA,200 Gigabit,EBS only,Yes,3.9936
+d3.8xlarge,Storage optimized,32,256 GiB,Intel Xeon Platinum 8259 (Cascade Lake),64-bit,,NA,25 Gigabit,24 x 2000 HDD,Yes,3.99552
+g7e.4xlarge,GPU instance,16,128 GiB,Intel Xeon Scalable (Emerald Rapids),64-bit,1,96 GB,50 Gigabit,1 x 1900 NVMe SSD,Yes,3.99816
+r5dn.12xlarge,Memory optimized,48,384 GiB,Intel Xeon Platinum 8259 (Cascade Lake),64-bit,,NA,50 Gigabit,2 x 900 GB NVMe SSD,Yes,4.008
+x2gd.12xlarge,Memory optimized,48,768 GiB,AWS Graviton2 Processor,64-bit,,NA,20 Gigabit,2 x 1425 SSD,Yes,4.008
+m8ib.12xlarge,General purpose,48,192.0 GiB,Intel Xeon Scalable (Granite Rapids),64-bit,,NA,50 Gigabit,EBS only,Yes,4.00992
+m8in.12xlarge,General purpose,48,192.0 GiB,Intel Xeon Scalable (Granite Rapids),64-bit,,NA,75 Gigabit,EBS only,Yes,4.00992
+m9gd.16xlarge,General purpose,64,256.0 GiB,AWS Graviton5 Processor,64-bit,,NA,34 Gigabit,1 x 3800 NVMe SSD,Yes,4.0224
+r6i.16xlarge,Memory optimized,64,512 GiB,Intel Xeon 8375C (Ice Lake),64-bit,,NA,25000 Megabit,EBS only,Yes,4.032
+r5.16xlarge,Memory optimized,64,512 GiB,Intel Xeon Platinum 8175,64-bit,,NA,20 Gigabit,EBS only,Yes,4.032
+c6i.24xlarge,Compute optimized,96,192 GiB,Intel Xeon 8375C (Ice Lake),64-bit,,NA,37500 Megabit,EBS only,Yes,4.08
+c5.24xlarge,Compute optimized,96,192 GiB,Intel Xeon Platinum 8275L,64-bit,,NA,25 Gigabit,EBS only,Yes,4.08
+c8ine.12xlarge,Compute optimized,48,96 GiB,Intel Xeon Scalable (Granite Rapids),64-bit,,NA,75 Gigabit,EBS only,Yes,4.0824
+g7.8xlarge,GPU instance,32,128.0 GiB,Intel Xeon Scalable (Granite Rapids),64-bit,1,32 GB,100 Gigabit,1x930 GB NVMe SSD,Yes,4.08624
+g5.16xlarge,GPU instance,64,256 GiB,AMD EPYC 7R32,64-bit,1,24 GB,25 Gigabit,1 x 1900 GB NVMe SSD,Yes,4.096
+i4i.12xlarge,Storage optimized,48,384 GiB,Intel Xeon 8375C (Ice Lake),64-bit,,NA,28125 Megabit,3 x 3750 NVMe SSD,Yes,4.118
+i8g.12xlarge,Storage optimized,48,384 GiB,AWS Graviton4 Processor,64-bit,,NA,Up to 28.125 Gigabit,3 x 3750GB,Yes,4.1184
+c5ad.24xlarge,Compute optimized,96,192 GiB,AMD EPYC 7R32,64-bit,,NA,20 Gigabit,2 x 1900 NVMe SSD,Yes,4.128
+m5a.24xlarge,General purpose,96,384 GiB,AMD EPYC 7571,64-bit,,NA,20 Gigabit,EBS only,Yes,4.128
+m6a.24xlarge,General purpose,96,384 GiB,AMD EPYC 7R13 Processor,64-bit,,NA,37500 Megabit,EBS only,Yes,4.1472
+c9g.24xlarge,Compute optimized,96,192.0 GiB,AWS Graviton5 Processor,64-bit,,NA,50 Gigabit,EBS only,Yes,4.17312
+m8id.16xlarge,General purpose,64,256 GiB,Intel Xeon Scalable (Granite Rapids),64-bit,,NA,30000 Megabit,1 x 3800 NVMe SSD,Yes,4.17664
+r6in.12xlarge,Memory optimized,48,384 GiB,Intel Xeon 8375C (Ice Lake),64-bit,,NA,75000 Megabit,EBS only,Yes,4.18392
+r5ad.16xlarge,Memory optimized,64,512 GiB,AMD EPYC 7571,64-bit,,NA,12 Gigabit,4 x 600 NVMe SSD,Yes,4.192
+d3en.8xlarge,Storage optimized,32,128 GiB,Intel Xeon Platinum 8259 (Cascade Lake),64-bit,,NA,50 Gigabit,16 x 14000 HDD,Yes,4.20576
+r8i-flex.16xlarge,Memory optimized,64,512 GiB,Intel Xeon Scalable (Granite Rapids),64-bit,,NA,Up to 30000 Megabit,EBS only,Yes,4.22304
+r7i.16xlarge,Memory optimized,64,512 GiB,Intel Xeon Scalable (Sapphire Rapids),64-bit,,NA,25000 Megabit,EBS only,Yes,4.2336
+r4.16xlarge,Memory optimized,64,488 GiB,Intel Xeon E5-2686 v4 (Broadwell),64-bit,,NA,20 Gigabit,EBS only,Yes,4.256
+c7i.24xlarge,Compute optimized,96,192 GiB,Intel Xeon Scalable (Sapphire Rapids),64-bit,,NA,37500 Megabit,EBS only,Yes,4.284
+m8g.24xlarge,General purpose,96,384 GiB,AWS Graviton4 Processor,64-bit,,NA,40 Gigabit,EBS only,Yes,4.30848
+m5dn.16xlarge,General purpose,64,256 GiB,Intel Xeon Platinum 8259 (Cascade Lake),64-bit,,NA,75 Gigabit,4 x 600 NVMe SSD,Yes,4.352
+g4dn.16xlarge,GPU instance,64,256 GiB,Intel Xeon Family,64-bit,1,16 GB,50 Gigabit,900 GB NVMe SSD,Yes,4.352
+c8in.16xlarge,Compute optimized,64,128 GiB,Intel Xeon Scalable (Granite Rapids),64-bit,,NA,100 Gigabit,EBS only,Yes,4.35456
+c8ib.16xlarge,Compute optimized,64,128 GiB,Intel Xeon Scalable (Granite Rapids),64-bit,,NA,66.667 Gigabit,EBS only,Yes,4.35456
+r7gd.16xlarge,Memory optimized,64,512 GiB,AWS Graviton3 Processor,64-bit,,NA,30 Gigabit,2 x 1900 NVMe SSD,Yes,4.3546
+r8gn.12xlarge,Memory optimized,48,384 GiB,AWS Graviton4 Processor,64-bit,,NA,150 Gigabit,EBS only,Yes,4.3723
+r8gb.12xlarge,Memory optimized,48,384 GiB,AWS Graviton4 Processor,64-bit,,NA,100 Gigabit,EBS only,Yes,4.37232
+r8i.16xlarge,Memory optimized,64,512 GiB,Intel Xeon Scalable (Granite Rapids),64-bit,,NA,30000 Megabit,EBS only,Yes,4.44544
+m6in.16xlarge,General purpose,64,256 GiB,Intel Xeon 8375C (Ice Lake),64-bit,,NA,100000 Megabit,EBS only,Yes,4.45536
+z1d.12xlarge,Memory optimized,48,384 GiB,Intel Xeon Platinum 8151,64-bit,,NA,25 Gigabit,2 x 900 NVMe SSD,Yes,4.464
+r7iz.12xlarge,Memory optimized,48,384 GiB,Intel Xeon Scalable (Sapphire Rapids),64-bit,,NA,25000 Megabit,EBS only,Yes,4.464
+c8i.24xlarge,Compute optimized,96,192 GiB,Intel Xeon Scalable (Granite Rapids),64-bit,,NA,40000 Megabit,EBS only,Yes,4.49808
+g6e.8xlarge,GPU instance,32,256 GiB,AMD EPYC 7R13 Processor,64-bit,1,48 GB,25 Gigabit,1 x 900 GB NVMe SSD,Yes,4.52856
+i7i.12xlarge,Storage optimized,48,384 GiB,Intel Xeon Scalable (Emerald Rapids),64-bit,,NA,Up to 28.125 Gigabit,3 x 3750 NVMe SSD,Yes,4.5302
+g3.16xlarge,GPU instance,64,488 GiB,Intel Xeon E5-2686 v4 (Broadwell),64-bit,4,32 GB,20 Gigabit,EBS only,Yes,4.56
+m8idn.12xlarge,General purpose,48,192.0 GiB,Intel Xeon Scalable (Granite Rapids),64-bit,,NA,75 Gigabit,1 x 2850 NVMe SSD,Yes,4.58256
+m8idb.12xlarge,General purpose,48,192.0 GiB,Intel Xeon Scalable (Granite Rapids),64-bit,,NA,50 Gigabit,1 x 2850 NVMe SSD,Yes,4.58256
+g6.12xlarge,GPU instance,48,192 GiB,AMD EPYC 7R13 Processor,64-bit,4,96 GB,40 Gigabit,4 X 940 GB NVMe SSD,Yes,4.6016
+m5.24xlarge,General purpose,96,384 GiB,Intel Xeon Platinum 8175,64-bit,,NA,25 Gigabit,EBS only,Yes,4.608
+m6i.24xlarge,General purpose,96,384 GiB,Intel Xeon 8375C (Ice Lake),64-bit,,NA,37500 Megabit,EBS only,Yes,4.608
+c5d.24xlarge,Compute optimized,96,192 GiB,Intel Xeon Platinum 8275L,64-bit,,NA,25 Gigabit,4 x 900 NVMe SSD,Yes,4.608
+r5d.16xlarge,Memory optimized,64,512 GiB,Intel Xeon Platinum 8175,64-bit,,NA,20 Gigabit,4 x 600 NVMe SSD,Yes,4.608
+is4gen.8xlarge,Storage optimized,32,192 GiB,AWS Graviton2 Processor,64-bit,,NA,50 Gigabit,4 x 7500 SSD,Yes,4.6104
+m8gb.16xlarge,General purpose,64,256 GiB,AWS Graviton4 Processor,64-bit,,NA,133.333 Gigabit,EBS only,Yes,4.656
+m8gn.16xlarge,General purpose,64,256 GiB,AWS Graviton4 Processor,64-bit,,NA,200 Gigabit,EBS only,Yes,4.656
+r6idn.12xlarge,Memory optimized,48,384 GiB,Intel Xeon 8375C (Ice Lake),64-bit,,NA,75000 Megabit,2 x 1425 NVMe SSD,Yes,4.68936
+x8g.12xlarge,Memory optimized,48,768 GiB,AWS Graviton4 Processor,64-bit,,NA,22.5 Gigabit,EBS only,Yes,4.6896
+m9g.24xlarge,General purpose,96,384 GiB,AWS Graviton5 Processor,64-bit,,NA,50000 Megabit,EBS only,Yes,4.69632
+r8gd.16xlarge,Memory optimized,64,512 GiB,AWS Graviton4 Processor,64-bit,,NA,30 Gigabit,2 x 1900 NVMe SSD,Yes,4.70272
+c8gd.24xlarge,Compute optimized,96,192 GiB,AWS Graviton4 Processor,64-bit,,NA,40 Gigabit,3 x 1900 NVMe SSD,Yes,4.70304
+inf1.24xlarge,Machine Learning ASIC Instances,96,192 GiB,Intel Xeon Platinum 8275CL (Cascade Lake),64-bit,16,NA,100 Gigabit,EBS only,Yes,4.721
+r5n.16xlarge,Memory optimized,64,512 GiB,Intel Xeon Platinum 8259 (Cascade Lake),64-bit,,NA,75 Gigabit,EBS only,Yes,4.768
+r5b.16xlarge,Memory optimized,64,512 GiB,Intel Xeon Platinum 8259 (Cascade Lake),64-bit,,NA,20 Gigabit,EBS only,Yes,4.768
+r6id.16xlarge,Memory optimized,64,512 GiB,Intel Xeon 8375C (Ice Lake),64-bit,,NA,25000 Megabit,2 x 1900 NVMe SSD,Yes,4.8384
+c6id.24xlarge,Compute optimized,96,192 GiB,Intel Xeon 8375C (Ice Lake),64-bit,,NA,37500 Megabit,4 x 1425 NVMe SSD,Yes,4.8384
+m7i.24xlarge,General purpose,96,384 GiB,Intel Xeon Scalable (Sapphire Rapids),64-bit,,NA,37500 Megabit,EBS only,Yes,4.8384
+r7a.16xlarge,Memory optimized,64,512 GiB,AMD EPYC 9R14 Processor,64-bit,,NA,25000 Megabit,EBS only,Yes,4.8688
+c6a.32xlarge,Compute optimized,128,256 GiB,AMD EPYC 7R13 Processor,64-bit,,NA,50000 Megabit,EBS only,Yes,4.896
+c7a.24xlarge,Compute optimized,96,192 GiB,AMD EPYC 9R14 Processor,64-bit,,NA,37500 Megabit,EBS only,Yes,4.92672
+i4g.16xlarge,Storage optimized,64,512 GiB,AWS Graviton2 Processor,64-bit,,NA,37500 Megabit,4 x 3750 SSD,Yes,4.94208
+m5ad.24xlarge,General purpose,96,384 GiB,AMD EPYC 7571,64-bit,,NA,20 Gigabit,4 x 900 NVMe SSD,Yes,4.944
+m8azn.12xlarge,General purpose,48,192 GiB,AMD EPYC 9575F,64-bit,,NA,100 Gigabit,EBS only,Yes,4.95504
+i3.16xlarge,Storage optimized,64,488 GiB,Intel Xeon E5-2686 v4 (Broadwell),64-bit,,NA,20 Gigabit,8 x 1900 NVMe SSD,Yes,4.992
+x2iezn.6xlarge,Memory optimized,24,768 GiB,Intel Xeon Platinum 8252,64-bit,,NA,50 Gigabit,EBS only,Yes,5.004
+m8ine.12xlarge,General purpose,48,192.0 GiB,Intel Xeon Scalable (Granite Rapids),64-bit,,NA,75 Gigabit,EBS only,Yes,5.0124
+r8ib.12xlarge,Memory optimized,48,384.0 GiB,Intel Xeon Scalable (Granite Rapids),64-bit,,NA,50 Gigabit,EBS only,Yes,5.0208
+r8in.12xlarge,Memory optimized,48,384.0 GiB,Intel Xeon Scalable (Granite Rapids),64-bit,,NA,75 Gigabit,EBS only,Yes,5.0208
+m8i.24xlarge,General purpose,96,384 GiB,Intel Xeon Scalable (Granite Rapids),64-bit,,NA,40000 Megabit,EBS only,Yes,5.08032
+m6idn.16xlarge,General purpose,64,256 GiB,Intel Xeon 8375C (Ice Lake),64-bit,,NA,100000 Megabit,2 x 1900 NVMe SSD,Yes,5.09184
+r8a.16xlarge,Memory optimized,64,512 GiB,AMD EPYC 9R45 Processor,64-bit,,NA,30000 Megabit,EBS only,Yes,5.11232
+c9gd.24xlarge,Compute optimized,96,192.0 GiB,AWS Graviton5 Processor,64-bit,,NA,50 Gigabit,3 x 1900 NVMe SSD,Yes,5.1264
+c8a.24xlarge,Compute optimized,96,192 GiB,AMD EPYC 9R45 Processor,64-bit,,NA,40000 Megabit,EBS only,Yes,5.17296
+vt1.24xlarge,Media Accelerator Instances,96,192 GiB,Intel Xeon Platinum 8259CL,64-bit,,NA,25000 Megabit,EBS only,Yes,5.2
+x8i.12xlarge,Memory optimized,48,768 GiB,Intel Xeon Scalable (Granite Rapids),64-bit,,NA,22500 Megabit,EBS only,Yes,5.25192
+g7e.8xlarge,GPU instance,32,256 GiB,Intel Xeon Scalable (Emerald Rapids),64-bit,1,96 GB,100 Gigabit,1 x 1900 NVMe SSD,Yes,5.26824
+c8id.24xlarge,Compute optimized,96,192 GiB,Intel Xeon Scalable (Granite Rapids),64-bit,,NA,40000 Megabit,2 x 2850 NVMe SSD,Yes,5.32224
+r8id.16xlarge,Memory optimized,64,512 GiB,Intel Xeon Scalable (Granite Rapids),64-bit,,NA,30000 Megabit,1 x 3800 NVMe SSD,Yes,5.32224
+r5dn.16xlarge,Memory optimized,64,512 GiB,Intel Xeon Platinum 8259 (Cascade Lake),64-bit,,NA,75 Gigabit,4 x 600 NVMe SSD,Yes,5.344
+x2gd.16xlarge,Memory optimized,64,1024 GiB,AWS Graviton2 Processor,64-bit,,NA,25 Gigabit,2 x 1900 SSD,Yes,5.344
+m8ib.16xlarge,General purpose,64,256.0 GiB,Intel Xeon Scalable (Granite Rapids),64-bit,,NA,66.66 Gigabit,EBS only,Yes,5.34656
+m8in.16xlarge,General purpose,64,256.0 GiB,Intel Xeon Scalable (Granite Rapids),64-bit,,NA,100 Gigabit,EBS only,Yes,5.34656
+m5d.24xlarge,General purpose,96,384 GiB,Intel Xeon Platinum 8175,64-bit,,NA,25 Gigabit,4 x 900 NVMe SSD,Yes,5.424
+r5a.24xlarge,Memory optimized,96,768 GiB,AMD EPYC 7571,64-bit,,NA,20 Gigabit,EBS only,Yes,5.424
+i3en.12xlarge,Storage optimized,48,384 GiB,Intel Xeon Platinum 8175,64-bit,,NA,50 Gigabit,4 x 7500 NVMe SSD,Yes,5.424
+c6i.32xlarge,Compute optimized,128,256 GiB,Intel Xeon 8375C (Ice Lake),64-bit,,NA,50000 Megabit,EBS only,Yes,5.44
+r6a.24xlarge,Memory optimized,96,768 GiB,AMD EPYC 7R13 Processor,64-bit,,NA,37500 Megabit,EBS only,Yes,5.4432
+c6in.24xlarge,Compute optimized,96,192 GiB,Intel Xeon 8375C (Ice Lake),64-bit,,NA,150000 Megabit,EBS only,Yes,5.4432
+i4i.16xlarge,Storage optimized,64,512 GiB,Intel Xeon 8375C (Ice Lake),64-bit,,NA,35000 Megabit,4 x 3750 NVMe SSD,Yes,5.491
+i8g.16xlarge,Storage optimized,64,512 GiB,AWS Graviton4 Processor,64-bit,,NA,Up to 37.5 Gigabit,4 x 3750GB,Yes,5.4912
+d2.8xlarge,Storage optimized,36,244 GiB,Intel Xeon E5-2676 v3 (Haswell),64-bit,,NA,10 Gigabit,24 x 2000 HDD,No,5.52
+m6a.32xlarge,General purpose,128,512 GiB,AMD EPYC 7R13 Processor,64-bit,,NA,50000 Megabit,EBS only,Yes,5.5296
+m8gd.24xlarge,General purpose,96,384 GiB,AWS Graviton4 Processor,64-bit,,NA,40 Gigabit,3 x 1900 NVMe SSD,Yes,5.53536
+m7a.24xlarge,General purpose,96,384 GiB,AMD EPYC 9R14 Processor,64-bit,,NA,37500 Megabit,EBS only,Yes,5.56416
+r6in.16xlarge,Memory optimized,64,512 GiB,Intel Xeon 8375C (Ice Lake),64-bit,,NA,100000 Megabit,EBS only,Yes,5.57856
+r8idn.12xlarge,Memory optimized,48,384.0 GiB,Intel Xeon Scalable (Granite Rapids),64-bit,,NA,75 Gigabit,1 x 2850 NVMe SSD,Yes,5.62728
+r8idb.12xlarge,Memory optimized,48,384.0 GiB,Intel Xeon Scalable (Granite Rapids),64-bit,,NA,50 Gigabit,1 x 2850 NVMe SSD,Yes,5.62728
+r8g.24xlarge,Memory optimized,96,768 GiB,AWS Graviton4 Processor,64-bit,,NA,40 Gigabit,EBS only,Yes,5.65536
+g5.12xlarge,GPU instance,48,192 GiB,AMD EPYC 7R32,64-bit,4,96 GB,40 Gigabit,1 x 3800 GB NVMe SSD,Yes,5.672
+c8gn.24xlarge,Compute optimized,96,192 GiB,AWS Graviton4 Processor,64-bit,,NA,300 Gigabit,EBS only,Yes,5.688
+c8gb.24xlarge,Compute optimized,96,192 GiB,AWS Graviton4 Processor,64-bit,,NA,200 Gigabit,EBS only,Yes,5.688
+i8ge.12xlarge,Storage optimized,48,384 GiB,AWS Graviton4 Processor,64-bit,,NA,75 Gigabit,4 x 7500 NVMe SSD,Yes,5.6952
+m6id.24xlarge,General purpose,96,384 GiB,Intel Xeon 8375C (Ice Lake),64-bit,,NA,37500 Megabit,4 x 1425 NVMe SSD,Yes,5.6952
+m5n.24xlarge,General purpose,96,384 GiB,Intel Xeon Platinum 8259 (Cascade Lake),64-bit,,NA,100 Gigabit,EBS only,Yes,5.712
+im4gn.16xlarge,Storage optimized,64,256 GiB,AWS Graviton2 Processor,64-bit,,NA,100 Gigabit,4 x 7500 SSD,Yes,5.82067
+r8gb.16xlarge,Memory optimized,64,512 GiB,AWS Graviton4 Processor,64-bit,,NA,133.333 Gigabit,EBS only,Yes,5.82976
+r8gn.16xlarge,Memory optimized,64,512 GiB,AWS Graviton4 Processor,64-bit,,NA,200 Gigabit,EBS only,Yes,5.8298
+m8a.24xlarge,General purpose,96,384 GiB,AMD EPYC 9R45 Processor,64-bit,,NA,40000 Megabit,EBS only,Yes,5.84256
+r7iz.16xlarge,Memory optimized,64,512 GiB,Intel Xeon Scalable (Sapphire Rapids),64-bit,,NA,25000 Megabit,EBS only,Yes,5.952
+c8i.32xlarge,Compute optimized,128,256 GiB,Intel Xeon Scalable (Granite Rapids),64-bit,,NA,50000 Megabit,EBS only,Yes,5.99744
+m9gd.24xlarge,General purpose,96,384.0 GiB,AWS Graviton5 Processor,64-bit,,NA,50 Gigabit,3 x 1900 NVMe SSD,Yes,6.0336
+i7i.16xlarge,Storage optimized,64,512 GiB,Intel Xeon Scalable (Emerald Rapids),64-bit,,NA,Up to 37.5 Gigabit,4 x 3750 NVMe SSD,Yes,6.0403
+r5.24xlarge,Memory optimized,96,768 GiB,Intel Xeon Platinum 8175,64-bit,,NA,25 Gigabit,EBS only,Yes,6.048
+r6i.24xlarge,Memory optimized,96,768 GiB,Intel Xeon 8375C (Ice Lake),64-bit,,NA,37500 Megabit,EBS only,Yes,6.048
+m8idb.16xlarge,General purpose,64,256.0 GiB,Intel Xeon Scalable (Granite Rapids),64-bit,,NA,66.66 Gigabit,1 x 3800 NVMe SSD,Yes,6.11008
+m8idn.16xlarge,General purpose,64,256.0 GiB,Intel Xeon Scalable (Granite Rapids),64-bit,,NA,100 Gigabit,1 x 3800 NVMe SSD,Yes,6.11008
+m6i.32xlarge,General purpose,128,512 GiB,Intel Xeon 8375C (Ice Lake),64-bit,,NA,50000 Megabit,EBS only,Yes,6.144
+i7ie.12xlarge,Storage optimized,48,384 GiB,Intel Xeon Scalable (Emerald Rapids),64-bit,,NA,Up to 50 Gigabit,4 x 7500 NVMe SSD,Yes,6.2376
+r6idn.16xlarge,Memory optimized,64,512 GiB,Intel Xeon 8375C (Ice Lake),64-bit,,NA,100000 Megabit,2 x 1900 NVMe SSD,Yes,6.25248
+x8g.16xlarge,Memory optimized,64,1024 GiB,AWS Graviton4 Processor,64-bit,,NA,30 Gigabit,EBS only,Yes,6.2528
+m8id.24xlarge,General purpose,96,384 GiB,Intel Xeon Scalable (Granite Rapids),64-bit,,NA,40000 Megabit,2 x 2850 NVMe SSD,Yes,6.26496
+r5ad.24xlarge,Memory optimized,96,768 GiB,AMD EPYC 7571,64-bit,,NA,20 Gigabit,4 x 900 NVMe SSD,Yes,6.288
+d3en.12xlarge,Storage optimized,48,192 GiB,Intel Xeon Platinum 8259 (Cascade Lake),64-bit,,NA,75 Gigabit,24 x 14000 HDD,Yes,6.30864
+r7i.24xlarge,Memory optimized,96,768 GiB,Intel Xeon Scalable (Sapphire Rapids),64-bit,,NA,37500 Megabit,EBS only,Yes,6.3504
+c6id.32xlarge,Compute optimized,128,256 GiB,Intel Xeon 8375C (Ice Lake),64-bit,,NA,50000 Megabit,4 x 1900 NVMe SSD,Yes,6.4512
+inf2.24xlarge,Machine Learning ASIC Instances,96,384 GiB,AMD EPYC 7R13 Processor,64-bit,6,192 GB,50 Gigabit,EBS only,Yes,6.49063
+m5dn.24xlarge,General purpose,96,384 GiB,Intel Xeon Platinum 8259 (Cascade Lake),64-bit,,NA,100 Gigabit,4 x 900 NVMe SSD,Yes,6.528
+c8ib.24xlarge,Compute optimized,96,192 GiB,Intel Xeon Scalable (Granite Rapids),64-bit,,NA,100 Gigabit,EBS only,Yes,6.53184
+c8in.24xlarge,Compute optimized,96,192 GiB,Intel Xeon Scalable (Granite Rapids),64-bit,,NA,150 Gigabit,EBS only,Yes,6.53184
+c7a.32xlarge,Compute optimized,128,256 GiB,AMD EPYC 9R14 Processor,64-bit,,NA,50000 Megabit,EBS only,Yes,6.56896
+r8i.24xlarge,Memory optimized,96,768 GiB,Intel Xeon Scalable (Granite Rapids),64-bit,,NA,40000 Megabit,EBS only,Yes,6.66816
+x2idn.16xlarge,Memory optimized,64,1024 GiB,Intel Xeon Scalable (Icelake),64-bit,,NA,50 Gigabit,1 x 1900 NVMe SSD,Yes,6.669
+x2iedn.8xlarge,Memory optimized,32,1024 GiB,Intel Xeon Scalable (Icelake),64-bit,,NA,25 Gigabit,1 x 950 NVMe SSD,Yes,6.669
+x1.16xlarge,Memory optimized,64,976 GiB,High Frequency Intel Xeon E7-8880 v3 (Haswell),64-bit,,NA,High,1 x 1920 SSD,Yes,6.669
+x1e.8xlarge,Memory optimized,32,976 GiB,High Frequency Intel Xeon E7-8880 v3 (Haswell),64-bit,,NA,Up to 10 Gigabit,1 x 960 SSD,Yes,6.672
+x2iezn.8xlarge,Memory optimized,32,1024 GiB,Intel Xeon Platinum 8252,64-bit,,NA,75 Gigabit,EBS only,Yes,6.672
+g6.24xlarge,GPU instance,96,384 GiB,AMD EPYC 7R13 Processor,64-bit,4,96 GB,50 Gigabit,4 X 940 GB NVMe SSD,Yes,6.6752
+m6in.24xlarge,General purpose,96,384 GiB,Intel Xeon 8375C (Ice Lake),64-bit,,NA,150000 Megabit,EBS only,Yes,6.68304
+r8ib.16xlarge,Memory optimized,64,512.0 GiB,Intel Xeon Scalable (Granite Rapids),64-bit,,NA,66.66 Gigabit,EBS only,Yes,6.6944
+r8in.16xlarge,Memory optimized,64,512.0 GiB,Intel Xeon Scalable (Granite Rapids),64-bit,,NA,100 Gigabit,EBS only,Yes,6.6944
+m8i.32xlarge,General purpose,128,512 GiB,Intel Xeon Scalable (Granite Rapids),64-bit,,NA,50000 Megabit,EBS only,Yes,6.77376
+i2.8xlarge,Storage optimized,32,244 GiB,Intel Xeon E5-2670 v2 (Ivy Bridge),64-bit,,NA,10 Gigabit,8 x 800 SSD,No,6.82
+p5.4xlarge,GPU instance,16,256 GiB,AMD EPYC 7R13 Processor,64-bit,1,80 GB HBM3,100 Gigabit,1 x 3840 GB SSD,Yes,6.88
+r5d.24xlarge,Memory optimized,96,768 GiB,Intel Xeon Platinum 8175,64-bit,,NA,25 Gigabit,4 x 900 NVMe SSD,Yes,6.912
+m8gn.24xlarge,General purpose,96,384 GiB,AWS Graviton4 Processor,64-bit,,NA,300 Gigabit,EBS only,Yes,6.984
+m8gb.24xlarge,General purpose,96,384 GiB,AWS Graviton4 Processor,64-bit,,NA,200 Gigabit,EBS only,Yes,6.984
+x8i.16xlarge,Memory optimized,64,1024 GiB,Intel Xeon Scalable (Granite Rapids),64-bit,,NA,30000 Megabit,EBS only,Yes,7.00256
+r8gd.24xlarge,Memory optimized,96,768 GiB,AWS Graviton4 Processor,64-bit,,NA,40 Gigabit,3 x 1900 NVMe SSD,Yes,7.05408
+c8id.32xlarge,Compute optimized,128,256 GiB,Intel Xeon Scalable (Granite Rapids),64-bit,,NA,50000 Megabit,2 x 3800 NVMe SSD,Yes,7.09632
+g7.12xlarge,GPU instance,48,192.0 GiB,Intel Xeon Scalable (Granite Rapids),64-bit,2,64 GB,175 Gigabit,1x1900 GB NVMe SSD,Yes,7.12832
+r5b.24xlarge,Memory optimized,96,768 GiB,Intel Xeon Platinum 8259 (Cascade Lake),64-bit,,NA,25 Gigabit,EBS only,Yes,7.152
+r5n.24xlarge,Memory optimized,96,768 GiB,Intel Xeon Platinum 8259 (Cascade Lake),64-bit,,NA,100 Gigabit,EBS only,Yes,7.152
+p2.8xlarge,GPU instance,32,488 GiB,Intel Xeon E5-2686 v4 (Broadwell),64-bit,8,NA,10 Gigabit,EBS only,Yes,7.2
+r6id.24xlarge,Memory optimized,96,768 GiB,Intel Xeon 8375C (Ice Lake),64-bit,,NA,37500 Megabit,4 x 1425 NVMe SSD,Yes,7.2576
+r6a.32xlarge,Memory optimized,128,1024 GiB,AMD EPYC 7R13 Processor,64-bit,,NA,50000 Megabit,EBS only,Yes,7.2576
+c6in.32xlarge,Compute optimized,128,256 GiB,Intel Xeon 8375C (Ice Lake),64-bit,,NA,200000 Megabit,EBS only,Yes,7.2576
+r7a.24xlarge,Memory optimized,96,768 GiB,AMD EPYC 9R14 Processor,64-bit,,NA,37500 Megabit,EBS only,Yes,7.3032
+c6a.48xlarge,Compute optimized,192,384 GiB,AMD EPYC 7R13 Processor,64-bit,,NA,50000 Megabit,EBS only,Yes,7.344
+m7a.32xlarge,General purpose,128,512 GiB,AMD EPYC 9R14 Processor,64-bit,,NA,50000 Megabit,EBS only,Yes,7.41888
+r8idb.16xlarge,Memory optimized,64,512.0 GiB,Intel Xeon Scalable (Granite Rapids),64-bit,,NA,66.66 Gigabit,1 x 3800 NVMe SSD,Yes,7.50304
+r8idn.16xlarge,Memory optimized,64,512.0 GiB,Intel Xeon Scalable (Granite Rapids),64-bit,,NA,100 Gigabit,1 x 3800 NVMe SSD,Yes,7.50304
+g6e.16xlarge,GPU instance,64,512 GiB,AMD EPYC 7R13 Processor,64-bit,1,48 GB,35 Gigabit,1 x 1900 GB NVMe SSD,Yes,7.57719
+m6id.32xlarge,General purpose,128,512 GiB,Intel Xeon 8375C (Ice Lake),64-bit,,NA,50000 Megabit,4 x 1900 NVMe SSD,Yes,7.5936
+m6idn.24xlarge,General purpose,96,384 GiB,Intel Xeon 8375C (Ice Lake),64-bit,,NA,150000 Megabit,4 x 1425 NVMe SSD,Yes,7.63776
+c8g.48xlarge,Compute optimized,192,384 GiB,AWS Graviton4 Processor,64-bit,,NA,50 Gigabit,EBS only,Yes,7.65696
+r8a.24xlarge,Memory optimized,96,768 GiB,AMD EPYC 9R45 Processor,64-bit,,NA,40000 Megabit,EBS only,Yes,7.66848
+r8id.24xlarge,Memory optimized,96,768 GiB,Intel Xeon Scalable (Granite Rapids),64-bit,,NA,40000 Megabit,2 x 2850 NVMe SSD,Yes,7.98336
+r5dn.24xlarge,Memory optimized,96,768 GiB,Intel Xeon Platinum 8259 (Cascade Lake),64-bit,,NA,100 Gigabit,4 x 900 NVMe SSD,Yes,8.016
+m8ib.24xlarge,General purpose,96,384.0 GiB,Intel Xeon Scalable (Granite Rapids),64-bit,,NA,100 Gigabit,EBS only,Yes,8.01984
+m8in.24xlarge,General purpose,96,384.0 GiB,Intel Xeon Scalable (Granite Rapids),64-bit,,NA,150 Gigabit,EBS only,Yes,8.01984
+r6i.32xlarge,Memory optimized,128,1024 GiB,Intel Xeon 8375C (Ice Lake),64-bit,,NA,50000 Megabit,EBS only,Yes,8.064
+g5.24xlarge,GPU instance,96,384 GiB,AMD EPYC 7R32,64-bit,4,96 GB,50 Gigabit,1 x 3800 GB NVMe SSD,Yes,8.144
+i8g.24xlarge,Storage optimized,96,768 GiB,AWS Graviton4 Processor,64-bit,,NA,Up to 56.25 Gigabit,6 x 3750GB,Yes,8.2368
+i4i.24xlarge,Storage optimized,96,768 GiB,Intel Xeon 8375C (Ice Lake),64-bit,,NA,56250 Megabit,6 x 3750 NVMe SSD,Yes,8.2368
+g7e.12xlarge,GPU instance,48,512 GiB,Intel Xeon Scalable (Emerald Rapids),64-bit,2,192 GB,400 Gigabit,1 x 3800 NVMe SSD,Yes,8.28608
+m6a.48xlarge,General purpose,192,768 GiB,AMD EPYC 7R13 Processor,64-bit,,NA,50000 Megabit,EBS only,Yes,8.2944
+c9g.48xlarge,Compute optimized,192,384.0 GiB,AWS Graviton5 Processor,64-bit,,NA,100 Gigabit,EBS only,Yes,8.34624
+m8id.32xlarge,General purpose,128,512 GiB,Intel Xeon Scalable (Granite Rapids),64-bit,,NA,50000 Megabit,2 x 3800 NVMe SSD,Yes,8.35328
+r6in.24xlarge,Memory optimized,96,768 GiB,Intel Xeon 8375C (Ice Lake),64-bit,,NA,150000 Megabit,EBS only,Yes,8.36784
+i8ge.18xlarge,Storage optimized,72,576 GiB,AWS Graviton4 Processor,64-bit,,NA,112.5 Gigabit,6 x 7500 NVMe SSD,Yes,8.5428
+c7i.48xlarge,Compute optimized,192,384 GiB,Intel Xeon Scalable (Sapphire Rapids),64-bit,,NA,50000 Megabit,EBS only,Yes,8.568
+m8g.48xlarge,General purpose,192,768 GiB,AWS Graviton4 Processor,64-bit,,NA,50 Gigabit,EBS only,Yes,8.61696
+c8in.32xlarge,Compute optimized,128,256 GiB,Intel Xeon Scalable (Granite Rapids),64-bit,,NA,200 Gigabit,EBS only,Yes,8.70912
+c8ib.32xlarge,Compute optimized,128,256 GiB,Intel Xeon Scalable (Granite Rapids),64-bit,,NA,133.333 Gigabit,EBS only,Yes,8.70912
+r8gn.24xlarge,Memory optimized,96,768 GiB,AWS Graviton4 Processor,64-bit,,NA,300 Gigabit,EBS only,Yes,8.7446
+r8gb.24xlarge,Memory optimized,96,768 GiB,AWS Graviton4 Processor,64-bit,,NA,200 Gigabit,EBS only,Yes,8.74464
+r8i.32xlarge,Memory optimized,128,1024 GiB,Intel Xeon Scalable (Granite Rapids),64-bit,,NA,50000 Megabit,EBS only,Yes,8.89088
+m6in.32xlarge,General purpose,128,512 GiB,Intel Xeon 8375C (Ice Lake),64-bit,,NA,200000 Megabit,EBS only,Yes,8.91072
+c8i.48xlarge,Compute optimized,192,384 GiB,Intel Xeon Scalable (Granite Rapids),64-bit,,NA,75000 Megabit,EBS only,Yes,8.99616
+i7i.24xlarge,Storage optimized,96,768 GiB,Intel Xeon Scalable (Emerald Rapids),64-bit,,NA,Up to 56.25 Gigabit,6 x 3750 NVMe SSD,Yes,9.0605
+m8idb.24xlarge,General purpose,96,384.0 GiB,Intel Xeon Scalable (Granite Rapids),64-bit,,NA,100 Gigabit,2 x 2850 NVMe SSD,Yes,9.16512
+m8idn.24xlarge,General purpose,96,384.0 GiB,Intel Xeon Scalable (Granite Rapids),64-bit,,NA,150 Gigabit,2 x 2850 NVMe SSD,Yes,9.16512
+i7ie.18xlarge,Storage optimized,72,576 GiB,Intel Xeon Scalable (Emerald Rapids),64-bit,,NA,Up to 75 Gigabit,6 x 7500 NVMe SSD,Yes,9.3564
+r6idn.24xlarge,Memory optimized,96,768 GiB,Intel Xeon 8375C (Ice Lake),64-bit,,NA,150000 Megabit,4 x 1425 NVMe SSD,Yes,9.37872
+x8g.24xlarge,Memory optimized,96,1536 GiB,AWS Graviton4 Processor,64-bit,,NA,40 Gigabit,EBS only,Yes,9.3792
+m9g.48xlarge,General purpose,192,768 GiB,AWS Graviton5 Processor,64-bit,,NA,100000 Megabit,EBS only,Yes,9.39264
+c8gd.48xlarge,Compute optimized,192,384 GiB,AWS Graviton4 Processor,64-bit,,NA,50 Gigabit,6 x 1900 NVMe SSD,Yes,9.40608
+m7i.48xlarge,General purpose,192,768 GiB,Intel Xeon Scalable (Sapphire Rapids),64-bit,,NA,50000 Megabit,EBS only,Yes,9.6768
+r6id.32xlarge,Memory optimized,128,1024 GiB,Intel Xeon 8375C (Ice Lake),64-bit,,NA,50000 Megabit,4 x 1900 NVMe SSD,Yes,9.6768
+r7a.32xlarge,Memory optimized,128,1024 GiB,AMD EPYC 9R14 Processor,64-bit,,NA,50000 Megabit,EBS only,Yes,9.7376
+c7a.48xlarge,Compute optimized,192,384 GiB,AMD EPYC 9R14 Processor,64-bit,,NA,50000 Megabit,EBS only,Yes,9.85344
+m8azn.24xlarge,General purpose,96,384 GiB,AMD EPYC 9575F,64-bit,,NA,200 Gigabit,EBS only,Yes,9.91008
+x2idn.24xlarge,Memory optimized,96,1536 GiB,Intel Xeon Scalable (Icelake),64-bit,,NA,75 Gigabit,2 x 1425 NVMe SSD,Yes,10.0035
+x2iezn.12xlarge,Memory optimized,48,1536 GiB,Intel Xeon Platinum 8252,64-bit,,NA,100 Gigabit,EBS only,Yes,10.008
+r8in.24xlarge,Memory optimized,96,768.0 GiB,Intel Xeon Scalable (Granite Rapids),64-bit,,NA,150 Gigabit,EBS only,Yes,10.0416
+r8ib.24xlarge,Memory optimized,96,768.0 GiB,Intel Xeon Scalable (Granite Rapids),64-bit,,NA,100 Gigabit,EBS only,Yes,10.0416
+m8i.48xlarge,General purpose,192,768 GiB,Intel Xeon Scalable (Granite Rapids),64-bit,,NA,75000 Megabit,EBS only,Yes,10.16064
+m6idn.32xlarge,General purpose,128,512 GiB,Intel Xeon 8375C (Ice Lake),64-bit,,NA,200000 Megabit,4 x 1900 NVMe SSD,Yes,10.18368
+c9gd.48xlarge,Compute optimized,192,384.0 GiB,AWS Graviton5 Processor,64-bit,,NA,100 Gigabit,3 x 3800 NVMe SSD,Yes,10.2528
+c8a.48xlarge,Compute optimized,192,384 GiB,AMD EPYC 9R45 Processor,64-bit,,NA,75000 Megabit,EBS only,Yes,10.34592
+g6e.12xlarge,GPU instance,48,384 GiB,AMD EPYC 7R13 Processor,64-bit,4,192 GB,100 Gigabit,2 x 1900 GB NVMe SSD,Yes,10.49264
+x8i.24xlarge,Memory optimized,96,1536 GiB,Intel Xeon Scalable (Granite Rapids),64-bit,,NA,40000 Megabit,EBS only,Yes,10.50384
+r8id.32xlarge,Memory optimized,128,1024 GiB,Intel Xeon Scalable (Granite Rapids),64-bit,,NA,50000 Megabit,2 x 3800 NVMe SSD,Yes,10.64448
+c8id.48xlarge,Compute optimized,192,384 GiB,Intel Xeon Scalable (Granite Rapids),64-bit,,NA,75000 Megabit,3 x 3800 NVMe SSD,Yes,10.64448
+m8in.32xlarge,General purpose,128,512.0 GiB,Intel Xeon Scalable (Granite Rapids),64-bit,,NA,200 Gigabit,EBS only,Yes,10.69312
+m8ib.32xlarge,General purpose,128,512.0 GiB,Intel Xeon Scalable (Granite Rapids),64-bit,,NA,133.33 Gigabit,EBS only,Yes,10.69312
+i3en.24xlarge,Storage optimized,96,768 GiB,Intel Xeon Platinum 8175,64-bit,,NA,100 Gigabit,8 x 7500 NVMe SSD,Yes,10.848
+r6a.48xlarge,Memory optimized,192,1536 GiB,AMD EPYC 7R13 Processor,64-bit,,NA,50000 Megabit,EBS only,Yes,10.8864
+i4i.32xlarge,Storage optimized,128,1024 GiB,Intel Xeon 8375C (Ice Lake),64-bit,,NA,75000 Megabit,8 x 3750 SSD,Yes,10.9824
+m8gd.48xlarge,General purpose,192,768 GiB,AWS Graviton4 Processor,64-bit,,NA,50 Gigabit,6 x 1900 NVMe SSD,Yes,11.07072
+m7a.48xlarge,General purpose,192,768 GiB,AMD EPYC 9R14 Processor,64-bit,,NA,50000 Megabit,EBS only,Yes,11.12832
+r6in.32xlarge,Memory optimized,128,1024 GiB,Intel Xeon 8375C (Ice Lake),64-bit,,NA,200000 Megabit,EBS only,Yes,11.15712
+r8idn.24xlarge,Memory optimized,96,768.0 GiB,Intel Xeon Scalable (Granite Rapids),64-bit,,NA,150 Gigabit,2 x 2850 NVMe SSD,Yes,11.25456
+r8idb.24xlarge,Memory optimized,96,768.0 GiB,Intel Xeon Scalable (Granite Rapids),64-bit,,NA,100 Gigabit,2 x 2850 NVMe SSD,Yes,11.25456
+r8g.48xlarge,Memory optimized,192,1536 GiB,AWS Graviton4 Processor,64-bit,,NA,50 Gigabit,EBS only,Yes,11.31072
+c8gn.48xlarge,Compute optimized,192,384 GiB,AWS Graviton4 Processor,64-bit,,NA,600 Gigabit,EBS only,Yes,11.376
+c8gb.48xlarge,Compute optimized,192,384 GiB,AWS Graviton4 Processor,64-bit,,NA,400 Gigabit,EBS only,Yes,11.376
+i8ge.24xlarge,Storage optimized,96,768 GiB,AWS Graviton4 Processor,64-bit,,NA,150 Gigabit,8 x 7500 NVMe SSD,Yes,11.3904
+m8a.48xlarge,General purpose,192,768 GiB,AMD EPYC 9R45 Processor,64-bit,,NA,75000 Megabit,EBS only,Yes,11.68512
+r7iz.32xlarge,Memory optimized,128,1024 GiB,Intel Xeon Scalable (Sapphire Rapids),64-bit,,NA,50000 Megabit,EBS only,Yes,11.904
+m9gd.48xlarge,General purpose,192,768.0 GiB,AWS Graviton5 Processor,64-bit,,NA,100 Gigabit,3 x 3800 NVMe SSD,Yes,12.0672
+m8idb.32xlarge,General purpose,128,512.0 GiB,Intel Xeon Scalable (Granite Rapids),64-bit,,NA,133.33 Gigabit,2 x 3800 NVMe SSD,Yes,12.22016
+m8idn.32xlarge,General purpose,128,512.0 GiB,Intel Xeon Scalable (Granite Rapids),64-bit,,NA,200 Gigabit,2 x 3800 NVMe SSD,Yes,12.22016
+p3.8xlarge,GPU instance,32,244 GiB,Intel Xeon E5-2686 v4 (Broadwell),64-bit,4,64 GiB,10 Gigabit,EBS only,Yes,12.24
+i7ie.24xlarge,Storage optimized,96,768 GiB,Intel Xeon Scalable (Emerald Rapids),64-bit,,NA,Up to 100 Gigabit,8 x 7500 NVMe SSD,Yes,12.4752
+r6idn.32xlarge,Memory optimized,128,1024 GiB,Intel Xeon 8375C (Ice Lake),64-bit,,NA,200000 Megabit,4 x 1900 NVMe SSD,Yes,12.50496
+m8id.48xlarge,General purpose,192,768 GiB,Intel Xeon Scalable (Granite Rapids),64-bit,,NA,75000 Megabit,3 x 3800 NVMe SSD,Yes,12.52992
+r7i.48xlarge,Memory optimized,192,1536 GiB,Intel Xeon Scalable (Sapphire Rapids),64-bit,,NA,50000 Megabit,EBS only,Yes,12.7008
+inf2.48xlarge,Machine Learning ASIC Instances,192,768 GiB,AMD EPYC 7R13 Processor,64-bit,12,384 GB,100 Gigabit,EBS only,Yes,12.98127
+c8ib.48xlarge,Compute optimized,192,384 GiB,Intel Xeon Scalable (Granite Rapids),64-bit,,NA,200 Gigabit,EBS only,Yes,13.06368
+c8in.48xlarge,Compute optimized,192,384 GiB,Intel Xeon Scalable (Granite Rapids),64-bit,,NA,300 Gigabit,EBS only,Yes,13.06368
+dl1.24xlarge,Machine Learning ASIC Instances,96,768 GiB,Intel Xeon Platinum 8275L,64-bit,,NA,400 Gigabit,4 x 1000 GB NVMe SSD,Yes,13.10904
+f1.16xlarge,FPGA Instances,64,976 GiB,Intel Xeon E5-2686 v4 (Broadwell),64-bit,,NA,25 Gigabit,4 x 940 NVMe SSD,Yes,13.2
+r8i.48xlarge,Memory optimized,192,1536 GiB,Intel Xeon Scalable (Granite Rapids),64-bit,,NA,75000 Megabit,EBS only,Yes,13.33632
+x1.32xlarge,Memory optimized,128,1952 GiB,High Frequency Intel Xeon E7-8880 v3 (Haswell),64-bit,,NA,High,2 x 1920 SSD,Yes,13.338
+x2idn.32xlarge,Memory optimized,128,2048 GiB,Intel Xeon Scalable (Icelake),64-bit,,NA,100 Gigabit,2 x 1900 NVMe SSD,Yes,13.338
+x2iedn.16xlarge,Memory optimized,64,2048 GiB,Intel Xeon Scalable (Icelake),64-bit,,NA,50 Gigabit,1 x 1900 NVMe SSD,Yes,13.338
+x1e.16xlarge,Memory optimized,64,1952 GiB,High Frequency Intel Xeon E7-8880 v3 (Haswell),64-bit,,NA,10 Gigabit,1 x 1920 SSD,Yes,13.344
+g6.48xlarge,GPU instance,192,768 GiB,AMD EPYC 7R13 Processor,64-bit,8,192 GB,100 Gigabit,8 x 940 NVMe SSD,Yes,13.3504
+r8ib.32xlarge,Memory optimized,128,1024.0 GiB,Intel Xeon Scalable (Granite Rapids),64-bit,,NA,133.33 Gigabit,EBS only,Yes,13.3888
+r8in.32xlarge,Memory optimized,128,1024.0 GiB,Intel Xeon Scalable (Granite Rapids),64-bit,,NA,200 Gigabit,EBS only,Yes,13.3888
+m8gb.48xlarge,General purpose,192,768 GiB,AWS Graviton4 Processor,64-bit,,NA,400 Gigabit,EBS only,Yes,13.968
+m8gn.48xlarge,General purpose,192,768 GiB,AWS Graviton4 Processor,64-bit,,NA,600 Gigabit,EBS only,Yes,13.968
+x8i.32xlarge,Memory optimized,128,2048 GiB,Intel Xeon Scalable (Granite Rapids),64-bit,,NA,50000 Megabit,EBS only,Yes,14.00512
+r8gd.48xlarge,Memory optimized,192,1536 GiB,AWS Graviton4 Processor,64-bit,,NA,50 Gigabit,6 x 1900 NVMe SSD,Yes,14.10816
+g7.24xlarge,GPU instance,96,384.0 GiB,Intel Xeon Scalable (Granite Rapids),64-bit,4,128 GB,350 Gigabit,1x3800 GB NVMe SSD,Yes,14.25664
+p2.16xlarge,GPU instance,64,732 GiB,Intel Xeon E5-2686 v4 (Broadwell),64-bit,16,NA,20 Gigabit,EBS only,Yes,14.4
+r7a.48xlarge,Memory optimized,192,1536 GiB,AMD EPYC 9R14 Processor,64-bit,,NA,50000 Megabit,EBS only,Yes,14.6064
+r8idb.32xlarge,Memory optimized,128,1024.0 GiB,Intel Xeon Scalable (Granite Rapids),64-bit,,NA,133.33 Gigabit,2 x 3800 NVMe SSD,Yes,15.00608
+r8idn.32xlarge,Memory optimized,128,1024.0 GiB,Intel Xeon Scalable (Granite Rapids),64-bit,,NA,200 Gigabit,2 x 3800 NVMe SSD,Yes,15.00608
+g6e.24xlarge,GPU instance,96,768 GiB,AMD EPYC 7R13 Processor,64-bit,4,192 GB,200 Gigabit,2 x 1900 GB NVMe SSD,Yes,15.06559
+r8a.48xlarge,Memory optimized,192,1536 GiB,AMD EPYC 9R45 Processor,64-bit,,NA,75000 Megabit,EBS only,Yes,15.33696
+f2.48xlarge,FPGA Instances,192,2048 GiB,AMD EPYC 7R13 Processor,64-bit,,NA,100 Gigabit,8 x 950 NVMe SSD,Yes,15.84
+r8id.48xlarge,Memory optimized,192,1536 GiB,Intel Xeon Scalable (Granite Rapids),64-bit,,NA,75000 Megabit,3 x 3800 NVMe SSD,Yes,15.96672
+m8in.48xlarge,General purpose,192,768.0 GiB,Intel Xeon Scalable (Granite Rapids),64-bit,,NA,300 Gigabit,EBS only,Yes,16.03968
+m8ib.48xlarge,General purpose,192,768.0 GiB,Intel Xeon Scalable (Granite Rapids),64-bit,,NA,200 Gigabit,EBS only,Yes,16.03968
+g5.48xlarge,GPU instance,192,768 GiB,AMD EPYC 7R32,64-bit,8,192 GB,100 Gigabit,2 x 3800 GB NVMe SSD,Yes,16.288
+i8g.48xlarge,Storage optimized,192,1536 GiB,AWS Graviton4 Processor,64-bit,,NA,Up to 100 Gigabit,12 x 3750GB,Yes,16.4736
+g7e.24xlarge,GPU instance,96,1024 GiB,Intel Xeon Scalable (Emerald Rapids),64-bit,4,384 GB,800 Gigabit,2 x 3800 NVMe SSD,Yes,16.57216
+r8gb.48xlarge,Memory optimized,192,1536 GiB,AWS Graviton4 Processor,64-bit,,NA,400 Gigabit,EBS only,Yes,17.48928
+r8gn.48xlarge,Memory optimized,192,1536 GiB,AWS Graviton4 Processor,64-bit,,NA,600 Gigabit,EBS only,Yes,17.4893
+c8i.96xlarge,Compute optimized,384,768 GiB,Intel Xeon Scalable (Granite Rapids),64-bit,,NA,100000 Megabit,EBS only,Yes,17.99232
+i7i.48xlarge,Storage optimized,192,1536 GiB,Intel Xeon Scalable (Emerald Rapids),64-bit,,NA,Up to 100 Gigabit,12 x 3750 NVMe SSD,Yes,18.121
+m8idb.48xlarge,General purpose,192,768.0 GiB,Intel Xeon Scalable (Granite Rapids),64-bit,,NA,200 Gigabit,3 x 3800 NVMe SSD,Yes,18.33024
+m8idn.48xlarge,General purpose,192,768.0 GiB,Intel Xeon Scalable (Granite Rapids),64-bit,,NA,300 Gigabit,3 x 3800 NVMe SSD,Yes,18.33024
+x8g.48xlarge,Memory optimized,192,3072 GiB,AWS Graviton4 Processor,64-bit,,NA,50 Gigabit,EBS only,Yes,18.7584
+x2iedn.24xlarge,Memory optimized,96,3072 GiB,Intel Xeon Scalable (Icelake),64-bit,,NA,75 Gigabit,2 x 1425 NVMe SSD,Yes,20.007
+r8ib.48xlarge,Memory optimized,192,1536.0 GiB,Intel Xeon Scalable (Granite Rapids),64-bit,,NA,200 Gigabit,EBS only,Yes,20.0832
+r8in.48xlarge,Memory optimized,192,1536.0 GiB,Intel Xeon Scalable (Granite Rapids),64-bit,,NA,300 Gigabit,EBS only,Yes,20.0832
+m8i.96xlarge,General purpose,384,1536 GiB,Intel Xeon Scalable (Granite Rapids),64-bit,,NA,100000 Megabit,EBS only,Yes,20.32128
+x8i.48xlarge,Memory optimized,192,3072 GiB,Intel Xeon Scalable (Granite Rapids),64-bit,,NA,75000 Megabit,EBS only,Yes,21.00768
+c8id.96xlarge,Compute optimized,384,768 GiB,Intel Xeon Scalable (Granite Rapids),64-bit,,NA,100000 Megabit,6 x 3800 NVMe SSD,Yes,21.28896
+trn1.32xlarge,Machine Learning ASIC Instances,128,512 GiB,Intel Xeon Scalable (Icelake),64-bit,16,512 GB,800 Gigabit,4 x 1900 NVMe SSD,Yes,21.5
+p4d.24xlarge,GPU instance,96,1152 GiB,Intel Xeon Platinum 8275L,64-bit,8,320 GB HBM2,400 Gigabit,8 x 1000 SSD,Yes,21.957642
+r8idb.48xlarge,Memory optimized,192,1536.0 GiB,Intel Xeon Scalable (Granite Rapids),64-bit,,NA,200 Gigabit,3 x 3800 NVMe SSD,Yes,22.50912
+r8idn.48xlarge,Memory optimized,192,1536.0 GiB,Intel Xeon Scalable (Granite Rapids),64-bit,,NA,300 Gigabit,3 x 3800 NVMe SSD,Yes,22.50912
+i8ge.48xlarge,Storage optimized,192,1536 GiB,AWS Graviton4 Processor,64-bit,,NA,300 Gigabit,16 x 7500 NVMe SSD,Yes,22.7808
+p3.16xlarge,GPU instance,64,488 GiB,Intel Xeon E5-2686 v4 (Broadwell),64-bit,8,128 GiB,25 Gigabit,EBS only,Yes,24.48
+trn1n.32xlarge,Machine Learning ASIC Instances,128,512 GiB,Intel Xeon Scalable (Icelake),64-bit,16,512 GB,1600 Gigabit,4 x 1900 NVMe SSD,Yes,24.78
+i7ie.48xlarge,Storage optimized,192,1536 GiB,Intel Xeon Scalable (Emerald Rapids),64-bit,,NA,100 Gigabit,16 x 7500 NVMe SSD,Yes,24.9504
+m8id.96xlarge,General purpose,384,1536 GiB,Intel Xeon Scalable (Granite Rapids),64-bit,,NA,100000 Megabit,6 x 3800 NVMe SSD,Yes,25.05984
+c8ib.96xlarge,Compute optimized,384,768 GiB,Intel Xeon Scalable (Granite Rapids),64-bit,,NA,400 Gigabit,EBS only,Yes,26.12736
+c8in.96xlarge,Compute optimized,384,768 GiB,Intel Xeon Scalable (Granite Rapids),64-bit,,NA,600 Gigabit,EBS only,Yes,26.12736
+r8i.96xlarge,Memory optimized,384,3072 GiB,Intel Xeon Scalable (Granite Rapids),64-bit,,NA,100000 Megabit,EBS only,Yes,26.67264
+x2iedn.32xlarge,Memory optimized,128,4096 GiB,Intel Xeon Scalable (Icelake),64-bit,,NA,100 Gigabit,2 x 1900 NVMe SSD,Yes,26.676
+x1e.32xlarge,Memory optimized,128,3904 GiB,High Frequency Intel Xeon E7-8880 v3 (Haswell),64-bit,,NA,25 Gigabit,2 x 1920 SSD,Yes,26.688
+u-3tb1.56xlarge,Memory optimized,224,3072 GiB,Intel Xeon Scalable (Skylake),64-bit,,NA,50 Gigabit,EBS only,Yes,27.3
+p4de.24xlarge,GPU instance,96,1152 GiB,Intel Xeon Platinum 8275L,64-bit,8,640 GB HBM2e,400 Gigabit,8 x 1000 SSD,Yes,27.44705
+x8i.64xlarge,Memory optimized,256,4096 GiB,Intel Xeon Scalable (Granite Rapids),64-bit,,NA,80000 Megabit,EBS only,Yes,28.01024
+g7.48xlarge,GPU instance,192,768.0 GiB,Intel Xeon Scalable (Granite Rapids),64-bit,8,256 GB,700 Gigabit,2x3800 GB NVMe SSD,Yes,28.51328
+g6e.48xlarge,GPU instance,192,1536 GiB,AMD EPYC 7R13 Processor,64-bit,8,384 GB,400 Gigabit,4 x 1900 GB NVMe SSD,Yes,30.13118
+p3dn.24xlarge,GPU instance,96,768 GiB,Intel Xeon Platinum 8175 (Skylake),64-bit,8,256 GiB,100 Gigabit,2 x 900 NVMe SSD,Yes,31.212
+r8id.96xlarge,Memory optimized,384,3072 GiB,Intel Xeon Scalable (Granite Rapids),64-bit,,NA,100000 Megabit,6 x 3800 NVMe SSD,Yes,31.93344
+m8in.96xlarge,General purpose,384,1536.0 GiB,Intel Xeon Scalable (Granite Rapids),64-bit,,NA,600 Gigabit,EBS only,Yes,32.07936
+m8ib.96xlarge,General purpose,384,1536.0 GiB,Intel Xeon Scalable (Granite Rapids),64-bit,,NA,400 Gigabit,EBS only,Yes,32.07936
+g7e.48xlarge,GPU instance,192,2048 GiB,Intel Xeon Scalable (Emerald Rapids),64-bit,8,768 GB,1600 Gigabit,4 x 3800 NVMe SSD,Yes,33.14432
+m8idn.96xlarge,General purpose,384,1536.0 GiB,Intel Xeon Scalable (Granite Rapids),64-bit,,NA,600 Gigabit,6 x 3800 NVMe SSD,Yes,36.66048
+m8idb.96xlarge,General purpose,384,1536.0 GiB,Intel Xeon Scalable (Granite Rapids),64-bit,,NA,400 Gigabit,6 x 3800 NVMe SSD,Yes,36.66048
+r8in.96xlarge,Memory optimized,384,3072.0 GiB,Intel Xeon Scalable (Granite Rapids),64-bit,,NA,600 Gigabit,EBS only,Yes,40.1664
+r8ib.96xlarge,Memory optimized,384,3072.0 GiB,Intel Xeon Scalable (Granite Rapids),64-bit,,NA,400 Gigabit,EBS only,Yes,40.1664
+r8idb.96xlarge,Memory optimized,384,3072.0 GiB,Intel Xeon Scalable (Granite Rapids),64-bit,,NA,400 Gigabit,6 x 3800 NVMe SSD,Yes,45.01824
+r8idn.96xlarge,Memory optimized,384,3072.0 GiB,Intel Xeon Scalable (Granite Rapids),64-bit,,NA,600 Gigabit,6 x 3800 NVMe SSD,Yes,45.01824
+u-6tb1.56xlarge,Memory optimized,224,6144 GiB,Intel Xeon Scalable (Skylake),64-bit,,NA,100 Gigabit,EBS only,Yes,46.40391
+x8i.96xlarge,Memory optimized,384,6144 GiB,Intel Xeon Scalable (Granite Rapids),64-bit,,NA,100000 Megabit,EBS only,Yes,48.74438
+u-6tb1.112xlarge,Memory optimized,448,6144 GiB,Intel Xeon Scalable (Skylake),64-bit,,NA,100 Gigabit,EBS only,Yes,54.6
+p5.48xlarge,GPU instance,192,2048 GiB,AMD EPYC 7R13 Processor,64-bit,8,640 GB HBM3,3200 Gigabit,8 x 3840 GB SSD,Yes,55.04
+u7i-6tb.112xlarge,Memory optimized,448,6144 GiB,Intel Xeon Scalable (Sapphire Rapids),64-bit,,NA,100 Gigabit,EBS only,Yes,62.79
+p5en.48xlarge,GPU instance,192,2048 GiB,Intel Xeon Scalable (Sapphire Rapids),64-bit,8,141 GB HBM3e,3200 Gigabit,8 x 3840 NVMe SSD,Yes,63.296
+u-9tb1.112xlarge,Memory optimized,448,9216 GiB,Intel Xeon Scalable (Skylake),64-bit,,NA,100 Gigabit,EBS only,No,81.9
+u7i-8tb.112xlarge,Memory optimized,448,8192 GiB,Intel Xeon Scalable (Sapphire Rapids),64-bit,,NA,100 Gigabit,EBS only,Yes,83.72
+u-12tb1.112xlarge,Memory optimized,448,12288 GiB,Intel Xeon Scalable (Skylake),64-bit,,NA,100 Gigabit,EBS only,No,109.2
+p6-b200.48xlarge,GPU instance,192,2048 GiB,Intel Xeon Scalable (Emerald Rapids),64-bit,8,1432 GB HBM3e,3200 Gigabit,8 x 3840 NVMe SSD,Yes,113.9328
+u7i-12tb.224xlarge,Memory optimized,896,12288 GiB,Intel Xeon Scalable (Sapphire Rapids),64-bit,,NA,100 Gigabit,EBS only,Yes,125.58182
+p6-b300.48xlarge,GPU instance,192,4096 GiB,Intel Xeon Scalable (Emerald Rapids),64-bit,8,2144 GB HBM3e,6400 Gigabit,8 x 3840 NVMe SSD,Yes,142.416
+u-18tb1.112xlarge,Memory optimized,448,18432 GiB,Intel Xeon Platinum 8280L (Cascade Lake),64-bit,,NA,100 Gigabit,EBS only,No,163.8
+u7in-16tb.224xlarge,Memory optimized,896,16384 GiB,Intel Xeon Scalable (Sapphire Rapids),32-bit or 64-bit,,NA,200 Gigabit,EBS only,Yes,180.47558
+u-24tb1.112xlarge,Memory optimized,448,24576 GiB,Intel Xeon Platinum 8280L (Cascade Lake),64-bit,,NA,100 Gigabit,EBS only,No,218.4
+u7in-24tb.224xlarge,Memory optimized,896,24576 GiB,Intel Xeon Scalable (Sapphire Rapids),64-bit,,NA,200 Gigabit,EBS only,Yes,270.73128
+u7in-32tb.224xlarge,Memory optimized,896,32768 GiB,Intel Xeon Scalable (Sapphire Rapids),64-bit,,NA,200 Gigabit,EBS only,Yes,360.98695

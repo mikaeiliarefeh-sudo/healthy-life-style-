@@ -1,0 +1,320 @@
+{
+ "c7i.2xlarge": {
+  "ondemand_usd_hr": 0.357,
+  "rates": {
+   "Compute SP|1yr|No Upfront": {
+    "usd_hr": 0.25799,
+    "pct": 72.3
+   },
+   "Compute SP|1yr|Partial Upfront": {
+    "usd_hr": 0.2457,
+    "pct": 68.8
+   },
+   "Compute SP|1yr|All Upfront": {
+    "usd_hr": 0.24079,
+    "pct": 67.4
+   },
+   "EC2 Instance SP|1yr|No Upfront": {
+    "usd_hr": 0.23616,
+    "pct": 66.2
+   },
+   "EC2 Instance SP|1yr|Partial Upfront": {
+    "usd_hr": 0.22491,
+    "pct": 63.0
+   },
+   "EC2 Instance SP|1yr|All Upfront": {
+    "usd_hr": 0.22041,
+    "pct": 61.7
+   },
+   "Compute SP|3yr|No Upfront": {
+    "usd_hr": 0.17237,
+    "pct": 48.3
+   },
+   "Compute SP|3yr|Partial Upfront": {
+    "usd_hr": 0.1596,
+    "pct": 44.7
+   },
+   "EC2 Instance SP|3yr|No Upfront": {
+    "usd_hr": 0.15717,
+    "pct": 44.0
+   },
+   "Compute SP|3yr|All Upfront": {
+    "usd_hr": 0.15641,
+    "pct": 43.8
+   },
+   "EC2 Instance SP|3yr|Partial Upfront": {
+    "usd_hr": 0.14553,
+    "pct": 40.8
+   },
+   "EC2 Instance SP|3yr|All Upfront": {
+    "usd_hr": 0.1368,
+    "pct": 38.3
+   }
+  }
+ },
+ "m5.xlarge": {
+  "ondemand_usd_hr": 0.192,
+  "rates": {
+   "Compute SP|1yr|No Upfront": {
+    "usd_hr": 0.141,
+    "pct": 73.4
+   },
+   "Compute SP|1yr|Partial Upfront": {
+    "usd_hr": 0.134,
+    "pct": 69.8
+   },
+   "Compute SP|1yr|All Upfront": {
+    "usd_hr": 0.132,
+    "pct": 68.8
+   },
+   "EC2 Instance SP|1yr|No Upfront": {
+    "usd_hr": 0.121,
+    "pct": 63.0
+   },
+   "EC2 Instance SP|1yr|Partial Upfront": {
+    "usd_hr": 0.115,
+    "pct": 59.9
+   },
+   "EC2 Instance SP|1yr|All Upfront": {
+    "usd_hr": 0.113,
+    "pct": 58.9
+   },
+   "Compute SP|3yr|No Upfront": {
+    "usd_hr": 0.097,
+    "pct": 50.5
+   },
+   "Compute SP|3yr|Partial Upfront": {
+    "usd_hr": 0.09,
+    "pct": 46.9
+   },
+   "Compute SP|3yr|All Upfront": {
+    "usd_hr": 0.088,
+    "pct": 45.8
+   },
+   "EC2 Instance SP|3yr|No Upfront": {
+    "usd_hr": 0.083,
+    "pct": 43.2
+   },
+   "EC2 Instance SP|3yr|Partial Upfront": {
+    "usd_hr": 0.077,
+    "pct": 40.1
+   },
+   "EC2 Instance SP|3yr|All Upfront": {
+    "usd_hr": 0.072,
+    "pct": 37.5
+   }
+  }
+ },
+ "m7g.xlarge": {
+  "ondemand_usd_hr": 0.1632,
+  "rates": {
+   "Compute SP|1yr|No Upfront": {
+    "usd_hr": 0.1199,
+    "pct": 73.5
+   },
+   "Compute SP|1yr|Partial Upfront": {
+    "usd_hr": 0.1142,
+    "pct": 70.0
+   },
+   "Compute SP|1yr|All Upfront": {
+    "usd_hr": 0.1119,
+    "pct": 68.6
+   },
+   "EC2 Instance SP|1yr|No Upfront": {
+    "usd_hr": 0.108,
+    "pct": 66.2
+   },
+   "EC2 Instance SP|1yr|Partial Upfront": {
+    "usd_hr": 0.1028,
+    "pct": 63.0
+   },
+   "EC2 Instance SP|1yr|All Upfront": {
+    "usd_hr": 0.1008,
+    "pct": 61.8
+   },
+   "Compute SP|3yr|No Upfront": {
+    "usd_hr": 0.0828,
+    "pct": 50.7
+   },
+   "Compute SP|3yr|Partial Upfront": {
+    "usd_hr": 0.0766,
+    "pct": 46.9
+   },
+   "Compute SP|3yr|All Upfront": {
+    "usd_hr": 0.0751,
+    "pct": 46.0
+   },
+   "EC2 Instance SP|3yr|No Upfront": {
+    "usd_hr": 0.074,
+    "pct": 45.3
+   },
+   "EC2 Instance SP|3yr|Partial Upfront": {
+    "usd_hr": 0.0685,
+    "pct": 42.0
+   },
+   "EC2 Instance SP|3yr|All Upfront": {
+    "usd_hr": 0.0644,
+    "pct": 39.5
+   }
+  }
+ },
+ "m7i.xlarge": {
+  "ondemand_usd_hr": 0.2016,
+  "rates": {
+   "Compute SP|1yr|No Upfront": {
+    "usd_hr": 0.14811,
+    "pct": 73.5
+   },
+   "Compute SP|1yr|Partial Upfront": {
+    "usd_hr": 0.14106,
+    "pct": 70.0
+   },
+   "Compute SP|1yr|All Upfront": {
+    "usd_hr": 0.13824,
+    "pct": 68.6
+   },
+   "EC2 Instance SP|1yr|No Upfront": {
+    "usd_hr": 0.13336,
+    "pct": 66.2
+   },
+   "EC2 Instance SP|1yr|Partial Upfront": {
+    "usd_hr": 0.12701,
+    "pct": 63.0
+   },
+   "EC2 Instance SP|1yr|All Upfront": {
+    "usd_hr": 0.12447,
+    "pct": 61.7
+   },
+   "Compute SP|3yr|No Upfront": {
+    "usd_hr": 0.10224,
+    "pct": 50.7
+   },
+   "Compute SP|3yr|Partial Upfront": {
+    "usd_hr": 0.09467,
+    "pct": 47.0
+   },
+   "Compute SP|3yr|All Upfront": {
+    "usd_hr": 0.09277,
+    "pct": 46.0
+   },
+   "EC2 Instance SP|3yr|No Upfront": {
+    "usd_hr": 0.09145,
+    "pct": 45.4
+   },
+   "EC2 Instance SP|3yr|Partial Upfront": {
+    "usd_hr": 0.08467,
+    "pct": 42.0
+   },
+   "EC2 Instance SP|3yr|All Upfront": {
+    "usd_hr": 0.07959,
+    "pct": 39.5
+   }
+  }
+ },
+ "r7i.xlarge": {
+  "ondemand_usd_hr": 0.2646,
+  "rates": {
+   "Compute SP|1yr|No Upfront": {
+    "usd_hr": 0.1917,
+    "pct": 72.4
+   },
+   "Compute SP|1yr|Partial Upfront": {
+    "usd_hr": 0.18257,
+    "pct": 69.0
+   },
+   "Compute SP|1yr|All Upfront": {
+    "usd_hr": 0.17892,
+    "pct": 67.6
+   },
+   "EC2 Instance SP|1yr|No Upfront": {
+    "usd_hr": 0.17503,
+    "pct": 66.1
+   },
+   "EC2 Instance SP|1yr|Partial Upfront": {
+    "usd_hr": 0.1667,
+    "pct": 63.0
+   },
+   "EC2 Instance SP|1yr|All Upfront": {
+    "usd_hr": 0.16336,
+    "pct": 61.7
+   },
+   "Compute SP|3yr|No Upfront": {
+    "usd_hr": 0.13803,
+    "pct": 52.2
+   },
+   "Compute SP|3yr|Partial Upfront": {
+    "usd_hr": 0.1278,
+    "pct": 48.3
+   },
+   "Compute SP|3yr|All Upfront": {
+    "usd_hr": 0.12525,
+    "pct": 47.3
+   },
+   "EC2 Instance SP|3yr|No Upfront": {
+    "usd_hr": 0.12002,
+    "pct": 45.4
+   },
+   "EC2 Instance SP|3yr|Partial Upfront": {
+    "usd_hr": 0.11113,
+    "pct": 42.0
+   },
+   "EC2 Instance SP|3yr|All Upfront": {
+    "usd_hr": 0.10446,
+    "pct": 39.5
+   }
+  }
+ },
+ "t3.medium": {
+  "ondemand_usd_hr": 0.0416,
+  "rates": {
+   "Compute SP|1yr|No Upfront": {
+    "usd_hr": 0.03,
+    "pct": 72.1
+   },
+   "Compute SP|1yr|Partial Upfront": {
+    "usd_hr": 0.0286,
+    "pct": 68.8
+   },
+   "Compute SP|1yr|All Upfront": {
+    "usd_hr": 0.028,
+    "pct": 67.3
+   },
+   "EC2 Instance SP|1yr|No Upfront": {
+    "usd_hr": 0.0261,
+    "pct": 62.7
+   },
+   "EC2 Instance SP|1yr|Partial Upfront": {
+    "usd_hr": 0.0248,
+    "pct": 59.6
+   },
+   "EC2 Instance SP|1yr|All Upfront": {
+    "usd_hr": 0.0243,
+    "pct": 58.4
+   },
+   "Compute SP|3yr|No Upfront": {
+    "usd_hr": 0.0206,
+    "pct": 49.5
+   },
+   "Compute SP|3yr|Partial Upfront": {
+    "usd_hr": 0.0191,
+    "pct": 45.9
+   },
+   "Compute SP|3yr|All Upfront": {
+    "usd_hr": 0.0187,
+    "pct": 45.0
+   },
+   "EC2 Instance SP|3yr|No Upfront": {
+    "usd_hr": 0.018,
+    "pct": 43.3
+   },
+   "EC2 Instance SP|3yr|Partial Upfront": {
+    "usd_hr": 0.0166,
+    "pct": 39.9
+   },
+   "EC2 Instance SP|3yr|All Upfront": {
+    "usd_hr": 0.0156,
+    "pct": 37.5
+   }
+  }
+ }
+}
