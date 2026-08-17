@@ -280,6 +280,21 @@ for r in rows("AWSDataSync.csv"):
     add("مهاجرت داده", "DataSync", "مصرف واقعی", r["usageType"],
         r["PriceDescription"], r["Unit"], p)
 
+# ─────────────────────────────────────────── پشتیبانی (درصدی از کل صورتحساب)
+for f, plan in [("AWSSupportEssential", "Essential"), ("AWSDeveloperSupport", "Developer"),
+                ("AWSSupportBusiness", "Business"), ("AWSSupportEnterprise", "Enterprise")]:
+    for r in rows(f + ".csv"):
+        p_ = num(r["PricePerUnit"])
+        if p_ is None:
+            continue
+        if r["Unit"] == "Quantity":
+            add("پشتیبانی", f"Support {plan}", "کف ثابت ماهانه", f"{plan}-RecurringFee",
+                r["PriceDescription"], "USD/ماه", p_, "حداقل ماهانه، صرف‌نظر از مصرف")
+        else:
+            add("پشتیبانی", f"Support {plan}", "٪ از کل صورتحساب", f"{plan}-Tier",
+                r["PriceDescription"], "کسری از مصرف", p_,
+                f"پله: {r['StartingRange']}–{r['EndingRange']} USD مصرف ماهانه")
+
 # ─────────────────────────────────────────── write
 allrows = [x for v in out.values() for x in v]
 with open("aws_pricing_us-east-1.csv", "w", newline="", encoding="utf-8") as fh:

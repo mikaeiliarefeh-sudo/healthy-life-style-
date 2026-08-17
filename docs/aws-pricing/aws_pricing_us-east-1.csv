@@ -8862,3 +8862,20 @@ AI Workspace,Bedrock,توکن / درخواست,USE1-Ministral-3-3b-Instruct-inpu
 مهاجرت داده,DataSync,مصرف واقعی,USE1-Transferred-Bytes,$0.0125 per GB copied in US East (N.Virginia) region,GB,0.0125,
 مهاجرت داده,DataSync,مصرف واقعی,USE1-Transferred-Bytes-Enhanced,$0.015 per GB copied for tasks using Enhanced mode in US East (N. Virginia),GB ,0.015,
 مهاجرت داده,DataSync,مصرف واقعی,USE1-Task-Executions-Enhanced,$0.55 per task execution using Enhanced mode in US East (N. Virginia),Task-Executions,0.55,
+پشتیبانی,Support Essential,٪ از کل صورتحساب,Essential-Tier,9% of monthly AWS usage for the first $0-$10K,کسری از مصرف,0.09,پله: 0–10000 USD مصرف ماهانه
+پشتیبانی,Support Essential,٪ از کل صورتحساب,Essential-Tier,7% of monthly AWS usage from $10k-$80K,کسری از مصرف,0.07,پله: 10000–80000 USD مصرف ماهانه
+پشتیبانی,Support Essential,٪ از کل صورتحساب,Essential-Tier,5% of monthly AWS usage from $80k-$250K,کسری از مصرف,0.05,پله: 80000–250000 USD مصرف ماهانه
+پشتیبانی,Support Essential,٪ از کل صورتحساب,Essential-Tier,3% of monthly AWS usage from $250K,کسری از مصرف,0.03,پله: 250000–Inf USD مصرف ماهانه
+پشتیبانی,Support Essential,کف ثابت ماهانه,Essential-RecurringFee,Recurring Fee,USD/ماه,29.0,حداقل ماهانه، صرف‌نظر از مصرف
+پشتیبانی,Support Developer,٪ از کل صورتحساب,Developer-Tier,3% of monthly AWS usage,کسری از مصرف,0.03,پله: 0–Inf USD مصرف ماهانه
+پشتیبانی,Support Developer,کف ثابت ماهانه,Developer-RecurringFee,Recurring Fee,USD/ماه,29.0,حداقل ماهانه، صرف‌نظر از مصرف
+پشتیبانی,Support Business,٪ از کل صورتحساب,Business-Tier,10% of monthly AWS usage for the first $0-$10K,کسری از مصرف,0.1,پله: 0–10000 USD مصرف ماهانه
+پشتیبانی,Support Business,٪ از کل صورتحساب,Business-Tier,7% of monthly AWS usage from $10K-$80K,کسری از مصرف,0.07,پله: 10000–80000 USD مصرف ماهانه
+پشتیبانی,Support Business,٪ از کل صورتحساب,Business-Tier,5% of monthly AWS usage from $80K-$250K,کسری از مصرف,0.05,پله: 80000–250000 USD مصرف ماهانه
+پشتیبانی,Support Business,٪ از کل صورتحساب,Business-Tier,3% of monthly AWS usage from $250K+,کسری از مصرف,0.03,پله: 250000–Inf USD مصرف ماهانه
+پشتیبانی,Support Business,کف ثابت ماهانه,Business-RecurringFee,Recurring Fee,USD/ماه,100.0,حداقل ماهانه، صرف‌نظر از مصرف
+پشتیبانی,Support Enterprise,٪ از کل صورتحساب,Enterprise-Tier,10% of monthly AWS usage for the first $0-$150K,کسری از مصرف,0.1,پله: 0–150000 USD مصرف ماهانه
+پشتیبانی,Support Enterprise,٪ از کل صورتحساب,Enterprise-Tier,7% of monthly AWS usage from $150K-$500K,کسری از مصرف,0.07,پله: 150000–500000 USD مصرف ماهانه
+پشتیبانی,Support Enterprise,٪ از کل صورتحساب,Enterprise-Tier,5% of monthly AWS usage from $500K-$1M,کسری از مصرف,0.05,پله: 500000–1000000 USD مصرف ماهانه
+پشتیبانی,Support Enterprise,٪ از کل صورتحساب,Enterprise-Tier,3% of monthly AWS usage from $1M+,کسری از مصرف,0.03,پله: 1000000–Inf USD مصرف ماهانه
+پشتیبانی,Support Enterprise,کف ثابت ماهانه,Enterprise-RecurringFee,Recurring Fee,USD/ماه,5000.0,حداقل ماهانه، صرف‌نظر از مصرف
