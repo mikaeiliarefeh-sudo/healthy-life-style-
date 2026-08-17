@@ -1,0 +1,420 @@
+<title>چهار محور قیمت</title>
+<style>
+@font-face{font-family:Vazirmatn;font-style:normal;font-weight:400;font-display:swap;src:url(data:font/woff2;base64,__AR400__) format('woff2');unicode-range:U+0600-06FF,U+0750-077F,U+0870-088E,U+0890-0891,U+0898-08E1,U+08E3-08FF,U+200C-200E,U+2010-2011,U+204F,U+2E41,U+FB50-FDFF,U+FE70-FE74,U+FE76-FEFC}
+@font-face{font-family:Vazirmatn;font-style:normal;font-weight:600;font-display:swap;src:url(data:font/woff2;base64,__AR600__) format('woff2');unicode-range:U+0600-06FF,U+0750-077F,U+0870-088E,U+0890-0891,U+0898-08E1,U+08E3-08FF,U+200C-200E,U+2010-2011,U+204F,U+2E41,U+FB50-FDFF,U+FE70-FE74,U+FE76-FEFC}
+@font-face{font-family:Vazirmatn;font-style:normal;font-weight:700;font-display:swap;src:url(data:font/woff2;base64,__AR700__) format('woff2');unicode-range:U+0600-06FF,U+0750-077F,U+0870-088E,U+0890-0891,U+0898-08E1,U+08E3-08FF,U+200C-200E,U+2010-2011,U+204F,U+2E41,U+FB50-FDFF,U+FE70-FE74,U+FE76-FEFC}
+@font-face{font-family:Vazirmatn;font-style:normal;font-weight:400;font-display:swap;src:url(data:font/woff2;base64,__LA400__) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:Vazirmatn;font-style:normal;font-weight:600;font-display:swap;src:url(data:font/woff2;base64,__LA600__) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:Vazirmatn;font-style:normal;font-weight:700;font-display:swap;src:url(data:font/woff2;base64,__LA700__) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+
+:root{
+  --ground:#FCFCFB; --paper:#FFFFFF; --paper-2:#EFF3EC;
+  --ink:#151F1A; --ink-2:#4C5B54; --ink-3:#7A8A82;
+  --rule:#D9E2D7; --rule-2:#C3D0C0;
+  --accent:#0E6A5B; --accent-soft:#DCEDE7; --accent-ink:#0A4E43; --accent-inv:#58C9AC;
+  --warn:#96550F; --warn-soft:#F6EADA; --warn-rule:#E0C9A6;
+  --stop:#9C2F27; --stop-soft:#F7E4E2;
+  --bar:#0A8A72;
+  --shadow:0 1px 2px rgba(21,31,26,.05),0 8px 24px -12px rgba(21,31,26,.14);
+  --mono:ui-monospace,"SF Mono","Cascadia Mono",Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --ground:#1A1A19; --paper:#141D19; --paper-2:#1B2521;
+  --ink:#E3ECE6; --ink-2:#9FB0A7; --ink-3:#75867D;
+  --rule:#25332E; --rule-2:#33443D;
+  --accent:#4FC0A4; --accent-soft:#12302A; --accent-ink:#7FD6C0; --accent-inv:#0E6A5B;
+  --warn:#D99A47; --warn-soft:#2C2317; --warn-rule:#4A3A22;
+  --stop:#E4736A; --stop-soft:#2E1917;
+  --bar:#2FA88E;
+  --shadow:0 1px 2px rgba(0,0,0,.3),0 8px 24px -12px rgba(0,0,0,.6);
+}}
+:root[data-theme="dark"]{
+  --ground:#1A1A19; --paper:#141D19; --paper-2:#1B2521;
+  --ink:#E3ECE6; --ink-2:#9FB0A7; --ink-3:#75867D;
+  --rule:#25332E; --rule-2:#33443D;
+  --accent:#4FC0A4; --accent-soft:#12302A; --accent-ink:#7FD6C0; --accent-inv:#0E6A5B;
+  --warn:#D99A47; --warn-soft:#2C2317; --warn-rule:#4A3A22;
+  --stop:#E4736A; --stop-soft:#2E1917;
+  --bar:#2FA88E;
+  --shadow:0 1px 2px rgba(0,0,0,.3),0 8px 24px -12px rgba(0,0,0,.6);
+}
+
+*{box-sizing:border-box}
+body{margin:0;background:var(--ground);color:var(--ink);
+  font-family:Vazirmatn,Tahoma,system-ui,sans-serif;font-size:16px;line-height:1.8;
+  direction:rtl;text-align:right;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1000px;margin:0 auto;padding:0 24px 96px}
+code{font-family:var(--mono);font-size:.84em;direction:ltr;unicode-bidi:isolate;display:inline-block;
+  background:var(--paper-2);border:1px solid var(--rule);border-radius:4px;padding:.05em .4em}
+
+header.top{padding:68px 0 34px;border-bottom:2px solid var(--ink);margin-bottom:8px}
+.eyebrow{font-size:.75rem;font-weight:600;letter-spacing:.13em;color:var(--accent);margin:0 0 16px}
+h1{font-size:clamp(2rem,5vw,3rem);line-height:1.25;font-weight:700;margin:0 0 16px;letter-spacing:-.01em}
+.dek{font-size:1.1rem;color:var(--ink-2);max-width:66ch;margin:0}
+.meta{display:flex;flex-wrap:wrap;gap:6px 26px;margin-top:24px;font-size:.8rem;color:var(--ink-3)}
+.meta b{color:var(--ink-2);font-weight:600}
+
+section{padding-top:52px}
+h2{font-size:1.5rem;font-weight:700;margin:0 0 6px;display:flex;align-items:baseline;gap:12px;letter-spacing:-.01em}
+h2 .k{font-family:var(--mono);font-size:.76rem;color:var(--accent);font-weight:400;
+  border:1px solid var(--rule-2);border-radius:3px;padding:2px 7px;flex:none;line-height:1.5}
+h2+.sub{color:var(--ink-2);margin:0 0 24px;font-size:1rem;max-width:70ch}
+h3{font-size:1.04rem;font-weight:700;margin:32px 0 10px}
+p{margin:0 0 15px;max-width:72ch}
+
+/* axis cards */
+.axes{display:grid;gap:12px;margin:22px 0 8px}
+.ax{background:var(--paper);border:1px solid var(--rule);border-radius:8px;padding:18px 22px;box-shadow:var(--shadow);
+    display:grid;grid-template-columns:38px 1fr;gap:16px;align-items:start}
+.ax .k{font-family:var(--mono);font-size:1rem;font-weight:700;color:var(--ground);background:var(--accent);
+  width:30px;height:30px;border-radius:6px;display:grid;place-items:center;line-height:1}
+.ax.s5 .k{background:var(--warn)}
+.ax b{font-size:1rem;display:block;margin-bottom:3px}
+.ax p{margin:0;font-size:.92rem;color:var(--ink-2)}
+.ax .u{font-family:var(--mono);font-size:.75rem;color:var(--accent-ink);margin-top:7px;display:block}
+.ax.s5 .u{color:var(--warn)}
+
+/* tables */
+.tw{overflow-x:auto;margin:18px 0 8px;border:1px solid var(--rule);border-radius:8px;background:var(--paper);box-shadow:var(--shadow)}
+table{border-collapse:collapse;width:100%;min-width:720px;font-size:.86rem}
+th,td{text-align:right;padding:10px 14px;border-bottom:1px solid var(--rule);vertical-align:top}
+thead th{background:var(--paper-2);font-weight:700;font-size:.76rem;color:var(--ink-2);
+  border-bottom:1px solid var(--rule-2);white-space:nowrap}
+tbody tr:last-child td{border-bottom:none}
+tbody tr:hover{background:var(--paper-2)}
+td.t{white-space:nowrap;font-weight:600}
+td.num{font-variant-numeric:tabular-nums;white-space:nowrap;text-align:left;direction:ltr}
+.ax-tag{display:inline-block;font-family:var(--mono);font-size:.72rem;font-weight:700;width:19px;height:19px;
+  line-height:19px;text-align:center;border-radius:4px;background:var(--accent-soft);color:var(--accent-ink);margin-left:3px}
+.ax-tag.f{opacity:.5}
+.ax-tag.s5{background:var(--warn-soft);color:var(--warn)}
+.pill{display:inline-block;font-size:.71rem;font-weight:600;padding:2px 9px;border-radius:99px;white-space:nowrap;
+  background:var(--accent-soft);color:var(--accent-ink)}
+.pill.w{background:var(--warn-soft);color:var(--warn);border:1px solid var(--warn-rule)}
+.pill.s{background:var(--stop-soft);color:var(--stop)}
+.pill.q{background:var(--paper-2);color:var(--ink-3);border:1px solid var(--rule)}
+
+/* tier-depth chart */
+.chart{background:var(--paper);border:1px solid var(--rule);border-radius:8px;padding:24px 26px;margin:20px 0 8px;box-shadow:var(--shadow)}
+.ct{font-size:.95rem;font-weight:700;margin:0 0 4px}
+.cs{font-size:.8rem;color:var(--ink-3);margin:0 0 18px}
+.bars{display:grid;gap:3px}
+.b{display:grid;grid-template-columns:186px 1fr 62px;align-items:center;gap:12px;padding:2px 0;
+  border-radius:4px;position:relative}
+.b:hover{background:var(--paper-2)}
+.b .lab{font-size:.82rem;font-weight:600;line-height:1.35}
+.b .lab em{display:block;font-style:normal;font-weight:400;font-size:.72rem;color:var(--ink-3)}
+.tr{height:22px;background:var(--paper-2);border:1px solid var(--rule);border-radius:3px;overflow:hidden}
+.f{height:100%;background:var(--bar);border-radius:0 3px 3px 0}
+.b .v{font-size:.82rem;font-weight:700;font-variant-numeric:tabular-nums;color:var(--ink-2);text-align:right}
+.tip{position:absolute;right:0;bottom:26px;background:var(--ink);color:var(--ground);font-size:.75rem;
+  padding:7px 11px;border-radius:6px;white-space:nowrap;opacity:0;pointer-events:none;transition:opacity .12s;
+  z-index:5;font-variant-numeric:tabular-nums;box-shadow:0 4px 14px rgba(0,0,0,.24)}
+.b:hover .tip,.b:focus-within .tip{opacity:1}
+.axl{display:flex;justify-content:space-between;font-size:.7rem;color:var(--ink-3);font-variant-numeric:tabular-nums;
+  border-top:1px solid var(--rule);padding-top:6px;margin:14px 74px 0 198px}
+
+.note{border-radius:8px;padding:18px 22px;margin:20px 0;font-size:.93rem;border:1px solid var(--rule);background:var(--paper)}
+.note.key{border-right:3px solid var(--accent);background:var(--accent-soft);border-color:transparent}
+.note.trap{border-right:3px solid var(--warn);background:var(--warn-soft);border-color:var(--warn-rule)}
+.note p{margin:0;max-width:none}
+.note p+p{margin-top:9px}
+.note .tag{display:block;font-size:.71rem;font-weight:700;letter-spacing:.09em;margin-bottom:7px}
+.note.key .tag{color:var(--accent-ink)}.note.trap .tag{color:var(--warn)}
+
+.lessons{display:grid;gap:13px;margin-top:22px}
+.ls{background:var(--paper);border:1px solid var(--rule);border-radius:8px;padding:19px 22px;box-shadow:var(--shadow)}
+.ls b{display:block;font-size:1rem;margin-bottom:5px;color:var(--accent-ink)}
+.ls p{margin:0;font-size:.93rem;color:var(--ink-2)}
+
+footer{margin-top:60px;padding-top:20px;border-top:1px solid var(--rule);font-size:.79rem;color:var(--ink-3)}
+@media (max-width:680px){
+  body{font-size:15px}.wrap{padding:0 16px 60px}
+  .b{grid-template-columns:1fr;gap:3px}.b .v{text-align:right}.axl{margin:14px 0 0}
+  .ax{grid-template-columns:1fr;gap:8px}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px;border-radius:3px}
+</style>
+
+<div class="wrap">
+
+<header class="top">
+  <p class="eyebrow">تحلیل ساختار قیمت‌گذاری · روی ۸٬۸۶۳ ردیف داده‌ی خام AWS</p>
+  <h1>چهار محور قیمت</h1>
+  <p class="dek">چارچوبی که در بررسی EC2 به آن رسیدیم را روی داده‌ی واقعی همه‌ی محصولات اجرا کردیم: هر محصول بابت چه چیزی پول می‌گیرد، چه متغیرهایی قیمتش را تکان می‌دهند، چه مکانیزم تخفیفی دارد، و چه چیزی را داخل قیمت باندل کرده.</p>
+  <div class="meta">
+    <span><b>منبع:</b> Price List API · us-east-1</span>
+    <span><b>دامنه:</b> ۱۴ محصول · ۱۶ سرویس</span>
+    <span><b>تاریخ داده:</b> ۱۵ اوت ۲۰۲۶</span>
+  </div>
+</header>
+
+<section id="axes">
+  <h2><span class="k">۰۰</span>چارچوب</h2>
+  <p class="sub">هر ارائه‌دهنده‌ی ابری در نهایت یکی از این چهار چیز را می‌فروشد — و اکثر محصولات ترکیبی از چندتایشان‌اند. محور پنجم استثناست: نه مصرف است نه ظرفیت، بلکه کمیابی.</p>
+  <div class="axes">
+    <div class="ax"><div class="k">۱</div><div>
+      <b>زمان × ظرفیت محاسباتی</b>
+      <p>یک تکه از CPU یا RAM یا GPU را برای بازه‌ای اجاره می‌کنی. <strong>فناپذیر است</strong> — ثانیه‌ای که استفاده نشود برای همیشه رفته. برای همین منطق مدیریت بازده (ظرفیت قابل‌قطع، تعهد بلندمدت) فقط روی این محور معنا دارد.</p>
+      <span class="u">واحد: ساعت · ثانیه · vCPU-hour</span>
+    </div></div>
+    <div class="ax"><div class="k">۲</div><div>
+      <b>حجم × مدت نگهداری</b>
+      <p>فضا را برای مدتی اشغال می‌کنی. فناپذیر نیست — دیسک خالی مثل هسته‌ی بیکار «لحظه‌ای از دست نمی‌رود» — ولی هزینه‌ی نگهداری مداوم دارد. قیمت بر اساس حجمِ نگه‌داشته‌شده است، نه شدت مصرف.</p>
+      <span class="u">واحد: GB-month · IOPS-month</span>
+    </div></div>
+    <div class="ax"><div class="k">۳</div><div>
+      <b>جابجایی داده</b>
+      <p>هزینه بر اساس <em>مسیری</em> که داده طی می‌کند: داخل دیتاسنتر تقریباً رایگان، بین ناحیه ارزان، به بیرون گران. بر اساس حجم منتقل‌شده حساب می‌شود، نه زمان.</p>
+      <span class="u">واحد: GB (به تفکیک مبدأ و مقصد)</span>
+    </div></div>
+    <div class="ax"><div class="k">۴</div><div>
+      <b>عملیات و تراکنش</b>
+      <p>هزینه بر اساس تعداد درخواست‌های مجزا — نه حجم و نه زمان. این بار روی لایه‌ی کنترل و متادیتای سیستم را منعکس می‌کند.</p>
+      <span class="u">واحد: هر ۱۰۰۰ یا ۱M درخواست · توکن · کوئری</span>
+    </div></div>
+    <div class="ax s5"><div class="k">۵</div><div>
+      <b>تخصیص منابع کمیاب</b>
+      <p>نه مصرف است نه ظرفیت. منبعی که <strong>عرضه‌اش جهانی و محدود است</strong> و حتی وقتی بیکار بماند هزینه دارد — تا مشتری‌ها انبارش نکنند. داده تأیید می‌کند: آدرس IPv4 بیکار <em>دقیقاً همان</em> نرخ آدرس در حال استفاده را دارد.</p>
+      <span class="u">‏$۰٫۰۰۵/ساعت — چه متصل، چه بلااستفاده</span>
+    </div></div>
+  </div>
+</section>
+
+<section id="generation">
+  <h2><span class="k">۰۱</span>یافته‌ی اصلی: معماری تخفیف بر اساس نسل محصول</h2>
+  <p class="sub">وقتی وجود مکانیزم تعهد را در همه‌ی سرویس‌ها تست کردیم، یک شکاف تمیز ظاهر شد که در بررسی EC2 دیده نمی‌شد.</p>
+  <div class="tw"><table>
+    <thead><tr><th>سرویس</th><th>مکانیزم تعهد کلاسیک؟</th><th>مکانیزم تخفیف واقعی‌اش چیست</th></tr></thead>
+    <tbody>
+      <tr><td class="t">ماشین مجازی (EC2)</td><td><span class="pill">Reserved + Savings Plan</span></td><td>تعهد زمانی، تا ۷۲٪ · به‌علاوه ظرفیت قابل‌قطع</td></tr>
+      <tr><td class="t">پایگاه‌داده (RDS)</td><td><span class="pill">Reserved</span></td><td>تعهد زمانی — ولی Savings Plan پوششش نمی‌دهد</td></tr>
+      <tr><td class="t">ElastiCache</td><td><span class="pill">Reserved</span></td><td>تعهد زمانی</td></tr>
+      <tr><td class="t">کوبرنتیز (EKS)</td><td><span class="pill s">هیچ</span></td><td><strong>هیچ تخفیفی ندارد</strong> — نه تعهد، نه پله‌ی حجمی</td></tr>
+      <tr><td class="t">آبجکت استوریج (S3)</td><td><span class="pill s">هیچ</span></td><td>فقط پله‌ی حجمی — و آن هم بسیار کم‌عمق</td></tr>
+      <tr><td class="t">CDN (CloudFront)</td><td><span class="pill s">هیچ</span></td><td>پله‌ی حجمی عمیق + سهمیه‌ی رایگان</td></tr>
+      <tr><td class="t">DNS (Route 53)</td><td><span class="pill s">هیچ</span></td><td>پله‌ی حجمی + کوئری رایگان برای منابع خودِ AWS</td></tr>
+      <tr><td class="t">مانیتورینگ (CloudWatch)</td><td><span class="pill s">هیچ</span></td><td>پله‌ی حجمی — عمیق‌ترین پله‌ی کل مجموعه</td></tr>
+      <tr><td class="t">AI (Bedrock)</td><td><span class="pill s">هیچ</span></td><td><span class="pill w">batch = دقیقاً ۵۰٪</span> + تعهد ظرفیت ساعتی</td></tr>
+      <tr><td class="t">AI (SageMaker)</td><td><span class="pill s">هیچ</span></td><td>هیچ — نرخ ساعتی خام</td></tr>
+      <tr><td class="t">DevOps (CodeBuild)</td><td><span class="pill s">هیچ</span></td><td>هیچ — به‌ازای دقیقه‌ی build</td></tr>
+    </tbody>
+  </table></div>
+  <div class="note key"><span class="tag">تفسیر</span>
+    <p>مکانیزم تعهد کلاسیک فقط روی سرویس‌هایی وجود دارد که <b>محور ۱ خالص‌اند و قدیمی</b> — یعنی جایی که AWS واقعاً باید سخت‌افزار فیزیکی را از قبل تدارک ببیند. هر چیزی که بعد از آن نسل ساخته شده، اصلاً نردبان تعهد ندارد.</p>
+    <p>دلیلش هم منطقی است: تعهد بلندمدت ابزار <em>برنامه‌ریزی ظرفیت</em> است، نه ابزار تخفیف. وقتی محصول روی ظرفیت اشتراکی و کشسان اجرا می‌شود (مثل S3 یا CDN)، AWS چیزی برای «رزرو کردن» ندارد، پس تخفیف را از راه دیگری می‌دهد: پله‌ی حجمی، سهمیه‌ی رایگان، یا انعطاف زمان‌بندی.</p>
+  </div>
+</section>
+
+<section id="anatomy">
+  <h2><span class="k">۰۲</span>تشریح محصول‌به‌محصول</h2>
+  <p class="sub">برای هر محصول: کدام محور، مدل قیمت، متغیرهایی که قیمت را تکان می‌دهند، مکانیزم تخفیف، و آنچه داخل قیمت باندل شده.</p>
+  <div class="tw"><table>
+    <thead><tr><th>محصول</th><th>محور</th><th>مدل قیمت</th><th>متغیرهای مؤثر</th><th>تخفیف</th><th>باندل‌شده / رایگان</th></tr></thead>
+    <tbody>
+      <tr>
+        <td class="t">ماشین مجازی</td>
+        <td><span class="ax-tag">۱</span></td>
+        <td>ساعتی به‌ازای اندازه‌ی اینستنس (ثانیه‌ای با کف ۶۰ ثانیه)</td>
+        <td>خانواده · نسل · معماری پردازنده · نسبت رم به CPU · سیستم‌عامل · نوع تنانسی · ریجن</td>
+        <td>تعهد ۱ و ۳ ساله × سه نوع پرداخت · ظرفیت قابل‌قطع</td>
+        <td>ترافیک ورودی · شبکه‌ی خصوصی · فایروال</td>
+      </tr>
+      <tr>
+        <td class="t">دیسک مانا</td>
+        <td><span class="ax-tag">۲</span><span class="ax-tag f">۴</span></td>
+        <td>GB-ماه رزروشده + IOPS و throughput جدا</td>
+        <td>کلاس دیسک · حجم · IOPS رزروشده · throughput</td>
+        <td><span class="pill s">ندارد</span> ولی IOPS خودش پلکانی است</td>
+        <td><strong>gp3: ۳۰۰۰ IOPS و ۱۲۵MB/s داخل قیمت</strong> · io2: هیچ، همه جدا</td>
+      </tr>
+      <tr>
+        <td class="t">ایمیج و اسنپ‌شات</td>
+        <td><span class="ax-tag">۲</span></td>
+        <td>GB-ماه مصرف واقعی (افزایشی)</td>
+        <td>حجم ذخیره‌شده · کلاس آرشیو</td>
+        <td><span class="pill s">ندارد</span></td>
+        <td>—</td>
+      </tr>
+      <tr>
+        <td class="t">شبکه ماشین‌ها</td>
+        <td><span class="ax-tag">۳</span><span class="ax-tag f">۱</span><span class="ax-tag s5">۵</span></td>
+        <td>سه مدل جدا در یک محصول: هر GB منتقل‌شده + اجاره‌ی ساعتی NAT + اجاره‌ی IP</td>
+        <td><strong>مسیر</strong> (اینترنت / بین‌ریجن / بین‌ناحیه) · حجم · تعداد آدرس</td>
+        <td>فقط پله‌ی حجمی روی خروجی</td>
+        <td>۱۰۶ SKU رایگان — <strong>همه‌شان ترافیک ورودی</strong></td>
+      </tr>
+      <tr>
+        <td class="t">آبجکت استوریج</td>
+        <td><span class="ax-tag">۲</span><span class="ax-tag">۴</span><span class="ax-tag f">۳</span></td>
+        <td>GB-ماه + هر ۱۰۰۰ درخواست + بازیابی + جریمه</td>
+        <td>کلاس ذخیره‌سازی · حجم · نسبت خواندن به نوشتن · اندازه‌ی آبجکت · مدت نگهداری</td>
+        <td>پله‌ی حجمی — فقط ۸٪ عمق</td>
+        <td>ورودی رایگان · سهمیه‌ی رایگان ابزار تحلیل</td>
+      </tr>
+      <tr>
+        <td class="t">CDN</td>
+        <td><span class="ax-tag">۳</span><span class="ax-tag">۴</span></td>
+        <td>هر GB خروجی (به تفکیک قاره) + هر ۱۰٬۰۰۰ درخواست</td>
+        <td><strong>جغرافیای مقصد</strong> · حجم · نوع درخواست · اجرای تابع لبه</td>
+        <td>پله‌ی حجمی عمیق (۶۴٪) + سهمیه‌ی رایگان</td>
+        <td><strong>۱۰M درخواست اول رایگان</strong> · ۲M اجرای تابع · ترافیک مبدأ به CDN</td>
+      </tr>
+      <tr>
+        <td class="t">DNS</td>
+        <td><span class="ax-tag">۴</span><span class="ax-tag f">۲</span></td>
+        <td>هر میلیون کوئری + اجاره‌ی ماهانه‌ی zone</td>
+        <td>حجم کوئری · نوع رکورد · بررسی سلامت</td>
+        <td>پله‌ی حجمی (۵۰٪)</td>
+        <td><strong>کوئری به رکوردهای Alias رایگان است</strong> — یعنی اگر مقصدت داخل AWS باشد پول نمی‌دهی</td>
+      </tr>
+      <tr>
+        <td class="t">پایگاه‌داده</td>
+        <td><span class="ax-tag">۱</span><span class="ax-tag">۲</span><span class="ax-tag f">۴</span></td>
+        <td>ساعتی اینستنس + GB-ماه دیسک + IOPS رزروشده</td>
+        <td>اندازه · موتور · <strong>تک‌ناحیه‌ای یا چندناحیه‌ای</strong> · لایسنس · حجم داده</td>
+        <td>Reserved دارد — ولی Savings Plan پوششش نمی‌دهد</td>
+        <td>پشتیبان‌گیری تا حد حجم دیتابیس</td>
+      </tr>
+      <tr>
+        <td class="t">کوبرنتیز</td>
+        <td><span class="ax-tag">۱</span></td>
+        <td><strong>سه بُعد مستقل</strong>: اجاره‌ی کلاستر + پله‌ی ظرفیت + سرشکن هر نوع نود</td>
+        <td>تعداد کلاستر · اندازه‌ی control plane · نوع و تعداد نود</td>
+        <td><span class="pill s">هیچ</span></td>
+        <td>—</td>
+      </tr>
+      <tr>
+        <td class="t">AI Workspace</td>
+        <td><span class="ax-tag">۱</span><span class="ax-tag">۴</span></td>
+        <td><strong>دو مدل کاملاً موازی</strong>: ساعت GPU (اجاره) در برابر هر ۱۰۰۰ توکن (مصرف)</td>
+        <td>مدل · ورودی یا خروجی · نوع GPU · <strong>حالت زمان‌بندی</strong></td>
+        <td><span class="pill w">batch دقیقاً ۵۰٪ ارزان‌تر</span> + تعهد ظرفیت ساعتی</td>
+        <td>—</td>
+      </tr>
+      <tr>
+        <td class="t">مانیتورینگ</td>
+        <td><span class="ax-tag">۴</span><span class="ax-tag">۲</span><span class="ax-tag f">۳</span></td>
+        <td>هر GB ingest + نگهداری + هر متریک و هشدار + هر GB اسکن کوئری</td>
+        <td>حجم لاگ · مدت نگهداری · تعداد متریک · حجم کوئری</td>
+        <td>پله‌ی حجمی — <strong>عمیق‌ترین (۸۰٪)</strong></td>
+        <td>سهمیه‌ی رایگان متریک‌های پایه</td>
+      </tr>
+      <tr>
+        <td class="t">DevOps</td>
+        <td><span class="ax-tag">۱</span></td>
+        <td>هر دقیقه‌ی build به‌ازای اندازه‌ی ماشین + اشتراک ثابت pipeline</td>
+        <td>اندازه‌ی ماشین build · مدت اجرا · تعداد pipeline فعال</td>
+        <td><span class="pill s">هیچ</span></td>
+        <td>—</td>
+      </tr>
+      <tr>
+        <td class="t">مهاجرت داده</td>
+        <td><span class="ax-tag">۳</span></td>
+        <td>هر GB منتقل‌شده</td>
+        <td>حجم · تعداد اجرای task</td>
+        <td><span class="pill s">هیچ</span></td>
+        <td>—</td>
+      </tr>
+      <tr>
+        <td class="t">نقش‌ها و کلیدها</td>
+        <td><span class="pill q">هیچ محوری</span></td>
+        <td><strong>اصلاً متر نمی‌شود</strong></td>
+        <td>—</td>
+        <td>—</td>
+        <td>کاملاً رایگان و بی‌سقف</td>
+      </tr>
+    </tbody>
+  </table></div>
+</section>
+
+<section id="tiers">
+  <h2><span class="k">۰۳</span>عمق پله‌ی حجمی — تخفیفی که بدون تعهد داده می‌شود</h2>
+  <p class="sub">در محصولاتی که نردبان تعهد ندارند، پله‌ی حجمی تنها اهرم تخفیف است. ولی عمقش بین محصولات به‌شدت فرق می‌کند — و همین اختلاف، نیت قیمت‌گذاری را لو می‌دهد.</p>
+  <div class="chart">
+    <p class="ct">افت قیمت از اولین پله تا آخرین پله</p>
+    <p class="cs">درصد کاهش نرخ واحد وقتی از کمترین حجم به بیشترین حجم می‌روی · us-east-1</p>
+    <div class="bars">
+      <div class="b" tabindex="0"><div class="lab">مانیتورینگ<em>حجم لاگ ورودی</em></div>
+        <div class="tr"><div class="f" style="width:80%"></div><div class="tip">‏$۰٫۲۵ → ‏$۰٫۰۵ به‌ازای هر GB · ۴ پله</div></div><div class="v">۸۰٪</div></div>
+      <div class="b" tabindex="0"><div class="lab">CDN<em>خروجی به اینترنت</em></div>
+        <div class="tr"><div class="f" style="width:64%"></div><div class="tip">‏$۰٫۱۱ → ‏$۰٫۰۴ به‌ازای هر GB · ۷ پله</div></div><div class="v">۶۴٪</div></div>
+      <div class="b" tabindex="0"><div class="lab">خروجی مستقیم ماشین<em>بدون CDN</em></div>
+        <div class="tr"><div class="f" style="width:44%"></div><div class="tip">‏$۰٫۰۹ → ‏$۰٫۰۵ به‌ازای هر GB · ۴ پله</div></div><div class="v">۴۴٪</div></div>
+      <div class="b" tabindex="0"><div class="lab">DNS<em>حجم کوئری</em></div>
+        <div class="tr"><div class="f" style="width:50%"></div><div class="tip">نصف‌شدن نرخ بعد از یک میلیارد کوئری</div></div><div class="v">۵۰٪</div></div>
+      <div class="b" tabindex="0"><div class="lab">آبجکت استوریج<em>حجم ذخیره‌شده</em></div>
+        <div class="tr"><div class="f" style="width:8%"></div><div class="tip">‏$۰٫۰۲۳ → ‏$۰٫۰۲۱ به‌ازای هر GB-ماه · فقط ۳ پله</div></div><div class="v">۸٪</div></div>
+    </div>
+    <div class="axl"><span>۰٪</span><span>۴۰٪</span><span>۸۰٪</span></div>
+  </div>
+  <div class="note key"><span class="tag">آنچه این نمودار لو می‌دهد</span>
+    <p>هرجا AWS پله را <b>عمیق</b> گذاشته، می‌خواهد حجم را به سمت خودش بکشد و مانع رفتنت به رقیب شود — لاگ و CDN دقیقاً همان جاهایی‌اند که جایگزین ارزان فراوان است.</p>
+    <p>هرجا پله را <b>کم‌عمق</b> گذاشته (آبجکت استوریج با ۸٪)، یعنی می‌داند داده‌ات به‌خاطر جاذبه‌ی داده جایی نمی‌رود، پس لازم نیست تخفیف حجمی واقعی بدهد. <b>تخفیف حجمی سخاوتمندانه را برای مذاکره‌ی خصوصی نگه داشته، نه نرخ‌نامه‌ی عمومی.</b></p>
+  </div>
+</section>
+
+<section id="batch">
+  <h2><span class="k">۰۴</span>یک الگوی جدید: batch به‌جای تعهد</h2>
+  <p class="sub">جالب‌ترین چیزی که در داده پیدا شد، و در بررسی EC2 اصلاً دیده نمی‌شد.</p>
+  <p>سرویس هوش مصنوعی هیچ نردبان تعهدی ندارد. ولی یک تخفیف دارد که در تمام مدل‌ها <strong>دقیقاً ۵۰ درصد</strong> است — نه پلکانی، نه مذاکره‌ای، نه وابسته به حجم:</p>
+  <div class="tw"><table>
+    <thead><tr><th>مدل</th><th>نوع توکن</th><th>نرخ عادی</th><th>نرخ batch</th><th>تخفیف</th></tr></thead>
+    <tbody>
+      <tr><td class="t">GLM 4.7</td><td>خروجی</td><td class="num">$0.002200</td><td class="num">$0.001100</td><td class="num">۵۰٪</td></tr>
+      <tr><td class="t">GLM 4.7 Flash</td><td>خروجی</td><td class="num">$0.000400</td><td class="num">$0.000200</td><td class="num">۵۰٪</td></tr>
+      <tr><td class="t">Qwen3 Coder Next</td><td>ورودی</td><td class="num">$0.000500</td><td class="num">$0.000250</td><td class="num">۵۰٪</td></tr>
+      <tr><td class="t">DeepSeek v3.2</td><td>خروجی</td><td class="num">$0.001850</td><td class="num">$0.000925</td><td class="num">۵۰٪</td></tr>
+      <tr><td class="t">Devstral</td><td>ورودی</td><td class="num">$0.000400</td><td class="num">$0.000200</td><td class="num">۵۰٪</td></tr>
+    </tbody>
+  </table></div>
+  <div class="note key"><span class="tag">چرا این مهم است</span>
+    <p>این همان منطق ظرفیت قابل‌قطع است، ولی روی محور ۴ به‌جای محور ۱. مشتری <b>کنترل زمان‌بندی</b> را واگذار می‌کند — نه مدت تعهد می‌دهد، نه پیش‌پرداخت — و در ازایش نصف قیمت می‌گیرد.</p>
+    <p>و برخلاف ظرفیت قابل‌قطع که قیمتش بازارمحور و نوسانی است، این عدد <b>ثابت و از قبل معلوم</b> است. یعنی مشتری می‌تواند دقیقاً برنامه‌ریزی کند. برای بازاری که پیش‌بینی‌پذیری برایش ارزش دارد، این طراحی از مدل مزایده‌ای بهتر است.</p>
+  </div>
+</section>
+
+<section id="bundling">
+  <h2><span class="k">۰۵</span>باندلینگ: نقشه‌ی رایگان‌ها</h2>
+  <p class="sub">رایگان‌ها تصادفی نیستند. هر کدام یک تصمیم قیمت‌گذاری‌اند که مصرف یک ردیف پولی دیگر را بالا می‌برند.</p>
+  <div class="tw"><table>
+    <thead><tr><th>چه چیزی رایگان است</th><th>چه چیزی را می‌فروشد</th></tr></thead>
+    <tbody>
+      <tr><td class="t">ترافیک ورودی (۱۰۶ SKU با نرخ صفر)</td><td>داده وارد می‌شود، بعد بابت ذخیره‌سازی و خروجش پول می‌گیرد. <strong>موتور اصلی جاذبه‌ی داده.</strong></td></tr>
+      <tr><td class="t">۱۰ میلیون درخواست اول CDN</td><td>پروژه‌های کوچک بدون اصطکاک شروع می‌کنند؛ وقتی بزرگ شدند، پله‌ی حجمی می‌گیردشان.</td></tr>
+      <tr><td class="t">کوئری DNS به رکوردهای Alias</td><td>فقط وقتی رایگان است که <strong>مقصدت داخل AWS باشد</strong>. یارانه‌ی مستقیم برای ماندن در اکوسیستم.</td></tr>
+      <tr><td class="t">۳۰۰۰ IOPS پایه‌ی دیسک gp3</td><td>کلاس عمومی را «کافی» می‌کند تا فقط بارهای واقعاً سنگین به کلاس گران io2 بروند — جایی که IOPS جدا فروخته می‌شود.</td></tr>
+      <tr><td class="t">شبکه‌ی خصوصی، فایروال، مدیریت نقش‌ها</td><td>هیچ‌کدام SKU قیمتی ندارند. اینها <strong>پیش‌نیاز ورودند</strong>؛ گرفتن پول بابتشان فقط مانع پذیرش می‌شود.</td></tr>
+      <tr><td class="t">ترافیک مبدأ به CDN</td><td>معماری را به سمتی هل می‌دهد که AWS ترجیح می‌دهد — و اتفاقاً نرخ خروجی ارزان‌تری هم دارد.</td></tr>
+    </tbody>
+  </table></div>
+  <div class="note trap"><span class="tag">قاعده‌ای که از این جدول در می‌آید</span>
+    <p><b>AWS هر چیزی را که ورود یا ماندن را آسان می‌کند رایگان داده، و هر چیزی را که خروج یا رشد است متر کرده.</b> این یک قاعده‌ی طراحی است، نه سخاوت — و همان چیزی است که باید از این بنچ‌مارک برداشت.</p>
+  </div>
+</section>
+
+<section id="lessons">
+  <h2><span class="k">۰۶</span>شش نتیجه برای مدل قیمت خودمان</h2>
+  <p class="sub">هر کدام مستقیماً از داده در آمده، نه از قیاس.</p>
+  <div class="lessons">
+    <div class="ls"><b>اول محور را تشخیص بده، بعد مکانیزم تخفیف را انتخاب کن</b>
+      <p>تعهد بلندمدت فقط روی محور ۱ (ظرفیت فناپذیر) معنا دارد، چون فقط آنجاست که باید سخت‌افزار را از قبل تدارک ببینی. برای محور ۲ پله‌ی حجمی، برای محور ۳ مسیر، برای محور ۴ حالت زمان‌بندی. تخفیف تعهدی روی آبجکت استوریج گذاشتن، کپی‌کردن یک ابزار در جای اشتباه است.</p></div>
+    <div class="ls"><b>عمق پله را عمداً انتخاب کن، نه از روی عادت</b>
+      <p>داده نشان می‌دهد AWS پله را جایی عمیق می‌کند که رقیب ارزان دارد (لاگ ۸۰٪، CDN ۶۴٪) و جایی کم‌عمق که مشتری قفل است (استوریج ۸٪). این یعنی عمق پله یک اهرم رقابتی است، نه یک عدد فنی.</p></div>
+    <div class="ls"><b>عدم تقارن ورودی و خروجی را کورکورانه کپی نکن</b>
+      <p>در مدل AWS ورودی رایگان است چون خروجی گران است — دو سر یک معامله. اقتصاد پهنای باند شما وارونه است (داخلی ارزان، بین‌الملل گران و کمیاب)، پس عدم تقارن شما هم باید شکل دیگری داشته باشد. اگر فقط نیمه‌ی «ورودی رایگان» را کپی کنی، درآمد جبران‌کننده‌اش را نداری.</p></div>
+    <div class="ls"><b>انعطاف زمان‌بندی، ارزان‌ترین تخفیفی است که می‌توانی بدهی</b>
+      <p>نرخ batch نشان می‌دهد می‌شود ۵۰٪ تخفیف داد بدون هیچ تعهد زمانی و بدون هیچ پیش‌پرداخت — فقط در ازای اجازه‌ی زمان‌بندی. برای شما که نرخ اشغال دغدغه‌ی اصلی است، این مستقیماً ظرفیت خالی شب را به درآمد تبدیل می‌کند.</p></div>
+    <div class="ls"><b>پیش‌پرداخت اهرم ضعیفی است</b>
+      <p>در داده‌ی AWS، اختلاف پیش‌پرداخت کامل و بدون پیش‌پرداخت فقط ۵ تا ۶ واحد درصد است — نرخ بهره‌ی ضمنی حدود ۱۰٪ دلاری. با تورم و ریسک ارزی، این برای مشتری شما جذاب نیست. عمق را به <em>مدت تعهد</em> گره بزن نه به نقدینگی.</p></div>
+    <div class="ls"><b>پیچیدگی خودش یک تصمیم قیمت‌گذاری است</b>
+      <p>کوبرنتیز AWS سه بُعد مستقل دارد که یکی‌شان برای ۱٬۰۹۲ نوع نود جدا قیمت خورده — عملاً غیرقابل پیش‌بینی. اگر محصول شما یک نرخ ساده و قابل محاسبه دارد، این یک مزیت فروش است. پیش‌بینی‌پذیری، محصول است.</p></div>
+  </div>
+</section>
+
+<footer>
+  <p>چارچوب چهار محوری از تحلیل مفهومی EC2 آمد؛ اجرای آن روی همه‌ی محصولات و همه‌ی اعداد این صفحه از ۸٬۸۶۳ ردیف داده‌ی خام Price List API استخراج شده (us-east-1، ۱۵ اوت ۲۰۲۶). این نرخ‌ها لایه‌ی قرارداد خصوصی را شامل نمی‌شوند و قیمت Spot در این API موجود نیست.</p>
+</footer>
+
+</div>
